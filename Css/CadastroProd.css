@@ -1,0 +1,16 @@
+body {
+    background-color: black;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+fieldset {
+    margin-right: 40%;
+    margin-left: 40%;
+}
+
+input {
+    margin-bottom: 10%;
+}
