@@ -1,35 +1,75 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="./JavaScript/CadastroProd.js" defer></script>
-    <link rel="stylesheet" href="./Css/CadastroProd.css">
-    <title>Cadastro de produtos</title>
+    <script src="./JavaScript/CadastroProdutos/ConexaoAPI.js" defer></script>
+    <script src="./JavaScript/CadastroProdutos/AddImagem.js" defer></script>
+    <link rel="stylesheet" href="./Css/Reset/Reset.css">
+    <link rel="stylesheet" href="./Css/CadastroProdutos/CadastroProd.css">
+    <title>HC - Cadastro de produtos</title>
 </head>
+
 <body>
+    <header>
+
+    </header>
+
     <div>
-        <h1>Cadastro de produtos</h1>
+        <h1>CADASTRAR NOVO PRODUTO</h1>
     </div>
 
-    <form>
-        <fieldset>
-            <div>
-                <label>Nome</label>
-                <input type="text" class="nome" name="nome" id="nome">
-            </div>
+    <form method="post" autocomplete="on">
+        <div>
+            <label>*Nome do produto</label>
+            <input type="text" class="nome" name="nome" id="nome" placeholder="Ex.: Camiseta">
+        </div>
 
-            <div>
-                <label>Categoria</label>
-                <input type="text" class="categoria" name="categoria" id="categoria">
-            </div>
+        <div>
+            <label>*Valor do produto</label>
+            <input type="text" class="preco" name="preco" id="preco" placeholder="Ex.: 99.90">
+        </div>
 
-            <div>
-                <label>Preço</label>
-                <input type="text" class="preco" name="preco" id="preco">
-            </div>
-            <button>Cadastrar</button>
-        </fieldset>
+        <div>
+            <label>*Categoria</label>
+            <input type="text" class="categoria" name="categoria" id="categoria" placeholder="Ex.: Esportiva">
+        </div>
+
+        <div>
+            <label>*Marca</label>
+            <input type="text" class="marca" name="marca" id="marca" placeholder="Ex.: Nike">
+        </div>
+
+        <div>
+            <label>*Tamanho</label>
+            <input type="text" class="tamanho" name="tamnaho" id="tamanho" placeholder="Ex.: GG">
+        </div>
+
+        <div>
+            <label>*Unidade</label>
+            <input type="text" class="unidade" name="unidade" id="unidade" placeholder="Ex.: Peça">
+        </div>
+
+        <div>
+            <label>*Estoque</label>
+            <input type="text" class="estoque" name="estoque" id="estoque" placeholder="Ex.: 326">
+        </div>
+
+        <div>
+            <label>*Decrição do produto</label>
+            <textarea name="descricao" id="descricao" cols="30" rows="10"></textarea>
+        </div>
+
+        <p>*Imagem do produto</p>
+        <label class="picture" for="picture__input" tabIndex="0">
+            <span class="picture__image"></span>
+        </label>
+
+        <input type="file" name="picture__input" id="picture__input">
+
+        <button>Cadastrar</button>
     </form>
 </body>
+
 </html>

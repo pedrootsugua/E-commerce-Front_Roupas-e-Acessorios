@@ -1,0 +1,24 @@
+#picture__input {
+    display: none;
+}
+
+.picture {
+    width: 400px;
+    aspect-ratio: 16/9;
+    background: #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #aaa;
+    /* border: 2px dashed #aaa; */
+    border-radius: 10px;
+    cursor: pointer;
+    font-family: sans-serif;
+    transition: color 300ms ease-in-out, background 300ms ease-in-out;
+    box-shadow: 0 0 10px #777;
+}
+
+.picture:hover {
+    color: #777;
+    background: #ccc;
+}
