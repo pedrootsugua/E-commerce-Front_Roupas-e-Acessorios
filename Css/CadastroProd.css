@@ -2,13 +2,17 @@ body {
     background-color: black;
     color: white;
     display: flex;
-    flex-direction: column;
+    display: inline;
     text-align: center;
 }
 
 fieldset {
     margin-right: 40%;
     margin-left: 40%;
+}
+
+#nome{
+    margin-top: 5%;
 }
 
 input {

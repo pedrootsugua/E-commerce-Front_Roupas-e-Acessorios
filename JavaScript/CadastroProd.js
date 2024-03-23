@@ -4,7 +4,7 @@ const Icategoria = document.querySelector(".categoria");
 const Ipreco = document.querySelector(".preco");
 
 function cadastrar() {
-    fetch("http://localhost:8080/cadastrarProd",
+    fetch("http://localhost:8080/api/cadastrarProd",
     {
         headers: {
             'Accept': 'application/json',
@@ -27,12 +27,8 @@ function limpar() {
     Ipreco.value = "";
 }
 
-formulario.addEventListener('submit', function (event){
+formulario.addEventListener("submit", function (event){
     event.preventDefault();
-    
     cadastrar();
     limpar();
-    console.log(Inome.value,
-    Icategoria.value,
-    Ipreco.value)
 })
