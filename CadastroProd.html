@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="./JavaScript/CadastroProdutos/ConexaoAPI.js" defer></script>
     <script src="./JavaScript/CadastroProdutos/AddImagem.js" defer></script>
+    <script src="./JavaScript/CadastroProdutos/AddImagem2.js" defer></script>
     <link rel="stylesheet" href="./Css/Reset/Reset.css">
     <link rel="stylesheet" href="./Css/CadastroProdutos/CadastroProd.css">
     <title>HC - Cadastro de produtos</title>
@@ -61,12 +62,21 @@
             <textarea name="descricao" id="descricao" cols="30" rows="10"></textarea>
         </div>
 
-        <p>*Imagem do produto</p>
-        <label class="picture" for="picture__input" tabIndex="0">
-            <span class="picture__image"></span>
-        </label>
+        <div class="EscolhaImg">
+            <p>*Imagem do produto</p>
+            <label class="picture" for="picture__input" tabIndex="0">
+                <span class="picture__image"></span>
+            </label>
+            <input type="file" name="picture__input" id="picture__input">
+        </div>
 
-        <input type="file" name="picture__input" id="picture__input">
+        <div class="EscolhaImgg">
+            <p>*Imagem do produto</p>
+            <label class="picturee" for="picture__inputt" tabIndex="0">
+                <span class="picture__imagee"></span>
+            </label>
+            <input type="file" name="picture__inputt" id="picture__inputt">
+        </div>
 
         <button>Cadastrar</button>
     </form>

@@ -1,8 +1,10 @@
-#picture__input {
+#picture__input,
+#picture__inputt {
     display: none;
 }
 
-.picture {
+.picture,
+.picturee {
     width: 400px;
     aspect-ratio: 16/9;
     background: #ddd;
@@ -16,9 +18,12 @@
     font-family: sans-serif;
     transition: color 300ms ease-in-out, background 300ms ease-in-out;
     box-shadow: 0 0 10px #777;
+    outline: none;
+    overflow: hidden;
 }
 
-.picture:hover {
+.picture:hover,
+.picturee:hover {
     color: #777;
     background: #ccc;
 }
