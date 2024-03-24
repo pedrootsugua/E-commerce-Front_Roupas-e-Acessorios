@@ -30,9 +30,9 @@ body{
 
 .navbar{
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
-    padding: 8px;
+    padding: 8px 150px; 
 }
 
 .opcoes li{
@@ -64,6 +64,11 @@ body{
 
 .opcoes input::placeholder{
     color: black;
+}
+
+.fisrt-tittle{
+    display: flex;
+    justify-content: center;
 }
 
 .slider{
