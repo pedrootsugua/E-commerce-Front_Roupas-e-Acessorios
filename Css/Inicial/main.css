@@ -32,7 +32,6 @@ body{
     display: flex;
     justify-content: space-around;
     align-items: center;
-    margin-top: 18px;  
     padding: 8px;
 }
 
@@ -45,6 +44,14 @@ body{
     font-weight: 300;
     color: black;
     font-size: 18px;
+}
+
+.opcoes a{
+    text-decoration: none;
+    color: black;
+    font-size: "Roboto", sans-serif;
+    font-style: normal;
+    font-weight: 600;
 }
 
 .opcoes input{
