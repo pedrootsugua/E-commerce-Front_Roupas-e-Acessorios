@@ -7,21 +7,34 @@ const Iimagem = document.querySelector("#picture__input"); // Novo
 function cadastrar() {
     const formData = new FormData();
 
-    formData.append('nome', Inome.value);
-    formData.append('categoria', Icategoria.value);
-    // formData.append('preco', Ipreco.value);
     formData.append('imagem', Iimagem.files[0]);
 
-    fetch("http://localhost:8080/api/cadastrarProd", {
+    const produto = {
+        nome: Inome.value,
+        categoria: Icategoria.value,
+    };
+
+    fetch('http://localhost:8080/api/cadastrarProd', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(produto)
+    })
+        .then(response => response.text())
+        .then(result => console.log(result))
+        .catch(error => console.log('Erro ao cadastrar produto:', error));
+
+    fetch("http://localhost:8080/api/upload", {
         method: "POST",
         body: formData
     })
-    .then(function (res) { 
-        console.log(res); 
-    })
-    .catch(function (res) { 
-        console.log(res); 
-    });
+        .then(function (res) {
+            console.log(res);
+        })
+        .catch(function (res) {
+            console.log(res);
+        });
 }
 
 
@@ -32,7 +45,7 @@ function limpar() {
     Iimagem.value = ""; // Limpe o campo de seleção de arquivo
 }
 
-formulario.addEventListener("submit", function (event){
+formulario.addEventListener("submit", function (event) {
     event.preventDefault();
     cadastrar();
     limpar();
