@@ -14,7 +14,7 @@ body{
     position: relative;
 }
 
-.topo{
+header {
     background-color: #859eb1;
 }
 
@@ -30,9 +30,8 @@ body{
 
 .navbar{
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
-    margin-top: 18px;  
     padding: 8px;
 }
 
