@@ -4,34 +4,78 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/Css/Inicial/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
     <title>Tela Inicial</title>
 </head>
 <body>
-    <header>
-        <nav class="navbar">
+    <header class="topo">
+        <nav class=" navbar">
             <div class="">
                 <img class="logo" src="/img/logo.png" alt="">
             </div>
             <ul class="opcoes">
-                <li>Vestuário</li>
-                <li>Sneakers</li>
-                <li>Acessórios</li>
-                <li>Promoções</li>
-                <li>Quem somos?</li>
+                <li><a href="#">Vestuário</a></li>
+                <li><a href="#">Sneakers</a></li>
+                <li><a href="#">Acessórios</a></li>
+                <li><a href="#">Promoções</a></li>
                 <li><input type="text" placeholder="pesquisar"></li>
-                <li><img class="user" src="/img/user.png" alt=""></li>
-                <li>d</li>
-                <li>d</li>
-                <li>d</li>
+                <li><a href="#"><img class="icon-img" src="/img/user.png" alt=""></a></li>
+                <li><a href="#"><img class="icon-img" src="/img/carrinho.png" alt=""></a></li>
+                <li><a href="#"><img class="icon-img" src="/img/coracao.png" alt=""></a></li>
+                <li><a href="#"><img class="icon-img" src="/img/bate-papo.png" alt=""></a></li>
             </ul>
         </nav>
     </header>
     
-    <main class="container">
-        <h1>Happy Camper co, mais do que uma loja, um estilo de vida!</h1>
+    <main class="container ">
+        <h1 class="fisrt-tittle">Happy Camper, mais do que uma loja, um estilo de vida!</h1>
+
+
+        <div class="slider">
+            <div class="slides">
+                <!--buttons-->
+                <input type="radio" name="radio-btn" id="radio1">
+                <input type="radio" name="radio-btn" id="radio2">
+                <input type="radio" name="radio-btn" id="radio3">
+                <input type="radio" name="radio-btn" id="radio4">
+
+                <div class="slide first">
+                    <img src="https://gkpb.com.br/wp-content/uploads/2021/07/nike-campanha-rayssa-leal.jpg" alt="imagem bape">
+                </div> 
+                <div class="slide">
+                    <img src="https://extrim.vn/_next/image?url=https%3A%2F%2Fextrim-prod.s3.ap-southeast-1.amazonaws.com%2Fphoi_do_voi_giay_nike_co_cao_1_53999fa53c.jfif&w=3840&q=75" alt="imagem bape">
+                </div> 
+                <div class="slide">
+                    <img src="https://uploads.metropoles.com/wp-content/uploads/2022/12/07113851/Nike-Geracao-Z-Campanha.jpg" alt="imagem bape">
+                </div> 
+                <div class="slide">
+                    <img src="https://www.highsnobiety.com/static-assets/dato/1678359672-asap-rocky-march-2023.jpg" alt="imagem bape">
+                </div> 
+
+                <div class="navigation-auto">
+                    <div class="auto-btn-1"></div>
+                    <div class="auto-btn-2"></div>
+                    <div class="auto-btn-3"></div>
+                    <div class="auto-btn-4"></div>
+                </div>
+
+            </div>
+
+            <div class="manual-navigation">
+                <label for="radio1" class="manual-btn"></label>
+                <label for="radio2" class="manual-btn"></label>
+                <label for="radio3" class="manual-btn"></label>
+                <label for="radio4" class="manual-btn"></label>
+            </div>
+            
+
+        </div>
 
         <section class="lancamentos">
-            <h2>Lançamentos</h2>
+            <h2 class="tittle-lancamento">Lançamentos que vale a pena ficar de olho!</h2>
             <div class="lancamentosImg">
                 <img class="lateral1" src="/img/balaclava.png" alt="">
                 <img class="centro1" src="/img/asics.jpg" alt="">
