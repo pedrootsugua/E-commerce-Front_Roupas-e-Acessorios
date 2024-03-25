@@ -8,78 +8,101 @@
     <script src="./JavaScript/CadastroProdutos/AddImagem.js" defer></script>
     <script src="./JavaScript/CadastroProdutos/AddImagem2.js" defer></script>
     <link rel="stylesheet" href="./Css/Reset/Reset.css">
-    <link rel="stylesheet" href="./Css/CadastroProdutos/CadastroProd.css">
+    <link rel="stylesheet" href="./Css/CadastroProdutos/HeaderCadProd.css">
+    <link rel="stylesheet" href="./Css/CadastroProdutos/InserirImgCadProd.css">
+    <link rel="stylesheet" href="./Css/CadastroProdutos/MainCadProd.css">
     <title>HC - Cadastro de produtos</title>
 </head>
 
 <body>
-    <header>
-
+    <header class="topo">
+        <nav class=" navbar">
+            <div class="">
+                <img class="logo" src="/img/logo.png" alt="">
+            </div>
+            <ul class="opcoes">
+                <li><a href="#">Vestuário</a></li>
+                <li><a href="#">Sneakers</a></li>
+                <li><a href="#">Acessórios</a></li>
+                <li><a href="#">Promoções</a></li>
+                <li><input type="text" placeholder="pesquisar"></li>
+                <li><a href="#"><img class="icon-img" src="/img/user.png" alt=""></a></li>
+                <li><a href="#"><img class="icon-img" src="/img/carrinho.png" alt=""></a></li>
+                <li><a href="#"><img class="icon-img" src="/img/coracao.png" alt=""></a></li>
+                <li><a href="#"><img class="icon-img" src="/img/bate-papo.png" alt=""></a></li>
+            </ul>
+        </nav>
     </header>
 
-    <div>
-        <h1>CADASTRAR NOVO PRODUTO</h1>
-    </div>
-
-    <form method="post" autocomplete="on">
-        <div>
-            <label>*Nome do produto</label>
-            <input type="text" class="nome" name="nome" id="nome" placeholder="Ex.: Camiseta">
+    <main class="container">
+        <div class="tittle">
+            <h1>CADASTRAR NOVO PRODUTO</h1>
         </div>
+        <form class="tauri-regular" method="post" autocomplete="on">
+            <div class="infoProd">
+                <div class="first-line">
+                    <div class="nome-prod">
+                        <label>*Nome do produto</label>
+                        <input type="text" class="nome" name="nome" id="nome" placeholder=" Camiseta">
+                    </div>
+                    <div class="preco-prod">
+                        <label>*Valor do produto</label>
+                        <input type="text" class="preco" name="preco" id="preco" placeholder=" R$00.00">
+                    </div>
+                </div>
 
-        <div>
-            <label>*Valor do produto</label>
-            <input type="text" class="preco" name="preco" id="preco" placeholder="Ex.: 99.90">
-        </div>
+                <div class="second-line">
+                    <div class="categoria-prod">
+                        <label>*Categoria</label>
+                        <input type="text" class="categoria" name="categoria" id="categoria" placeholder=" Esportiva">
+                    </div>
+                    <div class="marca-prod">
+                        <label>*Marca</label>
+                        <input type="text" class="marca" name="marca" id="marca" placeholder=" Nike">
+                    </div>
+                </div>
 
-        <div>
-            <label>*Categoria</label>
-            <input type="text" class="categoria" name="categoria" id="categoria" placeholder="Ex.: Esportiva">
-        </div>
+                <div class="third-line">
+                    <div class="tamanho-prod">
+                        <label>*Tamanho</label>
+                        <input type="text" class="tamanho" name="tamnaho" id="tamanho" placeholder=" GG">
+                    </div>
+                    <div class="unidade-prod">
+                        <label>*Unidade</label>
+                        <input type="text" class="unidade" name="unidade" id="unidade" placeholder=" Peça">
+                    </div>
+                    <div class="estoque-prod">  
+                        <label>*Estoque</label>
+                        <input type="text" class="estoque" name="estoque" id="estoque" placeholder=" 326">
+                    </div>
+                </div>
 
-        <div>
-            <label>*Marca</label>
-            <input type="text" class="marca" name="marca" id="marca" placeholder="Ex.: Nike">
-        </div>
+                <div class="description-prod">
+                    <label>*Decrição do produto</label><br>
+                    <textarea name="descricao" id="descricao" cols="30" rows="10"></textarea>
+                </div>
+            </div>
 
-        <div>
-            <label>*Tamanho</label>
-            <input type="text" class="tamanho" name="tamnaho" id="tamanho" placeholder="Ex.: GG">
-        </div>
+            <div class="chooseImg">
+                <div class="EscolhaImg">
+                    <p>*Imagem do produto</p>
+                    <label class="picture" for="picture__input" tabIndex="0">
+                        <span class="picture__image"></span>
+                    </label>
+                    <input type="file" name="picture__input" id="picture__input">
+                </div>
 
-        <div>
-            <label>*Unidade</label>
-            <input type="text" class="unidade" name="unidade" id="unidade" placeholder="Ex.: Peça">
-        </div>
-
-        <div>
-            <label>*Estoque</label>
-            <input type="text" class="estoque" name="estoque" id="estoque" placeholder="Ex.: 326">
-        </div>
-
-        <div>
-            <label>*Decrição do produto</label>
-            <textarea name="descricao" id="descricao" cols="30" rows="10"></textarea>
-        </div>
-
-        <div class="EscolhaImg">
-            <p>*Imagem do produto</p>
-            <label class="picture" for="picture__input" tabIndex="0">
-                <span class="picture__image"></span>
-            </label>
-            <input type="file" name="picture__input" id="picture__input">
-        </div>
-
-        <div class="EscolhaImgg">
-            <p>*Imagem do produto</p>
-            <label class="picturee" for="picture__inputt" tabIndex="0">
-                <span class="picture__imagee"></span>
-            </label>
-            <input type="file" name="picture__inputt" id="picture__inputt">
-        </div>
-
-        <button>Cadastrar</button>
-    </form>
+                <div class="EscolhaImgg">
+                    <p>*Imagem do produto</p>
+                    <label class="picturee" for="picture__inputt" tabIndex="0">
+                        <span class="picture__imagee"></span>
+                    </label>
+                    <input type="file" name="picture__inputt" id="picture__inputt">
+                </div>
+                <button class="cadastrar">Cadastrar</button>
+            </div>
+        </form>
+    </main>
 </body>
 
 </html>

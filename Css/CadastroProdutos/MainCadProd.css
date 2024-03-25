@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=Tauri&display=swap');
+
+.tauri-regular, .tittle {
+    font-family: "Tauri", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 14px;
+}  
+
+form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.tittle {
+    display: flex;
+    justify-content: center;
+    width:  58%;
+    padding-bottom: 2%;
+}
+
+h1 {
+    font-size: 25px;
+}
+
+.container {
+    flex-direction: column;
+    padding: 5% 10%;
+    background-color: #F2F2F2;
+}
+
+.infoProd{
+    flex-direction: column;
+    width: 70vh;
+    height: 70vh;
+    padding-right: 5%;
+}
+
+.chooseImg {
+    flex-direction: column;
+    width: 50vh;
+    height: 70vh;
+    padding-left: 5%;
+}
+
+.first-line {
+    display: flex;
+    padding-bottom: 4%;
+}
+
+.second-line {
+    display: flex;
+    padding-bottom: 4%;
+}
+
+.third-line {
+    display: flex;
+    padding-bottom: 4%;
+}
+
+.cadastrar {
+    margin-left: 90%;
+}
+
+input, textarea{
+    border-radius: 15px;
+    border: 1px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.450);
+}
+
+input {
+    height: 35px;
+}
+
+.nome-prod input {
+    width: 300px;
+}
+
+.preco-prod input {
+    width: 120px;
+}
+
+.preco-prod {
+    padding-left: 3%;
+}
+
+.categoria-prod input {
+    width: 230px;
+}
+
+.categoria-prod {
+    padding-right: 8.3%;
+}
+
+.tamanho-prod input{
+    width: 130px;
+}
+
+.tamanho-prod {
+    padding-right: 5%;
+}
+
+.unidade-prod input {
+    width: 160px;
+}
+
+.unidade-prod {
+    padding-right: 5%;
+}
+
+.estoque-prod input{
+    width: 95px;
+}
+
+.EscolhaImg {
+    padding-bottom: 5%;
+}
