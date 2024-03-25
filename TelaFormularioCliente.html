@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Css/Reset/Reset.css">
+    <link rel="stylesheet" href="Css/BootStrap/bootstrap.css">
+    <link rel="stylesheet" href="Css/BootStrap/open-iconic-bootstrap.css">
+    <link rel="stylesheet" href="Css/Inicial/main.css">
+    <title>Cadastre-se</title>
+</head>
+
+<body class="bg-light">
+    <header>
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-header" id="espace">
+            <div class="">
+                <img class="card-img-top" id="tam" src="/img/logo.png" alt="Card image cap">
+            </div>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Acessórios <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Sneakers</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Vestuário</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                            Promoções
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item" href="#">Action</a>
+                            <a class="dropdown-item" href="#">Another action</a>
+                            <a class="dropdown-item" href="#">Something else here</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <form class="form-inline">
+                <input class="form-control mr-sm-2" type="search" placeholder="Pesquisar" aria-label="Search">
+                <button class="btn btn-dark my-2 my-sm-0" type="submit">Search</button>
+            </form>
+    </header>
+
+    <div class="container">
+        <div class="py-5 text-center">
+            <img class="d-block mx-auto mb-4" src="img/logo.png" alt="" width="72" height="72">
+            <h2>CRIE A SUA CONTA</h2>
+            <p class="lead">Cadastra-se em nosso site e fiquei por dentro de todas as novidades
+                e produtos!
+            </p>
+        </div>
+        <div class="d-flex justify-content-center">
+            <div class="col-md-8 order-md-1">
+                <form class="needs-validation" novalidate>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="nomeCompleto">*Nome completo</label>
+                            <input type="text" class="form-control" id="nomeCompleto" placeholder="" value="" required>
+                            <div class="invalid-feedback">
+                                <!-- Valid first name is required. -->
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="cpf">*CPF</label>
+                            <input type="text" class="form-control" id="cpf" placeholder="" value="" required>
+                            <div class="invalid-feedback">
+                                <!-- Valid last name is required. -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="telefone">Telefone</label>
+                            <input type="text" class="form-control" id="telefone" placeholder="" value="" required>
+                            <div class="invalid-feedback">
+                                <!-- Valid first name is required. -->
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="dtNascimento">Data de nascimento<span
+                                    class="text-muted">(Opcional)</span></label>
+                            <input type="text" class="form-control" id="dtNascimento" placeholder="" value="" required>
+                            <div class="invalid-feedback">
+                                <!-- Valid last name is required. -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="cep">CEP</label>
+                            <input type="cep" class="form-control" id="cep" placeholder="" style="width: 340px;">
+                            <div class="invalid-feedback">
+                                <!-- Please enter a valid email address for shipping updates. -->
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="endereco">Endereço</label>
+                            <input type="text" class="form-control" id="endereco" placeholder="Avenida Paulista"
+                                required>
+                            <div class="invalid-feedback">
+                                Please enter your shipping address.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-5 mb-3">
+                            <label for="cidade">Cidade</label>
+                            <select class="custom-select d-block w-100" id="cidade" required>
+                                <option value="">Escolha...</option>
+                                <option>São Paulo</option>
+                                <option>São Bernardo do Campo</option>
+                                <option>Diadema</option>
+                            </select>
+                            <!-- <div class="invalid-feedback">
+                                Please select a valid country.
+                            </div> -->
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <label for="estado">Estado</label>
+                            <select class="custom-select d-block w-100" id="estado" required>
+                                <option value="">Escolha...</option>
+                                <option>São Paulo</option>
+                                <option>Rio de Janeiro</option>
+                                <option>Rio Grande do Sul</option>
+                            </select>
+                            <!-- <div class="invalid-feedback">
+                                Please provide a valid state.
+                            </div> -->
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            <label for="numero">Número</label>
+                            <input type="text" class="form-control" id="numero" placeholder="" required>
+                            <!-- <div class="invalid-feedback">
+                                Zip code required.
+                            </div> -->
+                        </div>
+                    </div>
+                    <hr class="mb-4">
+                    <!-- <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="same-address">
+                        <label class="custom-control-label" for="same-address">Salvar como endereço
+                            principal</label>
+                    </div> -->
+                    <div class="mb-3">
+                        <label for="email">Email</label>
+                        <input type="email" class="form-control" id="email" placeholder="you@example.com">
+                        <div class="invalid-feedback">
+                            Please enter a valid email address for shipping updates.
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="senha">Senha</label>
+                        <input type="senha" class="form-control" id="senha">
+                        <div class="invalid-feedback">
+                            Please enter a valid email address for shipping updates.
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="confirmSenha">Confirme sua senha</label>
+                        <input type="confirmSenha" class="form-control" id="confirmSenha">
+                        <div class="invalid-feedback">
+                            Please enter a valid email address for shipping updates.
+                        </div>
+                    </div>
+                    <hr class="mb-4">
+                    <button class="btn btn-primary btn-lg btn-block" type="submit">Confirmar Cadastro</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- Footer -->
+    <footer class="text-center text-lg-start text-white" style="background-color: #1c2331; margin-top: 10%;">
+        <!-- Section: Social media -->
+        <section class="d-flex justify-content-between p-4" style="background-color: #859Eb1">
+
+        </section>
+        <!-- Section: Social media -->
+
+        <!-- Section: Links  -->
+        <section class="">
+            <div class="container text-center text-md-start mt-5">
+                <!-- Grid row -->
+                <div class="row mt-3">
+                    <!-- Grid column -->
+                    <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+                        <!-- Content -->
+                        <h6 class="text-uppercase fw-bold">Nome da Loja</h6>
+                        <hr class="mb-4 mt-0 d-inline-block mx-auto"
+                            style="width: 60px; background-color: #859Eb1; height: 2px" />
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi sequi ipsum repudiandae eaque
+                            voluptate numquam exercitationem commodi in et labore doloribus impedit nihil, consequatur
+                            esse nostrum ducimus, neque repellendus. Sunt!
+                        </p>
+                    </div>
+                    <!-- Grid column -->
+
+                    <!-- Grid column -->
+                    <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+                        <!-- Links -->
+                        <h6 class="text-uppercase fw-bold">Produtos</h6>
+                        <hr class="mb-4 mt-0 d-inline-block mx-auto"
+                            style="width: 60px; background-color: #859Eb1; height: 2px" />
+                        <p>
+                            <a href="#!" class="text-white">Qualquer coisa</a>
+                        </p>
+                        <p>
+                            <a href="#!" class="text-white">Qualquer coisa</a>
+                        </p>
+                        <p>
+                            <a href="#!" class="text-white">Qualquer coisa</a>
+                        </p>
+                        <p>
+                            <a href="#!" class="text-white">Qualquer coisa</a>
+                        </p>
+                    </div>
+                    <!-- Grid column -->
+
+                    <!-- Grid column -->
+                    <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+                        <!-- Links -->
+                        <h6 class="text-uppercase fw-bold">Sobre nós</h6>
+                        <hr class="mb-4 mt-0 d-inline-block mx-auto"
+                            style="width: 60px; background-color: #859Eb1; height: 2px" />
+                        <p>
+                            <a href="#!" class="text-white">Qualquer coisa</a>
+                        </p>
+                        <p>
+                            <a href="#!" class="text-white">Qualquer coisa</a>
+                        </p>
+                        <p>
+                            <a href="#!" class="text-white">Qualquer coisa</a>
+                        </p>
+                        <p>
+                            <a href="#!" class="text-white">Qualquer coisa</a>
+                        </p>
+                    </div>
+                    <!-- Grid column -->
+
+                    <!-- Grid column -->
+                    <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+                        <!-- Links -->
+                        <h6 class="text-uppercase fw-bold">Fale Conosco</h6>
+                        <hr class="mb-4 mt-0 d-inline-block mx-auto"
+                            style="width: 60px; background-color: #859Eb1; height: 2px" />
+                        <p><i class="fas fa-home mr-3"></i>Av. Eng. Eusebio Stevaux, 823 Santo Amaro</p>
+                        <p><i class="fas fa-envelope mr-3"></i> nomeloja@gmail.com</p>
+                        <p><i class="fas fa-phone mr-3"></i> + 01 234 567 88</p>
+                        <p><i class="fas fa-print mr-3"></i> + 01 234 567 89</p>
+                    </div>
+                    <!-- Grid column -->
+                </div>
+                <!-- Grid row -->
+            </div>
+        </section>
+        <!-- Section: Links  -->
+
+        <!-- Copyright -->
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
+            &copy; 2024 Todos os direitos reservados
+        </div>
+        <!-- Copyright -->
+    </footer>
+    <!-- Footer -->
+    </div>
+</body>
+
+</html>
