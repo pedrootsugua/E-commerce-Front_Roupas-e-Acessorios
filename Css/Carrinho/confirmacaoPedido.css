@@ -1,0 +1,12 @@
+header {
+    height: 142px;
+    background-color: #455947;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+header h1 img {
+    width: 125px;
+    height: 125px;
+}
