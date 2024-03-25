@@ -8,63 +8,29 @@ body{
     background-color: #f2f2f2; 
 }
 
-.container{
+.containerpr{
     width: 1080px;
     margin: 0 auto;
     position: relative;
 }
-
+/* 
 header {
     background-color: #859eb1;
+} */
+
+#espace{
+    padding-top: 10px;
+    padding-left: 250px;
+    padding-right: 250px;
+    background-color: #859Eb1;
 }
 
-.logo{
-    width: 100px;
-    height: 100px;
+#tam{
+    height: 80px;
+    width: 80px;
+    /* margin-right: 50px; */
 }
 
-.icon-img{
-    width: 25px;
-    height: 25px;
-}
-
-.navbar{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 8px 150px; 
-}
-
-.opcoes li{
-    position: inline;
-    float: left;
-    padding: 10px;
-    text-decoration: none;
-    list-style: none;
-    font-weight: 300;
-    color: black;
-    font-size: 18px;
-}
-
-.opcoes a{
-    text-decoration: none;
-    color: black;
-    font-size: "Roboto", sans-serif;
-    font-style: normal;
-    font-weight: 600;
-}
-
-.opcoes input{
-    border-radius: 15px;
-    border: none;
-    outline: none;
-    padding: 5px;
-    width: 150px;
-}
-
-.opcoes input::placeholder{
-    color: black;
-}
 
 .fisrt-tittle{
     display: flex;
@@ -91,11 +57,13 @@ header {
 .slide{
     width: 25%;
     position: relative;
+    transition: 1s;
 }
 
 .slide img{
     width: 1000px;
     height: 600px;
+    transition: 1s;
 }
 
 .manual-navigation{
@@ -124,7 +92,7 @@ header {
 }
 
 #radio1:checked ~ .first{
-    margin-left: 0;
+    margin-left: 0%;
 }
 
 #radio2:checked ~ .first{
@@ -181,8 +149,6 @@ header {
     display: grid;
     grid-template-rows: repeat(2, 250px);
     grid-template-columns: repeat(auto-fill, 2fr);
-    
-
 }
 
 .lateral1{
