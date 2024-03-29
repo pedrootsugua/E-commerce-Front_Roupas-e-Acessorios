@@ -1,5 +1,11 @@
+body {
+    font-family: "Poppins", sans-serif;
+    background-color: #FFFFF0;
+    color: #000000;
+}
+
 header {
-    height: 142px;
+    height: 135px;
     background-color: #455947;
     display: flex;
     align-items: center;
@@ -10,3 +16,133 @@ header h1 img {
     width: 125px;
     height: 125px;
 }
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 646px;
+    margin: 0 auto;
+}
+
+.container h1 {
+    font-family: "Poppins", sans-serif;
+    font-size: 60px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    margin: 48px 0 12px 0;
+
+}
+
+.container .confirm-pedido {
+    width: 646px;
+    height: 235px;
+    border-radius: 5px;
+    box-shadow: 0px 4px 4px 0.50px rgba(0, 0, 0, 0.50);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.container .confirm-pedido h2 {
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    padding: 8px 0;
+}
+
+.container .confirm-pedido p {
+    font-size: 19px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    padding: 0 20px;
+}
+
+.container .confirm-pedido p span {
+    font-weight: 700;
+}
+
+.container .confirm-pedido footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 25px;
+}
+
+.container .confirm-pedido footer p {
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.container .info-pedido {
+    width: 646px;
+    height: 235px;
+    border-radius: 5px;
+    box-shadow: 0px 4px 4px 0.50px rgba(0, 0, 0, 0.50);
+    align-items: left;
+    margin-top: 40px;
+    padding: 8px 33px;
+    box-sizing: border-box;
+}
+
+.container .info-pedido h2 {
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    padding-bottom: 3px;
+}
+
+.container .info-pedido .dados-pedido {
+    font-size: 19px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.container .info-pedido .info {
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    padding-top: 8px;
+}
+
+button {
+    width: 180px;
+    height: 45px;
+    border-radius: 8px;
+    background: #C9D9C3;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    border: none;
+    cursor: pointer;
+    margin: 50px 0 50px auto;
+    transition: background-color 0.5s;
+}
+
+button:hover {
+    background-color: #455947;
+}
+
+.rodape {
+    height: 80px;
+    background-color: #455947;
+    display: flex;
+    align-items: center;
+    justify-content: center
+}
+
+.rodape .copyright {
+    padding: 10px 0;
+	color:#FFFFFF;
+}
+
