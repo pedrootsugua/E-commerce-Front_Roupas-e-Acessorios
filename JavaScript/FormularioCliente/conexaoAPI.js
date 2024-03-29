@@ -29,8 +29,8 @@ function cadastrar() {
         .then(response => response.text())
         .then(result => console.log(result))
         .catch(error => console.log('Erro ao cadastrar cliente:', error));
-        console.log(cliente);
-    }
+    console.log(cliente);
+}
 
 //Método para limpar os campos do front
 function limpar() {
@@ -39,17 +39,13 @@ function limpar() {
     telefone.value = "";
     dtNascimento.value = "";
     email.value = "";
-   
-}
 
-// function converterDataBrasileiraParaAmericana(dataBrasileira) {
-//     // Usando Moment.js para fazer a conversão
-//     return moment(dataBrasileira, 'DD/MM/YYYY').format('YYYY-MM-DD');
-// }
+}
 
 //EventListener que captura o momento que o botão é pressionado
 formulario.addEventListener("submit", function (event) {
     event.preventDefault();
+    console.log("teste")
     cadastrar();
     limpar();
 });
