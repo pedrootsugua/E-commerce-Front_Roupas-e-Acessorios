@@ -60,7 +60,7 @@ h1 {
 
 input,
 textarea {
-    border-radius: 8px;
+    border-radius: 5px;
     border: 1px;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.300);
 }
