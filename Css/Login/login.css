@@ -1,10 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
 *{
     box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
 }
 
 body{
     margin: 0;
     padding: 0;
+    
 }
 
 .principal{
@@ -36,10 +40,23 @@ body{
     box-shadow: 0px 10px px rgb(69, 65, 65);  /*1-sombra direita/esquerda 2-direita/baixo 3-blur 4-cor*/
 }
 
-.card-login a{
+/* .title{
+    font-weight: 600;
+} */
+
+#logo{
+    width: 120px;
+    height: 120px;
+}
+
+#senha{
     text-decoration: none;
     color: black;
-    
+} 
+
+#cadastro{
+    text-decoration: none;
+    color: black;
 }
 
 .text-field{
@@ -71,6 +88,7 @@ body{
 
 .text-field label{
     margin-bottom: 10px;
+    font-weight: 450;
 }
 
 .btn-login{
@@ -86,6 +104,12 @@ body{
     letter-spacing: 2px;
     color: white;
     cursor: pointer;
-    box-shadow: 0px 10px 10px rgb(69, 65, 65); 
+    box-shadow: 0px 5px 5px rgb(69, 65, 65);
+}
+
+.btn-login:hover{
+    background-color: #d3d3d36b;
+    color: black;
+    transition: all 0.8s ease;
 }
 
