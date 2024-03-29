@@ -8,8 +8,8 @@
     <link rel="stylesheet" href="Css/BootStrap/bootstrap.css">
     <link rel="stylesheet" href="Css/BootStrap/open-iconic-bootstrap.css">
     <link rel="stylesheet" href="Css/Inicial/main.css">
-    <link rel="stylesheet" href="Css/FormularioCliente/formulario.css">
-    <script src="JavaScript/FormularioCliente/FormularioCliente.js" defer></script>
+    <script src="JavaScript/FormularioCliente/conexaoAPI.js" defer></script>
+
     <title>Cadastre-se</title>
 </head>
 
@@ -64,7 +64,7 @@
         </div>
         <div class="d-flex justify-content-center">
             <div class="col-md-8 order-md-1">
-                <form class="needs-validation" novalidate>
+                <form class="form" novalidate>
                     <div class="row">
                         <div class="col-md-6 mb-3">
                             <label for="nomeCompleto">*Nome completo</label>
@@ -92,9 +92,8 @@
                         <div class="col-md-6 mb-3">
                             <label for="dtNascimento">Data de nascimento<span
                                     class="text-muted">(Opcional)</span></label>
-                            <input type="text" class="form-control" id="dtNascimento" placeholder="" value="" required>
+                            <input type="date" class="form-control" id="dtNascimento">
                             <div class="invalid-feedback">
-                                <!-- Valid last name is required. -->
                             </div>
                         </div>
                     </div>
@@ -124,9 +123,6 @@
                                 <option>São Bernardo do Campo</option>
                                 <option>Diadema</option>
                             </select>
-                            <!-- <div class="invalid-feedback">
-                                Please select a valid country.
-                            </div> -->
                         </div>
                         <div class="col-md-4 mb-3">
                             <label for="estado">Estado</label>
