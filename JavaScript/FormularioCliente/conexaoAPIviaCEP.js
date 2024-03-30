@@ -1,7 +1,7 @@
 function limpa_formulário_cep() {
     //Limpa valores do formulário de cep.
     document.getElementById("logradouro").value = ("");
-    // document.getElementById("bairro").value = ("");
+    document.getElementById("bairro").value = ("");
     document.getElementById("cidade").value = ("");
     document.getElementById("estado").value = ("");
 }
@@ -10,7 +10,7 @@ function meu_callback(conteudo) {
     if (!("erro" in conteudo)) {
         //Atualiza os campos com os valores.
         document.getElementById("logradouro").value = (conteudo.logradouro);
-        // document.getElementById("bairro").value = (conteudo.bairro);
+        document.getElementById("bairro").value = (conteudo.bairro);
         document.getElementById("cidade").value = (conteudo.localidade);
         document.getElementById("estado").value = (conteudo.uf);
     } //end if.
@@ -39,7 +39,7 @@ function pesquisacep(cepInput) {
 
             //Preenche os campos com "..." enquanto consulta webservice.
             document.getElementById("logradouro").value = "...";
-            // document.getElementById("bairro").value = "...";
+            document.getElementById("bairro").value = "...";
             document.getElementById("cidade").value = "...";
             document.getElementById("estado").value = "...";
 
