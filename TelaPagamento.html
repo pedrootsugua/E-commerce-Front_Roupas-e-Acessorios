@@ -8,60 +8,95 @@
     <link rel="stylesheet" href="Css/Carrinho/pagamento.css">
     <link rel="stylesheet" href="vendor/BootStrap/bootstrap.css">
     <link rel="stylesheet" href="vendor/BootStrap/open-iconic-bootstrap.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+
     <title>Pagamento</title>
 </head>
 
 <body>
     <header></header>
 
-    <h1>
-        <p>Carrinho</p>
-        <hr>
-        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="24" viewBox="0 0 25 24" fill="none">
-            <g clip-path="url(#clip0_1_310)">
-                <path
-                    d="M12.807 22.0029C7.21423 22.0029 2.68066 17.72 2.68066 12.4364C2.68066 7.15285 7.21423 2.86993 12.807 2.86993C18.3998 2.86993 22.9334 7.15285 22.9334 12.4364C22.9334 17.72 18.3998 22.0029 12.807 22.0029ZM11.7974 16.263L18.9568 9.49855L17.5249 8.14585L11.7974 13.5576L8.93268 10.8513L7.50081 12.204L11.7974 16.263Z"
-                    fill="black" />
-            </g>
-            <defs>
-                <clipPath id="clip0_1_310">
-                    <rect width="24.3032" height="22.9596" fill="white" transform="translate(0.655273 0.956635)" />
-                </clipPath>
-            </defs>
-        </svg>
-        <hr>
-        <p>Checkout</p>
-        <hr>
-        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="24" viewBox="0 0 25 24" fill="none">
-            <g clip-path="url(#clip0_1_310)">
-                <path
-                    d="M12.807 22.0029C7.21423 22.0029 2.68066 17.72 2.68066 12.4364C2.68066 7.15285 7.21423 2.86993 12.807 2.86993C18.3998 2.86993 22.9334 7.15285 22.9334 12.4364C22.9334 17.72 18.3998 22.0029 12.807 22.0029ZM11.7974 16.263L18.9568 9.49855L17.5249 8.14585L11.7974 13.5576L8.93268 10.8513L7.50081 12.204L11.7974 16.263Z"
-                    fill="black" />
-            </g>
-            <defs>
-                <clipPath id="clip0_1_310">
-                    <rect width="24.3032" height="22.9596" fill="white" transform="translate(0.655273 0.956635)" />
-                </clipPath>
-            </defs>
-        </svg>
-        <hr>
-        <p>Pagamento</p>
-    </h1>
+    <div class="checkpoints">
+        <h1>
+            <p>Carrinho</p>
+            <hr>
+            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="24" viewBox="0 0 25 24" fill="none">
+                <g clip-path="url(#clip0_1_310)">
+                    <path
+                        d="M12.807 22.0029C7.21423 22.0029 2.68066 17.72 2.68066 12.4364C2.68066 7.15285 7.21423 2.86993 12.807 2.86993C18.3998 2.86993 22.9334 7.15285 22.9334 12.4364C22.9334 17.72 18.3998 22.0029 12.807 22.0029ZM11.7974 16.263L18.9568 9.49855L17.5249 8.14585L11.7974 13.5576L8.93268 10.8513L7.50081 12.204L11.7974 16.263Z"
+                        fill="black" />
+                </g>
+                <defs>
+                    <clipPath id="clip0_1_310">
+                        <rect width="24.3032" height="22.9596" fill="white" transform="translate(0.655273 0.956635)" />
+                    </clipPath>
+                </defs>
+            </svg>
+            <hr>
+            <p>Checkout</p>
+            <hr>
+            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="24" viewBox="0 0 25 24" fill="none">
+                <g clip-path="url(#clip0_1_310)">
+                    <path
+                        d="M12.807 22.0029C7.21423 22.0029 2.68066 17.72 2.68066 12.4364C2.68066 7.15285 7.21423 2.86993 12.807 2.86993C18.3998 2.86993 22.9334 7.15285 22.9334 12.4364C22.9334 17.72 18.3998 22.0029 12.807 22.0029ZM11.7974 16.263L18.9568 9.49855L17.5249 8.14585L11.7974 13.5576L8.93268 10.8513L7.50081 12.204L11.7974 16.263Z"
+                        fill="black" />
+                </g>
+                <defs>
+                    <clipPath id="clip0_1_310">
+                        <rect width="24.3032" height="22.9596" fill="white" transform="translate(0.655273 0.956635)" />
+                    </clipPath>
+                </defs>
+            </svg>
+            <hr>
+            <p><span>Pagamento</span></p>
+        </h1>
+    </div>
 
     <div class="container">
-        <section>
-            <h2>Escolha a forma de pagamento</h2>
+        <div class="container-info">
+            <section class="resumo-compra">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Resumo</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Produtos</td>
+                            <td>1.299,99</td>
+                        </tr>
+                        <tr>
+                            <td>Frete</td>
+                            <td>Grátis</td>
+                        </tr>
+                        <hr>
+                        <tr>
+                            <td>TOTAL</td>
+                            <td>R$ 1.299,99</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+            <section class="forma-pagamento">
+                <h2>Escolha a forma de pagamento</h2>
+                <ul class="opcao-pagamento">
+                    <li><input type="radio" id="cartao_credito" name="forma_pagamento" value="cartao_credito"> <label
+                            for="cartao_credito">Cartão de Crédito</label></li>
+                    <li><input type="radio" id="cartao_debito" name="forma_pagamento" value="cartao_debito"> <label
+                            for="cartao_debito">Cartão de Débito</label></li>
+                </ul>
+            </section>
+        </div>
 
-            <ul>
-                <li><input type="radio" id="cartao_credito" name="forma_pagamento" value="cartao_credito"> <label
-                        for="cartao_credito">Cartão de Crédito</label></li>
-                <li><input type="radio" id="cartao_debito" name="forma_pagamento" value="cartao_debito"> <label
-                        for="cartao_debito">Cartão de Débito</label></li>
-            </ul>
-        </section>
-
-        <div>
-            <div> <!-- card debito e credito-->
+        <div class="container-pagamento">
+            <div class="card"> <!-- card debito e credito-->
                 <div class="flip-card">
                     <div class="flip-card-inner">
                         <div class="flip-card-front">
@@ -132,8 +167,8 @@
                     </div>
                 </div>
             </div>
-            <div>
-                <section>
+            <div class="container-dados">
+                <section class="dados-card">
                     <label for="">N° do Cartão</label>
                     <input type="text">
 
@@ -147,34 +182,9 @@
                     <input type="password">
                 </section>
 
-                <section>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Resumo</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Produtos</td>
-                                <td>1.299,99</td>
-                            </tr>
-                            <tr>
-                                <td>Frete</td>
-                                <td>Grátis</td>
-                            </tr>
-                            <hr>
-                            <tr>
-                                <td>TOTAL</td>
-                                <td>R$ 1.299,99</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </section>
-
-                <button>FINALIZAR COMPRA</button>
+                <button class="botao-finalizar">FINALIZAR COMPRA</button>
             </div>
-            <button>VOLTAR</button>
+            <button class="botao-voltar">VOLTAR</button>
         </div>
     </div>
 
