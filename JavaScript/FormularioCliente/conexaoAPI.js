@@ -10,7 +10,7 @@ const email = document.querySelector("#email");
 const cep = document.querySelector("#cep");
 const logradouro = document.querySelector("#logradouro");
 const cidade = document.querySelector("#cidade");
-const estado = document.querySelector("#estado");
+const uf = document.querySelector("#uf");
 const numero = document.querySelector("#numero")
 
 function cadastrar() {
@@ -21,7 +21,13 @@ function cadastrar() {
         dtNascimento: dtNascimento.value,
         cpf: cpf.value,
         telefone: telefone.value,
-        email: email.value
+        email: email.value,
+        cep: cep.value,
+        logradouro: logradouro.value,
+        bairro: bairro.value,
+        numero: numero.value,
+        cidade: cidade.value,
+        uf: uf.value
     };
 
     fetch('http://localhost:8080/api/usuarios/criar', {
@@ -35,22 +41,7 @@ function cadastrar() {
         .then(response => response.text())
         .then(result => console.log(result))
         .catch(error => console.log('Erro ao cadastrar usuario:', error));
-
-    const endereco = {
-        cep: cep.value,
-        numero: numero.value
-    }
-
-    fetch('http://localhost:8080/api/enderecos/criar', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(endereco)
-    })
-        .then(response => response.text())
-        .then(result => console.log(result))
-        .catch(error => console.log('Erro ao cadastrar endereço:', error));
+    console.log(usuario)
 
 }
 
@@ -66,7 +57,6 @@ function limpar() {
 //EventListener que captura o momento que o botão é pressionado
 formulario.addEventListener("submit", function (event) {
     event.preventDefault();
-    console.log("teste")
     cadastrar();
     limpar();
 });
@@ -74,18 +64,18 @@ formulario.addEventListener("submit", function (event) {
 function limpa_formulário_cep() {
     //Limpa valores do formulário de cep.
     document.getElementById("logradouro").value = ("");
-    // document.getElementById("bairro").value = ("");
+    document.getElementById("bairro").value = ("");
     document.getElementById("cidade").value = ("");
-    document.getElementById("estado").value = ("");
+    document.getElementById("uf").value = ("");
 }
 
 function meu_callback(conteudo) {
     if (!("erro" in conteudo)) {
         //Atualiza os campos com os valores.
         document.getElementById("logradouro").value = (conteudo.logradouro);
-        // document.getElementById("bairro").value = (conteudo.bairro);
+        document.getElementById("bairro").value = (conteudo.bairro);
         document.getElementById("cidade").value = (conteudo.localidade);
-        document.getElementById("estado").value = (conteudo.uf);
+        document.getElementById("uf").value = (conteudo.uf);
     } //end if.
     else {
         //CEP não Encontrado.
@@ -93,7 +83,6 @@ function meu_callback(conteudo) {
         alert("CEP não encontrado.");
     }
 }
-
 function pesquisacep(cepInput) {
 
     var valor = cepInput.value;
@@ -112,9 +101,9 @@ function pesquisacep(cepInput) {
 
             //Preenche os campos com "..." enquanto consulta webservice.
             document.getElementById("logradouro").value = "...";
-            // document.getElementById("bairro").value = "...";
+            document.getElementById("bairro").value = "...";
             document.getElementById("cidade").value = "...";
-            document.getElementById("estado").value = "...";
+            document.getElementById("uf").value = "...";
 
             //Cria um elemento javascript.
             var script = document.createElement('script');

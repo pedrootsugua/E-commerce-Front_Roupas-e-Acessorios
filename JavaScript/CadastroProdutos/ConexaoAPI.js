@@ -2,11 +2,11 @@
 const formulario = document.querySelector("form");
 const Inome = document.querySelector(".nome");
 const Icategoria = document.querySelector(".categoria");
-// const Ipreco = document.querySelector(".preco");
+const Ipreco = document.querySelector(".preco");
 const Iimagem = document.querySelector("#picture__input");
 
 function cadastrar() {
-    //Instância do classe que guardará a imagem
+    //Instância da classe que guardará a imagem
     const formData = new FormData();
 
     //Adição da imagem no objeto
@@ -18,40 +18,77 @@ function cadastrar() {
         categoria: Icategoria.value,
     };
 
+    // Array para armazenar mensagens de sucesso e erro
+    const messages = [];
+
+    // Array para armazenar todas as promessas
+    const promises = [];
+
     //Conexão com o backend para gravação do JSON
-    fetch('http://localhost:8080/api/cadastrarProd', {
+    const request1 = fetch('http://localhost:8080/api/cadastrarProd', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify(produto)
     })
-        .then(response => response.text())
-        .then(result => console.log(result))
-        .catch(error => console.log('Erro ao cadastrar produto:', error));
+        .then(response => {
+            if (response.ok) {
+                messages.push('Produto cadastrado com sucesso!');
+            } else {
+                messages.push('Erro ao cadastrar produto');
+            }
+        })
+        .catch(error => {
+            messages.push('Erro ao cadastrar produto: ' + error.message);
+        });
+
+    promises.push(request1);
 
     //Conexão com o backend para gravação da instância com a imagem
-    fetch("http://localhost:8080/api/upload", {
+    const request2 = fetch("http://localhost:8080/api/upload", {
         method: "POST",
         body: formData
     })
-        .then(function (res) {
-            console.log(res);
+        .then(response => {
+            if (response.ok) {
+                messages.push('Imagem enviada com sucesso!');
+            } else {
+                messages.push('Erro ao enviar imagem');
+            }
         })
-        .catch(function (res) {
-            console.log(res);
+        .catch(error => {
+            messages.push('Erro ao enviar imagem: ' + error.message);
+        });
+
+    promises.push(request2);
+
+    // Espera que todas as promessas sejam resolvidas
+    Promise.all(promises)
+        .then(() => {
+            // Exibe alerta com todas as mensagens concatenadas
+            alert(messages.join('\n'));
         });
 }
 
-//Método para limpar os campos do front
+
 function limpar() {
     Inome.value = "";
     Icategoria.value = "";
-    // Ipreco.value = "";
-    Iimagem.value = "";
+    Ipreco.value = "";
+
+    // Reseta o formulário
+    formulario.reset();
+
+    // Remove a pré-visualização da imagem
+    pictureImage.innerHTML = pictureImageTxt;
 }
 
-//EventListener que captura o momento que o botão é pressionado
+document.getElementById('btnCancelar').addEventListener('click', function () {
+    window.location.href = 'TelaInicial.html';
+});
+
+//EventListener que captura o momento que o botão cadastrar é pressionado
 formulario.addEventListener("submit", function (event) {
     event.preventDefault();
     cadastrar();
