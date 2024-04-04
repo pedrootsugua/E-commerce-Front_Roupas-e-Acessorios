@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="Css/Reset/Reset.css">
-  <link rel="stylesheet" href="/Css/Inicial/main.css">
+  <link rel="stylesheet" href="/Css/Navbar/navbar.css">
   <link rel="stylesheet" href="Css/Produtos/produto.css">
   <link rel="stylesheet" href="/vendor/BootStrap/bootstrap.css">
   <link rel="stylesheet" href="/vendor/BootStrap/open-iconic-bootstrap.css">
@@ -24,131 +24,205 @@
 <body>
   <header>
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-header" id="espace">
-      <div class="">
-        <img class="card-img-top" id="tam" src="/img/logo.png" alt="Card image cap">
+    <nav id="navbar">
+
+      <div class="img">
+          <img src="/img/logo.png" alt="logo">
       </div>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
-        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+
+      <ul id="nav-list">
+          <li class="nav-item">
+              <a href="">Promoções</a>
+          </li>
+
+          <li class="nav-item">
+              <a href="">Vestuário</a>
+          </li>
+
+          <li class="nav-item">
+              <a href="">Acessórios</a>
+          </li>
+
+          <li class="nav-item">
+              <a href="">Sneakers</a>
+          </li>   
+      </ul>
+
+      
+
+      <div class="right-nav">
+          <input id="pesquisa" type="text" placeholder="pesquisar" >
+          <i class="fa-solid fa-user"></i>
+          <i class="fa-solid fa-cart-shopping"></i>
+          <i class="fa-regular fa-heart"></i>
+      </div>
+
+      <div class="mobile-right-nav">
+          <input id="pesquisa" type="text" placeholder="pesquisar" >
+          <i class="fa-solid fa-user"></i>
+          <i class="fa-solid fa-cart-shopping"></i>
+          <i class="fa-regular fa-heart"></i>
+      </div>
+
+      <button id="mobile-btn">
+          <i class="fa-solid fa-bars"></i>
       </button>
-      <div class="collapse navbar-collapse" id="navbarNavDropdown">
-        <ul class="navbar-nav">
-          <li class="nav-item active">
-            <a class="nav-link" href="#">Acessórios <span class="sr-only">(current)</span></a>
-          </li>
+  </nav>
+
+  <div id="mobile-menu">
+      <ul id="mobile-nav-list">
           <li class="nav-item">
-            <a class="nav-link" href="#">Sneakers</a>
+              <a href="">Promoções</a>
           </li>
+
           <li class="nav-item">
-            <a class="nav-link" href="#">Vestuário</a>
+              <a href="">Vestuário</a>
           </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
-              aria-haspopup="true" aria-expanded="false">
-              Promoções
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <a class="dropdown-item" href="#">Action</a>
-              <a class="dropdown-item" href="#">Another action</a>
-              <a class="dropdown-item" href="#">Something else here</a>
-            </div>
+
+          <li class="nav-item">
+              <a href="">Acessórios</a>
           </li>
-        </ul>
-      </div>
-      <form class="form-inline">
-        <input class="form-control mr-sm-2" type="search" placeholder="Pesquisar" aria-label="Search">
-        <button class="btn btn-dark my-2 my-sm-0" type="submit">Search</button>
-      </form>
+
+          <li class="nav-item">
+              <a href="">Sneakers</a>
+          </li>   
+      </ul>
+  </div>
+
   </header>
 
   <main class="containerpr">
-    <section class="sc_promocoes">
         <!-- tenis1 -->
+        <div class="linha">
+          <div class=" prod">
         <img class="imgtenis" src ="https://artwalk.vteximg.com.br/arquivos/ids/408848-1000-1000/FB204-8-001-1.jpg?v=638234817710000000" alt="">
         <a class="text_tenis" href="#">Tenis air force</a>
         <p class="preco">R$899,00</p>
+      </div>
         <!-- tenis2 -->
-        <img class="imgtenis2" src ="https://artwalk.vteximg.com.br/arquivos/ids/400967-1000-1000/FB204-8-800-1.jpg?v=638219291085430000" alt="">
-        <a class="text_tenis2" href="#">Tenis air force</a>
-        <p class="preco2">R$899,00</p>
+        <div class="prod">
+        <img class="imgtenis" src ="https://artwalk.vteximg.com.br/arquivos/ids/400967-1000-1000/FB204-8-800-1.jpg?v=638219291085430000" alt="">
+        <a class="text_tenis" href="#">Tenis air force</a>
+        <p class="preco">R$899,00</p>
+      </div>
         <!-- tenis3 -->
-        <img class="imgtenis3" src ="https://artwalk.vteximg.com.br/arquivos/ids/475357-1000-1000/FJ417-0-002-1.jpg?v=638411188627900000" alt="">
-        <a class="text_tenis3" href="#">Tenis air force</a>
-        <p class="preco3">R$899,00</p>
+        <div class=" prod">
+        <img class="imgtenis" src ="https://artwalk.vteximg.com.br/arquivos/ids/475357-1000-1000/FJ417-0-002-1.jpg?v=638411188627900000" alt="">
+        <a class="text_tenis" href="#">Tenis air force</a>
+        <p class="preco">R$899,00</p>
+      </div>
         <!-- tenis4 -->
-        <img class="imgtenis4" src ="https://artwalk.vteximg.com.br/arquivos/ids/479093-1000-1000/FJ416-0-001-1.jpg?v=638442272117730000" alt="">
-        <a class="text_tenis4" href="#">Tenis air force</a>
-        <p class="preco4">R$899,00</p>
+        <div class="prod">
+        <img class="imgtenis" src ="https://artwalk.vteximg.com.br/arquivos/ids/479093-1000-1000/FJ416-0-001-1.jpg?v=638442272117730000" alt="">
+        <a class="text_tenis" href="#">Tenis air force</a>
+        <p class="preco">R$899,00</p>
+      </div>
         <!-- tenis5 -->
-        <img class="imgtenis5" src ="https://artwalk.vteximg.com.br/arquivos/ids/478983-1000-1000/FJ416-0-002-1.jpg?v=638442271448570000" alt="">
-        <a class="text_tenis5" href="#">Tenis air force</a>
-        <p class="preco5">R$899,00</p>
+        <div class="prod">
+        <img class="imgtenis" src ="https://artwalk.vteximg.com.br/arquivos/ids/478983-1000-1000/FJ416-0-002-1.jpg?v=638442271448570000" alt="">
+        <a class="text_tenis" href="#">Tenis air force</a>
+        <p class="preco">R$899,00</p>
+      </div>
+      </div>
         <!-- tenis6 -->
-        <img class="imgtenis6" src ="https://artwalk.vteximg.com.br/arquivos/ids/326524-245-245" alt="">
-        <a class="text_tenis6" href="#">Tenis dunk low</a>
-        <p class="preco6">R$899,00</p>
+        <div class="linha">
+        <div class="prod">
+        <img class="imgtenis" src ="https://artwalk.vteximg.com.br/arquivos/ids/326524-245-245" alt="">
+        <a class="text_tenis" href="#">Tenis dunk low</a>
+        <p class="preco">R$899,00</p>
+      </div>
         <!-- tenis7 -->
-        <img class="imgtenis7" src ="https://artwalk.vteximg.com.br/arquivos/ids/445536-245-245" alt="">
-        <a class="text_tenis7" href="#">Tenis dunk low</a>
-        <p class="preco7">R$899,00</p>
+        <div class="prod">
+        <img class="imgtenis" src ="https://artwalk.vteximg.com.br/arquivos/ids/445536-245-245" alt="">
+        <a class="text_tenis" href="#">Tenis dunk low</a>
+        <p class="preco">R$899,00</p>
+      </div>
         <!-- tenis8 -->
-        <img class="imgtenis8" src ="https://artwalk.vteximg.com.br/arquivos/ids/476642-245-245" alt="">
-        <a class="text_tenis8" href="#">Tenis dunk low</a>
-        <p class="preco8">R$899,00</p>
+        <div class="prod">
+        <img class="imgtenis" src ="https://artwalk.vteximg.com.br/arquivos/ids/476642-245-245" alt="">
+        <a class="text_tenis" href="#">Tenis dunk low</a>
+        <p class="preco">R$899,00</p>
+      </div>
         <!-- tenis9 -->
-        <img class="imgtenis9" src ="https://artwalk.vteximg.com.br/arquivos/ids/403079-760-760/FD035-0-133-1.jpg?v=638223465392570000" alt="">
-        <a class="text_tenis9" href="#">Tenis dunk low</a>
-        <p class="preco9">R$899,00</p>
+        <div class="prod">
+        <img class="imgtenis" src ="https://artwalk.vteximg.com.br/arquivos/ids/403079-760-760/FD035-0-133-1.jpg?v=638223465392570000" alt="">
+        <a class="text_tenis" href="#">Tenis dunk low</a>
+        <p class="preco">R$899,00</p>
+      </div>
         <!-- tenis10 -->
-        <img class="imgtenis10" src ="https://artwalk.vteximg.com.br/arquivos/ids/474093-760-760/FN748-8-133-1.jpg?v=638386740288270000" alt="">
-        <a class="text_tenis10" href="#">Tenis dunk low</a>
-        <p class="preco10">R$899,00</p>
+        <div class="prod">
+        <img class="imgtenis" src ="https://artwalk.vteximg.com.br/arquivos/ids/474093-760-760/FN748-8-133-1.jpg?v=638386740288270000" alt="">
+        <a class="text_tenis" href="#">Tenis dunk low</a>
+        <p class="preco">R$899,00</p>
+      </div>
     </div>
-</section>
-<section class="sc_produtos2">
+  
+    <div class="linha">
     <!-- tenis1 -->
+    <div class="prod">
     <img class="imgtenis" src ="https://artwalk.vteximg.com.br/arquivos/ids/440697-760-760/IF806-8-100-1.jpg?v=638296159816530000" alt="">
     <a class="text_tenis" href="#">Tenis Adidas superstars</a>
     <p class="preco">R$499,00</p>
+  </div>
     <!-- tenis2 -->
-    <img class="imgtenis2" src ="https://artwalk.vteximg.com.br/arquivos/ids/487191-760-760/ID099-5-200-1.jpg?v=638470561340130000" alt="">
-    <a class="text_tenis2" href="#">Tenis Adidas superstars</a>
-    <p class="preco2">R$499,00</p>
+    <div class="prod">
+    <img class="imgtenis" src ="https://artwalk.vteximg.com.br/arquivos/ids/487191-760-760/ID099-5-200-1.jpg?v=638470561340130000" alt="">
+    <a class="text_tenis" href="#">Tenis Adidas superstars</a>
+    <p class="preco">R$499,00</p>
+  </div>
     <!-- tenis3 -->
-    <img class="imgtenis3" src ="https://artwalk.vteximg.com.br/arquivos/ids/318534-760-760/GZ220-3-001-1.jpg?v=638055958593300000" alt="">
-    <a class="text_tenis3" href="#">Tenis Adidas superstars</a>
-    <p class="preco3">R$499,00</p>
+    <div class="prod">
+    <img class="imgtenis" src ="https://artwalk.vteximg.com.br/arquivos/ids/318534-760-760/GZ220-3-001-1.jpg?v=638055958593300000" alt="">
+    <a class="text_tenis" href="#">Tenis Adidas superstars</a>
+    <p class="preco">R$499,00</p>
+  </div>
     <!-- tenis4 -->
-    <img class="imgtenis4" src ="https://artwalk.vteximg.com.br/arquivos/ids/287223-760-760/GX471-2-100-1.jpg?v=638019790647800000" alt="">
-    <a class="text_tenis4" href="#">Tenis Adidas superstars</a>
-    <p class="preco4">R$499,00</p>
+    <div class="prod">
+    <img class="imgtenis" src ="https://artwalk.vteximg.com.br/arquivos/ids/287223-760-760/GX471-2-100-1.jpg?v=638019790647800000" alt="">
+    <a class="text_tenis" href="#">Tenis Adidas superstars</a>
+    <p class="preco">R$499,00</p>
+  </div>
     <!-- tenis5 -->
-    <img class="imgtenis5" src ="https://artwalk.vteximg.com.br/arquivos/ids/487179-1000-1000/ID099-3-200-1.jpg?v=638470561297630000" alt="">
-    <a class="text_tenis5" href="#">Tenis Adidas superstars</a>
-    <p class="preco5">R$499,00</p>
-    <!-- tenis6 -->
-    <img class="imgtenis6" src ="https://artwalk.vteximg.com.br/arquivos/ids/301142-760-760/38359-0-009-1.jpg?v=638053306036800000" alt="">
-    <a class="text_tenis6" href="#">Tenis puma rs-x</a>
-    <p class="preco6">R$599,00</p>
-    <!-- tenis7 -->
-    <img class="imgtenis7" src ="https://artwalk.vteximg.com.br/arquivos/ids/418422-760-760/39117-1-003-1.jpg?v=638252049386170000" alt="">
-    <a class="text_tenis7" href="#">Tenis puma rs-x</a>
-    <p class="preco7">R$599,00</p>
-    <!-- tenis8 -->
-    <img class="imgtenis8" src ="https://artwalk.vteximg.com.br/arquivos/ids/447933-760-760/39430-2-050-1.jpg?v=638309279595070000" alt="">
-    <a class="text_tenis8" href="#">Tenis puma rs-x</a>
-    <p class="preco8">R$599,00</p>
-    <!-- tenis9 -->
-    <img class="imgtenis9" src ="https://artwalk.vteximg.com.br/arquivos/ids/436449-760-760/39430-2-051-1.jpg?v=638277211511570000" alt="">
-    <a class="text_tenis9" href="#">Tenis puma rs-x</a>
-    <p class="preco9">R$599,00</p>
-    <!-- tenis10 -->
-    <img class="imgtenis10" src ="https://artwalk.vteximg.com.br/arquivos/ids/436443-760-760/39430-2-003-1.jpg?v=638277210260500000" alt="">
-    <a class="text_tenis10" href="#">Tenis puma rs-x</a>
-    <p class="preco10">R$599,00</p>
+    <div class="prod">
+    <img class="imgtenis" src ="https://artwalk.vteximg.com.br/arquivos/ids/487179-1000-1000/ID099-3-200-1.jpg?v=638470561297630000" alt="">
+    <a class="text_tenis" href="#">Tenis Adidas superstars</a>
+    <p class="preco">R$499,00</p>
+  </div>
 </div>
-</section>
+    <!-- tenis6 -->
+    <div class="linha">
+      <div class="prod">
+        <img class="imgtenis" src ="https://artwalk.vteximg.com.br/arquivos/ids/301142-760-760/38359-0-009-1.jpg?v=638053306036800000" alt="">
+        <a class="text_tenis" href="#">Tenis puma rs-x</a>
+        <p class="preco">R$599,00</p>
+      </div>
+      <!-- tenis7 -->
+      <div class="prod">
+        <img class="imgtenis" src ="https://artwalk.vteximg.com.br/arquivos/ids/418422-760-760/39117-1-003-1.jpg?v=638252049386170000" alt="">
+        <a class="text_tenis" href="#">Tenis puma rs-x</a>
+        <p class="preco">R$599,00</p>
+      </div>
+      <!-- tenis8 -->
+      <div class="prod">
+        <img class="imgtenis" src ="https://artwalk.vteximg.com.br/arquivos/ids/447933-760-760/39430-2-050-1.jpg?v=638309279595070000" alt="">
+        <a class="text_tenis" href="#">Tenis puma rs-x</a>
+        <p class="preco">R$599,00</p>
+      </div>
+      <!-- tenis9 -->
+      <div class="prod">
+        <img class="imgtenis" src ="https://artwalk.vteximg.com.br/arquivos/ids/436449-760-760/39430-2-051-1.jpg?v=638277211511570000" alt="">
+        <a class="text_tenis" href="#">Tenis puma rs-x</a>
+        <p class="preco">R$599,00</p>
+      </div>
+      <!-- tenis10 -->
+      <div class="prod">
+        <img class="imgtenis" src ="https://artwalk.vteximg.com.br/arquivos/ids/436443-760-760/39430-2-003-1.jpg?v=638277210260500000" alt="">
+        <a class="text_tenis" href="#">Tenis puma rs-x</a>
+        <p class="preco">R$599,00</p>
+      </div>
+    </div>
+
+
   </main>
 
   <!-- Footer -->
