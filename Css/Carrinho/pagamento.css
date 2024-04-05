@@ -45,6 +45,64 @@ body {
     width: 50%;
 }
 
+table {
+    width: 337px;
+    height: 182px;
+    border-collapse: collapse;
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+table tbody {
+    border: 1px solid #000000;
+}
+
+table thead {
+    background-color: #000000;
+    border: 1px solid #000000;
+}
+
+table thead th {
+    text-align: center;
+    color: #FFFFFF;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    letter-spacing: -0.3px;
+}
+
+.td-left {
+    text-align: left;
+}
+
+.td-right {
+    text-align: right;
+}
+
+.forma-pagamento h2 {
+    color: #000;
+    font-family: Poppins;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    margin: 31px 0;
+}
+
+.forma-pagamento ul {
+    color: #000;
+    font-family: Poppins;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+}
+
+.forma-pagamento ul li {
+    margin: 6px 0;
+}
+
 /* estilização do card debito e credito */
 .flip-card {
     background-color: transparent;
@@ -189,4 +247,5 @@ body {
     background-color: #171717;
     transform: rotateY(180deg);
 }
+
 /* fim estilo card */
