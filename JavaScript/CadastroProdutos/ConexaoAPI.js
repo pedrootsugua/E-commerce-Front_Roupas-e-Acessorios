@@ -4,19 +4,27 @@ const Inome = document.querySelector(".nome");
 const Icategoria = document.querySelector(".categoria");
 const Ipreco = document.querySelector(".preco");
 const Iimagem = document.querySelector("#picture__input");
+const IoutraImagem = document.querySelector("#picture__inputt");
 
 function cadastrar() {
     //Instância da classe que guardará a imagem
     const formData = new FormData();
 
-    //Adição da imagem no objeto
-    formData.append('imagem', Iimagem.files[0]);
-
+    
     //Objeto JSON que recebe os dados que serão guardados no banco
     const produto = {
         nome: Inome.value,
         categoria: Icategoria.value,
     };
+    
+    //Adição das info dos produtos no objeto
+    formData.append('produto', JSON.stringify(produto));
+
+    //Adição da imagem no objeto
+    formData.append('imagem', Iimagem.files[0]);
+
+    //Adição da imagem no objeto
+    formData.append('imagem', IoutraImagem.files[0]);
 
     // Array para armazenar mensagens de sucesso e erro
     const messages = [];
@@ -27,10 +35,7 @@ function cadastrar() {
     //Conexão com o backend para gravação do JSON
     const request1 = fetch('http://localhost:8080/api/cadastrarProd', {
         method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(produto)
+        body: formData
     })
         .then(response => {
             if (response.ok) {
@@ -45,24 +50,6 @@ function cadastrar() {
 
     promises.push(request1);
 
-    //Conexão com o backend para gravação da instância com a imagem
-    const request2 = fetch("http://localhost:8080/api/upload", {
-        method: "POST",
-        body: formData
-    })
-        .then(response => {
-            if (response.ok) {
-                messages.push('Imagem enviada com sucesso!');
-            } else {
-                messages.push('Erro ao enviar imagem');
-            }
-        })
-        .catch(error => {
-            messages.push('Erro ao enviar imagem: ' + error.message);
-        });
-
-    promises.push(request2);
-
     // Espera que todas as promessas sejam resolvidas
     Promise.all(promises)
         .then(() => {
@@ -70,7 +57,6 @@ function cadastrar() {
             alert(messages.join('\n'));
         });
 }
-
 
 function limpar() {
     Inome.value = "";
