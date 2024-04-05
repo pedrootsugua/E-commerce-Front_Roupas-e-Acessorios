@@ -19,3 +19,45 @@
     flex-direction: column;
     
 }
+.fa-regular fa-heart{
+    padding-left: 30px;
+}
+
+.cora{
+display: flex;
+justify-content: space-between;
+}
+
+.container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+  
+  .container {
+    display: contents;
+    position: relative;
+    cursor: pointer;
+    user-select: none;
+  }
+  
+  .container svg {
+    position: relative;
+    top: 0;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    transition: all 0.3s;
+    fill: #666;
+  }
+  
+  .container svg:hover {
+    transform: scale(1.1);
+  }
+  
+  .container input:checked ~ svg {
+    fill: #E3474F;
+  }
+  
