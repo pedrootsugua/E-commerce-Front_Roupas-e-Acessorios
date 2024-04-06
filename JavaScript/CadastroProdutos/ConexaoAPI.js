@@ -24,7 +24,7 @@ function cadastrar() {
     formData.append('imagem', Iimagem.files[0]);
 
     //Adição da imagem no objeto
-    formData.append('imagem', IoutraImagem.files[0]);
+    formData.append('outraImagem', IoutraImagem.files[0]);
 
     // Array para armazenar mensagens de sucesso e erro
     const messages = [];
@@ -66,8 +66,9 @@ function limpar() {
     // Reseta o formulário
     formulario.reset();
 
-    // Remove a pré-visualização da imagem
+    // Remove a pré-visualização das imagens
     pictureImage.innerHTML = pictureImageTxt;
+    pictureImage2.innerHTML = pictureImageTxt2;
 }
 
 document.getElementById('btnCancelar').addEventListener('click', function () {
@@ -78,5 +79,5 @@ document.getElementById('btnCancelar').addEventListener('click', function () {
 formulario.addEventListener("submit", function (event) {
     event.preventDefault();
     cadastrar();
-    limpar();
+    // limpar();
 });
