@@ -8,7 +8,7 @@
 
 header{
     /*width: 100%;*/
-    padding: 20px 8%;
+    padding: 10px 8%;
     position: sticky;
     top: 0;
     z-index: 3;
@@ -23,7 +23,7 @@ header{
 #navbar{
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 
 #nav-list{
@@ -43,9 +43,11 @@ header{
 }
 
 #pesquisa{
-    border-radius: 20px;
+    border-radius: 10px;
     border: 1px solid;
     padding: 8px;
+    border: none;
+    outline: none;
 }
 
 .mobile-right-nav{

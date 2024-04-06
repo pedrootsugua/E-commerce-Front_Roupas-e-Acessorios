@@ -9,30 +9,70 @@ body{
     width: 100%;
 }
 
+
+
 #main-air-max{
     display: flex;
     justify-content: center;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    gap: 150px;
+    gap: 250px;
+    margin-top: 80px;
 }
 
 #left_topo {
     text-align: center;
 }
 
+#nike_tittle{
+    font-weight: 800;
+    font-size: 60px;
+}
+
+#left_topo p{
+    color: #000;
+    font-size: 19px;
+    font-weight: 350;
+}
+
+#btn-confira{
+    width: 150px;
+    height: 60px;
+    border-radius: 55px;
+    background: #c59361d0;
+    border: none;
+}
+
+#btn-confira:hover{
+    transition: all 0.6s ease;
+    background-color: #ecbf92;
+}
+
+#btn-confira a{
+    color: #FFFFFF;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+#btn-confira:hover{
+    transition: 0.4s ;
+    font-size: 17px;
+    font-weight: 600px;
+}
+
+
 #img_right-topo{
-    border-radius: 200px 100px 0px 150px;
-    width: 800px;
-    height: 800px;
+    border-radius: 150px 100px 20px 150px;
+    width: 40vw;
+    height: 75vh;
 }
 
 
 
 #show{
-    width: 100%;
-    margin: auto;
+    margin: 80px 10%;
 }
 
 .showing-img{
