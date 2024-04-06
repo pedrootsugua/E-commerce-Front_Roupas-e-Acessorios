@@ -62,60 +62,67 @@
                     <div class="row">
                         <div class="col-md-6 mb-3">
                             <label for="nomeCompleto">Nome completo</label>
-                            <input type="text" class="form-control" id="nomeCompleto" placeholder="" value="" required>
+                            <input type="text" class="form-control" id="nomeCompleto" placeholder="Digite seu nome..."
+                                required>
                             <div class="invalid-feedback">
-                                <!-- Valid first name is required. -->
+                                Digite o seu nome completo.
                             </div>
                         </div>
                         <div class="col-md-6 mb-3">
                             <label for="cpf">CPF</label>
-                            <input type="text" class="form-control" id="cpf" placeholder="" value="" required>
+                            <input type="text" class="form-control" id="cpf" placeholder="Digite seu CPF..." required>
                             <div class="invalid-feedback">
-                                <!-- Valid last name is required. -->
+                                Digite um CPF válido.
                             </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-6 mb-3">
                             <label for="telefone">Telefone</label>
-                            <input type="text" class="form-control" id="telefone" placeholder="" value="" required>
+                            <input type="text" class="form-control" id="telefone" placeholder="Digite seu telefone..."
+                                required>
                             <div class="invalid-feedback">
-                                <!-- Valid first name is required. -->
+                                Digite um número de telefone válido.
                             </div>
                         </div>
                         <div class="col-md-6 mb-3">
                             <label for="dtNascimento">Data de nascimento</label>
-                            <input type="date" class="form-control" id="dtNascimento">
+                            <input type="date" class="form-control" id="dtNascimento" required>
                             <div class="invalid-feedback">
+                                Informe sua data de nascimento.
                             </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-6 mb-3">
                             <label for="cep">CEP</label>
-                            <input type="cep" class="form-control" id="cep" onblur="pesquisacep(this);">
+                            <input type="cep" class="form-control" id="cep" pattern="[0-9]{8}"
+                                onblur="pesquisacep(this);" required>
                             <div class="invalid-feedback">
-                                <!-- Please enter a valid email address for shipping updates. -->
+                                Digite um CEP válido.
                             </div>
                         </div>
                         <div class="col-md-6 mb-3">
                             <label for="bairro">Bairro</label>
-                            <input type="text" class="form-control" id="bairro" placeholder="Avenida Paulista" required>
+                            <input type="text" class="form-control" id="bairro" required>
                             <div class="invalid-feedback">
-                                Please enter your shipping address.
+                                Informe o bairro.
                             </div>
                         </div>
                         <div class="col-md-8 mb-3">
                             <label for="logradouro">Logradouro</label>
                             <input type="text" class="form-control" id="logradouro" required style="width: 100%;">
                             <div class="invalid-feedback">
-                                Please enter your shipping address.
+                                Informe um endereço válido.
                             </div>
                         </div>
                         <div class="col-md-4 mb-3">
                             <div class="col-md-8 mb-3">
                                 <label for="numero">Número</label>
                                 <input type="text" class="form-control" id="numero" required style="width: 100%;">
+                                <div class="invalid-feedback">
+                                    Informe o n°.
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -123,34 +130,42 @@
                         <div class="col-md-8 mb-3">
                             <label for="cidade">Cidade</label>
                             <input type="text" class="form-control" id="cidade" required>
+                            <div class="invalid-feedback">
+                                Informe a cidade.
+                            </div>
                         </div>
                         <div class="col-md-4 mb-3">
                             <div class="col-md-8 mb-3">
                                 <label for="uf">UF</label>
                                 <input type="text" class="form-control" id="uf" required style="width: 100%;">
+                                <div class="invalid-feedback">
+                                    Informe a UF.
+                                </div>
                             </div>
                         </div>
                     </div>
                     <hr class="mb-4">
                     <div class="mb-3">
                         <label for="email">Email</label>
-                        <input type="email" class="form-control" id="email" placeholder="you@example.com">
+                        <input type="email" class="form-control" id="email" placeholder="Digite seu e-mail..." required>
                         <div class="invalid-feedback">
-                            Please enter a valid email address for shipping updates.
+                            Digite um e-mail válido.
                         </div>
                     </div>
                     <div class="mb-3">
                         <label for="senha">Senha</label>
-                        <input type="password" class="form-control" id="senha">
+                        <input type="password" class="form-control" placeholder="Digite sua senha..." id="senha"
+                            required>
                         <div class="invalid-feedback">
-                            Please enter a valid email address for shipping updates.
+                            A senha deve conter no mínimo 5 caracteres.
                         </div>
                     </div>
                     <div class="mb-3">
                         <label for="confirmSenha">Confirme sua senha</label>
-                        <input type="password" class="form-control" id="confirmSenha">
+                        <input type="password" class="form-control" placeholder="Confirme a sua senha..."
+                            id="confirmSenha" required>
                         <div class="invalid-feedback">
-                            Please enter a valid email address for shipping updates.
+                            As senhas precisam ser iguais.
                         </div>
                     </div>
                     <hr class="mb-4">
@@ -161,6 +176,12 @@
                     </button>
 
                 </form>
+
+                <div id="loadingModal" class="loading-modal">
+                    <svg viewBox="25 25 50 50">
+                        <circle r="20" cy="50" cx="50"></circle>
+                    </svg>
+                </div>
             </div>
         </div>
     </div>
@@ -259,6 +280,8 @@
     </footer>
     <!-- Footer -->
     </div>
+
 </body>
+
 
 </html>

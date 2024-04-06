@@ -4,7 +4,59 @@ input {
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.300);
 }
 
-.nav-item {
-    margin-right: 10%;
-    /* Ajuste o valor conforme necessário */
+.blur {
+    filter: blur(5px);
+    /* Adicione o efeito de desfoque */
+    pointer-events: none;
+    /* Impede que elementos da tela recebam eventos do mouse */
+}
+
+
+.loading-modal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    /* Escondido por padrão */
+}
+
+
+.loading-modal svg {
+    width: 3.25em;
+    transform-origin: center;
+    animation: rotate4 2s linear infinite;
+}
+
+.loading-modal circle {
+    fill: none;
+    stroke: hsl(214, 97%, 59%);
+    stroke-width: 2;
+    stroke-dasharray: 1, 200;
+    stroke-dashoffset: 0;
+    stroke-linecap: round;
+    animation: dash4 1.5s ease-in-out infinite;
+}
+
+@keyframes rotate4 {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes dash4 {
+    0% {
+        stroke-dasharray: 1, 200;
+        stroke-dashoffset: 0;
+    }
+
+    50% {
+        stroke-dasharray: 90, 200;
+        stroke-dashoffset: -35px;
+    }
+
+    100% {
+        stroke-dashoffset: -125px;
+    }
 }
