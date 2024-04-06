@@ -1,34 +1,42 @@
-//Pega as informações do html
-const formulario = document.querySelector("form");
+function mostrarLoading() {
+    // Exibe o modal de loading
+    document.getElementById("loadingModal").style.display = "block";
+    document.body.classList.add('blur');
+}
 
-const nome = document.querySelector("#nomeCompleto");
-const cpf = document.querySelector("#cpf");
-const telefone = document.querySelector("#telefone");
-const dtNascimento = document.querySelector("#dtNascimento");
-const email = document.querySelector("#email");
+function esconderLoading() {
+    // Esconde o modal de loading
+    document.getElementById("loadingModal").style.display = "none";
+}
 
-const cep = document.querySelector("#cep");
-const logradouro = document.querySelector("#logradouro");
-const cidade = document.querySelector("#cidade");
-const uf = document.querySelector("#uf");
-const numero = document.querySelector("#numero")
+document.querySelector("form").addEventListener("submit", function (event) {
+    event.preventDefault();
 
-function cadastrar() {
+    const form = event.target;
+    if (form.checkValidity()) {
+        const usuario = {
+            nome: form.querySelector("#nomeCompleto").value,
+            dtNascimento: form.querySelector("#dtNascimento").value,
+            cpf: form.querySelector("#cpf").value,
+            telefone: form.querySelector("#telefone").value,
+            email: form.querySelector("#email").value,
+            cep: form.querySelector("#cep").value,
+            logradouro: form.querySelector("#logradouro").value,
+            bairro: form.querySelector("#bairro").value,
+            numero: form.querySelector("#numero").value,
+            cidade: form.querySelector("#cidade").value,
+            uf: form.querySelector("#uf").value
+        };
 
-    //Objeto JSON que recebe os dados que serão guardados no banco
-    const usuario = {
-        nome: nome.value,
-        dtNascimento: dtNascimento.value,
-        cpf: cpf.value,
-        telefone: telefone.value,
-        email: email.value,
-        cep: cep.value,
-        logradouro: logradouro.value,
-        bairro: bairro.value,
-        numero: numero.value,
-        cidade: cidade.value,
-        uf: uf.value
-    };
+        removerValidacaoCampos();
+        cadastrar(usuario); // Envia os dados para o backend
+        limparCampos(); // Limpa os campos do formulário após o envio bem-sucedido
+    }
+});
+
+function cadastrar(usuario) {
+
+    mostrarLoading();
 
     fetch('http://localhost:8080/api/usuarios/criar', {
         method: 'POST',
@@ -39,27 +47,31 @@ function cadastrar() {
     })
 
         .then(response => response.text())
-        .then(result => console.log(result))
+        .then(result => {
+            console.log(result);
+
+            setTimeout(() => {
+                esconderLoading();
+                window.location.href = "TelaInicial.html";
+            }, 3000);
+        })
         .catch(error => console.log('Erro ao cadastrar usuario:', error));
     console.log(usuario)
+}
 
+// Remove temporariamente as classes de validação dos campos
+function removerValidacaoCampos() {
+    const campos = document.querySelectorAll('.form-control');
+    campos.forEach(campo => {
+        campo.classList.remove('is-invalid');
+        campo.classList.remove('is-valid');
+    });
 }
 
 //Método para limpar os campos do front
-function limpar() {
-    nome.value = "";
-    cpf.value = "";
-    telefone.value = "";
-    dtNascimento.value = "";
-    email.value = "";
+function limparCampos() {
+    document.querySelector("form").reset();
 }
-
-//EventListener que captura o momento que o botão é pressionado
-formulario.addEventListener("submit", function (event) {
-    event.preventDefault();
-    cadastrar();
-    limpar();
-});
 
 function limpa_formulário_cep() {
     //Limpa valores do formulário de cep.
