@@ -46,34 +46,63 @@ body {
 }
 
 table {
-    width: 337px;
-    height: 182px;
-    border-collapse: collapse;
-    border-radius: 3px;
+    width: 400px;
+    height: 220px;
+    border-collapse: separate;
+    border-radius: 15px;
+    border-bottom-left-radius: 7px;
+    border-bottom-right-radius: 7px;
     overflow: hidden;
 }
 
-table tbody {
-    border: 1px solid #000000;
-}
-
 table thead {
-    background-color: #000000;
-    border: 1px solid #000000;
+    background-color: #c59361d0;
+    border: 3px solid #c59361d0;
 }
 
 table thead th {
     text-align: center;
     color: #FFFFFF;
-    font-size: 13px;
+    font-size: 15px;
     font-style: normal;
     font-weight: 600;
     line-height: normal;
     letter-spacing: -0.3px;
+    padding: 4px 0;
+}
+
+table tbody {
+    border: 3px solid #c59361d0;
+    font-size: 15px;
+    color: #c59361d0;
+}
+
+table tbody td {
+    padding: 8px 18px;
+}
+
+table tbody span {
+    color: #000000;
+}
+
+table tbody .linha {
+    padding: 0;
+    margin: 0;
+}
+
+table tbody .linha hr {
+    width: 360px;
+    height: 1px;
+    background-color: #c59361d0;
+}
+
+table tbody .total {
+    font-weight: bold;
 }
 
 .td-left {
     text-align: left;
+    font-weight: bold;
 }
 
 .td-right {
@@ -87,7 +116,7 @@ table thead th {
     font-style: normal;
     font-weight: 500;
     line-height: normal;
-    margin: 31px 0;
+    margin: 80px 0 31px 0;
 }
 
 .forma-pagamento ul {
