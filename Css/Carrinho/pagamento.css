@@ -3,6 +3,7 @@ body {
     background-color: #FFFFFF;
 }
 
+/* Checkpoints */
 .checkpoints {
     width: 750px;
     margin: 40px auto;
@@ -14,7 +15,7 @@ body {
 }
 
 .checkpoints p {
-    color: #3D1274;
+    color: #c59361d0;
     font-family: Poppins;
     font-size: 20px;
     font-style: normal;
@@ -29,9 +30,10 @@ body {
 .checkpoints hr {
     width: 25.316px;
     height: 1px;
-    background-color: #3D1274;
+    background-color: #c59361d0;
 }
 
+/* Posicionamento do conteudo principal */
 .container {
     display: flex;
     flex-direction: row;
@@ -45,6 +47,7 @@ body {
     width: 50%;
 }
 
+/* Tabela de resumo */
 table {
     width: 400px;
     height: 220px;
@@ -109,30 +112,69 @@ table tbody .total {
     text-align: right;
 }
 
+/* Opções de pagamento */
 .forma-pagamento h2 {
-    color: #000;
+    color: #000000;
     font-family: Poppins;
     font-size: 22px;
     font-style: normal;
-    font-weight: 500;
+    font-weight: 600;
     line-height: normal;
     margin: 80px 0 31px 0;
 }
 
 .forma-pagamento ul {
-    color: #000;
     font-family: Poppins;
     font-size: 20px;
     font-style: normal;
-    font-weight: 300;
+    font-weight: 500;
     line-height: normal;
 }
 
 .forma-pagamento ul li {
-    margin: 6px 0;
+    margin: 15px 0;
 }
 
+/* Estilizando o input de radio */
+.opcao-pagamento input[type="radio"] {
+    display: none;
+}
+
+/* Estilizando o indicador do input de radio */
+.opcao-pagamento input[type="radio"]+label::before {
+    content: "";
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #c59361d0;
+    border-radius: 50%;
+    margin-right: 12px;
+    vertical-align: middle;
+}
+
+/* Estilizando o texto da label */
+.opcao-pagamento label {
+    color: #c59361d0;
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+/* Quando o input de radio é marcado, muda a cor do indicador e do texto */
+.opcao-pagamento input[type="radio"]:checked+label::before {
+    background-color: #000000;
+    border-color: #c59361d0;
+}
+
+.opcao-pagamento input[type="radio"]:checked+label {
+    color: #000000;
+}
+
+
 /* estilização do card debito e credito */
+body .card {
+    border: none;
+}
+
 .flip-card {
     background-color: transparent;
     width: 240px;
@@ -277,4 +319,96 @@ table tbody .total {
     transform: rotateY(180deg);
 }
 
-/* fim estilo card */
+/* Dados do cartão */
+.container-dados {
+    background-color: rgba(216, 216, 216, 0.315);
+    width: 454px;
+    height: 258px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.dados-card label, input{
+    display: block;
+}
+
+.dados-card label {
+    color: #000;
+    font-family: Poppins;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: -0.3px;
+}
+
+.dados-card input {
+    border: none;
+    border-radius: 15px;
+    background-color: #000000c9;
+    color: #FFFFFF;
+    font-family: Poppins;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: 1.2px;
+}
+
+.dados-card input:hover {
+    background-color: #000000e1;
+}
+
+/* Botão finalizar compra */
+.botao-finalizar {
+    width: 230px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(15, 15, 15);
+    border: none;
+    color: white;
+    font-weight: 600;
+    gap: 8px;
+    cursor: pointer;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.103);
+    position: relative;
+    overflow: hidden;
+    transition-duration: .3s;
+  }
+  
+  .svgIcon {
+    width: 16px;
+  }
+  
+  .svgIcon path {
+    fill: white;
+  }
+  
+  .botao-finalizar::before {
+    width: 230px;
+    height: 130px;
+    position: absolute;
+    content: "";
+    background-color: white;
+    border-radius: 50%;
+    left: -100%;
+    top: 0;
+    transition-duration: .3s;
+    mix-blend-mode: difference;
+  }
+  
+  .botao-finalizar:hover::before {
+    transition-duration: .3s;
+    transform: translate(100%,-50%);
+    border-radius: 0;
+  }
+  
+  .botao-finalizar:active {
+    transform: translate(5px,5px);
+    transition-duration: .3s;
+  }
