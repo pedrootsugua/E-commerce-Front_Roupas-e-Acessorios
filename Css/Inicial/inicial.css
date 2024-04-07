@@ -9,8 +9,6 @@ body{
     width: 100%;
 }
 
-
-
 #main-air-max{
     display: flex;
     justify-content: center;
@@ -18,7 +16,7 @@ body{
     justify-content: center;
     align-items: center;
     gap: 250px;
-    margin-top: 80px;
+    min-height: calc(100vh - 105px);
 }
 
 #left_topo {
@@ -71,23 +69,27 @@ body{
 
 
 
-#show{
-    margin: 80px 10%;
+
+
+/* .historia-air-max{
+    height: calc(100vh - 105px);
 }
 
-.showing-img{
-    width: 563px;
-    height: 702px;
-    flex-shrink: 0;
-    border-radius: 40px;
-    background: url(<path-to-image>) lightgray 50% / cover no-repeat;
+.historia-air-max h2{
+    text-align: center;
+    margin: 40px 0px 40px 0px;
 }
 
-.showing-img-side{
-    width: 468px;
-    height: 702px;
-    flex-shrink: 0;
-    border-radius: 40px;
-    background: url(<path-to-image>) lightgray 50% / cover no-repeat;
+.carrossel{
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    gap: 5px;
 }
 
+.img-carrossel{
+    width: 300px;
+    height: 450px;
+    border-radius: 30px;
+     
+}*/
