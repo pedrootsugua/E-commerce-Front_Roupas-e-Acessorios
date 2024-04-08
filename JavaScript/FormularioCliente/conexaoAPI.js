@@ -1,8 +1,14 @@
 function mostrarLoading() {
+    document.querySelector(".main").classList.add('blur');
     // Exibe o modal de loading
     document.getElementById("loadingModal").style.display = "block";
-    document.body.classList.add('blur');
 }
+
+function redirecionarParaPagina() {
+    window.location.href = "TelaInicial.html";
+}
+
+document.querySelector(".accept-cookie-button").addEventListener("click", redirecionarParaPagina);
 
 function esconderLoading() {
     // Esconde o modal de loading
@@ -28,11 +34,18 @@ document.querySelector("form").addEventListener("submit", function (event) {
             uf: form.querySelector("#uf").value
         };
 
-        removerValidacaoCampos();
+        removerInvalidFeedbackClass();
         cadastrar(usuario); // Envia os dados para o backend
         limparCampos(); // Limpa os campos do formulário após o envio bem-sucedido
     }
 });
+
+function removerInvalidFeedbackClass() {
+    const campos = document.querySelectorAll('.form-control');
+    campos.forEach(campo => {
+        campo.classList.remove('invalid-feedback');
+    });
+}
 
 function cadastrar(usuario) {
 
@@ -52,7 +65,7 @@ function cadastrar(usuario) {
 
             setTimeout(() => {
                 esconderLoading();
-                window.location.href = "TelaInicial.html";
+                document.querySelector(".card").style.display = "flex";
             }, 3000);
         })
         .catch(error => console.log('Erro ao cadastrar usuario:', error));
