@@ -38,6 +38,10 @@ header{
     font-weight: 600;
 }
 
+.right-nav{
+    display: flex;
+}
+
 .right-nav i{
     padding: 10px;
 }
