@@ -67,6 +67,32 @@ body{
     height: 75vh;
 }
 
+@media screen and (max-width: 1170px){
+    #main-air-max{
+        margin-top: 20px;
+        display: flex;
+        flex-direction: column-reverse;
+        gap: 20px;
+    }
+
+    #img_right-topo{
+        width: 350px;
+        height: 400px;
+        border-radius: 20px;
+    }
+
+    #nike_tittle{
+        font-weight: 800;
+        font-size: 40px;
+    }
+    
+    #left_topo p{
+        color: #000;
+        font-size: 16px;
+        font-weight: 350;
+    }
+}
+
 
 
 
