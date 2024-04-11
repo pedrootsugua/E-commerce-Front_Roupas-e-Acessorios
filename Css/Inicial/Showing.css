@@ -75,7 +75,9 @@
 }
 
 #image img{
-    border-radius: 25px;    
+    border-radius: 25px;  
+    height: 100%;
+
     
 }
 
@@ -89,6 +91,6 @@
 }
 
 .image-story{
-    width: 25vw;
-    height: 60vh;
+    width: 495px;
+    height: 705px;
 }
