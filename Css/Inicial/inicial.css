@@ -34,30 +34,97 @@ body{
     font-weight: 350;
 }
 
-#btn-confira{
-    width: 150px;
-    height: 60px;
-    border-radius: 55px;
-    background: #c59361d0;
-    border: none;
-}
-
-#btn-confira:hover{
-    transition: all 0.6s ease;
-    background-color: #ecbf92;
-}
-
-#btn-confira a{
-    color: #FFFFFF;
+.confira {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    outline: none;
+    border: 0;
+    vertical-align: middle;
     text-decoration: none;
-    font-size: 20px;
-    font-weight: 600;
+    background: transparent;
+    padding: 0;
+    font-size: inherit;
+    font-family: inherit;
+   }
+   
+.confira {
+    width: 12rem;
+    height: auto;
+   }
+   
+.circle {
+    transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+    position: relative;
+    display: block;
+    margin: 0;
+    width: 3rem;
+    height: 3rem;
+    background: #c59361d0;
+    border-radius: 1.625rem;
+   }
+   
+.icon {
+    transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    background: #fff;
 }
+   
+.icon.arrow {
+    transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+    left: 0.625rem;
+    width: 1.125rem;
+    height: 0.125rem;
+    background: none;
+}
+ 
+.icon.arrow::before {
+    position: absolute;
+    content: "";
+    top: -0.29rem;
+    right: 0.0625rem;
+    width: 0.625rem;
+    height: 0.625rem;
+    border-top: 0.125rem solid #fff;
+    border-right: 0.125rem solid #fff;
+    transform: rotate(45deg);
+   }
+   
+.button-text {
+    transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 0.75rem 0;
+    margin: 0 0 0 1.85rem;
+    color: #282936;
+    font-weight: 700;
+    line-height: 1.6;
+    text-align: center;
+    text-transform: uppercase;
+   }
+   
+   button:hover .circle {
+    width: 100%;
+   }
+   
+   button:hover .circle .icon.arrow {
+    background: #fff;
+    transform: translate(1rem, 0);
+   }
+   
+   button:hover .button-text {
+    color: #fff;
+   }
 
-#btn-confira:hover{
-    transition: 0.4s ;
-    font-size: 17px;
-    font-weight: 600px;
+   .confira:focus,
+.confira:active {
+    outline: none;
 }
 
 
@@ -92,30 +159,3 @@ body{
         font-weight: 350;
     }
 }
-
-
-
-
-
-/* .historia-air-max{
-    height: calc(100vh - 105px);
-}
-
-.historia-air-max h2{
-    text-align: center;
-    margin: 40px 0px 40px 0px;
-}
-
-.carrossel{
-    display: flex;
-    width: 100%;
-    justify-content: space-around;
-    gap: 5px;
-}
-
-.img-carrossel{
-    width: 300px;
-    height: 450px;
-    border-radius: 30px;
-     
-}*/
