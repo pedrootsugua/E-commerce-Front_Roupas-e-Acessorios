@@ -1,8 +1,13 @@
 //Pega as informações do html
 const formulario = document.querySelector("form");
-const Inome = document.querySelector(".nome");
-const Icategoria = document.querySelector(".categoria");
-const Ipreco = document.querySelector(".preco");
+const Inome = document.querySelector("#nomeProduto");
+const Ipreco = document.querySelector("#preco");
+const Icategoria = document.querySelector("#categoria");
+const Imarca = document.querySelector("#marca");
+const Itamanho = document.querySelector("#tamanho");
+const Iunidade = document.querySelector("#unidade");
+const Iestoque = document.querySelector("#estoque");
+const Idescricao = document.querySelector("#descricao");
 const Iimagem = document.querySelector("#picture__input");
 const IoutraImagem = document.querySelector("#picture__inputt");
 
@@ -14,7 +19,13 @@ function cadastrar() {
     //Objeto JSON que recebe os dados que serão guardados no banco
     const produto = {
         nome: Inome.value,
+        preco: Ipreco.value,
         categoria: Icategoria.value,
+        marca: Imarca.value,
+        tamanho: Itamanho.value,
+        unidade: Iunidade.value,
+        estoque: Iestoque.value,
+        descricao: Idescricao.value
     };
     
     //Adição das info dos produtos no objeto
@@ -70,10 +81,6 @@ function limpar() {
     pictureImage.innerHTML = pictureImageTxt;
     pictureImage2.innerHTML = pictureImageTxt2;
 }
-
-document.getElementById('btnCancelar').addEventListener('click', function () {
-    window.location.href = 'TelaInicial.html';
-});
 
 //EventListener que captura o momento que o botão cadastrar é pressionado
 formulario.addEventListener("submit", function (event) {
