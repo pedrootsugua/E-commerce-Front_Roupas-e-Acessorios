@@ -180,6 +180,7 @@ table tbody .total {
 /* estilização do card debito e credito */
 body .card {
     border: none;
+    margin-bottom: 30px;
 }
 
 .flip-card {
@@ -219,8 +220,8 @@ body .card {
 .number {
     position: absolute;
     font-weight: bold;
-    font-size: .6em;
-    top: 8.3em;
+    font-size: .8em;
+    top: 6.3em;
     left: 1.6em;
 }
 
@@ -235,17 +236,18 @@ body .card {
 .date_8264 {
     position: absolute;
     font-weight: bold;
-    font-size: 0.5em;
-    top: 13.6em;
+    font-size: 0.6em;
+    top: 10.9em;
     left: 3.2em;
 }
 
 .name {
     position: absolute;
     font-weight: bold;
-    font-size: 0.5em;
-    top: 16.1em;
-    left: 2em;
+    font-size: 0.8em;
+    letter-spacing: 1.3px;
+    top: 9.5em;
+    left: 1.7em;
 }
 
 .strip {
@@ -284,7 +286,7 @@ body .card {
 .code {
     font-weight: bold;
     text-align: center;
-    margin: .2em;
+    line-height: 1em;
     color: black;
 }
 
@@ -297,7 +299,8 @@ body .card {
     transform-style: preserve-3d;
 }
 
-.flip-card:hover .flip-card-inner {
+/* gira o cartão */
+.virar .flip-card-inner {
     transform: rotateY(180deg);
 }
 
@@ -343,14 +346,32 @@ body .card {
     flex-direction: column;
 }
 
-
 .container-dados .dados-card .dados {
     display: flex;
-    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 20px;
 }
 
-.dados-card label, input{
-    display: block;
+.container-dados .dados-card .dados div {
+    display: flex;
+    flex-direction: column;
+    margin: 5px 15px;
+}
+
+.container-dados .dados-card .dados #num-cartao {
+    width: 200px;
+}
+
+.container-dados .dados-card .dados #validade {
+    width: 70px;
+}
+
+.container-dados .dados-card .dados #nome {
+    width: 200px;
+}
+
+.container-dados .dados-card .dados #cvv {
+    width: 70px;
 }
 
 .dados-card label {
@@ -360,24 +381,26 @@ body .card {
     font-style: normal;
     font-weight: 700;
     line-height: normal;
-    letter-spacing: -0.3px;
+    letter-spacing: 0.5px;
+    margin-bottom: 5px;
 }
 
 .dados-card input {
     border: none;
     border-radius: 15px;
-    background-color: #000000c9;
-    color: #FFFFFF;
+    background-color: #FFFFFF;
+    color: #000000;
     font-family: Poppins;
     font-size: 13px;
     font-style: normal;
-    font-weight: 500;
+    font-weight: 700;
     line-height: normal;
     letter-spacing: 1.2px;
+    text-align: center;
 }
 
 .dados-card input:hover {
-    background-color: #000000e1;
+    background-color: #0000001c;
 }
 
 /* Botão finalizar compra */
