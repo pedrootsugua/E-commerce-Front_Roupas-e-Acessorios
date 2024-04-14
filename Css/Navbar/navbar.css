@@ -38,8 +38,24 @@ header{
     font-weight: 600;
 }
 
+.nav-item a:hover{
+    text-decoration: none;
+    color: black;
+    font-weight: 600;
+}
+
 .right-nav{
     display: flex;
+}
+
+.right-nav a{
+    text-decoration: none;
+    color: black;
+}
+
+.right-nav a:hover{
+    text-decoration: none;
+    color: black;
 }
 
 .right-nav i{
@@ -56,6 +72,11 @@ header{
 
 .mobile-right-nav{
     display: none;
+}
+
+.mobile-right-nav a{
+    text-decoration: none;
+    color: black;
 }
 
 #mobile-btn{
