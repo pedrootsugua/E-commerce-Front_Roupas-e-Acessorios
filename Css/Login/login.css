@@ -14,14 +14,14 @@ body{
 .principal{
     width: 100vw;  
     height: 100vh; /*tamanho da viewport (pega o tamanho da tela)*/
-    background-color: #C0C0C0;
+    background-color: #96929274;
     display: flex;
     justify-content: center;  /* eixo x */
     align-items: center; /* eixo y */
 }
 
 .login{
-    width: 50vw;
+    width: 60%;
     height: 100vh;
     display: flex;
     justify-content: center;  
@@ -37,7 +37,7 @@ body{
     padding: 30px 35px; /* eixo y e eixo x (respectivamente) */
     background-color:#d3d3d374;
     border-radius: 20px;
-    box-shadow: 0px 10px px rgb(69, 65, 65);  /*1-sombra direita/esquerda 2-direita/baixo 3-blur 4-cor*/
+    box-shadow: 0px 25px 80px rgb(69, 65, 65);  /*1-sombra direita/esquerda 2-direita/baixo 3-blur 4-cor*/
 }
 
 /* .title{
@@ -45,8 +45,8 @@ body{
 } */
 
 #logo{
-    width: 120px;
-    height: 120px;
+    width: 30%;
+    height: 30%;
 }
 
 #senha{
@@ -79,7 +79,7 @@ body{
     font-size: 12pt;
     /* box-shadow: 0px 10px 10px rgb(69, 65, 65);  */
     outline: none;
-    background-color: #D3D3D3;
+    background-color: #d3d3d36b;
 }
 
 .text-field input::placeholder{
