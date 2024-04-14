@@ -344,6 +344,7 @@ body .card {
 .container-dados .dados-card {
     display: flex;
     flex-direction: column;
+    margin-bottom: 15px;
 }
 
 .container-dados .dados-card .dados {
@@ -435,7 +436,7 @@ body .card {
     height: 130px;
     position: absolute;
     content: "";
-    background-color: white;
+    background-color: rgb(224, 224, 224);
     border-radius: 50%;
     left: -100%;
     top: 0;
@@ -453,3 +454,58 @@ body .card {
     transform: translate(5px,5px);
     transition-duration: .3s;
   }
+
+  /* Botão voltar */
+  .animated-button {
+    position: relative;
+    display: inline-block;
+    padding: 5px 20px;
+    border: none;
+    font-size: 16px;
+    background-color: inherit;
+    border-radius: 40px;
+    font-weight: 600;
+    color: #6e6e6e;
+    box-shadow: 0 0 0 2px #6e6e6e;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+    margin-top: 25px;
+  }
+  
+  .animated-button span:last-child {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20px;
+    height: 20px;
+    background-color: #161616;
+    border-radius: 50%;
+    opacity: 0;
+    transition: all 0.8s cubic-bezier(0.23, 1, 0.320, 1);
+  }
+  
+  .animated-button span:first-child {
+    position: relative;
+    z-index: 1;
+  }
+  
+  .animated-button:hover {
+    box-shadow: 0 0 0 5px #8f8f8f60;
+    color: #ffffff;
+  }
+  
+  .animated-button:active {
+    scale: 0.95;
+  }
+  
+  .animated-button:hover span:last-child {
+    width: 150px;
+    height: 150px;
+    opacity: 1;
+  }
+  
+  
+  
+  
