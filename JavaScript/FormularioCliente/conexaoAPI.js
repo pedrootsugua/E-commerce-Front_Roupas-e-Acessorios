@@ -1,11 +1,13 @@
 function mostrarLoading() {
+    document.getElementById("loadingModal").style.display = "block";
     document.querySelector(".main").classList.add('blur');
     // Exibe o modal de loading
-    document.getElementById("loadingModal").style.display = "block";
 }
 
 function redirecionarParaPagina() {
     window.location.href = "TelaInicial.html";
+
+    window.history.replaceState(null, null, "TelaInicial.html");
 }
 
 document.querySelector(".accept-cookie-button").addEventListener("click", redirecionarParaPagina);
@@ -34,21 +36,24 @@ document.querySelector("form").addEventListener("submit", function (event) {
             uf: form.querySelector("#uf").value
         };
 
-        removerInvalidFeedbackClass();
         cadastrar(usuario); // Envia os dados para o backend
+        document.getElementById("form").addEventListener("click", function () {
+            removerInvalidFeedbackClass();
+        });
         limparCampos(); // Limpa os campos do formulário após o envio bem-sucedido
     }
 });
 
+
 function removerInvalidFeedbackClass() {
     const campos = document.querySelectorAll('.form-control');
     campos.forEach(campo => {
-        campo.classList.remove('invalid-feedback');
+        campo.classList.remove("invalid-feedback");
     });
 }
 
-function cadastrar(usuario) {
 
+function cadastrar(usuario) {
     mostrarLoading();
 
     fetch('http://localhost:8080/api/usuarios/criar', {
@@ -58,19 +63,29 @@ function cadastrar(usuario) {
         },
         body: JSON.stringify(usuario)
     })
-
-        .then(response => response.text())
-        .then(result => {
-            console.log(result);
-
-            setTimeout(() => {
-                esconderLoading();
-                document.querySelector(".card").style.display = "flex";
-            }, 3000);
+        .then(response => {
+            if (response.status === 201) {
+                // Cadastro realizado com sucesso
+                setTimeout(() => {
+                    esconderLoading();
+                    document.querySelector(".card").style.display = "flex";
+                }, 3000);
+            } else if (response.status === 409) {
+                // CPF já cadastrado
+                alert("CPF já cadastrado. Por favor, insira um CPF válido.");
+                document.querySelector(".main").classList.remove('blur');
+                esconderLoading(); // Esconde o modal de loading
+            }
         })
-        .catch(error => console.log('Erro ao cadastrar usuario:', error));
-    console.log(usuario)
+        .catch(error => {
+            // Exibe mensagem de erro em caso de falha na requisição
+            console.error('Erro ao cadastrar usuário:', error);
+            alert("Erro ao cadastrar usuário. Por favor, tente novamente.");
+            esconderLoading(); // Esconde o modal de loading
+            document.querySelector(".main").classList.remove('blur'); // Remove o efeito de blur
+        });
 }
+
 
 // Remove temporariamente as classes de validação dos campos
 function removerValidacaoCampos() {
@@ -101,7 +116,7 @@ function meu_callback(conteudo) {
         document.getElementById("bairro").value = (conteudo.bairro);
         document.getElementById("cidade").value = (conteudo.localidade);
         document.getElementById("uf").value = (conteudo.uf);
-    } //end if.
+    } //end if. 
     else {
         //CEP não Encontrado.
         limpa_formulário_cep();
