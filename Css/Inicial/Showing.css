@@ -34,8 +34,10 @@
     border-radius: 40px;
 }
 
+
+
 .historia-streetwear{
-    width: 55%;
+    width: 60%;
     min-height: calc(100vh - 105px);
     margin: 0 auto;
     box-sizing: border-box;
@@ -47,6 +49,8 @@
 }
 
 #left_story{
+    max-width: 100vw;
+    max-height: 100vh;
     display: flex;
     justify-content: center;
     flex-direction: row;
@@ -57,28 +61,25 @@
 }
 
 #text_story{
-    
-    width: 45%;
+    text-align: justify;
+    max-height: 600px;
+    text-overflow: ellipsis;
+    overflow: auto;
+    padding-right: 10px;
 }
 
-#left_story p{
+.text-story p{
     text-align: justify;
-}
-
-#right_story p{
-    text-align: justify;
+    box-sizing: border-box;
 }
 
 #image{
-    box-sizing: border-box;
-    height: 90%;
+    height:auto;
 }
 
 #image img{
     border-radius: 25px;  
-    height: 100%;
-
-    
+    height: auto;
 }
 
 #right_story{
