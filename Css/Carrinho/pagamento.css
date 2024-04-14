@@ -6,7 +6,8 @@ body {
 /* Checkpoints */
 .checkpoints {
     width: 750px;
-    margin: 40px auto;
+    margin: 120px auto 60px auto;
+
 }
 
 .checkpoints h1 {
@@ -170,6 +171,12 @@ table tbody .total {
 }
 
 
+.container-pagamento {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
 /* estilização do card debito e credito */
 body .card {
     border: none;
@@ -329,6 +336,17 @@ body .card {
     align-items: center;
     justify-content: center;
     flex-direction: column;
+}
+
+.container-dados .dados-card {
+    display: flex;
+    flex-direction: column;
+}
+
+
+.container-dados .dados-card .dados {
+    display: flex;
+    flex-direction: row;
 }
 
 .dados-card label, input{
