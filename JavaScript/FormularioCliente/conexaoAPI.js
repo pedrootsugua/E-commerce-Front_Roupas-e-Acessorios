@@ -33,7 +33,9 @@ document.querySelector("form").addEventListener("submit", function (event) {
             bairro: form.querySelector("#bairro").value,
             numero: form.querySelector("#numero").value,
             cidade: form.querySelector("#cidade").value,
-            uf: form.querySelector("#uf").value
+            uf: form.querySelector("#uf").value,
+            email: form.querySelector('#email').value,
+            senha: form.querySelector('#senha').value
         };
 
         cadastrar(usuario); // Envia os dados para o backend

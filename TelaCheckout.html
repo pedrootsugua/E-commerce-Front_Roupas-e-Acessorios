@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Css/Reset/Reset.css">
+    <link rel="stylesheet" href="Css/Navbar/navbar.css">
+    <link rel="stylesheet" href="Css/Carrinho/checkout.css">
+
+    <link rel="stylesheet" href="vendor/BootStrap/bootstrap.css">
+    <link rel="stylesheet" href="vendor/BootStrap/open-iconic-bootstrap.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <title>Checkout</title>
+</head>
+
+<body>
+
+    <header>
+        <nav id="navbar">
+            <div class="img">
+                <img src="/img/logo.png" alt="logo">
+            </div>
+
+            <ul id="nav-list">
+                <li class="nav-item">
+                    <a href="">Promoções</a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="">Vestuário</a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="">Acessórios</a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="">Sneakers</a>
+                </li>
+            </ul>
+
+            <div class="right-nav">
+                <input id="pesquisa" type="text" placeholder="pesquisar">
+                <i class="fa-solid fa-user"></i>
+                <i class="fa-solid fa-cart-shopping"></i>
+                <i class="fa-regular fa-heart"></i>
+            </div>
+
+            <div class="mobile-right-nav">
+                <input id="pesquisa" type="text" placeholder="pesquisar">
+                <i class="fa-solid fa-user"></i>
+                <i class="fa-solid fa-cart-shopping"></i>
+                <i class="fa-regular fa-heart"></i>
+            </div>
+
+            <button id="mobile-btn">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </nav>
+
+        <div id="mobile-menu">
+            <ul id="mobile-nav-list">
+                <li class="nav-item">
+                    <a href="">Promoções</a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="">Vestuário</a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="">Acessórios</a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="">Sneakers</a>
+                </li>
+            </ul>
+        </div>
+    </header>
+    <div class="checkpoints">
+        <h1>
+            <p>Carrinho</p>
+            <hr>
+            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="24" viewBox="0 0 25 24" fill="none">
+                <g clip-path="url(#clip0_1_310)">
+                    <path
+                        d="M12.807 22.0029C7.21423 22.0029 2.68066 17.72 2.68066 12.4364C2.68066 7.15285 7.21423 2.86993 12.807 2.86993C18.3998 2.86993 22.9334 7.15285 22.9334 12.4364C22.9334 17.72 18.3998 22.0029 12.807 22.0029ZM11.7974 16.263L18.9568 9.49855L17.5249 8.14585L11.7974 13.5576L8.93268 10.8513L7.50081 12.204L11.7974 16.263Z"
+                        fill="black" />
+                </g>
+                <defs>
+                    <clipPath id="clip0_1_310">
+                        <rect width="24.3032" height="22.9596" fill="white" transform="translate(0.655273 0.956635)" />
+                    </clipPath>
+                </defs>
+            </svg>
+            <hr>
+            <p><span>Checkout</span></p>
+            <hr>
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="18" viewBox="0 0 20 18" fill="none">
+                <ellipse cx="10" cy="9" rx="10" ry="9" fill="black" />
+            </svg>
+            <hr>
+            <p><span>Pagamento</span></p>
+        </h1>
+    </div>
+    <div class="container">
+        <h3>Detalhes do Envio</h3>
+        <input type="radio">
+        <label for="">Usar endereço salvo</label>
+    </div>
+
+
+    <footer class="text-center text-lg-start text-white" style="background-color: #1c2331; margin-top: 10%;">
+        <!-- Section: Social media -->
+        <section class="d-flex justify-content-between p-4" style="background-color: #859Eb1">
+
+        </section>
+        <!-- Section: Social media -->
+
+        <!-- Section: Links  -->
+        <section class="">
+            <div class="container text-center text-md-start mt-5">
+                <!-- Grid row -->
+                <div class="row mt-3">
+                    <!-- Grid column -->
+                    <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+                        <!-- Content -->
+                        <h6 class="text-uppercase fw-bold">Nome da Loja</h6>
+                        <hr class="mb-4 mt-0 d-inline-block mx-auto"
+                            style="width: 60px; background-color: #859Eb1; height: 2px" />
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi sequi ipsum repudiandae eaque
+                            voluptate numquam exercitationem commodi in et labore doloribus impedit nihil, consequatur
+                            esse nostrum ducimus, neque repellendus. Sunt!
+                        </p>
+                    </div>
+                    <!-- Grid column -->
+
+                    <!-- Grid column -->
+                    <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+                        <!-- Links -->
+                        <h6 class="text-uppercase fw-bold">Produtos</h6>
+                        <hr class="mb-4 mt-0 d-inline-block mx-auto"
+                            style="width: 60px; background-color: #859Eb1; height: 2px" />
+                        <p>
+                            <a href="#!" class="text-white">Qualquer coisa</a>
+                        </p>
+                        <p>
+                            <a href="#!" class="text-white">Qualquer coisa</a>
+                        </p>
+                        <p>
+                            <a href="#!" class="text-white">Qualquer coisa</a>
+                        </p>
+                        <p>
+                            <a href="#!" class="text-white">Qualquer coisa</a>
+                        </p>
+                    </div>
+                    <!-- Grid column -->
+
+                    <!-- Grid column -->
+                    <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+                        <!-- Links -->
+                        <h6 class="text-uppercase fw-bold">Sobre nós</h6>
+                        <hr class="mb-4 mt-0 d-inline-block mx-auto"
+                            style="width: 60px; background-color: #859Eb1; height: 2px" />
+                        <p>
+                            <a href="#!" class="text-white">Qualquer coisa</a>
+                        </p>
+                        <p>
+                            <a href="#!" class="text-white">Qualquer coisa</a>
+                        </p>
+                        <p>
+                            <a href="#!" class="text-white">Qualquer coisa</a>
+                        </p>
+                        <p>
+                            <a href="#!" class="text-white">Qualquer coisa</a>
+                        </p>
+                    </div>
+                    <!-- Grid column -->
+
+                    <!-- Grid column -->
+                    <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+                        <!-- Links -->
+                        <h6 class="text-uppercase fw-bold">Fale Conosco</h6>
+                        <hr class="mb-4 mt-0 d-inline-block mx-auto"
+                            style="width: 60px; background-color: #859Eb1; height: 2px" />
+                        <p><i class="fas fa-home mr-3"></i>Av. Eng. Eusebio Stevaux, 823 Santo Amaro</p>
+                        <p><i class="fas fa-envelope mr-3"></i> nomeloja@gmail.com</p>
+                        <p><i class="fas fa-phone mr-3"></i> + 01 234 567 88</p>
+                        <p><i class="fas fa-print mr-3"></i> + 01 234 567 89</p>
+                    </div>
+                    <!-- Grid column -->
+                </div>
+                <!-- Grid row -->
+            </div>
+        </section>
+        <!-- Section: Links  -->
+
+        <!-- Copyright -->
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
+            &copy; 2024 Todos os direitos reservados
+        </div>
+        <!-- Copyright -->
+    </footer>
+
+</body>
+
+</html>
