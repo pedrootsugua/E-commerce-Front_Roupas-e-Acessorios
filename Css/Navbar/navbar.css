@@ -38,6 +38,28 @@ header{
     font-weight: 600;
 }
 
+ul li ul.dropdown li{
+    display: block;
+}
+
+ ul .dropdown{
+    width: 5%;
+    position: absolute;
+    z-index: 999;
+    display: none;
+}
+
+.dropdown a{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 14px;
+    font-weight: 200;
+}
+
+ul li:hover ul.dropdown{
+    display: block;
+}
+
 .nav-item a:hover{
     text-decoration: none;
     color: black;

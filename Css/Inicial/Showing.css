@@ -32,6 +32,26 @@
     width: 25vw;
     height: 75vh;
     border-radius: 40px;
+    z-index: 2;
+}
+
+.shape{
+    background: rgba(244, 244, 244, 0.66);
+    border-radius: 40px;
+    width: 25vw;
+    height: 75vh;
+    position: absolute;
+    display: none;
+    z-index: 1;
+}
+
+.shape:hover{
+    display: block;
+    z-index: 3;
+}
+
+.showing-img-side:hover{
+    cursor: pointer;
 }
 
 
