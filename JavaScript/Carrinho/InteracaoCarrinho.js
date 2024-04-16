@@ -54,3 +54,11 @@ function inputCVVHandler(value) {
     verificarCVV(value);
     atualizarCVVMascarado('valorCVV', value);
 }
+
+
+// aplicar blur e mostrar modal de pagamento-------------------------------------
+function mostrarProcessamentoPagamento() {
+    document.querySelector(".add-blur").classList.add('blur');
+    // Exibe o modal de pagamento
+    document.getElementById("container-modal").style.display = "flex";
+}
