@@ -113,3 +113,49 @@ body{
     transition: all 0.8s ease;
 }
 
+
+.card {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    align-items: center;
+    /* Centraliza verticalmente */
+    justify-content: center;
+    /* Centraliza horizontalmente */
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Fundo escuro para sobreposição */
+}
+
+.modal-confirm {
+    width: 280px;
+    height: fit-content;
+    background-color: #ffffff;
+    border-radius: 10px;
+    border: 1px solid rgb(206, 206, 206);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px;
+    gap: 15px;
+    position: relative;
+    font-family: Arial, Helvetica, sans-serif;
+    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.066);
+}
+
+.modal-heading {
+    color: rgb(34, 34, 34);
+    font-weight: 800;
+    text-align: center;
+}
+
+.modal-info {
+    font-size: 11px;
+    font-weight: 400;
+    color: rgb(51, 51, 51);
+    text-align: center;
+}
+
+
