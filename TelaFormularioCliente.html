@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="vendor/BootStrap/open-iconic-bootstrap.css">
     <link rel="stylesheet" href="Css/Inicial/main.css">
     <link rel="stylesheet" href="Css/FormularioCliente/formulario.css">
+    <script src="JavaScript/FormularioCliente/validacaoCampos.js" defer></script>
     <script src="JavaScript/FormularioCliente/conexaoAPI.js" defer></script>
     <script src="JavaScript/FormularioCliente/validacaoFormulario.js" defer></script>
 
@@ -40,7 +41,7 @@
                             <div class="col-md-6 mb-3">
                                 <label for="cpf">CPF</label>
                                 <input type="text" class="form-control" id="cpf" placeholder="Digite seu CPF..."
-                                    required>
+                                    inputmode="numeric" pattern="[0-9]*" required>
                                 <div class="invalid-feedback">
                                     Digite um CPF válido.
                                 </div>
@@ -57,7 +58,8 @@
                             </div>
                             <div class="col-md-6 mb-3">
                                 <label for="dtNascimento">Data de nascimento</label>
-                                <input type="date" class="form-control" id="dtNascimento" required>
+                                <input type="date" class="form-control" id="dtNascimento" required min="1900-01-01"
+                                    max="2024-12-31" onchange="validarAno()">
                                 <div class="invalid-feedback">
                                     Informe sua data de nascimento.
                                 </div>
@@ -66,7 +68,7 @@
                         <div class="row">
                             <div class="col-md-6 mb-3">
                                 <label for="cep">CEP</label>
-                                <input type="cep" class="form-control" id="cep" pattern="[0-9]{8}"
+                                <input type="cep" class="form-control" id="cep" inputmode="numeric" pattern="[0-9]*"
                                     onblur="pesquisacep(this);" required>
                                 <div class="invalid-feedback">
                                     Digite um CEP válido.

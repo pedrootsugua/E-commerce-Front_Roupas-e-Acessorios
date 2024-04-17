@@ -160,7 +160,6 @@ function pesquisacep(cepInput) {
         else {
             //cep é inválido.
             limpa_formulário_cep();
-            alert("Formato de CEP inválido.");
         }
     } //end if.
     else {
