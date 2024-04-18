@@ -1,0 +1,80 @@
+.novidades{
+    min-height: calc(100vh - 105px);
+    width: 100%;
+}
+
+#tittle-novidades{
+    text-align: center;
+    margin-bottom: 70px;
+}
+
+.container-novidades{
+    position: relative;
+    padding: 15px;
+    width: 50%;
+    margin: 0 auto;
+}
+
+.novidades-wrapper{
+    overflow-x: auto;
+}
+
+.arrow-left,
+.arrow-right {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: auto;
+  bottom: 0;
+  font-size: 20px;
+  line-height: 250px;
+  width: 40px;
+  color: #fff;
+  transition: all 600ms ease-in-out;
+  background: linear-gradient(to left, transparent 0%, black 200%);
+  opacity: 0.1;
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+
+.arrow-left:hover,
+.arrow-right:hover {
+  opacity: 1;
+  outline: none;
+}
+
+.arrow-right {
+  right: 0;
+  left: auto;
+  text-align: right;
+  background: linear-gradient(to right, transparent 0%, black 200%);
+}
+
+.img-novidades{
+    display: flex;
+    flex-flow: row nowrap;
+    gap: 15px;
+}
+
+.item {
+    width: 500px;
+    height: 500px;
+    flex-shrink: 0;
+    transition: all 600ms ease-in-out;
+    /*opacity: 0.5;*/
+    border-radius: 20px;
+  }
+  
+  /* .current-item {
+    opacity: 1;
+  } */
+
+  /* .novidades-wrapper::-webkit-scrollbar{
+    display: none;
+  }
+
+  .novidades-wrapper{
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  } */
