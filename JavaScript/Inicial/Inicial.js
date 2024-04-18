@@ -1,22 +1,33 @@
-var count = 1;
-var descer = false;
-document.getElementById("radio1").checked = true;
+const controls = document.querySelectorAll(".control");
+let currentItem = 0;
+const items = document.querySelectorAll(".item");
+const maxItems = items.length;
 
-setInterval( function(){
-nextImage();
-},2000);
+controls.forEach((control) => {
+  control.addEventListener("click", (e) => {
+    isLeft = e.target.classList.contains("arrow-left");
 
-function nextImage(){
-    count++;
-    if(count>=4 && descer == false){
-        descer = true;
-    } else if (descer == true) {
-        count = count - 2;
-        if (count <= 1) {
-            count = 1;
-            descer = false
-        }
+    if (isLeft) {
+      currentItem -= 1;
+    } else {
+      currentItem += 1;
     }
-    console.log(count)
-    document.getElementById("radio"+count).checked = true;
-}
+
+    if (currentItem >= maxItems) {
+      currentItem = 0;
+    }
+
+    if (currentItem < 0) {
+      currentItem = maxItems - 1;
+    }
+
+    items.forEach((item) => item.classList.remove("current-item"));
+
+    items[currentItem].scrollIntoView({
+      behavior: "smooth",
+      inline: "center"
+    });
+
+    items[currentItem].classList.add("current-item");
+  });
+});
