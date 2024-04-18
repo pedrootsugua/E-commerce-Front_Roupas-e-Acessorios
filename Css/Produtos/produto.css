@@ -1,6 +1,7 @@
 body{
   background-color: #f2f2f2;
-}
+  box-sizing: border-box;
+}                                                                                                                                                                                
 .containerpr{
     width: 100%;
 }
@@ -31,7 +32,7 @@ display: flex;
 justify-content: space-between;
 }
 
-.container input {
+.containerpr input {
     position: absolute;
     opacity: 0;
     cursor: pointer;
@@ -39,14 +40,14 @@ justify-content: space-between;
     width: 0;
   }
   
-  .container {
+  .container-fav {
     display: contents;
     position: relative;
     cursor: pointer;
     user-select: none;
   }
   
-  .container svg {
+  .containerpr svg {
     position: relative;
     top: 0;
     left: 0;
@@ -56,11 +57,11 @@ justify-content: space-between;
     fill: #666;
   }
   
-  .container svg:hover {
+  .containerpr svg:hover {
     transform: scale(1.1);
   }
   
-  .container input:checked ~ svg {
+  .containerpr input:checked ~ svg {
     fill: #E3474F;
   }
   
