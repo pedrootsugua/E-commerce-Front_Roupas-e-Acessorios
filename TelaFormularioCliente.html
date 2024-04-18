@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="Css/Inicial/main.css">
     <link rel="stylesheet" href="Css/FormularioCliente/formulario.css">
     <link rel="stylesheet" href="/Css/Footer/footer.css">
-    <script src="JavaScript/FormularioCliente/validacaoCampos.js" defer></script>
+    <script src="JavaScript/FormularioCliente/utils.js" defer></script>
     <script src="JavaScript/FormularioCliente/conexaoAPI.js" defer></script>
     <script src="JavaScript/FormularioCliente/validacaoFormulario.js" defer></script>
 
@@ -42,7 +42,7 @@
                             <div class="col-md-6 mb-3">
                                 <label for="cpf">CPF</label>
                                 <input type="text" class="form-control" id="cpf" placeholder="Digite seu CPF..."
-                                    inputmode="numeric" pattern="[0-9]*" required>
+                                    inputmode="numeric" pattern="[0-9]*" minlength="11" required>
                                 <div class="invalid-feedback">
                                     Digite um CPF válido.
                                 </div>
@@ -129,7 +129,7 @@
                         <div class="mb-3">
                             <label for="senha">Senha</label>
                             <input type="password" class="form-control" placeholder="Digite sua senha..." id="senha"
-                                required>
+                                minlength="5" required>
                             <div class="invalid-feedback">
                                 A senha deve conter no mínimo 5 caracteres.
                             </div>
@@ -137,7 +137,7 @@
                         <div class="mb-3">
                             <label for="confirmSenha">Confirme sua senha</label>
                             <input type="password" class="form-control" placeholder="Confirme a sua senha..."
-                                id="confirmSenha" required>
+                                id="confirmSenha" minlength="5" required>
                             <div class="invalid-feedback">
                                 As senhas precisam ser iguais.
                             </div>
@@ -173,63 +173,65 @@
     <footer class="text-center text-lg-start text-white" style="background-color: #1c2331" id="footer">
         <!-- Section: Social media -->
         <section class="d-flex justify-content-between p-4" style="background-color: #859Eb1">
-          <!-- Left -->
-          <div class="me-5">
-            <span >Fique por dentro:</span>
-          </div>
-          <!-- Left -->
-    
-          <!-- Right -->
-          <div>
-            <a href="#" class="text-white me-4">
-              <i class="fab fa-instagram"></i>
-            </a>
-            <a href="https://github.com/pedrootsugua/Projeto-E-commerce" class="text-white me-4" target="blank">
-              <i class="fab fa-github"></i>
-            </a>
-          </div>
-          <!-- Right -->
+            <!-- Left -->
+            <div class="me-5">
+                <span>Fique por dentro:</span>
+            </div>
+            <!-- Left -->
+
+            <!-- Right -->
+            <div>
+                <a href="#" class="text-white me-4">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://github.com/pedrootsugua/Projeto-E-commerce" class="text-white me-4" target="blank">
+                    <i class="fab fa-github"></i>
+                </a>
+            </div>
+            <!-- Right -->
         </section>
         <!-- Section: Social media -->
-    
+
         <!-- Section: Links  -->
         <section class="">
-          <div class="container text-center text-md-start mt-5">
-            <!-- Grid row -->
-            <div class="row mt-3">
-              <!-- Grid column -->
-              <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
-                <!-- Content -->
-                <h6 class="text-uppercase fw-bold">Happy Camper</h6>
-                <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: rgba(244, 244, 244, 0.66); height: 2px" />
-                <p>Happy Camper onde a paixão pela moda encontra a raridade e a singularidade.  
-                </p>
-              </div>
-              <!-- Grid column -->
-              
-    
-              <!-- Grid column -->
-              <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
-                <!-- Links -->
-                <h6 class="text-uppercase fw-bold">Contact</h6>
-                <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: rgba(244, 244, 244, 0.66); height: 2px" />
-                <p><i class="fas fa-home mr-3"></i> São Paulo, SP, BR</p>
-                <p><i class="fas fa-envelope mr-3"></i> happycamper@gmail.com</p>
-                <p><i class="fas fa-phone mr-3"></i> + 55 99999 5688</p>
-              </div>
-              <!-- Grid column -->
+            <div class="container text-center text-md-start mt-5">
+                <!-- Grid row -->
+                <div class="row mt-3">
+                    <!-- Grid column -->
+                    <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+                        <!-- Content -->
+                        <h6 class="text-uppercase fw-bold">Happy Camper</h6>
+                        <hr class="mb-4 mt-0 d-inline-block mx-auto"
+                            style="width: 60px; background-color: rgba(244, 244, 244, 0.66); height: 2px" />
+                        <p>Happy Camper onde a paixão pela moda encontra a raridade e a singularidade.
+                        </p>
+                    </div>
+                    <!-- Grid column -->
+
+
+                    <!-- Grid column -->
+                    <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+                        <!-- Links -->
+                        <h6 class="text-uppercase fw-bold">Contact</h6>
+                        <hr class="mb-4 mt-0 d-inline-block mx-auto"
+                            style="width: 60px; background-color: rgba(244, 244, 244, 0.66); height: 2px" />
+                        <p><i class="fas fa-home mr-3"></i> São Paulo, SP, BR</p>
+                        <p><i class="fas fa-envelope mr-3"></i> happycamper@gmail.com</p>
+                        <p><i class="fas fa-phone mr-3"></i> + 55 99999 5688</p>
+                    </div>
+                    <!-- Grid column -->
+                </div>
+                <!-- Grid row -->
             </div>
-            <!-- Grid row -->
-          </div>
         </section>
         <!-- Section: Links  -->
-    
+
         <!-- Copyright -->
         <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
-          © 2024 Copyright
+            © 2024 Copyright
         </div>
         <!-- Copyright -->
-      </footer>
+    </footer>
     <!-- Footer -->
     </div>
 
