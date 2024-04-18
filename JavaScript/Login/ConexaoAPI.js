@@ -13,10 +13,10 @@ const show = document.querySelector(".modal-confirm");
 // });
 
 
-btnLogin.addEventListener("click", function (event) {
-    event.preventDefault();
-    validarCampos();
-});
+// btnLogin.addEventListener("click", function (event) {
+//     event.preventDefault();
+//     validarCampos();
+// });
 
 function validarCampos() {
     const emailValue = email.value;
@@ -81,7 +81,8 @@ function consultar() {
 formulario.addEventListener("submit", function (event){
     event.preventDefault();
 
-    consultar();
+   // consultar();
+    validarCampos();
 })
 
 function limparCampos() {
