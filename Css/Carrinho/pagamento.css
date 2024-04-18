@@ -35,17 +35,27 @@ body {
 }
 
 /* Posicionamento do conteudo principal */
-.container {
+.main-container {
     display: flex;
     flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }
 
 .container-info {
-    width: 50%;
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 .container-pagamento {
-    width: 50%;
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 /* Tabela de resumo */
@@ -538,14 +548,14 @@ body .card {
     margin: auto;
   }
   
-  .container-modal:hover {
+  /* .container-modal:hover {
     transform: scale(1.03);
     width: 220px;
   }
   
   .container-modal:hover .left-side {
     width: 100%;
-  }
+  } */
   
   .left-side {
     background-color: #5de2a3;
@@ -573,9 +583,9 @@ body .card {
     transition: 0.3s;
   }
   
-  .right-side:hover {
+  /* .right-side:hover {
     background-color: #f9f7f9;
-  }
+  } */
   
   .arrow {
     width: 20px;
@@ -617,9 +627,9 @@ body .card {
       transform: scale(0.7);
     }
   
-    .container-modal:hover {
+    /* .container-modal:hover {
       transform: scale(0.74);
-    }
+    } */
   
     .new {
       font-size: 18px;
@@ -637,13 +647,13 @@ body .card {
     margin: 10px 0 0 -30px;
   }
   
-  .container-modal:hover .card {
+  /* .container-modal:hover .card {
     animation: slide-top 1.2s cubic-bezier(0.645, 0.045, 0.355, 1) both;
   }
   
   .container-modal:hover .post {
     animation: slide-post 1s cubic-bezier(0.165, 0.84, 0.44, 1) both;
-  }
+  } */
   
   @keyframes slide-top {
     0% {
@@ -755,9 +765,9 @@ body .card {
     text-align: center;
   }
   
-  .container-modal:hover .dollar {
+  /* .container-modal:hover .dollar {
     animation: fade-in-fwd 0.3s 1s backwards;
-  }
+  } */
   
   @keyframes fade-in-fwd {
     0% {
