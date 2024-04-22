@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="Css/Reset/Reset.css">
     <link rel="stylesheet" href="Css/Navbar/navbar.css">
     <link rel="stylesheet" href="Css/Carrinho/pagamento.css">
+    <link rel="stylesheet" href="/Css/Carrinho/confirmacaoPedido.css">
     <link rel="stylesheet" href="/Css/Footer/footer.css">
 
     <link rel="stylesheet" href="vendor/BootStrap/bootstrap.css">
@@ -320,7 +321,7 @@
                 </div>
             </div>
             <div class="right-side">
-                <div class="new">Processando...</div>
+                <div class="new">Processando<span class="piscar">...</span></div>
                 <svg viewBox="0 0 451.846 451.847" height="512" width="512" xmlns="http://www.w3.org/2000/svg"
                     class="arrow">
                     <path fill="#cfcfcf" data-old_color="#000000" class="active-path" data-original="#000000"
@@ -328,6 +329,61 @@
                     </path>
                 </svg>
             </div>
+        </div>
+    </div>
+
+    <div class="confirmacao-pedido">
+        <div class="header-modal-pedido">
+            <h1><img src="/img/logo.png" alt="Logo-Ecommerce"></h1>
+        </div>
+    
+        <div class="container-modal-pedido">
+            <h1>Pedido Confirmado!</h1>
+    
+            <section class="confirm-pedido">
+                <h2>Seu pedido foi processado com sucesso!</h2>
+                <p class="text-email">
+                    Em breve você receberá uma confirmação no e-mail:
+                    <span>ex@ex.com</span> com os dados do pedido realizado.
+                </p>
+    
+                <footer class="confirm-pag">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="65" height="60" viewBox="0 0 76 71" fill="none">
+                        <g clip-path="url(#clip0_1_1354)">
+                            <path
+                                d="M37.9999 64.4681C20.5104 64.4681 6.33325 51.3488 6.33325 35.1644C6.33325 18.98 20.5104 5.86072 37.9999 5.86072C55.4894 5.86072 69.6666 18.98 69.6666 35.1644C69.6666 51.3488 55.4894 64.4681 37.9999 64.4681ZM34.8428 46.8859L57.2311 26.1652L52.7534 22.0217L34.8428 38.5988L25.8843 30.3088L21.4066 34.4523L34.8428 46.8859Z"
+                                fill="#35B321" />
+                        </g>
+                        <defs>
+                            <clipPath id="clip0_1_1354">
+                                <rect width="76" height="70.3289" fill="white" />
+                            </clipPath>
+                        </defs>
+                    </svg>
+    
+                    <p>Pagamento Aprovado!</p>
+                </footer>
+            </section>
+    
+            <section class="info-pedido">
+                <h2>Informações do Pedido</h2>
+    
+                <section class="dados-pedido">
+                    <p>Número do pedido: 1546147</p>
+                    <p>Total: R$1599,99</p>
+                    <p>Forma de Pagamento: Cartão de Crédito </p>
+                    <p>Forma de Envio: Sedex (GRÁTIS)</p>
+                    <p>CEP de Entrega: 04848-000</p>
+                </section>
+    
+                <p class="info">*Os produtos serão enviados em até 3 dias úteis após a confirmação do pagamento.</p>
+            </section>
+    
+            <button class="acessar-pedidos">Ir para Meus Pedidos</button>
+        </div>
+    
+        <div class="rodape-modal-pedido">
+            <p class="copyright">&copy; Copyright Happy Camper - 2k24</p>
         </div>
     </div>
 

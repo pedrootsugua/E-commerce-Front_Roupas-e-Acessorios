@@ -7,7 +7,7 @@ function formatarNumeroCartao(valor) {
     valor = valor.replace(/\s/g, '');
     
     // Adicionar um espaço após cada conjunto de 4 dígitos
-    valorFormatado = valor.replace(/(\d{4})/g, '$1 ').trim();
+    let valorFormatado = valor.replace(/(\d{4})/g, '$1 ').trim();
     
     // Atualizar o valor do input com a formatação
     document.getElementById("num-cartao").value = valorFormatado;
@@ -35,13 +35,13 @@ function formatarValidade(valor) {
 
 // Aplica uma mascara no valor do CVV--------------------------------------
 function atualizarCVVMascarado(idParagrafo, valor) {
-    var valorMascarado = "*".repeat(valor.length);
+    let valorMascarado = "*".repeat(valor.length);
     document.getElementById(idParagrafo).textContent = valorMascarado;
 }
 
 // Gira o cartão ao digitar o CVV
 function verificarCVV(value) {
-    var card = document.getElementById("card");
+    let card = document.getElementById("card");
     if (value.trim().length > 0) {
         card.classList.add("virar");
     } else {
@@ -55,10 +55,16 @@ function inputCVVHandler(value) {
     atualizarCVVMascarado('valorCVV', value);
 }
 
-
-// aplicar blur e mostrar modal de pagamento-------------------------------------
+// Aplicar blur e mostrar modal de pagamento-------------------------------------
 function mostrarProcessamentoPagamento() {
     document.querySelector(".add-blur").classList.add('blur');
     // Exibe o modal de pagamento
-    document.getElementById("container-modal").style.display = "flex";
+    let processingModal = document.getElementById("container-modal");
+    processingModal.style.display = "flex";
+    // aplicando animação do modal
+    setTimeout(function() {
+        processingModal.classList.add("animate-modal");
+    }, 3000); // Atraso de 2 segundos (2000 milissegundos) para mostrar o modal em sua forma original
+    
+
 }
