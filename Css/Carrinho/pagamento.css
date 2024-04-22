@@ -3,11 +3,16 @@ body {
     background-color: #FFFFFF;
 }
 
+/* .main {
+  position: relative;
+  width: 100%;
+  height: 100%;
+} */
+
 /* Checkpoints */
 .checkpoints {
     width: 750px;
-    margin: 120px auto 60px auto;
-
+    margin: 100px auto 60px auto;
 }
 
 .checkpoints h1 {
@@ -525,12 +530,7 @@ body .card {
     /* Impede que elementos da tela recebam eventos do mouse */
     z-index: -1;
 }
-
-.modal-aberto .container-modal {
-    backdrop-filter: none; /* Remova o efeito de desfoque do modal */
-}
-
-  
+ 
 /* modal de pagamento */
 .container-modal {
     background-color: #ffffff;
@@ -548,14 +548,15 @@ body .card {
     margin: auto;
   }
   
-  /* .container-modal:hover {
+  /* animation */
+  .animate-modal {
     transform: scale(1.03);
     width: 220px;
   }
-  
-  .container-modal:hover .left-side {
+  /* animation */
+  .animate-modal .left-side {
     width: 100%;
-  } */
+  }
   
   .left-side {
     background-color: #5de2a3;
@@ -583,9 +584,10 @@ body .card {
     transition: 0.3s;
   }
   
-  /* .right-side:hover {
+  /* animation */
+  .animate-modal .right-side {
     background-color: #f9f7f9;
-  } */
+  }
   
   .arrow {
     width: 20px;
@@ -595,8 +597,22 @@ body .card {
   
   .new {
     font-size: 23px;
+    font-weight: 600;
     font-family: "Lexend Deca", sans-serif;
     margin-left: 20px;
+  }
+
+  /* efeito de piscar o pontilhado, efeito de loaging */
+  @keyframes blink {
+    0% { opacity: 0; }
+    50% { opacity: 1; }
+    100% { opacity: 0; }
+  }
+
+  .new .piscar {
+    padding: 3px;
+    letter-spacing: 0.2em;
+    animation: blink 1s infinite;
   }
   
   .container-modal .card {
@@ -627,9 +643,10 @@ body .card {
       transform: scale(0.7);
     }
   
-    /* .container-modal:hover {
+    /* animation */
+    .animate-modal {
       transform: scale(0.74);
-    } */
+    }
   
     .new {
       font-size: 18px;
@@ -647,13 +664,14 @@ body .card {
     margin: 10px 0 0 -30px;
   }
   
-  /* .container-modal:hover .card {
+  /* animation */
+  .animate-modal .card {
     animation: slide-top 1.2s cubic-bezier(0.645, 0.045, 0.355, 1) both;
   }
-  
-  .container-modal:hover .post {
+  /* animation */
+  .animate-modal .post {
     animation: slide-post 1s cubic-bezier(0.165, 0.84, 0.44, 1) both;
-  } */
+  }
   
   @keyframes slide-top {
     0% {
@@ -765,9 +783,10 @@ body .card {
     text-align: center;
   }
   
-  /* .container-modal:hover .dollar {
+  /* animation */
+  .animate-modal .dollar {
     animation: fade-in-fwd 0.3s 1s backwards;
-  } */
+  }
   
   @keyframes fade-in-fwd {
     0% {
