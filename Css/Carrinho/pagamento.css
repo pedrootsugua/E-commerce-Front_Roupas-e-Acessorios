@@ -537,7 +537,7 @@ body .card {
     display: none; /* ira mudar para "flex" ao clicar em finalizar compra */
     width: 460px;
     height: 120px;
-    position: absolute; /* "relative" */
+    position: fixed; /* "relative" */
     border-radius: 6px;
     transition: 0.3s ease-in-out;
     /* centralizando o elemento na div main */

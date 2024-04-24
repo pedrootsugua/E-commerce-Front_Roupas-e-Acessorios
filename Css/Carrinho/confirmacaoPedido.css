@@ -1,47 +1,44 @@
-.confirmacao-pedido {
+body {
     font-family: "Poppins", sans-serif;
-    background-color: #FFFFFF;
+    background-color: #FFFFF0;
     color: #000000;
-    width: 50%;
-    height: 50%;
-    display: none;
 }
 
-.header-modal-pedido {
-    background-color: #eeeeee;
+header {
+    height: 135px;
+    background-color: #455947;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.header-modal-pedido h1 img {
-    width: 90px;
-    height: 90px;
-    padding-top: 10px;
+header h1 img {
+    width: 125px;
+    height: 125px;
 }
 
-.container-modal-pedido {
+.container {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    width: 70%;
+    width: 646px;
     margin: 0 auto;
 }
 
-.container-modal-pedido h1 {
+.container h1 {
     font-family: "Poppins", sans-serif;
-    font-size: 55px;
+    font-size: 60px;
     font-style: normal;
     font-weight: 500;
     line-height: normal;
-    margin: 25px 0 12px 0;
+    margin: 48px 0 12px 0;
 
 }
 
-.container-modal-pedido .confirm-pedido {
+.container .confirm-pedido {
     width: 646px;
-    height: 200px;
+    height: 235px;
     border-radius: 5px;
     box-shadow: 0px 4px 4px 0.50px rgba(0, 0, 0, 0.50);
     display: flex;
@@ -49,103 +46,102 @@
     flex-direction: column;
 }
 
-.container-modal-pedido .confirm-pedido h2 {
-    font-size: 28px;
+.container .confirm-pedido h2 {
+    font-size: 30px;
     font-style: normal;
     font-weight: 500;
     line-height: normal;
     padding: 8px 0;
 }
 
-.container-modal-pedido .confirm-pedido .text-email {
-    font-size: 16px;
+.container .confirm-pedido p {
+    font-size: 19px;
     font-style: normal;
     font-weight: 500;
     line-height: normal;
     padding: 0 20px;
 }
 
-.container-modal-pedido .confirm-pedido p span {
+.container .confirm-pedido p span {
     font-weight: 700;
 }
 
-.container-modal-pedido .confirm-pedido .confirm-pag {
+.container .confirm-pedido footer {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 25px;
 }
 
-.container-modal-pedido .confirm-pedido .confirm-pag p {
-    font-size: 23px;
+.container .confirm-pedido footer p {
+    font-size: 25px;
     font-style: normal;
     font-weight: 500;
     line-height: normal;
-    padding-top: 10px;
 }
 
-.container-modal-pedido .info-pedido {
+.container .info-pedido {
     width: 646px;
-    height: 225px;
+    height: 235px;
     border-radius: 5px;
     box-shadow: 0px 4px 4px 0.50px rgba(0, 0, 0, 0.50);
     align-items: left;
-    margin-top: 20px;
+    margin-top: 40px;
     padding: 8px 33px;
     box-sizing: border-box;
 }
 
-.container-modal-pedido .info-pedido h2 {
-    font-size: 28px;
+.container .info-pedido h2 {
+    font-size: 30px;
     font-style: normal;
     font-weight: 500;
     line-height: normal;
     padding-bottom: 3px;
 }
 
-.container-modal-pedido .info-pedido .dados-pedido {
-    font-size: 16px;
+.container .info-pedido .dados-pedido {
+    font-size: 19px;
     font-style: normal;
     font-weight: 500;
-    line-height: 10px;
+    line-height: normal;
 }
 
-.container-modal-pedido .info-pedido .info {
+.container .info-pedido .info {
     font-size: 12px;
     font-style: normal;
     font-weight: 500;
     line-height: normal;
-    padding-top: 6px;
+    padding-top: 8px;
 }
 
-body .acessar-pedidos {
+button {
     width: 180px;
     height: 45px;
     border-radius: 8px;
-    background: #eeeeee;
-    font-size: 15px;
+    background: #C9D9C3;
+    font-size: 16px;
     font-style: normal;
     font-weight: 700;
+    line-height: normal;
     border: none;
     cursor: pointer;
     margin: 50px 0 50px auto;
     transition: background-color 0.5s;
 }
 
-body .acessar-pedidos:hover {
-    background-color: #a3a3a3;
+button:hover {
+    background-color: #455947;
 }
 
-.rodape-modal-pedido {
-    height: 60px;
-    background-color: #000000;
+.rodape {
+    height: 80px;
+    background-color: #455947;
     display: flex;
     align-items: center;
     justify-content: center
 }
 
-.rodape-modal-pedido .copyright {
-    /* padding: 10px 0; */
+.rodape .copyright {
+    padding: 10px 0;
 	color:#FFFFFF;
-    margin: auto 0;
 }
-
