@@ -1,3 +1,9 @@
+function redirecionarParaPagina(pagina) {
+    window.location.href = pagina;
+
+    window.history.replaceState(null, null, pagina);
+}
+
 function atualizarDadosCartao(idParagrafo, valor) {
     document.getElementById(idParagrafo).textContent = valor;
 }
@@ -64,7 +70,11 @@ function mostrarProcessamentoPagamento() {
     // aplicando animação do modal
     setTimeout(function() {
         processingModal.classList.add("animate-modal");
-    }, 3000); // Atraso de 2 segundos (2000 milissegundos) para mostrar o modal em sua forma original
+        // redireciona para a pag. confirmação pedido
+        setTimeout(function() {
+            redirecionarParaPagina("TelaConfirmacaoPedido.html");
+        }, 2000); // atraso de 2 segundos, após animação do modal redireciona para a pagina
+    }, 3000); // Atraso de 3 segundos (2000 milissegundos) para mostrar o modal em sua forma original
     
-
+    
 }
