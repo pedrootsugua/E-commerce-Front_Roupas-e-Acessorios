@@ -35,7 +35,6 @@
   opacity: 0.1;
   cursor: pointer;
   border: none;
-  outline: none;
 }
 
 .arrow-left:hover,
@@ -62,19 +61,19 @@
     height: 500px;
     flex-shrink: 0;
     transition: all 600ms ease-in-out;
-    /*opacity: 0.5;*/
+    opacity: 0.5;
     border-radius: 20px;
   }
   
-  /* .current-item {
+  .current-item {
     opacity: 1;
-  } */
+  }
 
-  /* .novidades-wrapper::-webkit-scrollbar{
+  .novidades-wrapper::-webkit-scrollbar{
     display: none;
   }
 
   .novidades-wrapper{
     -ms-overflow-style: none;
     scrollbar-width: none;
-  } */
+  }
