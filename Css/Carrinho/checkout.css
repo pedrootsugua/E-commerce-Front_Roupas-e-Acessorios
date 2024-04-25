@@ -3,6 +3,13 @@ body {
     background-color: #FFFFFF;
 }
 
+.main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
 /* Checkpoints */
 .checkpoints {
     width: 750px;
@@ -33,383 +40,95 @@ body {
     background-color: #c59361d0;
 }
 
-/* Posicionamento do conteudo principal */
-.container {
-    display: flex;
-    flex-direction: row;
-}
-
-.container-info {
-    width: 50%;
-}
-
-.container-pagamento {
-    width: 50%;
-}
-
-/* Tabela de resumo */
-table {
-    width: 400px;
-    height: 220px;
-    border-collapse: separate;
-    border-radius: 15px;
-    border-bottom-left-radius: 7px;
-    border-bottom-right-radius: 7px;
-    overflow: hidden;
-}
-
-table thead {
-    background-color: #c59361d0;
-    border: 3px solid #c59361d0;
-}
-
-table thead th {
-    text-align: center;
-    color: #FFFFFF;
-    font-size: 15px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: normal;
-    letter-spacing: -0.3px;
-    padding: 4px 0;
-}
-
-table tbody {
-    border: 3px solid #c59361d0;
-    font-size: 15px;
-    color: #c59361d0;
-}
-
-table tbody td {
-    padding: 8px 18px;
-}
-
-table tbody span {
-    color: #000000;
-}
-
-table tbody .linha {
-    padding: 0;
-    margin: 0;
-}
-
-table tbody .linha hr {
-    width: 360px;
-    height: 1px;
-    background-color: #c59361d0;
-}
-
-table tbody .total {
-    font-weight: bold;
-}
-
-.td-left {
-    text-align: left;
-    font-weight: bold;
-}
-
-.td-right {
-    text-align: right;
-}
-
-/* Opções de pagamento */
-.forma-pagamento h2 {
-    color: #000000;
-    font-family: Poppins;
-    font-size: 22px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: normal;
-    margin: 80px 0 31px 0;
-}
-
-.forma-pagamento ul {
-    font-family: Poppins;
-    font-size: 20px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
-}
-
-.forma-pagamento ul li {
-    margin: 15px 0;
-}
-
-/* Estilizando o input de radio */
-.opcao-pagamento input[type="radio"] {
-    display: none;
-}
-
-/* Estilizando o indicador do input de radio */
-.opcao-pagamento input[type="radio"]+label::before {
-    content: "";
-    display: inline-block;
-    width: 20px;
-    height: 20px;
-    border: 2px solid #c59361d0;
-    border-radius: 50%;
-    margin-right: 12px;
-    vertical-align: middle;
-}
-
-/* Estilizando o texto da label */
-.opcao-pagamento label {
-    color: #c59361d0;
-    vertical-align: middle;
-    cursor: pointer;
-}
-
-/* Quando o input de radio é marcado, muda a cor do indicador e do texto */
-.opcao-pagamento input[type="radio"]:checked+label::before {
-    background-color: #000000;
-    border-color: #c59361d0;
-}
-
-.opcao-pagamento input[type="radio"]:checked+label {
-    color: #000000;
-}
-
-
-/* estilização do card debito e credito */
-body .card {
-    border: none;
-}
-
-.flip-card {
-    background-color: transparent;
-    width: 240px;
-    height: 154px;
-    perspective: 1000px;
-    color: white;
-}
-
-.heading_8264 {
-    position: absolute;
-    letter-spacing: .2em;
-    font-size: 0.5em;
-    top: 2em;
-    left: 18.6em;
-}
-
-.logo {
-    position: absolute;
-    top: 6.8em;
-    left: 11.7em;
-}
-
-.chip {
-    position: absolute;
-    top: 2.3em;
-    left: 1.5em;
-}
-
-.contactless {
-    position: absolute;
-    top: 3.5em;
-    left: 12.4em;
-}
-
-.number {
-    position: absolute;
-    font-weight: bold;
-    font-size: .6em;
-    top: 8.3em;
-    left: 1.6em;
-}
-
-.valid_thru {
-    position: absolute;
-    font-weight: bold;
-    top: 635.8em;
-    font-size: .01em;
-    left: 140.3em;
-}
-
-.date_8264 {
-    position: absolute;
-    font-weight: bold;
-    font-size: 0.5em;
-    top: 13.6em;
-    left: 3.2em;
-}
-
-.name {
-    position: absolute;
-    font-weight: bold;
-    font-size: 0.5em;
-    top: 16.1em;
-    left: 2em;
-}
-
-.strip {
-    position: absolute;
-    background-color: black;
-    width: 15em;
-    height: 1.5em;
-    top: 2.4em;
-    background: repeating-linear-gradient(45deg,
-            #303030,
-            #303030 10px,
-            #202020 10px,
-            #202020 20px);
-}
-
-.mstrip {
-    position: absolute;
-    background-color: rgb(255, 255, 255);
-    width: 8em;
-    height: 0.8em;
-    top: 5em;
-    left: .8em;
-    border-radius: 2.5px;
-}
-
-.sstrip {
-    position: absolute;
-    background-color: rgb(255, 255, 255);
-    width: 4.1em;
-    height: 0.8em;
-    top: 5em;
-    left: 10em;
-    border-radius: 2.5px;
-}
-
-.code {
-    font-weight: bold;
-    text-align: center;
-    margin: .2em;
-    color: black;
-}
-
-.flip-card-inner {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    text-align: center;
-    transition: transform 0.8s;
-    transform-style: preserve-3d;
-}
-
-.flip-card:hover .flip-card-inner {
-    transform: rotateY(180deg);
-}
-
-.flip-card-front,
-.flip-card-back {
-    box-shadow: 0 8px 14px 0 rgba(0, 0, 0, 0.2);
-    position: absolute;
+.principal {
+    font-family: "Poppins", sans-serif;
+    border-bottom: solid 1px;
+    padding-bottom: 30px;
     display: flex;
     flex-direction: column;
+    width: 616px;
+    height: 500px;
     justify-content: center;
-    width: 100%;
-    height: 100%;
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-    border-radius: 1rem;
-}
-
-.flip-card-front {
-    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 2px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -1px 0px inset;
-    background-color: #171717;
-}
-
-.flip-card-back {
-    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 2px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -1px 0px inset;
-    background-color: #171717;
-    transform: rotateY(180deg);
-}
-
-/* Dados do cartão */
-.container-dados {
-    background-color: rgba(216, 216, 216, 0.315);
-    width: 454px;
-    height: 258px;
-    border-radius: 20px;
-    display: flex;
     align-items: center;
-    justify-content: center;
-    flex-direction: column;
 }
 
-.dados-card label,
-input {
+/* Estilização formulário*/
+.group-form,
+.endereco {
+    margin-bottom: 20px;
+}
+
+.group-form label {
     display: block;
+    font-weight: 400;
+    margin-bottom: 5px;
 }
 
-.dados-card label {
-    color: #000;
-    font-family: Poppins;
-    font-size: 13px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
-    letter-spacing: -0.3px;
+.group-form input {
+    width: 100%;
+    height: 35px;
 }
 
-.dados-card input {
-    border: none;
-    border-radius: 15px;
-    background-color: #000000c9;
-    color: #FFFFFF;
-    font-family: Poppins;
-    font-size: 13px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
-    letter-spacing: 1.2px;
-}
-
-.dados-card input:hover {
-    background-color: #000000e1;
-}
-
-/* Botão finalizar compra */
-.botao-finalizar {
-    width: 230px;
-    height: 40px;
+.formulario {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: rgb(15, 15, 15);
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.group-form {
+    width: calc(50% - 10px);
+    /* Calcula 50% da largura da tela, menos o espaço entre os elementos */
+    margin-bottom: 20px;
+}
+
+.endereco,
+#enderecoSalvo {
+    width: 100%;
+}
+
+#enderecoSalvo {
+    width: 100%;
+    margin-top: 5px;
+    border-radius: 10px;
+    border: solid 1px;
+    height: 35px;
+    margin-bottom: 10px;
+}
+
+.group-form input {
+    width: 100%;
+    margin-top: 5px;
+    border-radius: 10px;
+    border: solid 1px;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.buttons button[type="submit"] {
+    width: 190px;
+    height: 47px;
+    border-radius: 10px;
     border: none;
     color: white;
-    font-weight: 600;
-    gap: 8px;
-    cursor: pointer;
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.103);
-    position: relative;
-    overflow: hidden;
-    transition-duration: .3s;
+    font-weight: bold;
 }
 
-.svgIcon {
-    width: 16px;
+.buttons button[type="submit"][style="background-color: #6c757d;"] {
+    background-color: #6c757d;
+    margin-right: 10px;
+    /* Espaço à direita */
 }
 
-.svgIcon path {
-    fill: white;
+.buttons button[type="submit"][style="background-color: #28a745;"] {
+    background-color: #28a745;
+    margin-left: 10px;
+    /* Espaço à esquerda */
 }
 
-.botao-finalizar::before {
-    width: 230px;
-    height: 130px;
-    position: absolute;
-    content: "";
-    background-color: white;
-    border-radius: 50%;
-    left: -100%;
-    top: 0;
-    transition-duration: .3s;
-    mix-blend-mode: difference;
-}
 
-.botao-finalizar:hover::before {
-    transition-duration: .3s;
-    transform: translate(100%, -50%);
-    border-radius: 0;
-}
-
-.botao-finalizar:active {
-    transform: translate(5px, 5px);
-    transition-duration: .3s;
-}
+/* Fim Estilização formulário*/
