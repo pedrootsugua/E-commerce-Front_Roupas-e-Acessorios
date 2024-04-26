@@ -4,10 +4,26 @@ body{
 }                                                                                                                                                                                
 .containerpr{
     width: 100%;
+    position: relative;
 }
 .imgtenis{
     height: 190px;
     width: 190px;
+}
+
+
+.link_produto{
+  color: inherit; /* Isso faz com que os links adotem a cor do texto do elemento pai */
+  text-decoration: none; /* Isso remove o sublinhado padrão dos links */
+}
+
+.link_produto:hover {
+  color: inherit; /
+}
+
+#filtro{
+  margin-left: 10px;
+  
 }
 .linha{
     width: 70%;
