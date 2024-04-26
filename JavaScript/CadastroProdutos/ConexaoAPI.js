@@ -8,8 +8,11 @@ const Itamanho = document.querySelector("#tamanho");
 const Iunidade = document.querySelector("#unidade");
 const Iestoque = document.querySelector("#estoque");
 const Idescricao = document.querySelector("#descricao");
+
 const Iimagem = document.querySelector("#picture__input");
-const IoutraImagem = document.querySelector("#picture__inputt");
+const Iimagem2 = document.querySelector("#picture__input2");
+const Iimagem3 = document.querySelector("#picture__input3");
+const Iimagem4 = document.querySelector("#picture__input4");
 
 function cadastrar() {
     //Instância da classe que guardará a imagem
@@ -31,11 +34,11 @@ function cadastrar() {
     //Adição das info dos produtos no objeto
     formData.append('produto', JSON.stringify(produto));
 
-    //Adição da imagem no objeto
+    //Adição das imagens no objeto
     formData.append('imagem', Iimagem.files[0]);
-
-    //Adição da imagem no objeto
-    formData.append('outraImagem', IoutraImagem.files[0]);
+    formData.append('imagem2', Iimagem2.files[0]);
+    formData.append('imagem3', Iimagem3.files[0]);
+    formData.append('imagem4', Iimagem4.files[0]);
 
     // Array para armazenar mensagens de sucesso e erro
     const messages = [];
