@@ -1,10 +1,14 @@
 #picture__input,
-#picture__inputt {
+#picture__input2,
+#picture__input3,
+#picture__input4 {
     display: none;
 }
 
 .picture,
-.picturee {
+.picture2,
+.picture3,
+.picture4 {
     width: 100%;
     aspect-ratio: 16/9;
     background: #fff;
@@ -23,7 +27,9 @@
 }
 
 .picture:hover,
-.picturee:hover {
+.picture2:hover,
+.picture3:hover,
+.picture4:hover {
     color: #302222;
     background: #ccc;
 }
