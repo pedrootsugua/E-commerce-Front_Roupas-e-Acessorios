@@ -2,143 +2,191 @@
 <html lang="PT-BR">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/Css/Inicial/main.css">
-    <link rel="stylesheet" href="/Css/Carrinho/carrinho.css">
-    <title>Carrinho</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="Css/Reset/Reset.css">
+  <link rel="stylesheet" href="Css/Navbar/navbar.css">
+  <link rel="stylesheet" href="Css/Carrinho/carrinho.css">
+  <link rel="stylesheet" href="/Css/Footer/footer.css">
+
+  <link rel="stylesheet" href="vendor/BootStrap/bootstrap.css">
+  <link rel="stylesheet" href="vendor/BootStrap/open-iconic-bootstrap.css">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+    integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet">
+
+  <script src="JavaScript/Navbar/navbar.js"></script>
+
+  <title>Carrinho</title>
 </head>
 
 <body>
-    <!-- <header>
-        <nav class="navbar">
-            <div class="">
-                <img class="logo" src="/img/logo.png" alt="">
-            </div>
-            <ul class="opcoes">
-                <li>Vestuário</li>
-                <li>Sneakers</li>
-                <li>Acessórios</li>
-                <li>Promoções</li>
-                <li><input type="text" placeholder="pesquisar"></li>
-                <li><img class="user" src="/img/user.png" alt=""></li>
-                <li>d</li>
-                <li>d</li>
-                <li>d</li>
-            </ul>
-        </nav>
-        <p>Carrinho - - Checkout - - Pagamento</p>
-    </header> -->
+  <header>
+    <nav id="navbar">
+      <div class="img">
+        <img src="/img/logo.png" alt="logo">
+      </div>
 
-    <main>
-        <div class="page-title">Seu Carrinho</div>
-        <div class="content">
-          <section>
-            <table>
-              <thead>
-                <tr>
-                  <th>Produto</th>
-                  <th>Preço</th>
-                  <th>Quantidade</th>
-                  <th>Total</th>
-                  <th>-</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>
-                    <div class="product">
-                      <img src="https://picsum.photos/100/120" alt="" />
-                      <div class="info">
-                        <div class="name">Nome do produto</div>
-                        <div class="category">Categoria</div>
-                      </div>
-                    </div>
-                  </td>
-                  <td>R$ 120</td>
-                  <td>
-                    <div class="qty">
-                      <button><i class="bx bx-minus"></i></button>
-                      <span>2</span>
-                      <button><i class="bx bx-plus"></i></button>
-                    </div>
-                  </td>
-                  <td>R$ 240</td>
-                  <td>
-                    <button class="remove"><i class="bx bx-x"></i></button>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <div class="product">
-                      <img src="https://picsum.photos/100/120" alt="" />
-                      <div class="info">
-                        <div class="name">Nome do produto</div>
-                        <div class="category">Categoria</div>
-                      </div>
-                    </div>
-                  </td>
-                  <td>R$ 120</td>
-                  <td>
-                    <div class="qty">
-                      <button><i class="bx bx-minus"></i></button>
-                      <span>2</span>
-                      <button><i class="bx bx-plus"></i></button>
-                    </div>
-                  </td>
-                  <td>R$ 240</td>
-                  <td>
-                    <button class="remove"><i class="bx bx-x"></i></button>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <div class="product">
-                      <img src="https://picsum.photos/100/120" alt="" />
-                      <div class="info">
-                        <div class="name">Nome do produto</div>
-                        <div class="category">Categoria</div>
-                      </div>
-                    </div>
-                  </td>
-                  <td>R$ 120</td>
-                  <td>
-                    <div class="qty">
-                      <button><i class="bx bx-minus"></i></button>
-                      <span>2</span>
-                      <button><i class="bx bx-plus"></i></button>
-                    </div>
-                  </td>
-                  <td>R$ 240</td>
-                  <td>
-                    <button class="remove"><i class="bx bx-x"></i></button>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </section>
-          <aside>
-            <div class="box">
-              <header>Resumo da compra</header>
-              <div class="info">
-                <div><span>Sub-total</span><span>R$ 418</span></div>
-                <div><span>Frete</span><span>Gratuito</span></div>
-                <div>
-                  <button>
-                    Adicionar cupom de desconto
-                    <i class="bx bx-right-arrow-alt"></i>
-                  </button>
-                </div>
-              </div>
-              <footer>
-                <span>Total</span>
-                <span>R$ 418</span>
-              </footer>
-            </div>
-            <button>Finalizar Compra</button>
-          </aside>
+      <ul id="nav-list">
+        <li class="nav-item">
+          <a href="">Promoções</a>
+        </li>
+
+        <li class="nav-item">
+          <a href="">Vestuário</a>
+        </li>
+
+        <li class="nav-item">
+          <a href="">Acessórios</a>
+        </li>
+
+        <li class="nav-item">
+          <a href="">Sneakers</a>
+        </li>
+      </ul>
+
+      <div class="right-nav">
+        <input id="pesquisa" type="text" placeholder="pesquisar">
+        <a href="/TelaFormularioCliente.html"><i class="fa-solid fa-user"></i></a>
+        <a href="/TelaCarrinho.html"><i class="fa-solid fa-cart-shopping"></i></a>
+        <i class="fa-regular fa-heart"></i>
+      </div>
+
+      <div class="mobile-right-nav">
+        <input id="pesquisa" type="text" placeholder="pesquisar">
+        <a href="/TelaFormularioCliente.html"><i class="fa-solid fa-user"></i></a>
+        <a href="/TelaCarrinho.html"><i class="fa-solid fa-cart-shopping"></i></a>
+        <i class="fa-regular fa-heart"></i>
+      </div>
+
+      <button id="mobile-btn">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </nav>
+
+    <div id="mobile-menu">
+      <ul id="mobile-nav-list">
+        <li class="nav-item">
+          <a href="">Promoções</a>
+        </li>
+
+        <li class="nav-item">
+          <a href="">Vestuário</a>
+        </li>
+
+        <li class="nav-item">
+          <a href="">Acessórios</a>
+        </li>
+
+        <li class="nav-item">
+          <a href="">Sneakers</a>
+        </li>
+      </ul>
+    </div>
+  </header>
+
+  <div class="main">
+    <div class="lista-produtos">
+      <div class="produto">
+        <p>produto</p>
+      </div>
+      <div class="produto">
+        <p>produto</p>
+      </div>
+      <div class="produto">
+        <p>produto</p>
+      </div>
+      <div class="produto">
+        <p>produto</p>
+      </div>
+      <div class="produto">
+        <p>produto</p>
+      </div>
+      
+    </div>
+
+    <div class="resumo-pedido">
+      <P>Resumo</P>
+    </div>
+  </div>
+
+  <footer>
+    <div id="footer_content">
+      <div id="footer_contacts">
+        <h1 class="logoRodape"><img src="img/logo.png" alt="Imagem logo"></h1>
+        <p class="desc">Nome marca</p>
+
+        <div id="footer_social_media">
+          <a href="#" class="footer-link" id="instagram" target="_blank">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+          <a href="#" class="footer-link" id="whatsapp" target="_blank">
+            <i class="fa-brands fa-whatsapp"></i>
+          </a>
         </div>
-      </main>
+      </div>
+
+      <ul class="footer-list">
+        <li>
+          <h3>Institucional</h3>
+        </li>
+        <li>
+          <a href="#" class="footer-link">Sobre nós</a>
+        </li>
+        <li>
+          <a href="#" class="footer-link">Titulo 2</a>
+        </li>
+        <li>
+          <a href="#" class="footer-link">Titulo 3</a>
+        </li>
+      </ul>
+
+      <ul class="footer-list">
+        <li>
+          <h3>Produtos</h3>
+        </li>
+        <li>
+          <a href="#" class="footer-link">Vestuário</a>
+        </li>
+        <li>
+          <a href="#" class="footer-link">Acessórios</a>
+        </li>
+        <li>
+          <a href="#" class="footer-link">Sneakers</a>
+        </li>
+      </ul>
+
+      <div id="footer_subscribe">
+        <h3>Inscreva-se</h3>
+
+        <p>
+          Digite seu email e fique por dentro de nossas novidades.
+        </p>
+
+        <div id="input_group">
+          <input type="email" id="email">
+          <button>
+            <i class="fa-regular fa-envelope"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div id="footer_copyright">
+      &#169
+      2024 Todos os Direitos Reservados
+    </div>
+  </footer>
 </body>
 
 </html>
