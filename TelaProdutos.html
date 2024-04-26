@@ -23,6 +23,7 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
     rel="stylesheet">
+    <script src="JavaScript/Produtos/produtos.js"></script>
 
 
   <title>Tela Produtos</title>
@@ -55,17 +56,8 @@
           </li>   
       </ul>
 
-      
-
       <div class="right-nav">
-        <input id="pesquisa" type="text" placeholder="pesquisar" >
-        <a href="/TelaFormularioCliente.html"><i class="fa-solid fa-user"></i></a>
-        <a href="/TelaCarrinho.html"><i class="fa-solid fa-cart-shopping"></i></a>
-        <i class="fa-regular fa-heart"></i>
-    </div>
-
-    <div class="mobile-right-nav">
-        <input id="pesquisa" type="text" placeholder="pesquisar" >
+        <input id="filtro1" type="text" placeholder="pesquisar" >
         <a href="/TelaFormularioCliente.html"><i class="fa-solid fa-user"></i></a>
         <a href="/TelaCarrinho.html"><i class="fa-solid fa-cart-shopping"></i></a>
         <i class="fa-regular fa-heart"></i>
@@ -76,280 +68,303 @@
       </button>
   </nav>
 
-  <div id="mobile-menu">
-      <ul id="mobile-nav-list">
-          <li class="nav-item">
-              <a href="">Promoções</a>
-          </li>
-
-          <li class="nav-item">
-              <a href="">Vestuário</a>
-          </li>
-
-          <li class="nav-item">
-              <a href="">Acessórios</a>
-          </li>
-
-          <li class="nav-item">
-              <a href="">Sneakers</a>
-          </li>   
-      </ul>
-  </div>
-
   </header>
-
+  <input id="filtro" onkeyup="filtrarProdutos()" type="text" placeholder="Pesquisar produtos" >
   <main class="containerpr">
+    
         <!-- tenis1 -->
-        <div class="linha">
-        <div class=" prod">
-        <img class="imgtenis" src ="https://artwalk.vteximg.com.br/arquivos/ids/408848-1000-1000/FB204-8-001-1.jpg?v=638234817710000000" alt="">
-        <div class="cora">
-          <a class="text_tenis" href="#">Air Force</a>
-          <label class="container-fav">
-            <input type="checkbox">
-            <svg id="Layer_1" version="1.0" viewBox="0 0 24 24" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M16.4,4C14.6,4,13,4.9,12,6.3C11,4.9,9.4,4,7.6,4C4.5,4,2,6.5,2,9.6C2,14,12,22,12,22s10-8,10-12.4C22,6.5,19.5,4,16.4,4z"></path></svg>
-          </label>
-        </div>
-        <p class="preco">R$899,00</p>
-      </div>
-        <!-- tenis2 -->
-        <div class="prod">
-        <img class="imgtenis" src ="https://artwalk.vteximg.com.br/arquivos/ids/400967-1000-1000/FB204-8-800-1.jpg?v=638219291085430000" alt="">
-        <div class="cora">
-          <a class="text_tenis" href="#">Air Force</a>
-          <label class="container-fav">
-            <input type="checkbox">
-            <svg id="Layer_1" version="1.0" viewBox="0 0 24 24" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M16.4,4C14.6,4,13,4.9,12,6.3C11,4.9,9.4,4,7.6,4C4.5,4,2,6.5,2,9.6C2,14,12,22,12,22s10-8,10-12.4C22,6.5,19.5,4,16.4,4z"></path></svg>
-          </label>
-        </div>
-        
-        <p class="preco">R$899,00</p>
-      </div>
-        <!-- tenis3 -->
-        <div class=" prod">
-        <img class="imgtenis" src ="https://artwalk.vteximg.com.br/arquivos/ids/475357-1000-1000/FJ417-0-002-1.jpg?v=638411188627900000" alt="">
-        <div class="cora">
-          <a class="text_tenis" href="#">Air Force</a>
-          <label class="container-fav">
-            <input type="checkbox">
-            <svg id="Layer_1" version="1.0" viewBox="0 0 24 24" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M16.4,4C14.6,4,13,4.9,12,6.3C11,4.9,9.4,4,7.6,4C4.5,4,2,6.5,2,9.6C2,14,12,22,12,22s10-8,10-12.4C22,6.5,19.5,4,16.4,4z"></path></svg>
-          </label>
-        </div>
-        <p class="preco">R$899,00</p>
-      </div>
-        <!-- tenis4 -->
-        <div class="prod">
-        <img class="imgtenis" src ="https://artwalk.vteximg.com.br/arquivos/ids/479093-1000-1000/FJ416-0-001-1.jpg?v=638442272117730000" alt="">
-        <div class="cora">
-          <a class="text_tenis" href="#">Air Force</a>
-          <label class="container-fav">
-            <input type="checkbox">
-            <svg id="Layer_1" version="1.0" viewBox="0 0 24 24" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M16.4,4C14.6,4,13,4.9,12,6.3C11,4.9,9.4,4,7.6,4C4.5,4,2,6.5,2,9.6C2,14,12,22,12,22s10-8,10-12.4C22,6.5,19.5,4,16.4,4z"></path></svg>
-          </label>
-        </div>
-        <p class="preco">R$899,00</p>
-      </div>
-        <!-- tenis5 -->
-        <div class="prod">
-        <img class="imgtenis" src ="https://artwalk.vteximg.com.br/arquivos/ids/478983-1000-1000/FJ416-0-002-1.jpg?v=638442271448570000" alt="">
-        <div class="cora">
-          <a class="text_tenis" href="#">Air Force</a>
-          <label class="container-fav">
-            <input type="checkbox">
-            <svg id="Layer_1" version="1.0" viewBox="0 0 24 24" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M16.4,4C14.6,4,13,4.9,12,6.3C11,4.9,9.4,4,7.6,4C4.5,4,2,6.5,2,9.6C2,14,12,22,12,22s10-8,10-12.4C22,6.5,19.5,4,16.4,4z"></path></svg>
-          </label>
-        </div>
-        <p class="preco">R$899,00</p>
-      </div>
-      </div>
-        <!-- tenis6 -->
-        <div class="linha">
-        <div class="prod">
-        <img class="imgtenis" src ="https://artwalk.vteximg.com.br/arquivos/ids/326524-245-245" alt="">
-        <div class="cora">
-          <a class="text_tenis" href="#">Dunk Low</a>
-          <label class="container-fav">
-            <input type="checkbox">
-            <svg id="Layer_1" version="1.0" viewBox="0 0 24 24" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M16.4,4C14.6,4,13,4.9,12,6.3C11,4.9,9.4,4,7.6,4C4.5,4,2,6.5,2,9.6C2,14,12,22,12,22s10-8,10-12.4C22,6.5,19.5,4,16.4,4z"></path></svg>
-          </label>
-        </div>
-        <p class="preco">R$899,00</p>
-      </div>
-        <!-- tenis7 -->
-        <div class="prod">
-        <img class="imgtenis" src ="https://artwalk.vteximg.com.br/arquivos/ids/445536-245-245" alt="">
-        <div class="cora">
-          <a class="text_tenis" href="#">Dunk Low</a>
-          <label class="container-fav">
-            <input type="checkbox">
-            <svg id="Layer_1" version="1.0" viewBox="0 0 24 24" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M16.4,4C14.6,4,13,4.9,12,6.3C11,4.9,9.4,4,7.6,4C4.5,4,2,6.5,2,9.6C2,14,12,22,12,22s10-8,10-12.4C22,6.5,19.5,4,16.4,4z"></path></svg>
-          </label>
-        </div>
-        <p class="preco">R$899,00</p>
-      </div>
-        <!-- tenis8 -->
-        <div class="prod">
-        <img class="imgtenis" src ="https://artwalk.vteximg.com.br/arquivos/ids/476642-245-245" alt="">
-        <div class="cora">
-          <a class="text_tenis" href="#">Dunk Low</a>
-          <label class="container-fav">
-            <input type="checkbox">
-            <svg id="Layer_1" version="1.0" viewBox="0 0 24 24" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M16.4,4C14.6,4,13,4.9,12,6.3C11,4.9,9.4,4,7.6,4C4.5,4,2,6.5,2,9.6C2,14,12,22,12,22s10-8,10-12.4C22,6.5,19.5,4,16.4,4z"></path></svg>
-          </label>
-        </div>
-        <p class="preco">R$899,00</p>
-      </div>
-        <!-- tenis9 -->
-        <div class="prod">
-        <img class="imgtenis" src ="https://artwalk.vteximg.com.br/arquivos/ids/403079-760-760/FD035-0-133-1.jpg?v=638223465392570000" alt="">
-        <div class="cora">
-          <a class="text_tenis" href="#">Dunk Low</a>
-          <label class="container-fav">
-            <input type="checkbox">
-            <svg id="Layer_1" version="1.0" viewBox="0 0 24 24" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M16.4,4C14.6,4,13,4.9,12,6.3C11,4.9,9.4,4,7.6,4C4.5,4,2,6.5,2,9.6C2,14,12,22,12,22s10-8,10-12.4C22,6.5,19.5,4,16.4,4z"></path></svg>
-          </label>
-        </div>
-          <p class="preco">R$899,00</p>
-       
-      </div>
-        <!-- tenis10 -->
-        <div class="prod">
-        <img class="imgtenis" src ="https://artwalk.vteximg.com.br/arquivos/ids/474093-760-760/FN748-8-133-1.jpg?v=638386740288270000" alt="">
-        <div class="cora">
-          <a class="text_tenis" href="#">Dunk Low</a>
-          <label class="container-fav">
-            <input type="checkbox">
-            <svg id="Layer_1" version="1.0" viewBox="0 0 24 24" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M16.4,4C14.6,4,13,4.9,12,6.3C11,4.9,9.4,4,7.6,4C4.5,4,2,6.5,2,9.6C2,14,12,22,12,22s10-8,10-12.4C22,6.5,19.5,4,16.4,4z"></path></svg>
-          </label>
-        </div>
-        <p class="preco">R$899,00</p>
-      </div>
-    </div>
+        <!-- <input id="pesquisa" onkeyup="filtrar()" type="text" placeholder="pesquisar" > -->
+          <ul class="linha">
+          <li class="prod">
+            <a class="link_produto" href="#">
+            <img class="imgtenis" src ="https://artwalk.vteximg.com.br/arquivos/ids/408848-1000-1000/FB204-8-001-1.jpg?v=638234817710000000" alt="">
+            <div class="cora">
+              <span class="text_tenis" >Air Force</span>
+              <label class="container-fav">
+                <input type="checkbox">
+                <svg id="Layer_1" version="1.0" viewBox="0 0 24 24" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M16.4,4C14.6,4,13,4.9,12,6.3C11,4.9,9.4,4,7.6,4C4.5,4,2,6.5,2,9.6C2,14,12,22,12,22s10-8,10-12.4C22,6.5,19.5,4,16.4,4z"></path></svg>
+              </label>
+            </div>
+            <p class="preco">R$899,00</p>
+          </a>
+                </li>
+          <!-- tenis2 -->
+          <li class="prod">
+            <a class="link_produto" href="#">
+            <img class="imgtenis" src ="https://artwalk.vteximg.com.br/arquivos/ids/400967-1000-1000/FB204-8-800-1.jpg?v=638219291085430000" alt="">
+            <div class="cora">
+              <span class="text_tenis" >Air Force</span>
+              <label class="container-fav">
+                <input type="checkbox">
+                <svg id="Layer_1" version="1.0" viewBox="0 0 24 24" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M16.4,4C14.6,4,13,4.9,12,6.3C11,4.9,9.4,4,7.6,4C4.5,4,2,6.5,2,9.6C2,14,12,22,12,22s10-8,10-12.4C22,6.5,19.5,4,16.4,4z"></path></svg>
+              </label>
+            </div>
+          
+            <p class="preco">R$899,00</p>
+          </a>
+                </li>
+          <!-- tenis3 -->
+          <li class=" prod">
+            <a class="link_produto" href="#">
+            <img class="imgtenis" src ="https://artwalk.vteximg.com.br/arquivos/ids/475357-1000-1000/FJ417-0-002-1.jpg?v=638411188627900000" alt="">
+            <div class="cora">
+              <span class="text_tenis" >Air Force</span>
+              <label class="container-fav">
+                <input type="checkbox">
+                <svg id="Layer_1" version="1.0" viewBox="0 0 24 24" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M16.4,4C14.6,4,13,4.9,12,6.3C11,4.9,9.4,4,7.6,4C4.5,4,2,6.5,2,9.6C2,14,12,22,12,22s10-8,10-12.4C22,6.5,19.5,4,16.4,4z"></path></svg>
+              </label>
+            </div>
+            <p class="preco">R$899,00</p>
+          </a>
+                </li>
+          <!-- tenis4 -->
+          <li class="prod">
+            <a class="link_produto" href="#">
+            <img class="imgtenis" src ="https://artwalk.vteximg.com.br/arquivos/ids/479093-1000-1000/FJ416-0-001-1.jpg?v=638442272117730000" alt="">
+            <div class="cora">
+              <span class="text_tenis" >Air Force</span>
+              <label class="container-fav">
+                <input type="checkbox">
+                <svg id="Layer_1" version="1.0" viewBox="0 0 24 24" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M16.4,4C14.6,4,13,4.9,12,6.3C11,4.9,9.4,4,7.6,4C4.5,4,2,6.5,2,9.6C2,14,12,22,12,22s10-8,10-12.4C22,6.5,19.5,4,16.4,4z"></path></svg>
+              </label>
+            </div>
+            <p class="preco">R$899,00</p>
+          </a>
+                </li>
+          <!-- tenis5 -->
+          <li class="prod">
+            <a class="link_produto" href="#">
+            <img class="imgtenis" src ="https://artwalk.vteximg.com.br/arquivos/ids/478983-1000-1000/FJ416-0-002-1.jpg?v=638442271448570000" alt="">
+            <div class="cora">
+              <span class="text_tenis" >Air Force</span>
+              <label class="container-fav">
+                <input type="checkbox">
+                <svg id="Layer_1" version="1.0" viewBox="0 0 24 24" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M16.4,4C14.6,4,13,4.9,12,6.3C11,4.9,9.4,4,7.6,4C4.5,4,2,6.5,2,9.6C2,14,12,22,12,22s10-8,10-12.4C22,6.5,19.5,4,16.4,4z"></path></svg>
+              </label>
+            </div>
+            <p class="preco">R$899,00</p>
+          </a>
+                </li>
+              </ul>
+          <!-- tenis6 -->
+          <ul class="linha">
+            <a class="link_produto" href="#">
+            <li class="prod">
+            <img class="imgtenis" src ="https://artwalk.vteximg.com.br/arquivos/ids/326524-245-245" alt="">
+            <div class="cora">
+              <span class="text_tenis" >Dunk Low</span>
+              <label class="container-fav">
+                <input type="checkbox">
+                <svg id="Layer_1" version="1.0" viewBox="0 0 24 24" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M16.4,4C14.6,4,13,4.9,12,6.3C11,4.9,9.4,4,7.6,4C4.5,4,2,6.5,2,9.6C2,14,12,22,12,22s10-8,10-12.4C22,6.5,19.5,4,16.4,4z"></path></svg>
+              </label>
+            </div>
+            <p class="preco">R$899,00</p>
+          </a>
+                </li>
+          <!-- tenis7 -->
+          <li class="prod">
+            <a class="link_produto" href="#">
+            <img class="imgtenis" src ="https://artwalk.vteximg.com.br/arquivos/ids/445536-245-245" alt="">
+            <div class="cora">
+              <span class="text_tenis" >Dunk Low</span>
+              <label class="container-fav">
+                <input type="checkbox">
+                <svg id="Layer_1" version="1.0" viewBox="0 0 24 24" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M16.4,4C14.6,4,13,4.9,12,6.3C11,4.9,9.4,4,7.6,4C4.5,4,2,6.5,2,9.6C2,14,12,22,12,22s10-8,10-12.4C22,6.5,19.5,4,16.4,4z"></path></svg>
+              </label>
+            </div>
+            <p class="preco">R$899,00</p>
+          </a>
+                </li>
+          <!-- tenis8 -->
+          <li class="prod">
+            <a class="link_produto" href="#">
+            <img class="imgtenis" src ="https://artwalk.vteximg.com.br/arquivos/ids/476642-245-245" alt="">
+            <div class="cora">
+              <span class="text_tenis" >Dunk Low</span>
+              <label class="container-fav">
+                <input type="checkbox">
+                <svg id="Layer_1" version="1.0" viewBox="0 0 24 24" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M16.4,4C14.6,4,13,4.9,12,6.3C11,4.9,9.4,4,7.6,4C4.5,4,2,6.5,2,9.6C2,14,12,22,12,22s10-8,10-12.4C22,6.5,19.5,4,16.4,4z"></path></svg>
+              </label>
+            </div>
+            <p class="preco">R$899,00</p>
+          </a>
+                </li>
+          <!-- tenis9 -->
+          <li class="prod">
+            <a class="link_produto" href="#">
+            <img class="imgtenis" src ="https://artwalk.vteximg.com.br/arquivos/ids/403079-760-760/FD035-0-133-1.jpg?v=638223465392570000" alt="">
+            <div class="cora">
+              <span class="text_tenis" >Dunk Low</span>
+              <label class="container-fav">
+                <input type="checkbox">
+                <svg id="Layer_1" version="1.0" viewBox="0 0 24 24" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M16.4,4C14.6,4,13,4.9,12,6.3C11,4.9,9.4,4,7.6,4C4.5,4,2,6.5,2,9.6C2,14,12,22,12,22s10-8,10-12.4C22,6.5,19.5,4,16.4,4z"></path></svg>
+              </label>
+            </div>
+              <p class="preco">R$899,00</p>
+          </a>
+                 
+                </li>
+          <!-- tenis10 -->
+          <li class="prod">
+            <a class="link_produto" href="#">
+            <img class="imgtenis" src ="https://artwalk.vteximg.com.br/arquivos/ids/474093-760-760/FN748-8-133-1.jpg?v=638386740288270000" alt="">
+            <div class="cora">
+              <span class="text_tenis" >Dunk Low</span>
+              <label class="container-fav">
+                <input type="checkbox">
+                <svg id="Layer_1" version="1.0" viewBox="0 0 24 24" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M16.4,4C14.6,4,13,4.9,12,6.3C11,4.9,9.4,4,7.6,4C4.5,4,2,6.5,2,9.6C2,14,12,22,12,22s10-8,10-12.4C22,6.5,19.5,4,16.4,4z"></path></svg>
+              </label>
+            </div>
+            <p class="preco">R$899,00</p>
+          </a>
+                </li>
+              </ul>
+        </input>
   
-    <div class="linha">
+    <ul class="linha">
     <!-- tenis1 -->
-    <div class="prod">
-    <img class="imgtenis" src ="https://artwalk.vteximg.com.br/arquivos/ids/440697-760-760/IF806-8-100-1.jpg?v=638296159816530000" alt="">
-    <div class="cora">
-      <a class="text_tenis" href="#">Adidas Superstars</a>
-      <label class="container-fav">
-        <input type="checkbox">
-        <svg id="Layer_1" version="1.0" viewBox="0 0 24 24" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M16.4,4C14.6,4,13,4.9,12,6.3C11,4.9,9.4,4,7.6,4C4.5,4,2,6.5,2,9.6C2,14,12,22,12,22s10-8,10-12.4C22,6.5,19.5,4,16.4,4z"></path></svg>
-      </label>
-    </div>
-    <p class="preco">R$499,00</p>
-  </div>
+    <li class="prod">
+      <a class="link_produto" href="#">      
+      <img class="imgtenis" src ="https://artwalk.vteximg.com.br/arquivos/ids/440697-760-760/IF806-8-100-1.jpg?v=638296159816530000" alt="">
+      <div class="cora">
+        <span class="text_tenis" >Adidas Superstars</span>
+        <label class="container-fav">
+          <input type="checkbox">
+          <svg id="Layer_1" version="1.0" viewBox="0 0 24 24" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M16.4,4C14.6,4,13,4.9,12,6.3C11,4.9,9.4,4,7.6,4C4.5,4,2,6.5,2,9.6C2,14,12,22,12,22s10-8,10-12.4C22,6.5,19.5,4,16.4,4z"></path></svg>
+        </label>
+      </div>
+      <p class="preco">R$499,00</p>
+    </a>
+  </li>
     <!-- tenis2 -->
-    <div class="prod">
-    <img class="imgtenis" src ="https://artwalk.vteximg.com.br/arquivos/ids/487191-760-760/ID099-5-200-1.jpg?v=638470561340130000" alt="">
-    <div class="cora">
-      <a class="text_tenis" href="#">Adidas Superstars</a>
-      <label class="container-fav">
-        <input type="checkbox">
-        <svg id="Layer_1" version="1.0" viewBox="0 0 24 24" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M16.4,4C14.6,4,13,4.9,12,6.3C11,4.9,9.4,4,7.6,4C4.5,4,2,6.5,2,9.6C2,14,12,22,12,22s10-8,10-12.4C22,6.5,19.5,4,16.4,4z"></path></svg>
-      </label>
-    </div>
-    <p class="preco">R$499,00</p>
-  </div>
+    <li class="prod">
+      <a class="link_produto" href="#">
+      <img class="imgtenis" src ="https://artwalk.vteximg.com.br/arquivos/ids/487191-760-760/ID099-5-200-1.jpg?v=638470561340130000" alt="">
+      <div class="cora">
+        <span class="text_tenis" >Adidas Superstars</span>
+        <label class="container-fav">
+          <input type="checkbox">
+          <svg id="Layer_1" version="1.0" viewBox="0 0 24 24" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M16.4,4C14.6,4,13,4.9,12,6.3C11,4.9,9.4,4,7.6,4C4.5,4,2,6.5,2,9.6C2,14,12,22,12,22s10-8,10-12.4C22,6.5,19.5,4,16.4,4z"></path></svg>
+        </label>
+      </div>
+      <p class="preco">R$499,00</p>
+    </a>
+  </li>
     <!-- tenis3 -->
-    <div class="prod">
-    <img class="imgtenis" src ="https://artwalk.vteximg.com.br/arquivos/ids/318534-760-760/GZ220-3-001-1.jpg?v=638055958593300000" alt="">
-    <div class="cora">
-      <a class="text_tenis" href="#">Adidas Superstars</a>
-      <label class="container-fav">
-        <input type="checkbox">
-        <svg id="Layer_1" version="1.0" viewBox="0 0 24 24" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M16.4,4C14.6,4,13,4.9,12,6.3C11,4.9,9.4,4,7.6,4C4.5,4,2,6.5,2,9.6C2,14,12,22,12,22s10-8,10-12.4C22,6.5,19.5,4,16.4,4z"></path></svg>
-      </label>
-    </div>
+    <li class="prod">
+      <a class="link_produto" href="#">
+      <img class="imgtenis" src ="https://artwalk.vteximg.com.br/arquivos/ids/318534-760-760/GZ220-3-001-1.jpg?v=638055958593300000" alt="">
+      <div class="cora">
+        <span class="text_tenis" >Adidas Superstars</span>
+        <label class="container-fav">
+          <input type="checkbox">
+          <svg id="Layer_1" version="1.0" viewBox="0 0 24 24" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M16.4,4C14.6,4,13,4.9,12,6.3C11,4.9,9.4,4,7.6,4C4.5,4,2,6.5,2,9.6C2,14,12,22,12,22s10-8,10-12.4C22,6.5,19.5,4,16.4,4z"></path></svg>
+        </label>
+      </div>
+    </a>
     <p class="preco">R$499,00</p>
-  </div>
+  </li>
     <!-- tenis4 -->
-    <div class="prod">
-    <img class="imgtenis" src ="https://artwalk.vteximg.com.br/arquivos/ids/287223-760-760/GX471-2-100-1.jpg?v=638019790647800000" alt="">
-    <div class="cora">
-      <a class="text_tenis" href="#">Adidas Superstars</a>
-      <label class="container-fav">
-        <input type="checkbox">
-        <svg id="Layer_1" version="1.0" viewBox="0 0 24 24" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M16.4,4C14.6,4,13,4.9,12,6.3C11,4.9,9.4,4,7.6,4C4.5,4,2,6.5,2,9.6C2,14,12,22,12,22s10-8,10-12.4C22,6.5,19.5,4,16.4,4z"></path></svg>
-      </label>
-    </div>
-    <p class="preco">R$499,00</p>
-  </div>
+    <li class="prod">
+      <a class="link_produto" href="#">
+      <img class="imgtenis" src ="https://artwalk.vteximg.com.br/arquivos/ids/287223-760-760/GX471-2-100-1.jpg?v=638019790647800000" alt="">
+      <div class="cora">
+        <span class="text_tenis" >Adidas Superstars</span>
+        <label class="container-fav">
+          <input type="checkbox">
+          <svg id="Layer_1" version="1.0" viewBox="0 0 24 24" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M16.4,4C14.6,4,13,4.9,12,6.3C11,4.9,9.4,4,7.6,4C4.5,4,2,6.5,2,9.6C2,14,12,22,12,22s10-8,10-12.4C22,6.5,19.5,4,16.4,4z"></path></svg>
+        </label>
+      </div>
+      <p class="preco">R$499,00</p>
+    </a>
+  </li>
     <!-- tenis5 -->
-    <div class="prod">
-    <img class="imgtenis" src ="https://artwalk.vteximg.com.br/arquivos/ids/487179-1000-1000/ID099-3-200-1.jpg?v=638470561297630000" alt="">
-    <div class="cora">
-      <a class="text_tenis" href="#">Adidas Superstars</a>
-      <label class="container-fav">
-        <input type="checkbox">
-        <svg id="Layer_1" version="1.0" viewBox="0 0 24 24" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M16.4,4C14.6,4,13,4.9,12,6.3C11,4.9,9.4,4,7.6,4C4.5,4,2,6.5,2,9.6C2,14,12,22,12,22s10-8,10-12.4C22,6.5,19.5,4,16.4,4z"></path></svg>
-      </label>
-    </div>
-    <p class="preco">R$499,00</p>
-  </div>
-</div>
+    <li class="prod">
+      <a class="link_produto" href="#">
+      <img class="imgtenis" src ="https://artwalk.vteximg.com.br/arquivos/ids/487179-1000-1000/ID099-3-200-1.jpg?v=638470561297630000" alt="">
+      <div class="cora">
+        <span class="text_tenis" >Adidas Superstars</span>
+        <label class="container-fav">
+          <input type="checkbox">
+          <svg id="Layer_1" version="1.0" viewBox="0 0 24 24" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M16.4,4C14.6,4,13,4.9,12,6.3C11,4.9,9.4,4,7.6,4C4.5,4,2,6.5,2,9.6C2,14,12,22,12,22s10-8,10-12.4C22,6.5,19.5,4,16.4,4z"></path></svg>
+        </label>
+      </div>
+      <p class="preco">R$499,00</p>
+    </a>
+  </li>
+</ul>
     <!-- tenis6 -->
-    <div class="linha">
-      <div class="prod">
-        <img class="imgtenis" src ="https://artwalk.vteximg.com.br/arquivos/ids/301142-760-760/38359-0-009-1.jpg?v=638053306036800000" alt="">
-        <div class="cora">
-          <a class="text_tenis" href="#">Puma RS-X</a>
-          <label class="container-fav">
-            <input type="checkbox">
-            <svg id="Layer_1" version="1.0" viewBox="0 0 24 24" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M16.4,4C14.6,4,13,4.9,12,6.3C11,4.9,9.4,4,7.6,4C4.5,4,2,6.5,2,9.6C2,14,12,22,12,22s10-8,10-12.4C22,6.5,19.5,4,16.4,4z"></path></svg>
-          </label>
-        </div>
-        <p class="preco">R$599,00</p>
-      </div>
+    <ul class="linha">
+      <li class="prod">
+        <a class="link_produto" href="#">
+          <img class="imgtenis" src ="https://artwalk.vteximg.com.br/arquivos/ids/301142-760-760/38359-0-009-1.jpg?v=638053306036800000" alt="">
+          <div class="cora">
+            <span class="text_tenis" >Puma RS-X</span>
+            <label class="container-fav">
+              <input type="checkbox">
+              <svg id="Layer_1" version="1.0" viewBox="0 0 24 24" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M16.4,4C14.6,4,13,4.9,12,6.3C11,4.9,9.4,4,7.6,4C4.5,4,2,6.5,2,9.6C2,14,12,22,12,22s10-8,10-12.4C22,6.5,19.5,4,16.4,4z"></path></svg>
+            </label>
+          </div>
+          <p class="preco">R$599,00</p>
+        </a>
+      </li>
       <!-- tenis7 -->
-      <div class="prod">
-        <img class="imgtenis" src ="https://artwalk.vteximg.com.br/arquivos/ids/418422-760-760/39117-1-003-1.jpg?v=638252049386170000" alt="">
-        <div class="cora">
-          <a class="text_tenis" href="#">Puma RS-X</a>
-          <label class="container-fav">
-            <input type="checkbox">
-            <svg id="Layer_1" version="1.0" viewBox="0 0 24 24" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M16.4,4C14.6,4,13,4.9,12,6.3C11,4.9,9.4,4,7.6,4C4.5,4,2,6.5,2,9.6C2,14,12,22,12,22s10-8,10-12.4C22,6.5,19.5,4,16.4,4z"></path></svg>
-          </label>
-        </div>
-        <p class="preco">R$599,00</p>
-      </div>
+      <li class="prod">
+        <a class="link_produto" href="#">
+          <img class="imgtenis" src ="https://artwalk.vteximg.com.br/arquivos/ids/418422-760-760/39117-1-003-1.jpg?v=638252049386170000" alt="">
+          <div class="cora">
+            <span class="text_tenis" >Puma RS-X</span>
+            <label class="container-fav">
+              <input type="checkbox">
+              <svg id="Layer_1" version="1.0" viewBox="0 0 24 24" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M16.4,4C14.6,4,13,4.9,12,6.3C11,4.9,9.4,4,7.6,4C4.5,4,2,6.5,2,9.6C2,14,12,22,12,22s10-8,10-12.4C22,6.5,19.5,4,16.4,4z"></path></svg>
+            </label>
+          </div>
+          <p class="preco">R$599,00</p>
+        </a>
+      </li>
       <!-- tenis8 -->
-      <div class="prod">
-        <img class="imgtenis" src ="https://artwalk.vteximg.com.br/arquivos/ids/447933-760-760/39430-2-050-1.jpg?v=638309279595070000" alt="">
-        <div class="cora">
-          <a class="text_tenis" href="#">Puma RS-X</a>
-          <label class="container-fav">
-            <input type="checkbox">
-            <svg id="Layer_1" version="1.0" viewBox="0 0 24 24" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M16.4,4C14.6,4,13,4.9,12,6.3C11,4.9,9.4,4,7.6,4C4.5,4,2,6.5,2,9.6C2,14,12,22,12,22s10-8,10-12.4C22,6.5,19.5,4,16.4,4z"></path></svg>
-          </label>
-        </div>
-        <p class="preco">R$599,00</p>
-      </div>
+      <li class="prod">
+        <a class="link_produto" href="#">
+          <img class="imgtenis" src ="https://artwalk.vteximg.com.br/arquivos/ids/447933-760-760/39430-2-050-1.jpg?v=638309279595070000" alt="">
+          <div class="cora">
+            <span class="text_tenis" >Puma RS-X</span>
+            <label class="container-fav">
+              <input type="checkbox">
+              <svg id="Layer_1" version="1.0" viewBox="0 0 24 24" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M16.4,4C14.6,4,13,4.9,12,6.3C11,4.9,9.4,4,7.6,4C4.5,4,2,6.5,2,9.6C2,14,12,22,12,22s10-8,10-12.4C22,6.5,19.5,4,16.4,4z"></path></svg>
+            </label>
+          </div>
+          <p class="preco">R$599,00</p>
+        </a>
+      </li>
       <!-- tenis9 -->
-      <div class="prod">
-        <img class="imgtenis" src ="https://artwalk.vteximg.com.br/arquivos/ids/436449-760-760/39430-2-051-1.jpg?v=638277211511570000" alt="">
-        <div class="cora">
-          <a class="text_tenis" href="#">Puma RS-X</a>
-          <label class="container-fav">
-            <input type="checkbox">
-            <svg id="Layer_1" version="1.0" viewBox="0 0 24 24" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M16.4,4C14.6,4,13,4.9,12,6.3C11,4.9,9.4,4,7.6,4C4.5,4,2,6.5,2,9.6C2,14,12,22,12,22s10-8,10-12.4C22,6.5,19.5,4,16.4,4z"></path></svg>
-          </label>
-        </div>
-        <p class="preco">R$599,00</p>
-      </div>
+      <li class="prod">
+        <a class="link_produto" href="#">
+          <img class="imgtenis" src ="https://artwalk.vteximg.com.br/arquivos/ids/436449-760-760/39430-2-051-1.jpg?v=638277211511570000" alt="">
+          <div class="cora">
+            <span class="text_tenis" >Puma RS-X</span>
+            <label class="container-fav">
+              <input type="checkbox">
+              <svg id="Layer_1" version="1.0" viewBox="0 0 24 24" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M16.4,4C14.6,4,13,4.9,12,6.3C11,4.9,9.4,4,7.6,4C4.5,4,2,6.5,2,9.6C2,14,12,22,12,22s10-8,10-12.4C22,6.5,19.5,4,16.4,4z"></path></svg>
+            </label>
+          </div>
+          <p class="preco">R$599,00</p>
+        </a>
+      </li>
       <!-- tenis10 -->
-      <div class="prod">
-        <img class="imgtenis" src ="https://artwalk.vteximg.com.br/arquivos/ids/436443-760-760/39430-2-003-1.jpg?v=638277210260500000" alt="">
-        <div class="cora">
-          <a class="text_tenis" href="#">Puma RS-X</a>
-          <label class="container-fav">
-            <input type="checkbox">
-            <svg id="Layer_1" version="1.0" viewBox="0 0 24 24" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M16.4,4C14.6,4,13,4.9,12,6.3C11,4.9,9.4,4,7.6,4C4.5,4,2,6.5,2,9.6C2,14,12,22,12,22s10-8,10-12.4C22,6.5,19.5,4,16.4,4z"></path></svg>
-          </label>
-        </div>
-        <p class="preco">R$599,00</p>
-      </div>
-    </div>
+      <li class="prod">
+        <a class="link_produto" href="#">
+          <img class="imgtenis" src ="https://artwalk.vteximg.com.br/arquivos/ids/436443-760-760/39430-2-003-1.jpg?v=638277210260500000" alt="">
+          <div class="cora">
+            <span class="text_tenis" >Puma RS-X</span>
+            <label class="container-fav">
+              <input type="checkbox">
+              <svg id="Layer_1" version="1.0" viewBox="0 0 24 24" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M16.4,4C14.6,4,13,4.9,12,6.3C11,4.9,9.4,4,7.6,4C4.5,4,2,6.5,2,9.6C2,14,12,22,12,22s10-8,10-12.4C22,6.5,19.5,4,16.4,4z"></path></svg>
+            </label>
+          </div>
+          <p class="preco">R$599,00</p>
+        </a>
+      </li>
+    </ul>
 
 
   </main>
@@ -366,7 +381,7 @@
 
       <!-- Right -->
       <div>
-        <a href="#" class="text-white me-4">
+        <a  class="text-white me-4">
           <i class="fab fa-instagram"></i>
         </a>
         <a href="https://github.com/pedrootsugua/Projeto-E-commerce" class="text-white me-4" target="blank">
