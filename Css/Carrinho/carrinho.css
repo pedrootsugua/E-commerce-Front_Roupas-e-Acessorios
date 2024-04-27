@@ -1,3 +1,8 @@
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: #FFFFFF;
+}
+
 .main {
   width: 80%;
   min-height: calc(100vh - 105px);
@@ -11,27 +16,54 @@
 }
 
 .lista-produtos {
-  width: 50%;
-  height: 650px;
+  width: 60%;
+  min-height: 650px;
+  max-height: 650px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  
-  overflow: ellipsis;
+  overflow-y: auto;
+  margin-right: 50px;
   background-color: rgb(255, 91, 91); /* teste */
 }
 
+.lista-produtos .box-titulos {
+  width: 95%;
+  min-height: 20px;
+  display: flex;
+  flex-direction: row;
+  margin: 10px 0 5px 0;
+  background-color: #FFFFFF;
+}
+
+.lista-produtos .box-titulos .title-produtos {
+  width: 45%;
+}
+
+.lista-produtos .box-titulos .title-qtd {
+  width: 18%;
+}
+
+.lista-produtos .box-titulos .title-valor {
+  width: 18%;
+}
+
+.lista-produtos .box-titulos .title-total {
+  width: 19%;
+}
+
+.lista-produtos .produto {
+  width: 95%;
+  min-height: 130px;
+  background-color: #FFFFFF;
+  text-align: center;
+  margin: 10px 0;
+}
+
 .resumo-pedido {
-  width: 50%;
+  width: 40%;
   height: 650px;
   background-color: rgb(143, 143, 255);/* teste */
 }
 
-.lista-produtos .produto {
-  width: 80%; /* largura da caixa */
-  height: 150px; /* altura da caixa */
-  background-color: #FFFFFF; /* cor de fundo da caixa */
-  text-align: center;
-  margin: 20px;
-}
