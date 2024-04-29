@@ -1,3 +1,8 @@
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: #FFFFFF;
+}
+
 .main {
   width: 80%;
   min-height: calc(100vh - 105px);
@@ -7,31 +12,224 @@
   flex-direction: row;
   margin: 0 auto;
   overflow: auto;
-  /* gap: 15px; */
 }
 
 .lista-produtos {
-  width: 50%;
-  height: 650px;
+  width: 60%;
+  min-height: 650px;
+  max-height: 650px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  
-  overflow: ellipsis;
-  background-color: rgb(255, 91, 91); /* teste */
+  overflow-y: auto;
+  margin-right: 50px;
+  /* background-color: rgb(255, 91, 91); teste */
 }
 
+/* titulos da lista de produtos */
+.lista-produtos .box-titulos {
+  width: 95%;
+  min-height: 20px;
+  display: flex;
+  flex-direction: row;
+  margin: 10px 0 5px 0;
+}
+
+.lista-produtos .box-titulos .title-produtos {
+  width: 43%;
+  /* background-color: rgb(109, 255, 255); */
+}
+
+.lista-produtos .box-titulos .title-qtd {
+  width: 18%;
+  /* background-color: rgb(200, 255, 138); */
+}
+
+.lista-produtos .box-titulos .title-valor {
+  width: 18%;
+  /* background-color: rgb(238, 109, 255); */
+}
+
+.lista-produtos .box-titulos .title-total {
+  width: 21%;
+  /* background-color: rgb(74, 77, 255); */
+}
+
+.lista-produtos .box-titulos #t {
+  margin: 0;
+  padding-top: 5px;
+  font-family: "Poppins", sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  color: #000000;
+}
+
+/* estilos do produto na lista */
+.lista-produtos .produto {
+  width: 95%;
+  min-height: 130px;
+  background-color: #FFFFFF;
+  font-family: "Poppins", sans-serif;
+  color: #000000;
+  margin: 10px 0;
+  display: flex;
+  flex-direction: row;
+}
+
+/* descricao do produto */
+.lista-produtos .produto .descricao-produto {
+  width: 43%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.lista-produtos .produto .descricao-produto img {
+  width: 88px;
+  height: 88px;
+  margin: 0 15px 0 0;
+}
+
+.lista-produtos .produto .descricao-produto .info-protuto {
+  font-size: 13px;
+  font-weight: 500;
+  padding-top: 12px;
+}
+
+/* quantidade do produto */
+.lista-produtos .produto .quantidade {
+  width: 18%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 12px;
+  /* background-color: rgb(200, 255, 138); */
+}
+
+.lista-produtos .produto .quantidade #num-qtd {
+  margin: 0;
+  font-size: 17px;
+  font-weight: 500;
+}
+
+.lista-produtos .produto .quantidade button {
+  width: 30px;
+  height: 30px;
+  border: 3px solid #cacaca;
+  font-size: 18px;
+  font-weight: 600;
+  color: #6b6b6b;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  background-color: #FFFFFF; 
+  transition-duration: 0.2s;
+}
+
+.lista-produtos .produto .quantidade .btn-add-item:hover{
+  background-color: rgb(255, 212, 212);
+  border-color: rgb(255, 41, 41);
+  color: rgb(255, 41, 41);
+}
+
+.lista-produtos .produto .quantidade .btn-remove-item:hover {
+  background-color: rgb(193, 255, 187);
+  border-color: rgb(57, 201, 81);
+  color: rgb(57, 201, 81);
+}
+
+/* valor unitario do produto */
+.lista-produtos .produto .valor-unitario {
+  width: 18%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  /* background-color: rgb(238, 109, 255); */
+}
+
+.lista-produtos .produto .valor-unitario #vl-unitario {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+/* valor total, valor unitario * qtd produto */
+.lista-produtos .produto .valor-total {
+  width: 16%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  /* background-color: rgb(74, 77, 255); */
+}
+
+.lista-produtos .produto .valor-total #vl-total {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+/* excluir produto do carrinho */
+.lista-produtos .produto .delete {
+  width: 5%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+/* botão excluir produto do carrinho */
+.button-delete {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  background-color: rgb(20, 20, 20);
+  border: none;
+  font-weight: 600;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.164);
+  cursor: pointer;
+  transition-duration: 0.3s;
+  overflow: hidden;
+  position: relative;
+  gap: 2px;
+}
+
+.button-delete .svgIcon {
+  width: 10px;
+  transition-duration: 0.3s;
+}
+
+.button-delete .svgIcon path {
+  fill: white;
+}
+
+.button-delete:hover {
+  transition-duration: 0.3s;
+  background-color: rgb(255, 69, 69);
+  align-items: center;
+  gap: 0;
+}
+
+.button-delete .bin-top {
+  transform-origin: bottom right;
+}
+.button-delete:hover .bin-top {
+  transition-duration: 0.5s;
+  transform: rotate(160deg);
+}
+
+/* Resumo do pedido */
 .resumo-pedido {
-  width: 50%;
+  width: 40%;
   height: 650px;
   background-color: rgb(143, 143, 255);/* teste */
 }
 
-.lista-produtos .produto {
-  width: 80%; /* largura da caixa */
-  height: 150px; /* altura da caixa */
-  background-color: #FFFFFF; /* cor de fundo da caixa */
-  text-align: center;
-  margin: 20px;
-}
