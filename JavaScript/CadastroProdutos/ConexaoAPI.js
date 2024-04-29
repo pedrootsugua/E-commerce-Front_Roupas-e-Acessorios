@@ -82,12 +82,14 @@ function limpar() {
 
     // Remove a pré-visualização das imagens
     pictureImage.innerHTML = pictureImageTxt;
-    pictureImage2.innerHTML = pictureImageTxt2;
+    pictureImage2.innerHTML = pictureImageTxt;
+    pictureImage3.innerHTML = pictureImageTxt;
+    pictureImage4.innerHTML = pictureImageTxt;
 }
 
 //EventListener que captura o momento que o botão cadastrar é pressionado
 formulario.addEventListener("submit", function (event) {
     event.preventDefault();
     cadastrar();
-    // limpar();
+    limpar();
 });
