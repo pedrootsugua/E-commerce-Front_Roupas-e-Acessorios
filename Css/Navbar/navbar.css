@@ -68,6 +68,7 @@ ul li:hover ul.dropdown{
 
 .right-nav{
     display: flex;
+    flex-direction: column;
 }
 
 .right-nav a{
@@ -86,10 +87,21 @@ ul li:hover ul.dropdown{
 
 #pesquisa{
     border-radius: 10px;
-    border: 1px solid;
-    padding: 8px;
     border: none;
+    padding: 8px 30px;
     outline: none;
+}
+
+/* .position-user-name {
+    display: none;
+} */
+
+/* #login_user{
+    display: none;
+} */
+
+.position-user-name p{
+    margin-bottom: 0;
 }
 
 .mobile-right-nav{
