@@ -4,10 +4,10 @@ const senha = document.querySelector(".senha")
 const btnLogin = document.querySelector(".btn-login");
 const show = document.querySelector(".modal-confirm");
 
-import{
-    
-    acesso
-}from '../Inicial/AcessoUsuario.js';
+// import {
+
+//     acesso
+// } from '../Inicial/AcessoUsuario.js';
 
 function validarCampos() {
     const emailValue = email.value;
@@ -31,11 +31,11 @@ function validarCampos() {
     consultar();
 }
 
-  export function consultar() { 
+function consultar() {
 
     const login = {
-        "email" : email.value,
-        "senha" : senha.value
+        "email": email.value,
+        "senha": senha.value
     };
 
     // console.log(login)
@@ -53,7 +53,7 @@ function validarCampos() {
                 console.log(response)
                 //document.getElementById("login_user").innerHTML = "I have changed!"
                 // acesso().then(r => console.log(r)).catch(x => console.log(x))
-               
+
                 window.location.href = "TelaInicial.html";
             } else if (response.status === 403) {
                 // CPF já cadastrado
@@ -68,10 +68,10 @@ function validarCampos() {
         });
 }
 
-formulario.addEventListener("submit", function (event){
+formulario.addEventListener("submit", function (event) {
     event.preventDefault();
 
-   // consultar();
+    // consultar();
     validarCampos();
 })
 
