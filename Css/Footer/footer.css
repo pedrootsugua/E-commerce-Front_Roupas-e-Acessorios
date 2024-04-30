@@ -70,12 +70,13 @@ body a:hover {
     background: linear-gradient(#252525, #949494, #000000);
 }
 
-#facebook {
-    background-color: #4267b3;
+#github {
+    background-color: #FFFFFF;
 }
 
-#whatsapp {
-    background-color: #25d366;
+#github img {
+    width: 2.5rem;
+    height: 2.5rem;
 }
 
 .footer-list {
