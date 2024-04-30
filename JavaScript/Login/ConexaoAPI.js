@@ -4,19 +4,10 @@ const senha = document.querySelector(".senha")
 const btnLogin = document.querySelector(".btn-login");
 const show = document.querySelector(".modal-confirm");
 
-// document.querySelector(".btn-login").addEventListener("submit", function (event) {
-//     event.preventDefault();
+// import {
 
-//     consultar(); // Recebe os dados do backend
-//     limparCampos(); // Limpa os campos do formulário após o envio bem-sucedido
-    
-// });
-
-
-// btnLogin.addEventListener("click", function (event) {
-//     event.preventDefault();
-//     validarCampos();
-// });
+//     acesso
+// } from '../Inicial/AcessoUsuario.js';
 
 function validarCampos() {
     const emailValue = email.value;
@@ -40,15 +31,14 @@ function validarCampos() {
     consultar();
 }
 
-
-function consultar() { 
+function consultar() {
 
     const login = {
-        "email" : email.value,
-        "senha" : senha.value
+        "email": email.value,
+        "senha": senha.value
     };
 
-    console.log(login)
+    // console.log(login)
     fetch('http://localhost:8080/api/login', {
         method: 'POST',
         headers: {
@@ -59,29 +49,29 @@ function consultar() {
         .then(response => {
             if (response.status === 200) {
                 // Login realizado com sucesso
-                console.log('ok')
                 alert("Login bem sucedido!")
+                console.log(response)
+                //document.getElementById("login_user").innerHTML = "I have changed!"
+                // acesso().then(r => console.log(r)).catch(x => console.log(x))
+
                 window.location.href = "TelaInicial.html";
             } else if (response.status === 403) {
                 // CPF já cadastrado
                 alert("Usuário/senha inválido!");
-                document.querySelector(".principal").classList.remove('blur');
-                esconderLoading(); // Esconde o modal de loading
             }
         })
-        .catch(error => {
+        .catch(e => {
+            console.log(e)
             // Exibe mensagem de erro em caso de falha na requisição
             //console.error('Erro ao acessar usuário:', error);
             alert("Erro ao acessar usuário. Por favor, tente novamente.");
-            esconderLoading(); // Esconde o modal de loading
-            document.querySelector(".main").classList.remove('blur'); // Remove o efeito de blur
         });
 }
 
-formulario.addEventListener("submit", function (event){
+formulario.addEventListener("submit", function (event) {
     event.preventDefault();
 
-   // consultar();
+    // consultar();
     validarCampos();
 })
 
