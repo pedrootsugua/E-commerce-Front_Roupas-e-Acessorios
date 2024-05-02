@@ -1,6 +1,6 @@
 
 // URL da API que você deseja acessar
-const apiUrl = 'http://localhost:8080/api/produtos?category=sneakers';
+const apiUrl = 'http://localhost:8080/api/produtos?category=homem';
 
 const request1 = fetch(apiUrl, {
     method: 'GET'
@@ -25,7 +25,7 @@ const request1 = fetch(apiUrl, {
             const unidade = item.unidade;
             const estoque = item.estoque;
             const descricao = item.descricao;
-            const urls = item.url; // Array de URLs
+            const urls = item.urlImagensModels; // Array de URLs
 
             if (index <= 4) {
                 // Seleciona a lista de produtos
@@ -67,7 +67,7 @@ const request1 = fetch(apiUrl, {
             }
 
             // Atualiza os elementos do item do produto com os dados do JSON
-            novoItemProduto.querySelector(".imgProduto").src = urls[0];
+            novoItemProduto.querySelector(".imgProduto").src = urls[0].url;
             novoItemProduto.querySelector(".text_produto").textContent = nome;
             novoItemProduto.querySelector(".preco").textContent = "R$ " + preco;
 

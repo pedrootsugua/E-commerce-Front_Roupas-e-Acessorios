@@ -86,20 +86,12 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-md-4 mb-3">
+                            <div class="col-md-3 mb-3">
                                 <label for="tamanho">Tamanho</label>
                                 <input type="text" class="form-control" id="tamanho" placeholder="Digite o tamanho..."
                                     required>
                                 <div class="invalid-feedback">
                                     Digite um tamanho válido.
-                                </div>
-                            </div>
-                            <div class="col-md-5 mb-3">
-                                <label for="unidade">Unidade</label>
-                                <input type="text" class="form-control" id="unidade" placeholder="Digite a unidade..."
-                                    required>
-                                <div class="invalid-feedback">
-                                    Informe a unidade.
                                 </div>
                             </div>
                             <div class="col-md-3 mb-3">
@@ -110,7 +102,33 @@
                                     Informe um estoque válido.
                                 </div>
                             </div>
-                            <div class="col-md-8 mb-3">
+                            <div class="col-md-6 mb-3">
+                                <label for="unidade">Unidade</label>
+                                <input type="text" class="form-control" id="unidade" placeholder="Digite a unidade..."
+                                    required>
+                                <div class="invalid-feedback">
+                                    Informe a unidade.
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <div class="descricao-label">
+                                    <div class="row">
+                                        <div class="col-md-6 mb-2
+                                        ">
+                                            <button class="btn btn-primary btn-block btn-incluir">Incluir</button>
+                                        </div>
+                                        <div class="col-md-6 mb-2">
+                                            <button class="btn btn-secondary btn-block btn-excluir">Excluir</button>
+                                        </div>
+                                    </div>
+                                    <label for="textarea-tam-est"></label>
+                                    <textarea name="textarea-tam-est" id="textarea-tam-est" cols="40" rows="9" readonly></textarea>
+                                    <div class="invalid-feedback">
+                                        Informe pelo menos um tamanho e estoque.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-3">
                                 <div class="descricao-label">
                                     <label for="descricao">Descrição</label>
                                     <textarea name="descricao" id="descricao" cols="40" rows="10"></textarea>
@@ -154,7 +172,7 @@
                             </div>
                         </div>
                         <hr class="mb-4">
-                        <button class="btn btn-primary btn-lg btn-block" type="submit">Confirmar Cadastro</button>
+                        <button class="btn btn-primary btn-lg btn-block btn-cadastrar" type="button">Confirmar Cadastro</button>
                         <button class="btn btn-secondary btn-lg btn-block">
                             <a href="TelaLogin.html" style="color: inherit; text-decoration: none;">Cancelar</a>
                         </button>
