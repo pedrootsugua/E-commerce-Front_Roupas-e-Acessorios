@@ -14,6 +14,51 @@ const Iimagem2 = document.querySelector("#picture__input2");
 const Iimagem3 = document.querySelector("#picture__input3");
 const Iimagem4 = document.querySelector("#picture__input4");
 
+// Vetor para armazenar os dados de tamanho e estoque
+const dados = [];
+
+// Função para adicionar os valores ao vetor e atualizar a textarea
+function adicionarNaLista() {
+    const tamanho = Itamanho.value.trim();
+    const estoque = Iestoque.value.trim();
+
+    if (tamanho && estoque) {
+        // Adiciona os dados ao vetor
+        dados.push({ tamanho, estoque });
+
+        // Atualiza a textarea com os valores do vetor
+        atualizarTextarea();
+
+        // // Limpa os campos após adicionar à lista
+        Itamanho.value = '';
+        Iestoque.value = '';
+    } else {
+        alert('Por favor, preencha os campos de tamanho e estoque.');
+    }
+}
+
+// Função para atualizar a textarea com os valores do vetor
+function atualizarTextarea() {
+    // Monta a string com os valores do vetor
+    const texto = dados.map(item => `Tamanho: ${item.tamanho}, Estoque: ${item.estoque}`).join('\n');
+    
+    // Atualiza a textarea com a string
+    document.getElementById('textarea-tam-est').value = texto;
+}
+
+// Função para excluir o último registro do vetor dados e atualizar a textarea
+function excluirUltimoRegistro() {
+    // Verifica se há elementos no vetor
+    if (dados.length > 0) {
+        // Remove o último elemento do vetor
+        dados.pop();
+        // Atualiza a textarea com os valores atualizados do vetor
+        atualizarTextarea();
+    } else {
+        alert('Não há registros para excluir.');
+    }
+}
+
 function cadastrar() {
     //Instância da classe que guardará a imagem
     const formData = new FormData();
@@ -25,9 +70,8 @@ function cadastrar() {
         preco: Ipreco.value,
         categoria: Icategoria.value,
         marca: Imarca.value,
-        tamanho: Itamanho.value,
+        tamanhosEstoque: dados,
         unidade: Iunidade.value,
-        estoque: Iestoque.value,
         descricao: Idescricao.value
     };
     
@@ -88,8 +132,19 @@ function limpar() {
 }
 
 //EventListener que captura o momento que o botão cadastrar é pressionado
-formulario.addEventListener("submit", function (event) {
+document.querySelector('.btn-cadastrar').addEventListener('click', function (event) {
     event.preventDefault();
     cadastrar();
     limpar();
+});
+
+// Adiciona um evento de clique ao botão "Inserir"
+document.querySelector('.btn-incluir').addEventListener('click', function(event) {
+    event.preventDefault(); // Evita o comportamento padrão do formulário
+    adicionarNaLista(); // Chama a função para adicionar na lista
+});
+
+document.querySelector('.btn-excluir').addEventListener('click', function(event) {
+    event.preventDefault(); // Evita o comportamento padrão do formulário
+    excluirUltimoRegistro(); // Chama a função para adicionar na lista
 });
