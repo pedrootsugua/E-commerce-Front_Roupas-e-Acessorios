@@ -14,7 +14,7 @@ body{
 .principal{
     width: 100vw;  
     height: 100vh; /*tamanho da viewport (pega o tamanho da tela)*/
-    background-color: #96929274;
+    background-color: #f2f2f2;
     display: flex;
     justify-content: center;  /* eixo x */
     align-items: center; /* eixo y */
@@ -36,7 +36,7 @@ body{
     align-items: center;
     flex-direction: column;
     padding: 30px 35px; /* eixo y e eixo x (respectivamente) */
-    background-color:#d3d3d374;
+    background-color:#f2f2f267;
     border-radius: 20px;
     box-shadow: 0px 10px 20px 0px rgb(69, 65, 65);  /*1-sombra direita/esquerda 2-direita/baixo 3-blur 4-cor*/
 }
@@ -86,7 +86,7 @@ body{
     font-size: 12pt;
     /* box-shadow: 0px 10px 10px rgb(69, 65, 65);  */
     outline: none;
-    background-color: #d3d3d36b;
+    background-color: #f2f2f244;
 }
 
 .text-field input::placeholder{
@@ -120,7 +120,7 @@ body{
 }
 
 .btn-login:hover{
-    background-color: #d3d3d36b;
+    background-color: #f2f2f267;
     color: black;
     transition: all 0.8s ease;
 }
