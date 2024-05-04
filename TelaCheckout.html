@@ -27,6 +27,7 @@
 
     <script src="JavaScript/Checkout/consultaAPIexterna.js" defer></script>
     <script src="JavaScript/Checkout/utils.js" defer></script>
+    <script src="JavaScript/Checkout/conexaoAPI.js" defer></script>
     <title>Checkout</title>
 </head>
 
@@ -171,8 +172,8 @@
                     </div>
 
                     <div>
-                        <input type="checkbox" id="enderecoSalvoRb">
-                        <label for="enderecoSalvoRb">Usar endereço salvo</label>
+                        <input type="checkbox" id="check">
+                        <label for="check">Usar endereço salvo</label>
                     </div>
                 </div>
 
@@ -213,7 +214,7 @@
                         <span></span>
                     </button>
                 </a>
-    
+
                 <a href="TelaPagamento.html">
                     <button class="btn-pagamento" type="submit">
                         <span>Pagamento</span>
