@@ -54,11 +54,79 @@ body {
   background-color: #5F9EA0;
 }
 
+/* sera visivel apenas se o carrinho estiver vazio */
+.carrinho-vazio {
+  display: none; /*IRA ALTERAR PARA "display: flex" CASO O CARRINHO TENHA ALGUM ITEM */
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 60px auto 100px auto;
+  font-family: "Poppins", sans-serif;
+}
+
+.carrinho-vazio img {
+  width: 160px;
+  margin: 70px 0 50px 0;
+}
+
+/* Botão voltar para a tela inicial*/
+.animated-button {
+  position: relative;
+  display: inline-block;
+  padding: 5px 20px;
+  border: none;
+  font-size: 16px;
+  background-color: inherit;
+  border-radius: 40px;
+  font-weight: 600;
+  color: #6e6e6e;
+  box-shadow: 0 0 0 2px #6e6e6e;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+  margin-top: 25px;
+}
+
+.animated-button span:last-child {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20px;
+  height: 20px;
+  background-color: #161616;
+  border-radius: 50%;
+  opacity: 0;
+  transition: all 0.8s cubic-bezier(0.23, 1, 0.320, 1);
+}
+
+.animated-button span:first-child {
+  position: relative;
+  z-index: 1;
+}
+
+.animated-button:hover {
+  box-shadow: 0 0 0 5px #8f8f8f60;
+  color: #ffffff;
+}
+
+.animated-button:active {
+  scale: 0.95;
+}
+
+.animated-button:hover span:last-child {
+  width: 200px;
+  height: 200px;
+  opacity: 1;
+}
+
+
+
 /* posicionamento conteudo principal */
 .main {
   width: 80%;
   /* min-height: calc(100vh - 105px); */
-  display: flex;
+  display: flex; /*IRA ALTERAR PARA "display: none" CASO O CARRINHO ESTEJA VAZIO */
   align-items: center;
   justify-content: center;
   flex-direction: row;
