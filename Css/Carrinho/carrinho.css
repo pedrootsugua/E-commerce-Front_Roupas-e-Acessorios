@@ -112,7 +112,7 @@ body {
   margin: 0;
   padding-top: 5px;
   font-family: "Poppins", sans-serif;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 600;
   letter-spacing: 0.3px;
   color: #000000;
@@ -292,18 +292,19 @@ body {
 
 .resumo .resumo-pedido {
   width: 80%;
-  height: 500px;
-  background-color: #e2e2e269;
+  height: 490px;
+  background-color: #83c5c985;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  border-radius: 60px;
+  border-radius: 80px;
 }
 
 .resumo .resumo-pedido h1 {
   font-weight: 600;
-  margin-top: 30px;
+  margin-top: 40px;
+  font-size: 38px;
 }
 
 .resumo .resumo-pedido .info {
@@ -328,13 +329,13 @@ body {
 }
 
 .resumo .resumo-pedido h2 {
-  font-size: 26px;
+  font-size: 24px;
   font-weight: 600;
   margin: 20px 0;
 }
 
 .resumo .resumo-pedido h3 {
-  font-size: 20px;
+  font-size: 17px;
   font-weight: 600;
   margin: 20px 0 26px 0;
 }
@@ -355,12 +356,6 @@ body {
   font-size: 18px;
   margin-top: 10px;
 }
-
-/* .btn-continuar:hover {
-  background-color: rgb(255, 255, 255);
-  transition-duration: .3s;
-  mix-blend-mode: difference;
-} */
 
 .btn-continuar > svg {
   width: 34px;

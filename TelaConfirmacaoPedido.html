@@ -32,6 +32,7 @@
 
 <body>
     <header>
+
         <nav id="navbar">
             <div class="img">
                 <img src="/img/logo.png" alt="logo">
@@ -40,26 +41,52 @@
             <ul id="nav-list">
                 <li class="nav-item">
                     <a href="">Promoções</a>
+                    <ul class="dropdown">
+                        <li><a href="">Lançamentos</a></li>
+                        <li><a href="#novidade">Novidades</a></li>
+                    </ul>
                 </li>
 
                 <li class="nav-item">
                     <a href="">Vestuário</a>
+                    <ul class="dropdown">
+                        <li><a href="">Feminino</a></li>
+                        <li><a href="">Masculino</a></li>
+                    </ul>
                 </li>
 
                 <li class="nav-item">
                     <a href="">Acessórios</a>
+                    <ul class="dropdown">
+                        <li><a href="">Boné</a></li>
+                        <li><a href="">Bolsas</a></li>
+                        <li><a href="">Joias</a></li>
+                    </ul>
                 </li>
 
                 <li class="nav-item">
-                    <a href="">Sneakers</a>
+                    <a href="/TelaProdutos.html">Sneakers</a>
+                    <ul class="dropdown">
+                        <li><a href="">Old Schools</a></li>
+                        <li><a href="">Street</a></li>
+                        <li><a href="">Casual</a></li>
+                    </ul>
                 </li>
             </ul>
 
+
+            <input id="pesquisa" type="text" placeholder="pesquisar">
+
             <div class="right-nav">
-                <input id="pesquisa" type="text" placeholder="pesquisar">
-                <a href="/TelaFormularioCliente.html"><i class="fa-solid fa-user"></i></a>
-                <a href="/TelaCarrinho.html"><i class="fa-solid fa-cart-shopping"></i></a>
-                <i class="fa-regular fa-heart"></i>
+                <div class="position-icon">
+                    <a href="/TelaLogin.html"><i class="fa-solid fa-user"></i></a>
+                    <a href="/TelaCarrinho.html"><i class="fa-solid fa-cart-shopping"></i></a>
+                    <i class="fa-regular fa-heart"></i>
+                </div>
+                <div class="position-user-name">
+                    <p id="login_user"></p>
+                </div>
+
             </div>
 
             <div class="mobile-right-nav">
@@ -93,6 +120,7 @@
                 </li>
             </ul>
         </div>
+
     </header>
 
     <div class="main-container">
@@ -105,12 +133,12 @@
                 <span>ex@ex.com</span> com os dados do pedido realizado.
             </p>
 
-            <footer>
+            <div class="aprovacao-pagamento">
                 <svg xmlns="http://www.w3.org/2000/svg" width="76" height="71" viewBox="0 0 76 71" fill="none">
                     <g clip-path="url(#clip0_1_1354)">
                         <path
                             d="M37.9999 64.4681C20.5104 64.4681 6.33325 51.3488 6.33325 35.1644C6.33325 18.98 20.5104 5.86072 37.9999 5.86072C55.4894 5.86072 69.6666 18.98 69.6666 35.1644C69.6666 51.3488 55.4894 64.4681 37.9999 64.4681ZM34.8428 46.8859L57.2311 26.1652L52.7534 22.0217L34.8428 38.5988L25.8843 30.3088L21.4066 34.4523L34.8428 46.8859Z"
-                            fill="#35B321" />
+                            fill="#5F9EA0" />
                     </g>
                     <defs>
                         <clipPath id="clip0_1_1354">
@@ -119,25 +147,26 @@
                     </defs>
                 </svg>
 
-                <p>Pagamento Aprovado!</p>
-            </footer>
+                <h2>Pagamento Aprovado!</h2>
+            </div>
         </section>
 
         <section class="info-pedido">
             <h2>Informações do Pedido</h2>
 
-            <section class="dados-pedido">
-                <p>Número do pedido: 1546147</p>
-                <p>Total: R$1599,99</p>
-                <p>Forma de Pagamento: Cartão de Crédito </p>
-                <p>Forma de Envio: Sedex (GRÁTIS)</p>
-                <p>CEP de Entrega: 04848-000</p>
-            </section>
-
-            <p class="info">*Os produtos serão enviados em até 3 dias úteis após a confirmação do pagamento.</p>
+            <div class="box">
+                <section class="dados-pedido">
+                    <h3>Número do pedido: 1546147</h3>
+                    <h3>Total: R$1599,99</h3>
+                    <h3>Forma de Pagamento: Cartão de Crédito </h3>
+                    <h3>Forma de Envio: Sedex (GRÁTIS)</h3>
+                    <h3>CEP de Entrega: 04848-000</h3>
+                </section>
+                <p class="info">*Os produtos serão enviados em até 3 dias úteis após a confirmação do pagamento.</p>
+            </div>
         </section>
 
-        <button>Ir para Meus Pedidos</button>
+        <button class="btn-pedidos">Ir para Meus Pedidos</button>
     </div>
 
     <footer>
@@ -150,8 +179,9 @@
                     <a href="#" class="footer-link" id="instagram" target="_blank">
                         <i class="fa-brands fa-instagram"></i>
                     </a>
-                    <a href="#" class="footer-link" id="whatsapp" target="_blank">
-                        <i class="fa-brands fa-whatsapp"></i>
+                    <a href="https://github.com/pedrootsugua/Projeto-E-commerce" class="footer-link" id="github"
+                        target="_blank">
+                        <img src="img/github_img.png" alt="Logo GitHub">
                     </a>
                 </div>
             </div>
