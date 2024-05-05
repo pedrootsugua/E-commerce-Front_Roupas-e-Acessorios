@@ -9,15 +9,27 @@ main{
 .content{
     margin: 0 auto;
     display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    gap: 80px;
+    min-height: calc(90vh - 105px);
+}
+
+.lista-produtos {
+    display: flex;
     justify-content: center;
     gap: 80px;
+    list-style-type: none;
+    padding: 0;
+  }
+  
+.list-prod {
+display: flex;
+gap: 80px;
 }
 
-.imagens-produto{
-    
-}
-
-.imagens-produto img{
+.list-prod img{
     border-radius: 20px;
     width: 450px;
     height: 450px;
