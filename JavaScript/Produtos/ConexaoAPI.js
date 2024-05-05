@@ -1,7 +1,26 @@
 
-// URL da API que você deseja acessar
-const apiUrl = 'http://localhost:8080/api/produtos?category=homem';
 
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelector('.sneakers').addEventListener('click', function(event) {
+        event.preventDefault(); // Evita o comportamento padrão do formulário
+        acessarapi("sneakers");
+});
+document.querySelector('.vestuarios').addEventListener('click', function(event) {
+    event.preventDefault(); // Evita o comportamento padrão do formulário
+    acessarapi("vestuarios");
+});
+document.querySelector('.promocoes').addEventListener('click', function(event) {
+    event.preventDefault(); // Evita o comportamento padrão do formulário
+    acessarapi("promocoes");
+});
+document.querySelector('.acessorios').addEventListener('click', function(event) {
+    event.preventDefault(); // Evita o comportamento padrão do formulário
+    acessarapi("acessorios");
+});
+});
+// URL da API que você deseja acessar
+function acessarapi(categoria){
+let apiUrl = 'http://localhost:8080/api/produtos?category='+categoria;
 const request1 = fetch(apiUrl, {
     method: 'GET'
 })
@@ -77,3 +96,4 @@ const request1 = fetch(apiUrl, {
         // Trate os erros que possam ocorrer durante a solicitação
         console.error(error);
     });
+    }
