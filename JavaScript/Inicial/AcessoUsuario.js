@@ -15,7 +15,7 @@ fetch('http://localhost:8080/api/login/autenticacao', {
         const autenticado = data.autenticado;
         id = data.credencialModel.idUsuario;
         if (autenticado === true){
-            document.getElementById("login_user").innerHTML = "Penis";
+            document.getElementById("login_user").innerHTML = "Olá";
         }
         // e assim por diante, dependendo dos campos do objeto retornado
     })
