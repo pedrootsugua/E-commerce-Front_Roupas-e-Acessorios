@@ -70,10 +70,13 @@
                         <div class="row">
                             <div class="col-md-6 mb-3">
                                 <label for="categoria">Categoria</label>
-                                <input type="text" class="form-control" id="categoria"
-                                    placeholder="Digite a categoria..." required>
+                                <select name="categoria_options" class="form-control" id="categoria">
+                                    <option value="Sneakers" selected>Sneakers</option>
+                                    <option value="Vestuário">Vestuário</option>
+                                    <option value="Acessórios">Acessórios</option>
+                                </select>                                
                                 <div class="invalid-feedback">
-                                    Digite uma categoria válida.
+                                    Escolha uma categoria válida.
                                 </div>
                             </div>
                             <div class="col-md-6 mb-3">
@@ -104,10 +107,12 @@
                             </div>
                             <div class="col-md-6 mb-3">
                                 <label for="unidade">Unidade</label>
-                                <input type="text" class="form-control" id="unidade" placeholder="Digite a unidade..."
-                                    required>
+                                <select name="categoria_options" class="form-control" id="unidade">
+                                    <option value="Peça">Peça</option>
+                                    <option value="Par" selected>Par</option>
+                                </select>                                
                                 <div class="invalid-feedback">
-                                    Informe a unidade.
+                                    Escolha uma categoria válida.
                                 </div>
                             </div>
                             <div class="col-md-6 mb-3">
