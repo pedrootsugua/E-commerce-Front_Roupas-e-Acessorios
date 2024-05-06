@@ -15,7 +15,7 @@ const Iimagem3 = document.querySelector("#picture__input3");
 const Iimagem4 = document.querySelector("#picture__input4");
 
 // Vetor para armazenar os dados de tamanho e estoque
-const dados = [];
+let dados = [];
 
 // Função para adicionar os valores ao vetor e atualizar a textarea
 function adicionarNaLista() {
@@ -120,6 +120,7 @@ function limpar() {
     Inome.value = "";
     Icategoria.value = "";
     Ipreco.value = "";
+    dados = [];
 
     // Reseta o formulário
     formulario.reset();
