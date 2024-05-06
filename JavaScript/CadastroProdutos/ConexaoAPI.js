@@ -41,7 +41,7 @@ function adicionarNaLista() {
 function atualizarTextarea() {
     // Monta a string com os valores do vetor
     const texto = dados.map(item => `Tamanho: ${item.tamanho}, Estoque: ${item.estoque}`).join('\n');
-    
+
     // Atualiza a textarea com a string
     document.getElementById('textarea-tam-est').value = texto;
 }
@@ -63,7 +63,6 @@ function cadastrar() {
     //Instância da classe que guardará a imagem
     const formData = new FormData();
 
-    
     //Objeto JSON que recebe os dados que serão guardados no banco
     const produto = {
         nome: Inome.value,
@@ -74,7 +73,7 @@ function cadastrar() {
         unidade: Iunidade.value,
         descricao: Idescricao.value
     };
-    
+
     //Adição das info dos produtos no objeto
     formData.append('produto', JSON.stringify(produto));
 
@@ -84,12 +83,7 @@ function cadastrar() {
     formData.append('imagem3', Iimagem3.files[0]);
     formData.append('imagem4', Iimagem4.files[0]);
 
-    // Array para armazenar mensagens de sucesso e erro
-    const messages = [];
-
-    // Array para armazenar todas as promessas
-    const promises = [];
-
+    mostrarLoading();
     //Conexão com o backend para gravação do JSON
     const request1 = fetch('http://localhost:8080/api/cadastrarProd', {
         method: 'POST',
@@ -97,22 +91,22 @@ function cadastrar() {
     })
         .then(response => {
             if (response.ok) {
-                messages.push('Produto cadastrado com sucesso!');
+                setTimeout(() => {
+                    esconderLoading();
+                    document.querySelector(".card").style.display = "flex";
+                }, 3000);
             } else {
-                messages.push('Erro ao cadastrar produto');
+                alert("Erro ao cadastrar produto");
+                document.querySelector(".main").classList.remove('blur');
+                document.querySelector("footer").classList.remove('blur');
+                esconderLoading();
             }
         })
         .catch(error => {
-            messages.push('Erro ao cadastrar produto: ' + error.message);
-        });
-
-    promises.push(request1);
-
-    // Espera que todas as promessas sejam resolvidas
-    Promise.all(promises)
-        .then(() => {
-            // Exibe alerta com todas as mensagens concatenadas
-            alert(messages.join('\n'));
+            alert("Erro ao cadastrar produto");
+            esconderLoading();
+            document.querySelector(".main").classList.remove('blur');
+            document.querySelector("footer").classList.remove('blur');
         });
 }
 
@@ -140,12 +134,12 @@ document.querySelector('.btn-cadastrar').addEventListener('click', function (eve
 });
 
 // Adiciona um evento de clique ao botão "Inserir"
-document.querySelector('.btn-incluir').addEventListener('click', function(event) {
+document.querySelector('.btn-incluir').addEventListener('click', function (event) {
     event.preventDefault(); // Evita o comportamento padrão do formulário
     adicionarNaLista(); // Chama a função para adicionar na lista
 });
 
-document.querySelector('.btn-excluir').addEventListener('click', function(event) {
+document.querySelector('.btn-excluir').addEventListener('click', function (event) {
     event.preventDefault(); // Evita o comportamento padrão do formulário
     excluirUltimoRegistro(); // Chama a função para adicionar na lista
 });
