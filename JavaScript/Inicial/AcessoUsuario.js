@@ -26,7 +26,6 @@ function verificaAutenticacao(){
     })
     .catch(error => {
         console.error('Erro ao fazer login:', error);
-        alert("Erro ao acessar usuário. Por favor, tente novamente.");
     });
 }
 
