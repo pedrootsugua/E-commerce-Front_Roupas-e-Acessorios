@@ -1,99 +1,101 @@
 
 
-document.addEventListener('DOMContentLoaded', function() {
-    document.querySelector('.sneakers').addEventListener('click', function(event) {
+document.addEventListener('DOMContentLoaded', function () {
+    // Recuperar a string da URL
+    var params = new URLSearchParams(window.location.search);
+    var mensagem = params.get('mensagem');
+    acessarapi(mensagem);
+
+    document.querySelector('.sneakers').addEventListener('click', function (event) {
         event.preventDefault(); // Evita o comportamento padrão do formulário
-        acessarapi("sneakers");
-});
-document.querySelector('.vestuarios').addEventListener('click', function(event) {
-    event.preventDefault(); // Evita o comportamento padrão do formulário
-    acessarapi("vestuarios");
-});
-document.querySelector('.promocoes').addEventListener('click', function(event) {
-    event.preventDefault(); // Evita o comportamento padrão do formulário
-    acessarapi("promocoes");
-});
-document.querySelector('.acessorios').addEventListener('click', function(event) {
-    event.preventDefault(); // Evita o comportamento padrão do formulário
-    acessarapi("acessorios");
-});
+        mensagem = "sneakers";
+        acessarapi(mensagem);
+    });
+    document.querySelector('.vestuarios').addEventListener('click', function (event) {
+        event.preventDefault(); // Evita o comportamento padrão do formulário
+        mensagem = "vestuarios";
+        acessarapi(mensagem);
+    });
+    document.querySelector('.promocoes').addEventListener('click', function (event) {
+        event.preventDefault(); // Evita o comportamento padrão do formulário
+        mensagem = "promocoes";
+        acessarapi(mensagem);
+    });
+    document.querySelector('.acessorios').addEventListener('click', function (event) {
+        event.preventDefault(); // Evita o comportamento padrão do formulário
+        mensagem = "acessorios";
+        acessarapi(mensagem);
+    });
 });
 // URL da API que você deseja acessar
-function acessarapi(categoria){
-let apiUrl = 'http://localhost:8080/api/produtos?category='+categoria;
-const request1 = fetch(apiUrl, {
-    method: 'GET'
-})
-    .then(response => {
-        // Verifique se a solicitação foi bem-sucedida (status 200)
-        if (!response.ok) {
-            throw new Error('Erro ao acessar a API: ' + response.statusText);
-        }
-        // Parseie os dados da resposta JSON
-        return response.json();
+function acessarapi(categoria) {
+    let apiUrl = 'http://localhost:8080/api/produtos?category=' + categoria;
+    const request1 = fetch(apiUrl, {
+        method: 'GET'
     })
-    .then(data => {
-        // Itere sobre cada item na lista
-        data.forEach((item, index) => {
-            // Acesse as propriedades de cada item
-            const nome = item.nome;
-            const preco = item.preco;
-            const categoria = item.categoria;
-            const marca = item.marca;
-            const tamanho = item.tamanho;
-            const unidade = item.unidade;
-            const estoque = item.estoque;
-            const descricao = item.descricao;
-            const urls = item.urlImagensModels; // Array de URLs
-
-            if (index <= 4) {
-                // Seleciona a lista de produtos
-                var listaProdutos = document.querySelector(".linha");
-
-                // Seleciona o modelo de item de produto
-                var itemProdutoModelo = listaProdutos.querySelector(".prod");
-
-                // Remove o modelo do item de produto do HTML
-                itemProdutoModelo.remove();
-                var novoItemProduto = itemProdutoModelo.cloneNode(true); // Clone do modelo
-
-                // Adiciona o novo item do produto à lista de produtos
-                listaProdutos.appendChild(novoItemProduto);
-            } else if (index <= 9) {
-                var listaProdutos2 = document.querySelector(".linha2");
-                var itemProdutoModelo = listaProdutos2.querySelector(".prod");
-                // Remove o modelo do item de produto do HTML
-                itemProdutoModelo.remove();
-                var novoItemProduto = itemProdutoModelo.cloneNode(true); // Clone do modelo
-                // Adiciona o novo item do produto à lista de produtos
-                listaProdutos2.appendChild(novoItemProduto);
-            } else if (index <= 14) {
-                var listaProdutos3 = document.querySelector(".linha3");
-                var itemProdutoModelo = listaProdutos3.querySelector(".prod");
-                // Remove o modelo do item de produto do HTML
-                itemProdutoModelo.remove();
-                var novoItemProduto = itemProdutoModelo.cloneNode(true); // Clone do modelo
-                // Adiciona o novo item do produto à lista de produtos
-                listaProdutos3.appendChild(novoItemProduto);
-            } else {
-                var listaProdutos4 = document.querySelector(".linha4");
-                var itemProdutoModelo = listaProdutos4.querySelector(".prod");
-                // Remove o modelo do item de produto do HTML
-                itemProdutoModelo.remove();
-                var novoItemProduto = itemProdutoModelo.cloneNode(true); // Clone do modelo
-                // Adiciona o novo item do produto à lista de produtos
-                listaProdutos4.appendChild(novoItemProduto);
+        .then(response => {
+            // Verifique se a solicitação foi bem-sucedida (status 200)
+            if (!response.ok) {
+                throw new Error('Erro ao acessar a API: ' + response.statusText);
             }
+            // Parseie os dados da resposta JSON
+            return response.json();
+        })
+        .then(data => {
+            // Seleciona a lista de produtos
+            var listaProdutos = document.querySelector(".linha");
+            var listaProdutos2 = document.querySelector(".linha2");
+            var listaProdutos3 = document.querySelector(".linha3");
+            var listaProdutos4 = document.querySelector(".linha4");
+            // Limpa a lista de produtos antes de adicionar os novos
+            listaProdutos.innerHTML = "";
+            listaProdutos2.innerHTML = "";
+            listaProdutos3.innerHTML = "";
+            listaProdutos4.innerHTML = "";
 
-            // Atualiza os elementos do item do produto com os dados do JSON
-            novoItemProduto.querySelector(".imgProduto").src = urls[0].url;
-            novoItemProduto.querySelector(".text_produto").textContent = nome;
-            novoItemProduto.querySelector(".preco").textContent = "R$ " + preco;
-
+            // Itere sobre cada item na lista
+            data.forEach((item, index) => {
+                if (index <= 3) { // Apenas os primeiros 4 itens
+                    inserirProdutosFront(item, listaProdutos);
+                } else if (index <= 7) {
+                    inserirProdutosFront(item, listaProdutos2);
+                } else if (index <= 11) {
+                    inserirProdutosFront(item, listaProdutos3);
+                } else {                   
+                    inserirProdutosFront(item, listaProdutos4);
+                }
+            });
+        })
+        .catch(error => {
+            // Trate os erros que possam ocorrer durante a solicitação
+            console.error(error);
         });
-    })
-    .catch(error => {
-        // Trate os erros que possam ocorrer durante a solicitação
-        console.error(error);
-    });
+
+    function inserirProdutosFront(item, listaProdutos) {
+        const urls = item.urlImagensModels; // Array de URLs
+        // Cria um novo elemento de produto
+        const novoProduto = document.createElement('li');
+        novoProduto.classList.add('prod');
+        // Define o conteúdo HTML do novo produto
+        novoProduto.innerHTML = `
+                        <a class="link_produto" href="#">
+                            <img class="imgProduto" src="${urls[0].url}" alt="">
+                            <div class="cora">
+                                <span class="text_produto">${item.nome}</span>
+                                <label class="container-fav">
+                                    <input type="checkbox">
+                                    <svg id="Layer_1" version="1.0" viewBox="0 0 24 24" xml:space="preserve"
+                                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                        <path
+                                            d="M16.4,4C14.6,4,13,4.9,12,6.3C11,4.9,9.4,4,7.6,4C4.5,4,2,6.5,2,9.6C2,14,12,22,12,22s10-8,10-12.4C22,6.5,19.5,4,16.4,4z">
+                                        </path>
+                                    </svg>
+                                </label>
+                            </div>
+                            <p class="preco">R$ ${item.preco}</p>
+                        </a>
+                    `;
+        // Adiciona o novo produto à lista de produtos
+        listaProdutos.appendChild(novoProduto);
     }
+}
