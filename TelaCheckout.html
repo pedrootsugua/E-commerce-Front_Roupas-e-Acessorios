@@ -36,7 +36,7 @@
 
         <nav id="navbar">
             <div class="img">
-                <img src="/img/logo.png" alt="logo">
+                <a href="TelaInicial.html"><img src="/img/logo.png" alt="logo"></a>
             </div>
 
             <ul id="nav-list">
@@ -202,9 +202,21 @@
                     <input type="text" id="cidade">
                 </div>
                 <div class="group-form">
-                    <label for="frete">Tipo de frete</label>
-                    <input type="text" id="frete" disabled value="Frete Grátis (SEDEX)">
+                    <label for="uf">UF</label>
+                    <input type="text" id="uf">
                 </div>
+                <div class="endereco">
+                    <div>
+                        <label for="frete">Tipo de frete</label>
+                        <input type="text" id="frete" disabled value="Frete Grátis (SEDEX)">
+                    </div>
+
+                    <div>
+                        <input type="checkbox" id="check1">
+                        <label for="check">Salvar endereço alternativo</label>
+                    </div>
+                </div>
+
             </form>
 
             <div class="buttons">
