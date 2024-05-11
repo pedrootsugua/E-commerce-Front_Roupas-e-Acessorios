@@ -28,6 +28,13 @@ document.addEventListener('DOMContentLoaded', function () {
     var mensagem = 'acessorios';
     window.location.href = 'TelaProdutos.html?mensagem=' + mensagem;
   });
+  document.querySelector('.carrinho').addEventListener('click', function (event) {
+    event.preventDefault(); // Evita o comportamento padrão do formulário
+    // Enviar a string para a outra tela como parâmetro na URL
+    var mensagem = id;
+    console.log(mensagem)
+    window.location.href = 'TelaCarrinho.html?mensagem=' + mensagem;
+  });
 });
 
 controls.forEach((control) => {
