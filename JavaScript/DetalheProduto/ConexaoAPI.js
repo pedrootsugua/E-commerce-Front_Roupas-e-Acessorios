@@ -1,6 +1,11 @@
+const params = new URLSearchParams(window.location.search);
+const id = params.get('id');
+
 
 // URL da API que você deseja acessar
-const apiUrl = 'http://localhost:8080/api/produtos?category=tenis';
+const apiUrl = 'http://localhost:8080/api/produtos?category=' + id;
+
+
 
 const request1 = fetch(apiUrl, {
     method: 'GET'
@@ -53,4 +58,33 @@ const request1 = fetch(apiUrl, {
     .catch(error => {
         // Trate os erros que possam ocorrer durante a solicitação
         console.error(error);
+    });
+
+
+    document.addEventListener('DOMContentLoaded', function () {
+        // Recuperar a string da URL
+        var params = new URLSearchParams(window.location.search);
+        var mensagem = params.get('mensagem');
+        acessarapi(mensagem);
+    
+        document.querySelector('.sneakers').addEventListener('click', function (event) {
+            event.preventDefault(); // Evita o comportamento padrão do formulário
+            mensagem = "sneakers";
+            acessarapi(mensagem);
+        });
+        document.querySelector('.vestuarios').addEventListener('click', function (event) {
+            event.preventDefault(); // Evita o comportamento padrão do formulário
+            mensagem = "vestuarios";
+            acessarapi(mensagem);
+        });
+        document.querySelector('.promocoes').addEventListener('click', function (event) {
+            event.preventDefault(); // Evita o comportamento padrão do formulário
+            mensagem = "promocoes";
+            acessarapi(mensagem);
+        });
+        document.querySelector('.acessorios').addEventListener('click', function (event) {
+            event.preventDefault(); // Evita o comportamento padrão do formulário
+            mensagem = "acessorios";
+            acessarapi(mensagem);
+        });
     });

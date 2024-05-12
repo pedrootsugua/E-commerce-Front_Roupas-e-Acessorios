@@ -65,6 +65,12 @@ function acessarapi(categoria) {
                     inserirProdutosFront(item, listaProdutos4);
                 }
             });
+
+                document.querySelector('.sneakers').addEventListener('click', function (event) {
+                  event.preventDefault(); // Evita o comportamento padrão do formulário
+                  // Enviar a string para a outra tela como parâmetro na URL
+                  window.location.href = 'DetalhesProduto.html' + data.id;
+                });
         })
         .catch(error => {
             // Trate os erros que possam ocorrer durante a solicitação
@@ -78,8 +84,7 @@ function acessarapi(categoria) {
         novoProduto.classList.add('prod');
         // Define o conteúdo HTML do novo produto
         novoProduto.innerHTML = `
-                        <a class="link_produto" href="#">
-                            <img class="imgProduto" src="${urls[0].url}" alt="">
+        <a id='${item.id}' class="link_produto" href="DetalheProduto.html?${item.id}">                            <img class="imgProduto" src="${urls[0].url}" alt="">
                             <div class="cora">
                                 <span class="text_produto">${item.nome}</span>
                                 <label class="container-fav">
