@@ -61,7 +61,7 @@ function acessarapi(categoria) {
                     inserirProdutosFront(item, listaProdutos2);
                 } else if (index <= 11) {
                     inserirProdutosFront(item, listaProdutos3);
-                } else {                   
+                } else {
                     inserirProdutosFront(item, listaProdutos4);
                 }
             });
@@ -76,10 +76,10 @@ function acessarapi(categoria) {
         // Cria um novo elemento de produto
         const novoProduto = document.createElement('li');
         novoProduto.classList.add('prod');
+        novoProduto.setAttribute("user-id", item.id);
         // Define o conteúdo HTML do novo produto
         novoProduto.innerHTML = `
-                        <a class="link_produto" href="#">
-                            <img class="imgProduto" src="${urls[0].url}" alt="">
+        <a id='${item.id}' class="link_produto" href="DetalheProduto.html?id=${item.id}">                            <img class="imgProduto" src="${urls[0].url}" alt="">
                             <div class="cora">
                                 <span class="text_produto">${item.nome}</span>
                                 <label class="container-fav">
