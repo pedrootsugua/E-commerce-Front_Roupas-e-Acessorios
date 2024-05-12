@@ -3,25 +3,34 @@ usuarioAutenticado();
 var params = new URLSearchParams(window.location.search);
 var mensagem = params.get('mensagem');
 
+const checkboxEnderecoSalvo = document.getElementById("check");
+const checkboxNovoEndereco = document.getElementById("check1");
+
 const form = document.querySelector('.formulario')
 
 document.addEventListener("DOMContentLoaded", function () {
-    const checkboxEnderecoSalvo = document.getElementById("check");
-    const checkboxNovoEndereco = document.getElementById("check1");
 
     checkboxEnderecoSalvo.addEventListener("change", function () {
         if (checkboxEnderecoSalvo.checked) {
+            document.getElementById('endereco').disabled = false;
             consultarEnderecoUsuario(id);
         } else {
             limparCampos();
+            document.getElementById('endereco').disabled = true;
         }
     });
+});
 
-    checkboxNovoEndereco.addEventListener("change", function () {
-        if (checkboxNovoEndereco.checked) {
-            cadastrarNovoEndereco();
-        }
-    });
+document.querySelector(".btn-pagamento").addEventListener("click", function (event) {
+
+    if (checkboxNovoEndereco.checked) {
+        cadastrarNovoEndereco();
+        alert('Endereço salvo com sucesso!')
+    } else {
+        alert('Redirecionado sem salvar endereço')
+    }
+    window.location.href = "TelaPagamento.html";
+
 });
 
 function consultarEnderecoUsuario(id) {
@@ -35,11 +44,17 @@ function consultarEnderecoUsuario(id) {
             return response.json();
         })
         .then(data => {
-            // Pega os dados retornados da API e concatena para exibir no campo.
-            document.getElementById("enderecoSalvo")
-                .value = data.logradouro + ', ' + data.numero + ' - ' +
-                data.bairro + ' (' + data.cidade + ')';
+            const selectEndereco = document.getElementById("endereco");
+            selectEndereco.innerHTML = "";
 
+            data.forEach(endereco => {
+                const option = document.createElement("option");
+                option.value = JSON.stringify(endereco); // Armazena o endereço completo como valor da opção
+                option.text = `${endereco.logradouro}, ${endereco.numero} - ${endereco.bairro}, ${endereco.cidade}, ${endereco.uf}`;
+                selectEndereco.appendChild(option);
+            });
+
+            exibirEnderecoSelecionado();
         })
         .catch(error => {
             console.log("Erro: " + error);
@@ -116,9 +131,7 @@ function buscarUsuario(id) {
         .then(data => {
             console.log(data);
             nome = data.nome;
-            // Divida a string em um array de palavras usando o espaço como delimitador
             let palavras = nome.split(" ");
-            // Acesse a primeira palavra, que está no índice 0 do array
             let primeiroNome = palavras[0];
             document.getElementById("login_user").innerHTML = "Olá, " + primeiroNome;
         })
@@ -129,7 +142,6 @@ function buscarUsuario(id) {
 }
 
 function limparCampos() {
-    // Limpa os campos do formulário
-    document.getElementById("enderecoSalvo").value = "";
+    document.getElementById("endereco").value = "";
 }
 
