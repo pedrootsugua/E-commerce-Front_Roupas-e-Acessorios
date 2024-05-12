@@ -127,6 +127,14 @@ body {
     margin-bottom: 5px;
 }
 
+.select {
+    width: 100%;
+    height: 35px;
+    margin-top: 5px;
+    border-radius: 10px;
+    border: solid 3px #5F9EA0;
+}
+
 .group-form input {
     width: 100%;
     height: 35px;
