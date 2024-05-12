@@ -26,6 +26,7 @@
     rel="stylesheet">
 
   <script src="JavaScript/Navbar/navbar.js"></script>
+  <script src="JavaScript/Geral/Geral.js" defer></script>
   <script src="JavaScript/Carrinho/conexaoAPI.js" defer></script>
 
   <title>Carrinho</title>
@@ -41,7 +42,7 @@
 
       <ul id="nav-list">
         <li class="nav-item">
-          <a href="">Promoções</a>
+          <a class="promocoes" href="">Promoções</a>
           <ul class="dropdown">
             <li><a href="">Lançamentos</a></li>
             <li><a href="#novidade">Novidades</a></li>
@@ -49,15 +50,15 @@
         </li>
 
         <li class="nav-item">
-          <a href="">Vestuário</a>
+          <a class="vestuarios" href="">Vestuário</a>
           <ul class="dropdown">
-            <li><a href="">Feminino</a></li>
-            <li><a href="">Masculino</a></li>
+            <!-- <li><a href="">Feminino</a></li>
+            <li><a href="">Masculino</a></li> -->
           </ul>
         </li>
 
         <li class="nav-item">
-          <a href="">Acessórios</a>
+          <a class="acessorios" href="">Acessórios</a>
           <ul class="dropdown">
             <li><a href="">Boné</a></li>
             <li><a href="">Bolsas</a></li>
@@ -66,11 +67,11 @@
         </li>
 
         <li class="nav-item">
-          <a href="/TelaProdutos.html">Sneakers</a>
+          <a class="sneakers" href="TelaProdutos.html">Sneakers</a>
           <ul class="dropdown">
-            <li><a href="">Old Schools</a></li>
+            <!-- <li><a href="">Old Schools</a></li>
             <li><a href="">Street</a></li>
-            <li><a href="">Casual</a></li>
+            <li><a href="">Casual</a></li> -->
           </ul>
         </li>
       </ul>
@@ -81,7 +82,7 @@
       <div class="right-nav">
         <div class="position-icon">
           <a href="/TelaLogin.html"><i class="fa-solid fa-user"></i></a>
-          <a href="/TelaCarrinho.html"><i class="fa-solid fa-cart-shopping"></i></a>
+          <a href=""><i class="fa-solid fa-cart-shopping carrinho"></i></a>
           <i class="fa-regular fa-heart"></i>
         </div>
         <div class="position-user-name">
@@ -93,7 +94,7 @@
       <div class="mobile-right-nav">
         <input id="pesquisa" type="text" placeholder="pesquisar">
         <a href="/TelaFormularioCliente.html"><i class="fa-solid fa-user"></i></a>
-        <a href="/TelaCarrinho.html"><i class="fa-solid fa-cart-shopping"></i></a>
+        <a href=""><i class="fa-solid fa-cart-shopping carrinho"></i></a>
         <i class="fa-regular fa-heart"></i>
       </div>
 
@@ -105,19 +106,19 @@
     <div id="mobile-menu">
       <ul id="mobile-nav-list">
         <li class="nav-item">
-          <a href="">Promoções</a>
+          <a class="promocoes" href="">Promoções</a>
         </li>
 
         <li class="nav-item">
-          <a href="">Vestuário</a>
+          <a class="vestuarios" href="">Vestuário</a>
         </li>
 
         <li class="nav-item">
-          <a href="">Acessórios</a>
+          <a class="acessorios" href="">Acessórios</a>
         </li>
 
         <li class="nav-item">
-          <a href="">Sneakers</a>
+          <a class="sneakers" href="TelaProdutos.html">Sneakers</a>
         </li>
       </ul>
     </div>
