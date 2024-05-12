@@ -61,16 +61,10 @@ function acessarapi(categoria) {
                     inserirProdutosFront(item, listaProdutos2);
                 } else if (index <= 11) {
                     inserirProdutosFront(item, listaProdutos3);
-                } else {                   
+                } else {
                     inserirProdutosFront(item, listaProdutos4);
                 }
             });
-
-                document.querySelector('.sneakers').addEventListener('click', function (event) {
-                  event.preventDefault(); // Evita o comportamento padrão do formulário
-                  // Enviar a string para a outra tela como parâmetro na URL
-                  window.location.href = 'DetalhesProduto.html' + data.id;
-                });
         })
         .catch(error => {
             // Trate os erros que possam ocorrer durante a solicitação
@@ -82,9 +76,10 @@ function acessarapi(categoria) {
         // Cria um novo elemento de produto
         const novoProduto = document.createElement('li');
         novoProduto.classList.add('prod');
+        novoProduto.setAttribute("user-id", item.id);
         // Define o conteúdo HTML do novo produto
         novoProduto.innerHTML = `
-        <a id='${item.id}' class="link_produto" href="DetalheProduto.html?${item.id}">                            <img class="imgProduto" src="${urls[0].url}" alt="">
+        <a id='${item.id}' class="link_produto" href="DetalheProduto.html?id=${item.id}">                            <img class="imgProduto" src="${urls[0].url}" alt="">
                             <div class="cora">
                                 <span class="text_produto">${item.nome}</span>
                                 <label class="container-fav">
