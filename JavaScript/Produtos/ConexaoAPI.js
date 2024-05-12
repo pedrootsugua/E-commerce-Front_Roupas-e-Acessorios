@@ -1,5 +1,3 @@
-
-
 document.addEventListener('DOMContentLoaded', function () {
     // Recuperar a string da URL
     var params = new URLSearchParams(window.location.search);
