@@ -168,7 +168,7 @@
                 <div class="endereco">
                     <div>
                         <label for="enderecoSalvo">Endereço Salvo</label>
-                        <input type="text" id="enderecoSalvo" disabled>
+                        <select class="select" id="endereco" onchange="exibirEnderecoSelecionado()" disabled></select>
                     </div>
 
                     <div>
@@ -176,6 +176,7 @@
                         <label for="check">Usar endereço salvo</label>
                     </div>
                 </div>
+
 
                 <div class="group-form">
                     <label for="cep">CEP</label>
