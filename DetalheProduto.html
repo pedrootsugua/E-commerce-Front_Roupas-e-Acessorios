@@ -117,50 +117,54 @@
 
   </header>
 
-    <main>
-        <div class="content">
-          
-          <ul class="lista-produtos">
-            <li class="list-prod">
-              <div class="img">
-                <img class="img-produto" src="https://imgnike-a.akamaihd.net/768x768/0285737TA1.jpg" alt="">
-              </div>
-              
-              <div class="informacoes-produtos">
-                <h2 class="nome-produto"></h2>
-                  <p class="preco"></p>
-                  <a href=""><span>Descrição do produto</span></a>
-
-                  <p id="tamanho">Selecione o tamanho</p> 
-                  <div class="c">
-                      <div class="line-button 1">
-                          <button class="size">35</button>
-                          <button class="size">36</button>
-                          <button class="size">37</button>
-                          <button class="size">38</button>
-                          <button class="size">39</button>
-                      </div>
-      
-                      <div class="line-button 2">
-                          <button class="size">40</button>
-                          <button class="size">41</button>
-                          <button class="size">42</button>
-                          <button class="size">43</button>
-                          <button class="size">44</button>
-                      </div>
-                  </div>
-                  
-
-
-                  <div class="button-action"> 
-                      <button class="btn-action">Adicionar ao carrinho</button>
-                      <button class="btn-action">Adicionar aos favoritos</button>
-                  </div>
-              </div>
-            </li>
-          </ul>
+  <main>
+    <div class="content">
+      <div class="container-slider">
+        <button id="prev-button">▶</button>
+        <div class="imagens-produto">
+              <img class="img-produto slider on" src="" alt="bone New Era">
+              <img class="img-produto1 slider" src="" alt="bone New Era">
+              <img class="img-produto2 slider" src="" alt="bone New Era">
+              <img class="img-produto3 slider" src="" alt="bone New Era">
         </div>
-    </main>
+        <button id="next-button">▶</button>
+      </div>
+      
+
+        <div class="informacoes-produto">
+         
+          <h2 class="nome-produto"></h2>
+          <p class="preco"></p>
+          <a href=""><span>Descrição do produto</span></a>
+
+          <p id="tamanho">Selecione o tamanho</p> 
+          <div class="c">
+              <div class="line-button 1">
+                  <button class="size">35</button>
+                  <button class="size">36</button>
+                  <button class="size">37</button>
+                  <button class="size">38</button>
+                  <button class="size">39</button>
+              </div>
+
+              <div class="line-button 2">
+                  <button class="size">40</button>
+                  <button class="size">41</button>
+                  <button class="size">42</button>
+                  <button class="size">43</button>
+                  <button class="size">44</button>
+              </div>
+          </div>
+          
+
+
+          <div class="button-action"> 
+              <button class="btn-action">Adicionar ao carrinho</button>
+              <button class="btn-action">Adicionar aos favoritos</button>
+          </div>
+        </div>
+    </div>
+</main>
 
 
     <footer>
@@ -234,5 +238,6 @@
 
     <script src="/JavaScript/DetalheProduto/ConexaoAPI.js"></script>
     <script src="JavaScript/Geral/Geral.js" defer></script>
+    <script src="/JavaScript/DetalheProduto/SliderImagens.js"></script>
 </body>
 </html>

@@ -33,6 +33,9 @@ const request1 = fetch(apiUrl, {
 
         // Atualiza os elementos do item do produto com os dados do JSON
         document.querySelector(".img-produto").src = urls[0].url;
+        document.querySelector(".img-produto1").src = urls[1].url;
+        document.querySelector(".img-produto2").src = urls[2].url;
+        document.querySelector(".img-produto3").src = urls[3].url;
         document.querySelector(".nome-produto").textContent = nome;
         document.querySelector(".preco").textContent = "R$ " + preco;
     })
