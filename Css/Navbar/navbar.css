@@ -20,6 +20,15 @@ header{
     height: 85px;
 }
 
+.icone-imagem {
+    width: 24px; /* Defina a largura desejada */
+    height: 24px; /* Defina a altura desejada */
+}
+
+.icone-edit-prod {
+    margin-left: 15px;
+}
+
 #navbar{
     display: flex;
     align-items: center;
