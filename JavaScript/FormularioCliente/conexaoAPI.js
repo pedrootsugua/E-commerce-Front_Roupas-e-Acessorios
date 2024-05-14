@@ -44,7 +44,7 @@ function cadastrar(usuario) {
                     document.querySelector(".card").style.display = "flex";
                 }, 3000);
             } else if (response.status === 409) {
-                alert("CPF já cadastrado. Por favor, insira um CPF válido.");
+                alert("CPF/E-mail já cadastrado.");
                 document.querySelector(".main").classList.remove('blur');
                 esconderLoading();
             }

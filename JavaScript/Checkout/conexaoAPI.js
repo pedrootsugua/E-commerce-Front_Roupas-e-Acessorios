@@ -1,7 +1,7 @@
 usuarioAutenticado();
 
 var params = new URLSearchParams(window.location.search);
-var mensagem = params.get('mensagem');
+var userId = params.get('userId');
 
 const checkboxEnderecoSalvo = document.getElementById("check");
 const checkboxNovoEndereco = document.getElementById("check1");
@@ -13,9 +13,11 @@ document.addEventListener("DOMContentLoaded", function () {
     checkboxEnderecoSalvo.addEventListener("change", function () {
         if (checkboxEnderecoSalvo.checked) {
             document.getElementById('endereco').disabled = false;
+            checkboxNovoEndereco.disabled = true;
             consultarEnderecoUsuario(id);
         } else {
             limparCampos();
+            checkboxNovoEndereco.disabled = false;
             document.getElementById('endereco').disabled = true;
         }
     });
@@ -54,7 +56,7 @@ function consultarEnderecoUsuario(id) {
                 selectEndereco.appendChild(option);
             });
 
-            exibirEnderecoSelecionado();
+            // exibirEnderecoSelecionado();
         })
         .catch(error => {
             console.log("Erro: " + error);
@@ -70,7 +72,7 @@ function cadastrarNovoEndereco() {
         numero: form.querySelector("#numero").value,
         cidade: form.querySelector("#cidade").value,
         uf: form.querySelector("#uf").value,
-        idUsuario: mensagem
+        idUsuario: userId
     };
     fetch(`http://localhost:8080/api/enderecos/novo`, {
         method: 'POST',
