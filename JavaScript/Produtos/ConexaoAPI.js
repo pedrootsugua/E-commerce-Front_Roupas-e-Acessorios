@@ -77,7 +77,7 @@ function acessarapi(categoria) {
         novoProduto.setAttribute("user-id", item.id);
         // Define o conteúdo HTML do novo produto
         novoProduto.innerHTML = `
-        <a id='${item.id}' class="link_produto" href="DetalheProduto.html?id=${item.id}">                            <img class="imgProduto" src="${urls[0].url}" alt="">
+        <a id='${item.id}' class="link_produto" href="DetalheProduto.html?produtoId=${item.id}">                            <img class="imgProduto" src="${urls[0].url}" alt="">
                             <div class="cora">
                                 <span class="text_produto">${item.nome}</span>
                                 <label class="container-fav">

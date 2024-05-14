@@ -1,9 +1,8 @@
 const params = new URLSearchParams(window.location.search);
-const id = params.get('id');
-
+const produtoId = params.get('produtoId');
 
 // URL da API que você deseja acessar
-const apiUrl = 'http://localhost:8080/api/produtos/' + id;
+const apiUrl = 'http://localhost:8080/api/produtos/' + produtoId;
 
 
 
@@ -20,16 +19,28 @@ const request1 = fetch(apiUrl, {
     })
     .then(data => {
 
+        console.log(data);
         // Acesse as propriedades de cada item
         const nome = data.nome;
         const preco = data.preco;
         const categoria = data.categoria;
         const marca = data.marca;
-        const tamanho = data.tamanho;
+        const tamanho = data.tamanhosEstoque;
         const unidade = data.unidade;
         const estoque = data.estoque;
         const descricao = data.descricao;
         const urls = data.urlImagensModels; // Array de URLs
+
+        var carrinho = {
+            idCarrinho: localStorage.getItem("idCarrinho"),
+            idProduto: produtoId,
+            tamanho: tamanho[0].tamanho
+        }
+
+        document.querySelector('.add-carrinho').addEventListener('click', function (event) {
+            event.preventDefault();
+            gravarCarrinho(carrinho);
+        });
 
         // Atualiza os elementos do item do produto com os dados do JSON
         document.querySelector(".img-produto").src = urls[0].url;
@@ -39,7 +50,28 @@ const request1 = fetch(apiUrl, {
         document.querySelector(".nome-produto").textContent = nome;
         document.querySelector(".preco").textContent = "R$ " + preco;
     })
-    .catch (error => {
-    // Trate os erros que possam ocorrer durante a solicitação
-    console.error(error);
-});
+    .catch(error => {
+        // Trate os erros que possam ocorrer durante a solicitação
+        console.error(error);
+    });
+
+function gravarCarrinho(carrinho) {
+    const request1 = fetch("http://localhost:8080/api/carrinho/adicionar", {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(carrinho)
+    })
+        .then(response => {
+            if (response.status === 201) {
+                alert("Produto adicionado ao carrinho com sucesso!")
+            } else {
+                alert("Problemas com o servidor :/");
+            }
+        })
+        .catch(error => {
+            alert("Não foi possível adicionar ao carrinho!")
+            console.error(error);
+        });
+}
