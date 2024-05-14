@@ -20,7 +20,6 @@ function verificaAutenticacao(){
         const autenticado = data.autenticado;
         id = data.credencialModel.idUsuario;
         if (autenticado === true){
-            document.getElementById("login_user").innerHTML = "Olá"
             buscarUsuario(id)
         }
     })

@@ -1,9 +1,9 @@
 const params = new URLSearchParams(window.location.search);
-const id = params.get('id');
+const produtoId = params.get('produtoId');
 
 
 // URL da API que você deseja acessar
-const apiUrl = 'http://localhost:8080/api/produtos/' + id;
+const apiUrl = 'http://localhost:8080/api/produtos/' + produtoId;
 
 
 
