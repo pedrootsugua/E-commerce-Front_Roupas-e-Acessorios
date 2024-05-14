@@ -74,7 +74,6 @@ function acessarapi(categoria) {
         // Cria um novo elemento de produto
         const novoProduto = document.createElement('li');
         novoProduto.classList.add('prod');
-        novoProduto.setAttribute("user-id", item.id);
         // Define o conteúdo HTML do novo produto
         novoProduto.innerHTML = `
         <a id='${item.id}' class="link_produto" href="DetalheProduto.html?produtoId=${item.id}">                            <img class="imgProduto" src="${urls[0].url}" alt="">
