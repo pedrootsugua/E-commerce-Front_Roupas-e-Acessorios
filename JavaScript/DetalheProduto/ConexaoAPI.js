@@ -1,7 +1,5 @@
 const params = new URLSearchParams(window.location.search);
 const produtoId = params.get('produtoId');
-var idCarrinho = idCarrinho;
-var qtdItens = qtdItens;
 
 // URL da API que você deseja acessar
 const apiUrl = 'http://localhost:8080/api/produtos/' + produtoId;
@@ -36,13 +34,11 @@ const request1 = fetch(apiUrl, {
         var carrinho = {
             idCarrinho: localStorage.getItem("idCarrinho"),
             idProduto: produtoId,
-            tamanho: tamanho[0].tamanho,
-            qtdItens: localStorage.getItem("qtdItens")
+            tamanho: tamanho[0].tamanho
         }
 
         document.querySelector('.add-carrinho').addEventListener('click', function (event) {
             event.preventDefault();
-            console.log(carrinho);
             gravarCarrinho(carrinho);
         });
 
@@ -75,7 +71,6 @@ function gravarCarrinho(carrinho) {
             }
         })
         .catch(error => {
-            // Trate os erros que possam ocorrer durante a solicitação
             alert("Não foi possível adicionar ao carrinho!")
             console.error(error);
         });
