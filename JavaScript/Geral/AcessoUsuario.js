@@ -44,6 +44,8 @@ function buscarUsuario(id){
     .then(data => {
         console.log(data);
         nome = data.nome;
+        localStorage.setItem("idCarrinho", data.carrinho.id);
+        localStorage.setItem("qtdItens", data.carrinho.quantidadeItens);
         // Divida a string em um array de palavras usando o espaço como delimitador
         let palavras = nome.split(" ");
         // Acesse a primeira palavra, que está no índice 0 do array
