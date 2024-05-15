@@ -51,6 +51,8 @@ function acessarapi(categoria) {
             listaProdutos3.innerHTML = "";
             listaProdutos4.innerHTML = "";
 
+            console.log(data.urlImagensModels);
+
             // Itere sobre cada item na lista
             data.forEach((item, index) => {
                 if (index <= 3) { // Apenas os primeiros 4 itens
@@ -71,6 +73,7 @@ function acessarapi(categoria) {
 
     function inserirProdutosFront(item, listaProdutos) {
         const urls = item.urlImagensModels; // Array de URLs
+        console.log(urls);
         // Cria um novo elemento de produto
         const novoProduto = document.createElement('li');
         novoProduto.classList.add('prod');

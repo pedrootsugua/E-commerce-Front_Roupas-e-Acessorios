@@ -85,7 +85,7 @@ function cadastrar() {
 
     mostrarLoading();
     //Conexão com o backend para gravação do JSON
-    const request1 = fetch('http://localhost:8080/api/cadastrarProd', {
+    const request1 = fetch('http://localhost:8080/api/produtos/cadastrarProd', {
         method: 'POST',
         body: formData
     })
