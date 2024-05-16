@@ -1,99 +1,100 @@
-*{
-    box-sizing: border-box;
+* {
+  box-sizing: border-box;
 }
 
-main{
-    margin-top: 30px;
+main {
+  margin-top: 30px;
 }
 
-.content{
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 250px;
-    min-height: calc(90vh - 105px);
+.content {
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 250px;
+  min-height: calc(90vh - 105px);
 }
 
 .container-slider {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 1rem;
-  }
-
-  .imagens-produto {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 500px;
-  }
-
-  .slider {
-    opacity: 0;
-    transition: opacity .2s;
-    position: absolute;
-    width: 0%;
-  }
-  
-  .on {
-    opacity: 1;
-  }
-  
-  #prev-button, #next-button {
-    width: 30px;
-    height: 30px;
-    border: none;
-    background-color: transparent;
-    cursor: pointer;
-    outline: none;
-  }
-  
-  #prev-button {
-    transform: rotate(180deg);
-  }
-
-.imagens-produto img{
-    width: 400px;
-    height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
 }
 
-#tamanho{
-    margin-top: 55px;
-    text-align: center;
+.imagens-produto {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 500px;
 }
 
-.line-button button{
-    width: 40px;
-    height: 40px;
+.slider {
+  opacity: 0;
+  transition: opacity .2s;
+  position: absolute;
+  width: 0%;
 }
 
-.c{
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    align-items: center;
+.on {
+  opacity: 1;
 }
 
-.line-button{
-    display: flex;
-    gap: 8px;
+#prev-button,
+#next-button {
+  width: 30px;
+  height: 30px;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  outline: none;
 }
 
-.size{
-    border-radius: 10px;
-    border: none;
+#prev-button {
+  transform: rotate(180deg);
 }
 
-.button-action{
-    margin-top: 30px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+.imagens-produto img {
+  width: 400px;
+  height: 400px;
 }
 
-.btn-action{
-    border-radius: 20px;
-    padding: 15px;
+#tamanho {
+  margin-top: 55px;
+  text-align: center;
+}
+
+.line-button button {
+  width: 40px;
+  height: 40px;
+}
+
+.c {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+}
+
+.line-button {
+  display: flex;
+  gap: 8px;
+}
+
+.size {
+  border-radius: 10px;
+  border: none;
+}
+
+.button-action {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.btn-action {
+  border-radius: 20px;
+  padding: 15px;
 }

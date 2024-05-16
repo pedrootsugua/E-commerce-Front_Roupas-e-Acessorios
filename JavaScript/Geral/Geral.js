@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function () {
     document.querySelector('.vestuarios').addEventListener('click', function (event) {
         event.preventDefault(); // Evita o comportamento padrão do formulário
         // Enviar a string para a outra tela como parâmetro na URL
-        var mensagem = 'vestuarios';
+        var mensagem = 'Vestuário';
         window.location.href = 'TelaProdutos.html?mensagem=' + mensagem;
     });
     document.querySelector('.promocoes').addEventListener('click', function (event) {
@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function () {
     document.querySelector('.acessorios').addEventListener('click', function (event) {
         event.preventDefault(); // Evita o comportamento padrão do formulário
         // Enviar a string para a outra tela como parâmetro na URL
-        var mensagem = 'acessorios';
+        var mensagem = 'Acessórios';
         window.location.href = 'TelaProdutos.html?mensagem=' + mensagem;
     });
     document.querySelector('.carrinho').addEventListener('click', function (event) {
