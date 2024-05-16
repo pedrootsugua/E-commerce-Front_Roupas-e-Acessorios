@@ -56,7 +56,7 @@ body {
 
 /* sera visivel apenas se o carrinho estiver vazio */
 .carrinho-vazio {
-  display: none; /*IRA ALTERAR PARA "display: flex" CASO O CARRINHO TENHA ALGUM ITEM */
+  display: none; /*IRA ALTERAR PARA "display: flex" CASO O CARRINHO NÃO TENHA PRODUTOS */
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -126,7 +126,7 @@ body {
 .main {
   width: 80%;
   /* min-height: calc(100vh - 105px); */
-  display: flex; /*IRA ALTERAR PARA "display: none" CASO O CARRINHO ESTEJA VAZIO */
+  display: none; /*IRA ALTERAR PARA "display: flex" CASO O CARRINHO TENHA ALGUM PRODUTO */
   align-items: center;
   justify-content: center;
   flex-direction: row;
