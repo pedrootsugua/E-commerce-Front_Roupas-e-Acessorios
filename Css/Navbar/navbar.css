@@ -105,11 +105,13 @@ ul li:hover ul.dropdown{
     display: none;
 } */
 
-/* #login_user{
-    display: none;
-} */
+#login_user{
+    margin-right: 31%;
+}
 
 .position-user-name p{
+    display: inline-block;
+    flex-direction: row;
     margin-bottom: 0;
 }
 

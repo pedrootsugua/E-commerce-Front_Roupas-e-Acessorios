@@ -80,11 +80,17 @@ function buscarUsuario(id) {
         .then(data => {
             nome = data.nome;
             localStorage.setItem("idCarrinho", data.carrinho.id);
+            let tamanhoCarrinhoGeral = data.carrinho.quantidadeItens;
             // Divida a string em um array de palavras usando o espaço como delimitador
             let palavras = nome.split(" ");
             // Acesse a primeira palavra, que está no índice 0 do array
             let primeiroNome = palavras[0];
             document.getElementById("login_user").innerHTML = "Olá, " + primeiroNome;
+            if (tamanhoCarrinhoGeral === 0) {
+                document.getElementById("tamanho-carrinho").style.display = 'none';
+            } else {
+                document.getElementById("tamanho-carrinho").innerHTML = "" + tamanhoCarrinhoGeral;
+            }
         })
         .catch(error => {
             console.error('Erro ao fazer login:', error);
