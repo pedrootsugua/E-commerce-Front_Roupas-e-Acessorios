@@ -97,6 +97,7 @@ function gravarCarrinho(carrinho) {
     .then(response => {
         if (response.status === 201) {
             alert("Produto adicionado ao carrinho com sucesso!")
+            location.reload();
         } else {
             alert("Problemas com o servidor :/");
         }
