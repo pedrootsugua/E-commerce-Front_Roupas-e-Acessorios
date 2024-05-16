@@ -4,26 +4,6 @@ document.addEventListener('DOMContentLoaded', function () {
     var mensagem = params.get('mensagem');
     acessarapi(mensagem);
 
-    document.querySelector('.sneakers').addEventListener('click', function (event) {
-        event.preventDefault(); // Evita o comportamento padrão do formulário
-        mensagem = "sneakers";
-        acessarapi(mensagem);
-    });
-    document.querySelector('.vestuarios').addEventListener('click', function (event) {
-        event.preventDefault(); // Evita o comportamento padrão do formulário
-        mensagem = "vestuarios";
-        acessarapi(mensagem);
-    });
-    document.querySelector('.promocoes').addEventListener('click', function (event) {
-        event.preventDefault(); // Evita o comportamento padrão do formulário
-        mensagem = "promocoes";
-        acessarapi(mensagem);
-    });
-    document.querySelector('.acessorios').addEventListener('click', function (event) {
-        event.preventDefault(); // Evita o comportamento padrão do formulário
-        mensagem = "acessorios";
-        acessarapi(mensagem);
-    });
 });
 // URL da API que você deseja acessar
 function acessarapi(categoria) {
