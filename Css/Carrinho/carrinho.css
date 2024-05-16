@@ -147,6 +147,10 @@ body {
   /* background-color: rgb(255, 91, 91); teste */
 }
 
+.produtos-carrinho {
+  width: 100%;
+}
+
 /* titulos da lista de produtos */
 .lista-produtos .box-titulos {
   width: 95%;

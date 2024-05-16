@@ -78,7 +78,6 @@ function buscarUsuario(id) {
             }
         })
         .then(data => {
-            console.log(data);
             nome = data.nome;
             localStorage.setItem("idCarrinho", data.carrinho.id);
             // Divida a string em um array de palavras usando o espaço como delimitador
