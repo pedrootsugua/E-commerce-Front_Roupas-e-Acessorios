@@ -48,21 +48,29 @@ const request1 = fetch(apiUrl, {
         // Atualiza os botões de tamanho dinamicamente
         const lineButton1 = document.getElementById('line-button1');
         const lineButton2 = document.getElementById('line-button2');
+        const lineUnique = document.getElementById('line-unique');
         lineButton1.innerHTML = '';
         lineButton2.innerHTML = '';
+        lineUnique.innerHTML = '';
 
         tamanho.forEach((tamanho, index) => {
             if (tamanho.estoque > 0) {
                 const button = document.createElement('button');
+                const button2 = document.createElement('button');
                 button.className = 'size';
+                button2.className = 'unique';
                 button.textContent = tamanho.tamanho;
-        
-                button.addEventListener('click', function() {
+
+                button.addEventListener('click', function () {
                     carrinho.tamanho = tamanho.tamanho;
                     // Adiciona alguma lógica para mostrar que o botão foi selecionado, se necessário
                 });
-        
-                if (index < 5) {
+                console.log(index)
+                if (index == 0) {
+
+                    lineUnique.appendChild(button)
+                }
+                else if (index < 5) {
                     lineButton1.appendChild(button);
                 } else {
                     lineButton2.appendChild(button);
@@ -84,7 +92,7 @@ const request1 = fetch(apiUrl, {
         console.error(error);
     });
 
-    
+
 
 function gravarCarrinho(carrinho) {
     const request1 = fetch("http://localhost:8080/api/carrinho/adicionar", {
@@ -94,16 +102,16 @@ function gravarCarrinho(carrinho) {
         },
         body: JSON.stringify(carrinho)
     })
-    .then(response => {
-        if (response.status === 201) {
-            alert("Produto adicionado ao carrinho com sucesso!")
-            location.reload();
-        } else {
-            alert("Problemas com o servidor :/");
-        }
-    })
-    .catch(error => {
-        alert("Não foi possível adicionar ao carrinho!")
-        console.error(error);
-    });
+        .then(response => {
+            if (response.status === 201) {
+                alert("Produto adicionado ao carrinho com sucesso!")
+                location.reload();
+            } else {
+                alert("Problemas com o servidor :/");
+            }
+        })
+        .catch(error => {
+            alert("Não foi possível adicionar ao carrinho!")
+            console.error(error);
+        });
 }

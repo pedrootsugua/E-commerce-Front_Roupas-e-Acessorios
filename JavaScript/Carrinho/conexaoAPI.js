@@ -1,59 +1,61 @@
 document.addEventListener('DOMContentLoaded', function () {
-    // Recuperar a string da URL
-    var params = new URLSearchParams(window.location.search);
-    var userId = params.get('userId');
-    let idCart = localStorage.getItem("idCarrinho");
-    acessarCarrinhoProduto(idCart);
-    document.querySelector('.botao-cont').addEventListener('click', function (event) {
-        event.preventDefault(); // Evita o comportamento padrão do formulário
-        // Enviar a string para a outra tela como parâmetro na URL
-        window.location.href = 'TelaCheckout.html?userId=' + userId;
-    });
+  // Recuperar a string da URL
+  var params = new URLSearchParams(window.location.search);
+  var userId = params.get('userId');
+  let idCart = localStorage.getItem("idCarrinho");
+  acessarCarrinhoProduto(idCart);
+  document.querySelector('.botao-cont').addEventListener('click', function (event) {
+    event.preventDefault(); // Evita o comportamento padrão do formulário
+    // Enviar a string para a outra tela como parâmetro na URL
+    window.location.href = 'TelaCheckout.html?userId=' + userId;
+  });
 });
 
 function acessarCarrinhoProduto(idCart) {
-    fetch(`http://localhost:8080/api/carrinho/` + idCart, {
-        method: 'GET'
+  fetch(`http://localhost:8080/api/carrinho/` + idCart, {
+    method: 'GET'
+  })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error("Erro ao acessar a API: " + response.statusText);
+      }
+      return response.json();
     })
-        .then(response => {
-            if (!response.ok) {
-                throw new Error("Erro ao acessar a API: " + response.statusText);
-            }
-            return response.json();
-        })
-        .then(data => {  
-            let carrinhoVazio = document.getElementById("empty-cart");
-            let carrinhoComProduto = document.getElementById("product-cart");
+    .then(data => {
+      let carrinhoVazio = document.getElementById("empty-cart");
+      let carrinhoComProduto = document.getElementById("product-cart");
 
-            let listaProdutos = data.quantidadeItens;
-            console.log("qtd itens" + listaProdutos);
-            if (listaProdutos != 0) {
-                carrinhoComProduto.style.display = "flex";
-                let listProduto = document.querySelector(".produtos-carrinho");
-                listProduto.innerHTML = "";
-                data.carrinhoProdutoModel.forEach((item) => {
-                    inserirProdutosCarrinho(item, listProduto, data);
-                });
-            } else {
-                carrinhoVazio.style.display = "flex";
-            }
-        })
-        .catch(error => {
-            console.log("Erro: " + error);
-        })
+      let listaProdutos = data.quantidadeItens;
+      console.log("qtd itens" + listaProdutos);
+      if (listaProdutos != 0) {
+        carrinhoComProduto.style.display = "flex";
+        let listProduto = document.querySelector(".produtos-carrinho");
+        listProduto.innerHTML = "";
+        data.carrinhoProdutoModel.forEach((item) => {
+          inserirProdutosCarrinho(item, listProduto, data);
+        });
+      } else {
+        carrinhoVazio.style.display = "flex";
+      }
+    })
+    .catch(error => {
+      console.log("Erro: " + error);
+    })
 }
 
+let valorTotalCarrinho = 0;
 function inserirProdutosCarrinho(item, listProduto, data) {
-    const urls = item.id.produtoId.urlImagensModels; // Array de URLs
-    const novoProduto = document.createElement('div');
-    novoProduto.classList.add('produto');
+  const urls = item.id.produtoId.urlImagensModels; // Array de URLs
+  const novoProduto = document.createElement('div');
+  novoProduto.classList.add('produto');
 
-    novoProduto.setAttribute("prod-id", item.id.produtoId.id);
-    novoProduto.setAttribute("tamanho-prod", item.tamanho);
+  novoProduto.setAttribute("prod-id", item.id.produtoId.id);
+  novoProduto.setAttribute("tamanho-prod", item.tamanho);
 
-    let valorTotal = item.id.produtoId.preco * item.qtd;
+  let valorTotal = item.id.produtoId.preco * item.qtd;
+  valorTotalCarrinho = valorTotal + valorTotalCarrinho;
 
-    novoProduto.innerHTML = `
+  novoProduto.innerHTML = `
     <div class="descricao-produto">
           <img src="${urls[0].url}" alt="Imagem-produto">
           <section class="info-protuto">
@@ -62,9 +64,9 @@ function inserirProdutosCarrinho(item, listProduto, data) {
           </section>
         </div>
         <div class="quantidade">
-          <button class="btn-add-item">-</button>
+          <button class="btn-remove-item">-</button>
           <p id="num-qtd">${item.qtd}</p>
-          <button class="btn-remove-item">+</button>
+          <button class="btn-add-item">+</button>
         </div>
         <div class="valor-unitario">
           <p id="vl-unitario">R$ ${item.id.produtoId.preco}</p>
@@ -102,35 +104,93 @@ function inserirProdutosCarrinho(item, listProduto, data) {
           </button>
         </div>
                 `;
-    // Adiciona o novo produto à lista de produtos
-    console.log(novoProduto);
+  // Adiciona o novo produto à lista de produtos
+  console.log(novoProduto);
 
-    listProduto.appendChild(novoProduto);
+  document.getElementById('valor-produtos').textContent = "R$ " + valorTotalCarrinho;
+  document.getElementById('valor-total-pedido').textContent = "R$ " + valorTotalCarrinho;
 
-    novoProduto.querySelector(".button-delete").addEventListener("click", function () {
-        const produto = {
-            idCarrinho: data.id,
-            idProduto: item.id.produtoId.id,
-            tamanho: item.tamanho
-        }
-        console.log(produto);
-        deleteProdutoCarrinho(produto);
-    });  
+  listProduto.appendChild(novoProduto);
+
+  novoProduto.querySelector(".button-delete").addEventListener("click", function () {
+    const produto = {
+      idCarrinho: data.id,
+      idProduto: item.id.produtoId.id,
+      tamanho: item.tamanho
+    }
+    console.log(produto);
+    deleteProdutoCarrinho(produto);
+  });
+
+  novoProduto.querySelector(".btn-add-item").addEventListener("click", function () {
+    let stringNumero = novoProduto.querySelector("#num-qtd").textContent;
+    let numero = parseInt(stringNumero);
+    let novaQuantidadeProduto = numero + 1;
+    console.log(novaQuantidadeProduto);
+    novoProduto.querySelector("#num-qtd").textContent = "" + novaQuantidadeProduto;
+
+    const novaQuantidade = {
+      idCarrinho: data.id,
+      idProduto: item.id.produtoId.id,
+      tamanho: item.tamanho,
+      quantidadeProduto: novaQuantidadeProduto
+    }
+
+    alterarQuantidadeProduto(novaQuantidade);
+  });
+
+  novoProduto.querySelector(".btn-remove-item").addEventListener("click", function () {
+    let stringNumero = novoProduto.querySelector("#num-qtd").textContent;
+    let numero = parseInt(stringNumero);
+    let novaQuantidadeProduto = numero - 1;
+    console.log(novaQuantidadeProduto);
+    novoProduto.querySelector("#num-qtd").textContent = "" + novaQuantidadeProduto;
+
+    
+    const novaQuantidade = {
+      idCarrinho: data.id,
+      idProduto: item.id.produtoId.id,
+      tamanho: item.tamanho,
+      quantidadeProduto: novaQuantidadeProduto
+    }
+
+    alterarQuantidadeProduto(novaQuantidade);
+  });
+
+  
+  
 }
 
 function deleteProdutoCarrinho(produto) {
-    fetch(`http://localhost:8080/api/carrinho`, {
-        method: 'DELETE',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(produto)
+  fetch(`http://localhost:8080/api/carrinho`, {
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(produto)
+  })
+    .then(response => {
+      alert("Excluido!")
+      location.reload();
     })
-        .then(response => {
-            alert("Excluido!")
-            location.reload();
-        })
-        .catch(error => {
-            console.log("Erro: " + error);
-        })
+    .catch(error => {
+      console.log("Erro: " + error);
+    })
+}
+
+function alterarQuantidadeProduto(novaQuantidade) {
+  fetch(`http://localhost:8080/api/carrinho`, {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(novaQuantidade)
+  })
+    .then(response => {
+      alert("Alterado!")
+      location.reload();
+    })
+    .catch(error => {
+      console.log("Erro: " + error);
+    })
 }
