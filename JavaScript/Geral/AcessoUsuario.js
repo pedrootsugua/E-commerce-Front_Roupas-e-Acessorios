@@ -19,44 +19,56 @@ function verificaAutenticacao() {
         .then(data => {
             console.log(data);
             const autenticado = data.autenticado;
-            id = data.credencialModel.idUsuario;
-            admin = data.credencialModel.admin;
-            if (admin === true) {
-                // Encontra o elemento com a classe icon-usuario
-                var iconUsuario = document.querySelector('.icon-usuario');
-
-                // Cria um novo elemento de imagem
-                var novaImagem = document.createElement('img');
-
-                // Define os atributos da nova imagem
-                novaImagem.src = 'img/admin-9575.png'; // Substitua pelo caminho da sua imagem
-                novaImagem.alt = 'Ícone de usuário'; // Texto alternativo para acessibilidade
-                novaImagem.classList.add('icone-imagem'); 
-
-                // Substitui o elemento <i> pela nova imagem
-                iconUsuario.innerHTML = ''; // Limpa o conteúdo existente do elemento <i>
-                iconUsuario.appendChild(novaImagem); // Adiciona a nova imagem ao lugar do elemento <i>
-
-                var iconCoracao = document.querySelector('.icon-coracao');
-                // Cria um novo elemento de imagem
-                var novoIcone = document.createElement('img');
-                // Define os atributos da nova imagem
-                novoIcone.src = 'img/editar.png'; // Substitua pelo caminho da sua imagem
-                novoIcone.alt = 'Ícone de cadastrar produto'; // Texto alternativo para acessibilidade
-                novoIcone.classList.add('icone-imagem'); 
-                novoIcone.classList.add('icone-edit-prod'); 
-
-                // Substitui o elemento <i> pela nova imagem
-                iconCoracao.innerHTML = ''; // Limpa o conteúdo existente do elemento <i>
-                iconCoracao.appendChild(novoIcone); // Adiciona a nova imagem ao lugar do elemento <i>
-
-                document.querySelector('.icone-edit-prod').addEventListener('click', function (event) {
-                    event.preventDefault();
-                    window.location.href = 'TelaCadastroProd.html';
-                });
-            }
             if (autenticado === true) {
+                id = data.credencialModel.idUsuario;
                 buscarUsuario(id)
+                admin = data.credencialModel.admin;
+                if (admin === true) {
+                    // Encontra o elemento com a classe icon-usuario
+                    var iconUsuario = document.querySelector('.icon-usuario');
+
+                    // Cria um novo elemento de imagem
+                    var novaImagem = document.createElement('img');
+
+                    // Define os atributos da nova imagem
+                    novaImagem.src = 'img/admin-9575.png'; // Substitua pelo caminho da sua imagem
+                    novaImagem.alt = 'Ícone de usuário'; // Texto alternativo para acessibilidade
+                    novaImagem.classList.add('icone-imagem');
+
+                    // Substitui o elemento <i> pela nova imagem
+                    iconUsuario.innerHTML = ''; // Limpa o conteúdo existente do elemento <i>
+                    iconUsuario.appendChild(novaImagem); // Adiciona a nova imagem ao lugar do elemento <i>
+
+                    var iconProdutos = document.querySelector('.icon-produtos');
+                    // Cria um novo elemento de imagem
+                    var novoIcone = document.createElement('img');
+                    // Define os atributos da nova imagem
+                    novoIcone.src = 'img/editar.png'; // Substitua pelo caminho da sua imagem
+                    novoIcone.alt = 'Ícone de cadastrar produto'; // Texto alternativo para acessibilidade
+                    novoIcone.classList.add('icone-imagem');
+                    novoIcone.classList.add('icone-edit-prod');
+
+                    // Substitui o elemento <i> pela nova imagem
+                    iconProdutos.innerHTML = ''; // Limpa o conteúdo existente do elemento <i>
+                    iconProdutos.appendChild(novoIcone); // Adiciona a nova imagem ao lugar do elemento <i>
+
+                    const tamanhoMargin = localStorage.getItem("tamanho-margin-left");
+                    const iconeProd = document.querySelector('.nav-icone-prod');
+                    iconeProd.style.marginLeft = (tamanhoMargin) + 'px';
+
+                    document.querySelector('.icone-edit-prod').addEventListener('click', function (event) {
+                        event.preventDefault();
+                        window.location.href = 'TelaCadastroProd.html';
+                    });
+                }
+            } else {
+                const positionIcons = document.querySelectorAll('.nav-icone');
+                positionIcons.forEach(icon => {
+                    icon.style.marginLeft = 30 + 'px';
+                    // icon.style.marginRight = spacing + 'px';
+                });
+                var iconHeart = document.querySelector('.nav-icone-heart');
+                iconHeart.style.marginLeft = 30 + 'px';
             }
         })
         .catch(error => {
@@ -91,6 +103,22 @@ function buscarUsuario(id) {
             } else {
                 document.getElementById("tamanho-carrinho").innerHTML = "" + tamanhoCarrinhoGeral;
             }
+            // Obter a referência da div dinâmica
+            const dynamicDiv = document.getElementById('id-icon-user');
+
+            // Obter o tamanho da div dinâmica
+            const dynamicDivWidth = dynamicDiv.offsetWidth;
+
+            // Definir o espaçamento com base no tamanho da div dinâmica
+            const spacing = dynamicDivWidth / 2;
+            localStorage.setItem("tamanho-margin-left", spacing);
+
+            // Aplicar o espaçamento aos ícones
+            const positionIcons = document.querySelectorAll('.nav-icone');
+            positionIcons.forEach(icon => {
+                icon.style.marginLeft = (spacing) + 'px';
+                // icon.style.marginRight = spacing + 'px';
+            });
         })
         .catch(error => {
             console.error('Erro ao fazer login:', error);
