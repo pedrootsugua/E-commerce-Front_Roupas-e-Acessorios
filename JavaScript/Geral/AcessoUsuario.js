@@ -1,6 +1,7 @@
-let id = 0;
+let id;
 let nome = ""
 let admin = false;
+let autenticado = false;
 
 verificaAutenticacao()
 
@@ -18,7 +19,8 @@ function verificaAutenticacao() {
         })
         .then(data => {
             console.log(data);
-            const autenticado = data.autenticado;
+            autenticado = data.autenticado;
+            localStorage.setItem("autenticado", autenticado);
             if (autenticado === true) {
                 id = data.credencialModel.idUsuario;
                 buscarUsuario(id)
