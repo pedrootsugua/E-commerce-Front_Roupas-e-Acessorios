@@ -41,6 +41,7 @@ body {
 .checkpoints h1 {
     display: flex;
     flex-direction: row;
+    border-top: 10px;
 }
 
 .checkpoints p {
@@ -66,11 +67,11 @@ body {
     font-family: "Poppins", sans-serif;
     color: #000000;
     /* border-bottom: solid 1px; */
-    padding-bottom: 30px;
+    padding-bottom: 50px;
     display: flex;
     flex-direction: column;
     width: 616px;
-    height: 530px;
+    height: 625px;
     justify-content: center;
     align-items: center;
 }
@@ -99,7 +100,8 @@ body {
     width: 100%;
 }
 
-#enderecoSalvo {
+#enderecoSalvo,
+#frete {
     width: 100%;
     margin-top: 5px;
     border-radius: 10px;
@@ -123,6 +125,14 @@ body {
     display: block;
     font-weight: 600;
     margin-bottom: 5px;
+}
+
+.select {
+    width: 100%;
+    height: 35px;
+    margin-top: 5px;
+    border-radius: 10px;
+    border: solid 3px #5F9EA0;
 }
 
 .group-form input {

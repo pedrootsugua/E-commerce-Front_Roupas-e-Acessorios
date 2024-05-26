@@ -68,12 +68,12 @@ function consultar() {
         });
 }
 
-formulario.addEventListener("submit", function (event) {
+document.querySelector('.btn-login').addEventListener('click', function (event) {
     event.preventDefault();
 
     // consultar();
     validarCampos();
-})
+});
 
 function limparCampos() {
     document.querySelector(".card-login").reset();

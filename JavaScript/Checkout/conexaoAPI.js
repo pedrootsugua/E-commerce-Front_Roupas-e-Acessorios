@@ -1,14 +1,38 @@
 usuarioAutenticado();
 
-document.addEventListener("DOMContentLoaded", function () {
-    const checkbox = document.getElementById("check");
+var params = new URLSearchParams(window.location.search);
+var userId = params.get('userId');
 
-    checkbox.addEventListener("change", function () {
-        if (this.checked) {
+const checkboxEnderecoSalvo = document.getElementById("check");
+const checkboxNovoEndereco = document.getElementById("check1");
+
+const form = document.querySelector('.formulario')
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    checkboxEnderecoSalvo.addEventListener("change", function () {
+        if (checkboxEnderecoSalvo.checked) {
+            document.getElementById('endereco').disabled = false;
+            checkboxNovoEndereco.disabled = true;
             consultarEnderecoUsuario(id);
-        } else
+        } else {
             limparCampos();
+            checkboxNovoEndereco.disabled = false;
+            document.getElementById('endereco').disabled = true;
+        }
     });
+});
+
+document.querySelector(".btn-pagamento").addEventListener("click", function (event) {
+
+    if (checkboxNovoEndereco.checked) {
+        cadastrarNovoEndereco();
+        alert('Endereço salvo com sucesso!')
+    } else {
+        alert('Redirecionado sem salvar endereço')
+    }
+    window.location.href = "TelaPagamento.html";
+
 });
 
 function consultarEnderecoUsuario(id) {
@@ -22,12 +46,46 @@ function consultarEnderecoUsuario(id) {
             return response.json();
         })
         .then(data => {
-            // console.log(data);
-            // Pega os dados retornados da API e concatena para exibir no campo.
-            document.getElementById("enderecoSalvo")
-                .value = data.logradouro + ', ' + data.numero + ' - ' +
-                data.bairro + ' (' + data.cidade + ')';
+            const selectEndereco = document.getElementById("endereco");
+            selectEndereco.innerHTML = "";
 
+            data.forEach(endereco => {
+                const option = document.createElement("option");
+                option.value = JSON.stringify(endereco); // Armazena o endereço completo como valor da opção
+                option.text = `${endereco.logradouro}, ${endereco.numero} - ${endereco.bairro}, ${endereco.cidade}, ${endereco.uf}`;
+                selectEndereco.appendChild(option);
+            });
+
+            // exibirEnderecoSelecionado();
+        })
+        .catch(error => {
+            console.log("Erro: " + error);
+        })
+}
+
+function cadastrarNovoEndereco() {
+
+    const novoEndereco = {
+        cep: form.querySelector("#cep").value,
+        logradouro: form.querySelector("#logradouro").value,
+        bairro: form.querySelector("#bairro").value,
+        numero: form.querySelector("#numero").value,
+        cidade: form.querySelector("#cidade").value,
+        uf: form.querySelector("#uf").value,
+        idUsuario: userId
+    };
+    fetch(`http://localhost:8080/api/enderecos/novo`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(novoEndereco)
+    })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error("Erro ao acessar a API: " + response.statusText);
+            }
+            return response.json();
         })
         .catch(error => {
             console.log("Erro: " + error);
@@ -50,10 +108,9 @@ function usuarioAutenticado() {
             const autenticado = data.autenticado;
             id = data.credencialModel.idUsuario;
             if (autenticado === true) {
-                document.getElementById("login_user").innerHTML = "Olá, usuário.";
-                // consultarEnderecoUsuario(id);
+                document.getElementById("login_user").innerHTML = "Olá";
+                buscarUsuario(id);
             }
-            // e assim por diante, dependendo dos campos do objeto retornado
         })
         .catch(error => {
             console.error('Erro:', error);
@@ -61,8 +118,32 @@ function usuarioAutenticado() {
         });
 }
 
+function buscarUsuario(id) {
+    console.log(id)
+    fetch('http://localhost:8080/api/usuarios/' + id, {
+        method: 'GET',
+    })
+        .then(response => {
+            if (response.ok) {
+                return response.json();
+            } else {
+                throw new Error('Erro ao fazer login');
+            }
+        })
+        .then(data => {
+            console.log(data);
+            nome = data.nome;
+            let palavras = nome.split(" ");
+            let primeiroNome = palavras[0];
+            document.getElementById("login_user").innerHTML = "Olá, " + primeiroNome;
+        })
+        .catch(error => {
+            console.error('Erro ao fazer login:', error);
+            alert("Erro ao acessar usuário. Por favor, tente novamente.");
+        });
+}
+
 function limparCampos() {
-    // Limpa os campos do formulário
-    document.getElementById("enderecoSalvo").value = "";
+    document.getElementById("endereco").value = "";
 }
 

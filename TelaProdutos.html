@@ -27,9 +27,11 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
     rel="stylesheet">
+
   <script src="JavaScript/Produtos/produtos.js"></script>
   <script src="JavaScript/Produtos/ConexaoAPI.js"></script>
-
+  <script src="JavaScript/Geral/AcessoUsuario.js" defer></script>
+  <script src="JavaScript/Geral/Geral.js"></script>
 
   <title>Tela Produtos</title>
 </head>
@@ -39,7 +41,7 @@
 
     <nav id="navbar">
       <div class="img">
-        <img src="/img/logo.png" alt="logo">
+        <a href="TelaInicial.html"><img src="/img/logo.png" alt="logo"></a>
       </div>
 
       <ul id="nav-list">
@@ -69,7 +71,7 @@
         </li>
 
         <li class="nav-item">
-          <a class="sneakers" href="/TelaProdutos.html">Sneakers</a>
+          <a class="sneakers" href="TelaProdutos.html">Sneakers</a>
           <ul class="dropdown">
             <!-- <li><a href="">Old Schools</a></li>
             <li><a href="">Street</a></li>
@@ -83,20 +85,27 @@
 
       <div class="right-nav">
         <div class="position-icon">
-          <a href="/TelaLogin.html"><i class="fa-solid fa-user"></i></a>
-          <a href="/TelaCarrinho.html"><i class="fa-solid fa-cart-shopping"></i></a>
-          <i class="fa-regular fa-heart"></i>
+          <div class="nav-icone-user" id="id-icon-user">
+            <a href="/TelaLogin.html" class="icon-usuario"><i class="fa-solid fa-user"></i></a>
+            <p id="login_user"></p>
+          </div>
+          <div class="nav-icone-heart">
+            <a href=""><i class="fa-regular fa-heart icon-coracao"></i></a>
+          </div>
+          <div class="nav-icone-prod">
+            <a href="" class="icon-produtos"><i class="fa-solid"></i></a>
+          </div>
+          <div class="nav-icone">
+            <a href=""><i class="fa-solid fa-cart-shopping carrinho"></i></a>
+            <p id="tamanho-carrinho"></p>
+          </div>
         </div>
-        <div class="position-user-name">
-          <p id="login_user"></p>
-        </div>
-
       </div>
 
       <div class="mobile-right-nav">
         <input id="pesquisa" type="text" placeholder="pesquisar">
         <a href="/TelaFormularioCliente.html"><i class="fa-solid fa-user"></i></a>
-        <a href="/TelaCarrinho.html"><i class="fa-solid fa-cart-shopping"></i></a>
+        <a href=""><i class="fa-solid fa-cart-shopping carrinho"></i></a>
         <i class="fa-regular fa-heart"></i>
       </div>
 
@@ -120,439 +129,26 @@
         </li>
 
         <li class="nav-item">
-          <a class="sneakers" href="">Sneakers</a>
+          <a class="sneakers" href="TelaProdutos.html">Sneakers</a>
         </li>
       </ul>
     </div>
 
   </header>
+
   <input id="filtro" onkeyup="filtrarProdutos()" type="text" placeholder="Pesquisar produtos">
   <main class="containerpr">
 
     <!-- tenis1 -->
     <!-- <input id="pesquisa" onkeyup="filtrar()" type="text" placeholder="pesquisar" > -->
     <ul class="linha">
-      <li class="prod">
-        <a class="link_produto" href="#">
-          <img class="imgProduto" src="https://artwalk.vteximg.com.br/arquivos/ids/475357-1000-1000/FJ417-0-002-1.jpg?v=638411188627900000" alt="">
-          <div class="cora">
-            <span class="text_produto"></span>
-            <label class="container-fav">
-              <input type="checkbox">
-              <svg id="Layer_1" version="1.0" viewBox="0 0 24 24" xml:space="preserve"
-                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                <path
-                  d="M16.4,4C14.6,4,13,4.9,12,6.3C11,4.9,9.4,4,7.6,4C4.5,4,2,6.5,2,9.6C2,14,12,22,12,22s10-8,10-12.4C22,6.5,19.5,4,16.4,4z">
-                </path>
-              </svg>
-            </label>
-          </div>
-          <p class="preco"></p>
-        </a>
-      </li>
-      <!-- tenis2 -->
-      <li class="prod">
-        <a class="link_produto" href="#">
-          <img class="imgProduto"
-            src="https://artwalk.vteximg.com.br/arquivos/ids/400967-1000-1000/FB204-8-800-1.jpg?v=638219291085430000"
-            alt="">
-          <div class="cora">
-            <span class="text_produto">Air Force</span>
-            <label class="container-fav">
-              <input type="checkbox">
-              <svg id="Layer_1" version="1.0" viewBox="0 0 24 24" xml:space="preserve"
-                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                <path
-                  d="M16.4,4C14.6,4,13,4.9,12,6.3C11,4.9,9.4,4,7.6,4C4.5,4,2,6.5,2,9.6C2,14,12,22,12,22s10-8,10-12.4C22,6.5,19.5,4,16.4,4z">
-                </path>
-              </svg>
-            </label>
-          </div>
-
-          <p class="preco">R$899,00</p>
-        </a>
-      </li>
-      <!-- tenis3 -->
-      <li class=" prod">
-        <a class="link_produto" href="#">
-          <img class="imgProduto"
-            src="https://artwalk.vteximg.com.br/arquivos/ids/475357-1000-1000/FJ417-0-002-1.jpg?v=638411188627900000"
-            alt="">
-          <div class="cora">
-            <span class="text_produto">Air Force</span>
-            <label class="container-fav">
-              <input type="checkbox">
-              <svg id="Layer_1" version="1.0" viewBox="0 0 24 24" xml:space="preserve"
-                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                <path
-                  d="M16.4,4C14.6,4,13,4.9,12,6.3C11,4.9,9.4,4,7.6,4C4.5,4,2,6.5,2,9.6C2,14,12,22,12,22s10-8,10-12.4C22,6.5,19.5,4,16.4,4z">
-                </path>
-              </svg>
-            </label>
-          </div>
-          <p class="preco">R$899,00</p>
-        </a>
-      </li>
-      <!-- tenis4 -->
-      <li class="prod">
-        <a class="link_produto" href="#">
-          <img class="imgProduto"
-            src="https://artwalk.vteximg.com.br/arquivos/ids/479093-1000-1000/FJ416-0-001-1.jpg?v=638442272117730000"
-            alt="">
-          <div class="cora">
-            <span class="text_produto">Air Force</span>
-            <label class="container-fav">
-              <input type="checkbox">
-              <svg id="Layer_1" version="1.0" viewBox="0 0 24 24" xml:space="preserve"
-                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                <path
-                  d="M16.4,4C14.6,4,13,4.9,12,6.3C11,4.9,9.4,4,7.6,4C4.5,4,2,6.5,2,9.6C2,14,12,22,12,22s10-8,10-12.4C22,6.5,19.5,4,16.4,4z">
-                </path>
-              </svg>
-            </label>
-          </div>
-          <p class="preco">R$899,00</p>
-        </a>
-      </li>
-      <!-- tenis5 -->
-      <li class="prod">
-        <a class="link_produto" href="#">
-          <img class="imgProduto"
-            src="https://artwalk.vteximg.com.br/arquivos/ids/478983-1000-1000/FJ416-0-002-1.jpg?v=638442271448570000"
-            alt="">
-          <div class="cora">
-            <span class="text_produto">Air Force</span>
-            <label class="container-fav">
-              <input type="checkbox">
-              <svg id="Layer_1" version="1.0" viewBox="0 0 24 24" xml:space="preserve"
-                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                <path
-                  d="M16.4,4C14.6,4,13,4.9,12,6.3C11,4.9,9.4,4,7.6,4C4.5,4,2,6.5,2,9.6C2,14,12,22,12,22s10-8,10-12.4C22,6.5,19.5,4,16.4,4z">
-                </path>
-              </svg>
-            </label>
-          </div>
-          <p class="preco">R$899,00</p>
-        </a>
-      </li>
     </ul>
-    <!-- tenis6 -->
     <ul class="linha2">
-      <li class="prod">
-      <a class="link_produto" href="#">
-          <img class="imgProduto" src="https://artwalk.vteximg.com.br/arquivos/ids/326524-245-245" alt="">
-          <div class="cora">
-            <span class="text_produto">Dunk Low</span>
-            <label class="container-fav">
-              <input type="checkbox">
-              <svg id="Layer_1" version="1.0" viewBox="0 0 24 24" xml:space="preserve"
-                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                <path
-                  d="M16.4,4C14.6,4,13,4.9,12,6.3C11,4.9,9.4,4,7.6,4C4.5,4,2,6.5,2,9.6C2,14,12,22,12,22s10-8,10-12.4C22,6.5,19.5,4,16.4,4z">
-                </path>
-              </svg>
-            </label>
-          </div>
-          <p class="preco">R$899,00</p>
-      </a>
-      </li>
-      <!-- tenis7 -->
-      <li class="prod">
-        <a class="link_produto" href="#">
-          <img class="imgProduto" src="https://artwalk.vteximg.com.br/arquivos/ids/445536-245-245" alt="">
-          <div class="cora">
-            <span class="text_produto">Dunk Low</span>
-            <label class="container-fav">
-              <input type="checkbox">
-              <svg id="Layer_1" version="1.0" viewBox="0 0 24 24" xml:space="preserve"
-                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                <path
-                  d="M16.4,4C14.6,4,13,4.9,12,6.3C11,4.9,9.4,4,7.6,4C4.5,4,2,6.5,2,9.6C2,14,12,22,12,22s10-8,10-12.4C22,6.5,19.5,4,16.4,4z">
-                </path>
-              </svg>
-            </label>
-          </div>
-          <p class="preco">R$899,00</p>
-        </a>
-      </li>
-      <!-- tenis8 -->
-      <li class="prod">
-        <a class="link_produto" href="#">
-          <img class="imgProduto" src="https://artwalk.vteximg.com.br/arquivos/ids/476642-245-245" alt="">
-          <div class="cora">
-            <span class="text_produto">Dunk Low</span>
-            <label class="container-fav">
-              <input type="checkbox">
-              <svg id="Layer_1" version="1.0" viewBox="0 0 24 24" xml:space="preserve"
-                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                <path
-                  d="M16.4,4C14.6,4,13,4.9,12,6.3C11,4.9,9.4,4,7.6,4C4.5,4,2,6.5,2,9.6C2,14,12,22,12,22s10-8,10-12.4C22,6.5,19.5,4,16.4,4z">
-                </path>
-              </svg>
-            </label>
-          </div>
-          <p class="preco">R$899,00</p>
-        </a>
-      </li>
-      <!-- tenis9 -->
-      <li class="prod">
-        <a class="link_produto" href="#">
-          <img class="imgProduto"
-            src="https://artwalk.vteximg.com.br/arquivos/ids/403079-760-760/FD035-0-133-1.jpg?v=638223465392570000"
-            alt="">
-          <div class="cora">
-            <span class="text_produto">Dunk Low</span>
-            <label class="container-fav">
-              <input type="checkbox">
-              <svg id="Layer_1" version="1.0" viewBox="0 0 24 24" xml:space="preserve"
-                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                <path
-                  d="M16.4,4C14.6,4,13,4.9,12,6.3C11,4.9,9.4,4,7.6,4C4.5,4,2,6.5,2,9.6C2,14,12,22,12,22s10-8,10-12.4C22,6.5,19.5,4,16.4,4z">
-                </path>
-              </svg>
-            </label>
-          </div>
-          <p class="preco">R$899,00</p>
-        </a>
-
-      </li>
-      <!-- tenis10 -->
-      <li class="prod">
-        <a class="link_produto" href="#">
-          <img class="imgProduto"
-            src="https://artwalk.vteximg.com.br/arquivos/ids/474093-760-760/FN748-8-133-1.jpg?v=638386740288270000"
-            alt="">
-          <div class="cora">
-            <span class="text_produto">Dunk Low</span>
-            <label class="container-fav">
-              <input type="checkbox">
-              <svg id="Layer_1" version="1.0" viewBox="0 0 24 24" xml:space="preserve"
-                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                <path
-                  d="M16.4,4C14.6,4,13,4.9,12,6.3C11,4.9,9.4,4,7.6,4C4.5,4,2,6.5,2,9.6C2,14,12,22,12,22s10-8,10-12.4C22,6.5,19.5,4,16.4,4z">
-                </path>
-              </svg>
-            </label>
-          </div>
-          <p class="preco">R$899,00</p>
-        </a>
-      </li>
     </ul>
     </input>
-
     <ul class="linha3">
-      <!-- tenis1 -->
-      <li class="prod">
-        <a class="link_produto" href="#">
-          <img class="imgProduto"
-            src="https://artwalk.vteximg.com.br/arquivos/ids/440697-760-760/IF806-8-100-1.jpg?v=638296159816530000"
-            alt="">
-          <div class="cora">
-            <span class="text_produto">Adidas Superstars</span>
-            <label class="container-fav">
-              <input type="checkbox">
-              <svg id="Layer_1" version="1.0" viewBox="0 0 24 24" xml:space="preserve"
-                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                <path
-                  d="M16.4,4C14.6,4,13,4.9,12,6.3C11,4.9,9.4,4,7.6,4C4.5,4,2,6.5,2,9.6C2,14,12,22,12,22s10-8,10-12.4C22,6.5,19.5,4,16.4,4z">
-                </path>
-              </svg>
-            </label>
-          </div>
-          <p class="preco">R$499,00</p>
-        </a>
-      </li>
-      <!-- tenis2 -->
-      <li class="prod">
-        <a class="link_produto" href="#">
-          <img class="imgProduto"
-            src="https://artwalk.vteximg.com.br/arquivos/ids/487191-760-760/ID099-5-200-1.jpg?v=638470561340130000"
-            alt="">
-          <div class="cora">
-            <span class="text_produto">Adidas Superstars</span>
-            <label class="container-fav">
-              <input type="checkbox">
-              <svg id="Layer_1" version="1.0" viewBox="0 0 24 24" xml:space="preserve"
-                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                <path
-                  d="M16.4,4C14.6,4,13,4.9,12,6.3C11,4.9,9.4,4,7.6,4C4.5,4,2,6.5,2,9.6C2,14,12,22,12,22s10-8,10-12.4C22,6.5,19.5,4,16.4,4z">
-                </path>
-              </svg>
-            </label>
-          </div>
-          <p class="preco">R$499,00</p>
-        </a>
-      </li>
-      <!-- tenis3 -->
-      <li class="prod">
-        <a class="link_produto" href="#">
-          <img class="imgProduto"
-            src="https://artwalk.vteximg.com.br/arquivos/ids/318534-760-760/GZ220-3-001-1.jpg?v=638055958593300000"
-            alt="">
-          <div class="cora">
-            <span class="text_produto">Adidas Superstars</span>
-            <label class="container-fav">
-              <input type="checkbox">
-              <svg id="Layer_1" version="1.0" viewBox="0 0 24 24" xml:space="preserve"
-                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                <path
-                  d="M16.4,4C14.6,4,13,4.9,12,6.3C11,4.9,9.4,4,7.6,4C4.5,4,2,6.5,2,9.6C2,14,12,22,12,22s10-8,10-12.4C22,6.5,19.5,4,16.4,4z">
-                </path>
-              </svg>
-            </label>
-          </div>
-        </a>
-        <p class="preco">R$499,00</p>
-      </li>
-      <!-- tenis4 -->
-      <li class="prod">
-        <a class="link_produto" href="#">
-          <img class="imgProduto"
-            src="https://artwalk.vteximg.com.br/arquivos/ids/287223-760-760/GX471-2-100-1.jpg?v=638019790647800000"
-            alt="">
-          <div class="cora">
-            <span class="text_produto">Adidas Superstars</span>
-            <label class="container-fav">
-              <input type="checkbox">
-              <svg id="Layer_1" version="1.0" viewBox="0 0 24 24" xml:space="preserve"
-                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                <path
-                  d="M16.4,4C14.6,4,13,4.9,12,6.3C11,4.9,9.4,4,7.6,4C4.5,4,2,6.5,2,9.6C2,14,12,22,12,22s10-8,10-12.4C22,6.5,19.5,4,16.4,4z">
-                </path>
-              </svg>
-            </label>
-          </div>
-          <p class="preco">R$499,00</p>
-        </a>
-      </li>
-      <!-- tenis5 -->
-      <li class="prod">
-        <a class="link_produto" href="#">
-          <img class="imgProduto"
-            src="https://artwalk.vteximg.com.br/arquivos/ids/487179-1000-1000/ID099-3-200-1.jpg?v=638470561297630000"
-            alt="">
-          <div class="cora">
-            <span class="text_produto">Adidas Superstars</span>
-            <label class="container-fav">
-              <input type="checkbox">
-              <svg id="Layer_1" version="1.0" viewBox="0 0 24 24" xml:space="preserve"
-                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                <path
-                  d="M16.4,4C14.6,4,13,4.9,12,6.3C11,4.9,9.4,4,7.6,4C4.5,4,2,6.5,2,9.6C2,14,12,22,12,22s10-8,10-12.4C22,6.5,19.5,4,16.4,4z">
-                </path>
-              </svg>
-            </label>
-          </div>
-          <p class="preco">R$499,00</p>
-        </a>
-      </li>
     </ul>
-    <!-- tenis6 -->
     <ul class="linha4">
-      <li class="prod">
-        <a class="link_produto" href="#">
-          <img class="imgProduto"
-            src="https://artwalk.vteximg.com.br/arquivos/ids/301142-760-760/38359-0-009-1.jpg?v=638053306036800000"
-            alt="">
-          <div class="cora">
-            <span class="text_produto">Puma RS-X</span>
-            <label class="container-fav">
-              <input type="checkbox">
-              <svg id="Layer_1" version="1.0" viewBox="0 0 24 24" xml:space="preserve"
-                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                <path
-                  d="M16.4,4C14.6,4,13,4.9,12,6.3C11,4.9,9.4,4,7.6,4C4.5,4,2,6.5,2,9.6C2,14,12,22,12,22s10-8,10-12.4C22,6.5,19.5,4,16.4,4z">
-                </path>
-              </svg>
-            </label>
-          </div>
-          <p class="preco">R$599,00</p>
-        </a>
-      </li>
-      <!-- tenis7 -->
-      <li class="prod">
-        <a class="link_produto" href="#">
-          <img class="imgProduto"
-            src="https://artwalk.vteximg.com.br/arquivos/ids/418422-760-760/39117-1-003-1.jpg?v=638252049386170000"
-            alt="">
-          <div class="cora">
-            <span class="text_produto">Puma RS-X</span>
-            <label class="container-fav">
-              <input type="checkbox">
-              <svg id="Layer_1" version="1.0" viewBox="0 0 24 24" xml:space="preserve"
-                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                <path
-                  d="M16.4,4C14.6,4,13,4.9,12,6.3C11,4.9,9.4,4,7.6,4C4.5,4,2,6.5,2,9.6C2,14,12,22,12,22s10-8,10-12.4C22,6.5,19.5,4,16.4,4z">
-                </path>
-              </svg>
-            </label>
-          </div>
-          <p class="preco">R$599,00</p>
-        </a>
-      </li>
-      <!-- tenis8 -->
-      <li class="prod">
-        <a class="link_produto" href="#">
-          <img class="imgProduto"
-            src="https://artwalk.vteximg.com.br/arquivos/ids/447933-760-760/39430-2-050-1.jpg?v=638309279595070000"
-            alt="">
-          <div class="cora">
-            <span class="text_produto">Puma RS-X</span>
-            <label class="container-fav">
-              <input type="checkbox">
-              <svg id="Layer_1" version="1.0" viewBox="0 0 24 24" xml:space="preserve"
-                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                <path
-                  d="M16.4,4C14.6,4,13,4.9,12,6.3C11,4.9,9.4,4,7.6,4C4.5,4,2,6.5,2,9.6C2,14,12,22,12,22s10-8,10-12.4C22,6.5,19.5,4,16.4,4z">
-                </path>
-              </svg>
-            </label>
-          </div>
-          <p class="preco">R$599,00</p>
-        </a>
-      </li>
-      <!-- tenis9 -->
-      <li class="prod">
-        <a class="link_produto" href="#">
-          <img class="imgProduto"
-            src="https://artwalk.vteximg.com.br/arquivos/ids/436449-760-760/39430-2-051-1.jpg?v=638277211511570000"
-            alt="">
-          <div class="cora">
-            <span class="text_produto">Puma RS-X</span>
-            <label class="container-fav">
-              <input type="checkbox">
-              <svg id="Layer_1" version="1.0" viewBox="0 0 24 24" xml:space="preserve"
-                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                <path
-                  d="M16.4,4C14.6,4,13,4.9,12,6.3C11,4.9,9.4,4,7.6,4C4.5,4,2,6.5,2,9.6C2,14,12,22,12,22s10-8,10-12.4C22,6.5,19.5,4,16.4,4z">
-                </path>
-              </svg>
-            </label>
-          </div>
-          <p class="preco">R$599,00</p>
-        </a>
-      </li>
-      <!-- tenis10 -->
-      <li class="prod">
-        <a class="link_produto" href="#">
-          <img class="imgProduto"
-            src="https://artwalk.vteximg.com.br/arquivos/ids/436443-760-760/39430-2-003-1.jpg?v=638277210260500000"
-            alt="">
-          <div class="cora">
-            <span class="text_produto">Puma RS-X</span>
-            <label class="container-fav">
-              <input type="checkbox">
-              <svg id="Layer_1" version="1.0" viewBox="0 0 24 24" xml:space="preserve"
-                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                <path
-                  d="M16.4,4C14.6,4,13,4.9,12,6.3C11,4.9,9.4,4,7.6,4C4.5,4,2,6.5,2,9.6C2,14,12,22,12,22s10-8,10-12.4C22,6.5,19.5,4,16.4,4z">
-                </path>
-              </svg>
-            </label>
-          </div>
-          <p class="preco">R$599,00</p>
-        </a>
-      </li>
     </ul>
 
 
@@ -561,71 +157,71 @@
   <!-- Footer -->
   <footer>
     <div id="footer_content">
-        <div id="footer_contacts">
-            <h1 class="logoRodape"><img src="img/logo.png" alt="Imagem logo"></h1>
-            <p class="desc">Nome marca</p>
+      <div id="footer_contacts">
+        <h1 class="logoRodape"><img src="img/logo.png" alt="Imagem logo"></h1>
+        <p class="desc">Nome marca</p>
 
-            <div id="footer_social_media">
-                <a href="#" class="footer-link" id="instagram" target="_blank">
-                    <i class="fa-brands fa-instagram"></i>
-                </a>
-                <a href="https://github.com/pedrootsugua/Projeto-E-commerce" class="footer-link" id="github" target="_blank">
-                   <img src="img/github_img.png" alt="Logo GitHub">
-                </a>
-            </div>
+        <div id="footer_social_media">
+          <a href="#" class="footer-link" id="instagram" target="_blank">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+          <a href="https://github.com/pedrootsugua/Projeto-E-commerce" class="footer-link" id="github" target="_blank">
+            <img src="img/github_img.png" alt="Logo GitHub">
+          </a>
         </div>
+      </div>
 
-        <ul class="footer-list">
-            <li>
-                <h3>Institucional</h3>
-            </li>
-            <li>
-                <a href="#" class="footer-link">Sobre nós</a>
-            </li>
-            <li>
-                <a href="#" class="footer-link">Titulo 2</a>
-            </li>
-            <li>
-                <a href="#" class="footer-link">Titulo 3</a>
-            </li>
-        </ul>
+      <ul class="footer-list">
+        <li>
+          <h3>Institucional</h3>
+        </li>
+        <li>
+          <a href="#" class="footer-link">Sobre nós</a>
+        </li>
+        <li>
+          <a href="#" class="footer-link">Titulo 2</a>
+        </li>
+        <li>
+          <a href="#" class="footer-link">Titulo 3</a>
+        </li>
+      </ul>
 
-        <ul class="footer-list">
-            <li>
-                <h3>Produtos</h3>
-            </li>
-            <li>
-                <a href="#" class="footer-link">Vestuário</a>
-            </li>
-            <li>
-                <a href="#" class="footer-link">Acessórios</a>
-            </li>
-            <li>
-                <a href="#" class="footer-link">Sneakers</a>
-            </li>
-        </ul>
+      <ul class="footer-list">
+        <li>
+          <h3>Produtos</h3>
+        </li>
+        <li>
+          <a href="#" class="footer-link">Vestuário</a>
+        </li>
+        <li>
+          <a href="#" class="footer-link">Acessórios</a>
+        </li>
+        <li>
+          <a href="#" class="footer-link">Sneakers</a>
+        </li>
+      </ul>
 
-        <div id="footer_subscribe">
-            <h3>Inscreva-se</h3>
+      <div id="footer_subscribe">
+        <h3>Inscreva-se</h3>
 
-            <p>
-                Digite seu email e fique por dentro de nossas novidades.
-            </p>
+        <p>
+          Digite seu email e fique por dentro de nossas novidades.
+        </p>
 
-            <div id="input_group">
-                <input type="email" id="email">
-                <button>
-                    <i class="fa-regular fa-envelope"></i>
-                </button>
-            </div>
+        <div id="input_group">
+          <input type="email" id="email">
+          <button>
+            <i class="fa-regular fa-envelope"></i>
+          </button>
         </div>
+      </div>
     </div>
 
     <div id="footer_copyright">
-        &#169
-        2024 Todos os Direitos Reservados
+      &#169
+      2024 Todos os Direitos Reservados
     </div>
-</footer>      
+  </footer>
   <!-- Footer -->
 
 

@@ -1,76 +1,111 @@
-*{
-    box-sizing: border-box;
+* {
+  box-sizing: border-box;
 }
 
-main{
-    margin-top: 30px;
+main {
+  margin-top: 30px;
 }
 
-.content{
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    gap: 80px;
-    min-height: calc(90vh - 105px);
+.content {
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 250px;
+  min-height: calc(90vh - 105px);
 }
 
-.lista-produtos {
-    display: flex;
-    justify-content: center;
-    gap: 80px;
-    list-style-type: none;
-    padding: 0;
-  }
-  
-.list-prod {
-display: flex;
-gap: 80px;
+.container-slider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
 }
 
-.list-prod img{
-    border-radius: 20px;
-    width: 450px;
-    height: 450px;
-    box-shadow: 10px 15px 20px rgb(128, 127, 127);
+.imagens-produto {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 500px;
 }
 
-#tamanho{
-    margin-top: 55px;
-    text-align: center;
+.slider {
+  opacity: 0;
+  transition: opacity .2s;
+  position: absolute;
+  width: 0%;
 }
 
-.line-button button{
-    width: 40px;
-    height: 40px;
+.on {
+  opacity: 1;
 }
 
-.c{
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    align-items: center;
+#prev-button,
+#next-button {
+  width: 30px;
+  height: 30px;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  outline: none;
 }
 
-.line-button{
-    display: flex;
-    gap: 8px;
+#prev-button {
+  transform: rotate(180deg);
 }
 
-.size{
-    border-radius: 10px;
-    border: none;
+.imagens-produto img {
+  width: 400px;
+  height: 400px;
 }
 
-.button-action{
-    margin-top: 30px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+#tamanho {
+  margin-top: 55px;
+  text-align: center;
 }
 
-.btn-action{
-    border-radius: 20px;
-    padding: 15px;
+.line-button button {
+  width: 40px;
+  height: 40px;
+}
+
+.c {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+}
+
+.line-button {
+  display: flex;
+  gap: 8px;
+}
+
+.size {
+  border-radius: 10px;
+  border: none;
+}
+
+.button-action {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.btn-action {
+  border-radius: 20px;
+  padding: 15px;
+}
+
+#line-unique button {
+  width: 80px;
+  height: 40px;
+}
+
+.unique {
+  padding: 30px 20px;
+  border-radius: 10px;
+  border: none;
 }

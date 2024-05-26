@@ -21,6 +21,13 @@
     integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
+  <script src="/JavaScript/Navbar/navbar.js"></script>
+  <script src="JavaScript/Geral/Geral.js"></script>
+  <script src="/JavaScript/Inicial/Inicial.js"></script>
+  <script src="/JavaScript/Inicial/AcessoUsuario.js"></script>
+  <script src="JavaScript/Geral/AcessoUsuario.js" defer></script>
+  <script src="/JavaScript/Carrinho/conexaoAPI.js" defer></script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
@@ -40,12 +47,12 @@
 
     <nav id="navbar">
       <div class="img">
-        <img src="/img/logo.png" alt="logo">
+        <a href="TelaInicial.html"><img src="/img/logo.png" alt="logo"></a>
       </div>
 
       <ul id="nav-list">
         <li class="nav-item">
-          <a href="">Promoções</a>
+          <a class="promocoes" href="">Promoções</a>
           <ul class="dropdown">
             <li><a href="">Lançamentos</a></li>
             <li><a href="#novidade">Novidades</a></li>
@@ -53,15 +60,15 @@
         </li>
 
         <li class="nav-item">
-          <a href="">Vestuário</a>
+          <a class="vestuarios" href="">Vestuário</a>
           <ul class="dropdown">
-            <li><a href="">Feminino</a></li>
-            <li><a href="">Masculino</a></li>
+            <!-- <li><a href="">Feminino</a></li>
+            <li><a href="">Masculino</a></li> -->
           </ul>
         </li>
 
         <li class="nav-item">
-          <a href="">Acessórios</a>
+          <a class="acessorios" href="">Acessórios</a>
           <ul class="dropdown">
             <li><a href="">Boné</a></li>
             <li><a href="">Bolsas</a></li>
@@ -70,11 +77,11 @@
         </li>
 
         <li class="nav-item">
-          <a href="/TelaProdutos.html">Sneakers</a>
+          <a class="sneakers" href="TelaProdutos.html">Sneakers</a>
           <ul class="dropdown">
-            <li><a href="">Old Schools</a></li>
+            <!-- <li><a href="">Old Schools</a></li>
             <li><a href="">Street</a></li>
-            <li><a href="">Casual</a></li>
+            <li><a href="">Casual</a></li> -->
           </ul>
         </li>
       </ul>
@@ -84,20 +91,27 @@
 
       <div class="right-nav">
         <div class="position-icon">
-          <a href="/TelaLogin.html"><i class="fa-solid fa-user"></i></a>
-          <a href="/TelaCarrinho.html"><i class="fa-solid fa-cart-shopping"></i></a>
-          <i class="fa-regular fa-heart"></i>
+          <div class="nav-icone-user" id="id-icon-user">
+            <a href="/TelaLogin.html" class="icon-usuario"><i class="fa-solid fa-user"></i></a>
+            <p id="login_user"></p>
+          </div>
+          <div class="nav-icone-heart">
+            <a href=""><i class="fa-regular fa-heart icon-coracao"></i></a>
+          </div>
+          <div class="nav-icone-prod">
+            <a href="" class="icon-produtos"><i class="fa-solid"></i></a>
+          </div>
+          <div class="nav-icone">
+            <a href=""><i class="fa-solid fa-cart-shopping carrinho"></i></a>
+            <p id="tamanho-carrinho"></p>
+          </div>
         </div>
-        <div class="position-user-name">
-          <p id="login_user"></p>
-        </div>
-
       </div>
 
       <div class="mobile-right-nav">
         <input id="pesquisa" type="text" placeholder="pesquisar">
         <a href="/TelaFormularioCliente.html"><i class="fa-solid fa-user"></i></a>
-        <a href="/TelaCarrinho.html"><i class="fa-solid fa-cart-shopping"></i></a>
+        <a href=""><i class="fa-solid fa-cart-shopping carrinho"></i></a>
         <i class="fa-regular fa-heart"></i>
       </div>
 
@@ -109,19 +123,19 @@
     <div id="mobile-menu">
       <ul id="mobile-nav-list">
         <li class="nav-item">
-          <a href="">Promoções</a>
+          <a class="promocoes" href="">Promoções</a>
         </li>
 
         <li class="nav-item">
-          <a href="">Vestuário</a>
+          <a class="vestuarios" href="">Vestuário</a>
         </li>
 
         <li class="nav-item">
-          <a href="">Acessórios</a>
+          <a class="acessorios" href="">Acessórios</a>
         </li>
 
         <li class="nav-item">
-          <a href="">Sneakers</a>
+          <a class="sneakers" href="TelaProdutos.html">Sneakers</a>
         </li>
       </ul>
     </div>
@@ -271,6 +285,7 @@
     </section>
   </main>
 
+  <!-- Footer -->
   <footer>
     <div id="footer_content">
       <div id="footer_contacts">
@@ -281,8 +296,8 @@
           <a href="#" class="footer-link" id="instagram" target="_blank">
             <i class="fa-brands fa-instagram"></i>
           </a>
-          <a href="#" class="footer-link" id="whatsapp" target="_blank">
-            <i class="fa-brands fa-whatsapp"></i>
+          <a href="https://github.com/pedrootsugua/Projeto-E-commerce" class="footer-link" id="github" target="_blank">
+            <img src="img/github_img.png" alt="Logo GitHub">
           </a>
         </div>
       </div>
@@ -325,7 +340,7 @@
         </p>
 
         <div id="input_group">
-          <input type="email" id="email" placeholder="Digite seu email">
+          <input type="email" id="email">
           <button>
             <i class="fa-regular fa-envelope"></i>
           </button>
@@ -338,10 +353,8 @@
       2024 Todos os Direitos Reservados
     </div>
   </footer>
+  <!-- Footer -->
 
-  <script src="/JavaScript/Navbar/navbar.js"></script>
-  <script src="JavaScript/Inicial/Inicial.js"></script>
-  <script src="/JavaScript/Inicial/AcessoUsuario.js"></script>
 </body>
 
 </html>

@@ -2,241 +2,252 @@
 <html lang="PT-BR">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="Css/Reset/Reset.css">
-    <link rel="stylesheet" href="Css/Navbar/navbar.css">
-    <link rel="stylesheet" href="Css/Carrinho/confirmacaoPedido.css">
-    <link rel="stylesheet" href="/Css/Footer/footer.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="Css/Reset/Reset.css">
+  <link rel="stylesheet" href="Css/Navbar/navbar.css">
+  <link rel="stylesheet" href="Css/Carrinho/confirmacaoPedido.css">
+  <link rel="stylesheet" href="/Css/Footer/footer.css">
 
-    <link rel="stylesheet" href="vendor/BootStrap/bootstrap.css">
-    <link rel="stylesheet" href="vendor/BootStrap/open-iconic-bootstrap.css">
+  <link rel="stylesheet" href="vendor/BootStrap/bootstrap.css">
+  <link rel="stylesheet" href="vendor/BootStrap/open-iconic-bootstrap.css">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
-        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+    integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-        rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet">
 
-    <script src="JavaScript/Navbar/navbar.js"></script>
+  <script src="JavaScript/Navbar/navbar.js"></script>
+  <script src="JavaScript/Geral/Geral.js" defer></script>
+  <script src="JavaScript/Geral/AcessoUsuario.js" defer></script>
 
-    <title>Pedido Confirmado</title>
+  <title>Pedido Confirmado</title>
 </head>
 
 <body>
-    <header>
+  <header>
 
-        <nav id="navbar">
-            <div class="img">
-                <img src="/img/logo.png" alt="logo">
-            </div>
+    <nav id="navbar">
+      <div class="img">
+        <a href="TelaInicial.html"><img src="/img/logo.png" alt="logo"></a>
+      </div>
 
-            <ul id="nav-list">
-                <li class="nav-item">
-                    <a href="">Promoções</a>
-                    <ul class="dropdown">
-                        <li><a href="">Lançamentos</a></li>
-                        <li><a href="#novidade">Novidades</a></li>
-                    </ul>
-                </li>
+      <ul id="nav-list">
+        <li class="nav-item">
+          <a class="promocoes" href="">Promoções</a>
+          <ul class="dropdown">
+            <li><a href="">Lançamentos</a></li>
+            <li><a href="#novidade">Novidades</a></li>
+          </ul>
+        </li>
 
-                <li class="nav-item">
-                    <a href="">Vestuário</a>
-                    <ul class="dropdown">
-                        <li><a href="">Feminino</a></li>
-                        <li><a href="">Masculino</a></li>
-                    </ul>
-                </li>
+        <li class="nav-item">
+          <a class="vestuarios" href="">Vestuário</a>
+          <ul class="dropdown">
+            <!-- <li><a href="">Feminino</a></li>
+            <li><a href="">Masculino</a></li> -->
+          </ul>
+        </li>
 
-                <li class="nav-item">
-                    <a href="">Acessórios</a>
-                    <ul class="dropdown">
-                        <li><a href="">Boné</a></li>
-                        <li><a href="">Bolsas</a></li>
-                        <li><a href="">Joias</a></li>
-                    </ul>
-                </li>
+        <li class="nav-item">
+          <a class="acessorios" href="">Acessórios</a>
+          <ul class="dropdown">
+            <li><a href="">Boné</a></li>
+            <li><a href="">Bolsas</a></li>
+            <li><a href="">Joias</a></li>
+          </ul>
+        </li>
 
-                <li class="nav-item">
-                    <a href="/TelaProdutos.html">Sneakers</a>
-                    <ul class="dropdown">
-                        <li><a href="">Old Schools</a></li>
-                        <li><a href="">Street</a></li>
-                        <li><a href="">Casual</a></li>
-                    </ul>
-                </li>
-            </ul>
+        <li class="nav-item">
+          <a class="sneakers" href="TelaProdutos.html">Sneakers</a>
+          <ul class="dropdown">
+            <!-- <li><a href="">Old Schools</a></li>
+            <li><a href="">Street</a></li>
+            <li><a href="">Casual</a></li> -->
+          </ul>
+        </li>
+      </ul>
 
 
-            <input id="pesquisa" type="text" placeholder="pesquisar">
+      <input id="pesquisa" type="text" placeholder="pesquisar">
 
-            <div class="right-nav">
-                <div class="position-icon">
-                    <a href="/TelaLogin.html"><i class="fa-solid fa-user"></i></a>
-                    <a href="/TelaCarrinho.html"><i class="fa-solid fa-cart-shopping"></i></a>
-                    <i class="fa-regular fa-heart"></i>
-                </div>
-                <div class="position-user-name">
-                    <p id="login_user"></p>
-                </div>
-
-            </div>
-
-            <div class="mobile-right-nav">
-                <input id="pesquisa" type="text" placeholder="pesquisar">
-                <a href="/TelaFormularioCliente.html"><i class="fa-solid fa-user"></i></a>
-                <a href="/TelaCarrinho.html"><i class="fa-solid fa-cart-shopping"></i></a>
-                <i class="fa-regular fa-heart"></i>
-            </div>
-
-            <button id="mobile-btn">
-                <i class="fa-solid fa-bars"></i>
-            </button>
-        </nav>
-
-        <div id="mobile-menu">
-            <ul id="mobile-nav-list">
-                <li class="nav-item">
-                    <a href="">Promoções</a>
-                </li>
-
-                <li class="nav-item">
-                    <a href="">Vestuário</a>
-                </li>
-
-                <li class="nav-item">
-                    <a href="">Acessórios</a>
-                </li>
-
-                <li class="nav-item">
-                    <a href="">Sneakers</a>
-                </li>
-            </ul>
+      <div class="right-nav">
+        <div class="position-icon">
+          <div class="nav-icone-user" id="id-icon-user">
+            <a href="/TelaLogin.html" class="icon-usuario"><i class="fa-solid fa-user"></i></a>
+            <p id="login_user"></p>
+          </div>
+          <div class="nav-icone-heart">
+            <a href=""><i class="fa-regular fa-heart icon-coracao"></i></a>
+          </div>
+          <div class="nav-icone-prod">
+            <a href="" class="icon-produtos"><i class="fa-solid"></i></a>
+          </div>
+          <div class="nav-icone">
+            <a href=""><i class="fa-solid fa-cart-shopping carrinho"></i></a>
+            <p id="tamanho-carrinho"></p>
+          </div>
         </div>
+      </div>
 
-    </header>
+      <div class="mobile-right-nav">
+        <input id="pesquisa" type="text" placeholder="pesquisar">
+        <a href="/TelaFormularioCliente.html"><i class="fa-solid fa-user"></i></a>
+        <a href=""><i class="fa-solid fa-cart-shopping carrinho"></i></a>
+        <i class="fa-regular fa-heart"></i>
+      </div>
 
-    <div class="main-container">
-        <h1>Pedido Confirmado!</h1>
+      <button id="mobile-btn">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </nav>
 
-        <section class="confirm-pedido">
-            <h2>Seu pedido foi processado com sucesso!</h2>
-            <p>
-                Em breve você receberá uma confirmação no e-mail:
-                <span>ex@ex.com</span> com os dados do pedido realizado.
-            </p>
+    <div id="mobile-menu">
+      <ul id="mobile-nav-list">
+        <li class="nav-item">
+          <a class="promocoes" href="">Promoções</a>
+        </li>
 
-            <div class="aprovacao-pagamento">
-                <svg xmlns="http://www.w3.org/2000/svg" width="76" height="71" viewBox="0 0 76 71" fill="none">
-                    <g clip-path="url(#clip0_1_1354)">
-                        <path
-                            d="M37.9999 64.4681C20.5104 64.4681 6.33325 51.3488 6.33325 35.1644C6.33325 18.98 20.5104 5.86072 37.9999 5.86072C55.4894 5.86072 69.6666 18.98 69.6666 35.1644C69.6666 51.3488 55.4894 64.4681 37.9999 64.4681ZM34.8428 46.8859L57.2311 26.1652L52.7534 22.0217L34.8428 38.5988L25.8843 30.3088L21.4066 34.4523L34.8428 46.8859Z"
-                            fill="#5F9EA0" />
-                    </g>
-                    <defs>
-                        <clipPath id="clip0_1_1354">
-                            <rect width="76" height="70.3289" fill="white" />
-                        </clipPath>
-                    </defs>
-                </svg>
+        <li class="nav-item">
+          <a class="vestuarios" href="">Vestuário</a>
+        </li>
 
-                <h2>Pagamento Aprovado!</h2>
-            </div>
-        </section>
+        <li class="nav-item">
+          <a class="acessorios" href="">Acessórios</a>
+        </li>
 
-        <section class="info-pedido">
-            <h2>Informações do Pedido</h2>
-
-            <div class="box">
-                <section class="dados-pedido">
-                    <h3>Número do pedido: 1546147</h3>
-                    <h3>Total: R$1599,99</h3>
-                    <h3>Forma de Pagamento: Cartão de Crédito </h3>
-                    <h3>Forma de Envio: Sedex (GRÁTIS)</h3>
-                    <h3>CEP de Entrega: 04848-000</h3>
-                </section>
-                <p class="info">*Os produtos serão enviados em até 3 dias úteis após a confirmação do pagamento.</p>
-            </div>
-        </section>
-
-        <button class="btn-pedidos">Ir para Meus Pedidos</button>
+        <li class="nav-item">
+          <a class="sneakers" href="TelaProdutos.html">Sneakers</a>
+        </li>
+      </ul>
     </div>
 
-    <footer>
-        <div id="footer_content">
-            <div id="footer_contacts">
-                <h1 class="logoRodape"><img src="img/logo.png" alt="Imagem logo"></h1>
-                <p class="desc">Nome marca</p>
+  </header>
+  
+  <div class="main-container">
+    <h1>Pedido Confirmado!</h1>
 
-                <div id="footer_social_media">
-                    <a href="#" class="footer-link" id="instagram" target="_blank">
-                        <i class="fa-brands fa-instagram"></i>
-                    </a>
-                    <a href="https://github.com/pedrootsugua/Projeto-E-commerce" class="footer-link" id="github"
-                        target="_blank">
-                        <img src="img/github_img.png" alt="Logo GitHub">
-                    </a>
-                </div>
-            </div>
+    <section class="confirm-pedido">
+      <h2>Seu pedido foi processado com sucesso!</h2>
+      <p>
+        Em breve você receberá uma confirmação no e-mail:
+        <span>ex@ex.com</span> com os dados do pedido realizado.
+      </p>
 
-            <ul class="footer-list">
-                <li>
-                    <h3>Institucional</h3>
-                </li>
-                <li>
-                    <a href="#" class="footer-link">Sobre nós</a>
-                </li>
-                <li>
-                    <a href="#" class="footer-link">Titulo 2</a>
-                </li>
-                <li>
-                    <a href="#" class="footer-link">Titulo 3</a>
-                </li>
-            </ul>
+      <div class="aprovacao-pagamento">
+        <svg xmlns="http://www.w3.org/2000/svg" width="76" height="71" viewBox="0 0 76 71" fill="none">
+          <g clip-path="url(#clip0_1_1354)">
+            <path
+              d="M37.9999 64.4681C20.5104 64.4681 6.33325 51.3488 6.33325 35.1644C6.33325 18.98 20.5104 5.86072 37.9999 5.86072C55.4894 5.86072 69.6666 18.98 69.6666 35.1644C69.6666 51.3488 55.4894 64.4681 37.9999 64.4681ZM34.8428 46.8859L57.2311 26.1652L52.7534 22.0217L34.8428 38.5988L25.8843 30.3088L21.4066 34.4523L34.8428 46.8859Z"
+              fill="#5F9EA0" />
+          </g>
+          <defs>
+            <clipPath id="clip0_1_1354">
+              <rect width="76" height="70.3289" fill="white" />
+            </clipPath>
+          </defs>
+        </svg>
 
-            <ul class="footer-list">
-                <li>
-                    <h3>Produtos</h3>
-                </li>
-                <li>
-                    <a href="#" class="footer-link">Vestuário</a>
-                </li>
-                <li>
-                    <a href="#" class="footer-link">Acessórios</a>
-                </li>
-                <li>
-                    <a href="#" class="footer-link">Sneakers</a>
-                </li>
-            </ul>
+        <h2>Pagamento Aprovado!</h2>
+      </div>
+    </section>
 
-            <div id="footer_subscribe">
-                <h3>Inscreva-se</h3>
+    <section class="info-pedido">
+      <h2>Informações do Pedido</h2>
 
-                <p>
-                    Digite seu email e fique por dentro de nossas novidades.
-                </p>
+      <div class="box">
+        <section class="dados-pedido">
+          <h3>Número do pedido: 1546147</h3>
+          <h3>Total: R$1599,99</h3>
+          <h3>Forma de Pagamento: Cartão de Crédito </h3>
+          <h3>Forma de Envio: Sedex (GRÁTIS)</h3>
+          <h3>CEP de Entrega: 04848-000</h3>
+        </section>
+        <p class="info">*Os produtos serão enviados em até 3 dias úteis após a confirmação do pagamento.</p>
+      </div>
+    </section>
 
-                <div id="input_group">
-                    <input type="email" id="email">
-                    <button>
-                        <i class="fa-regular fa-envelope"></i>
-                    </button>
-                </div>
-            </div>
+    <button class="btn-pedidos">Ir para Meus Pedidos</button>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div id="footer_content">
+      <div id="footer_contacts">
+        <h1 class="logoRodape"><img src="img/logo.png" alt="Imagem logo"></h1>
+        <p class="desc">Nome marca</p>
+
+        <div id="footer_social_media">
+          <a href="#" class="footer-link" id="instagram" target="_blank">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+          <a href="https://github.com/pedrootsugua/Projeto-E-commerce" class="footer-link" id="github" target="_blank">
+            <img src="img/github_img.png" alt="Logo GitHub">
+          </a>
         </div>
+      </div>
 
-        <div id="footer_copyright">
-            &#169
-            2024 Todos os Direitos Reservados
+      <ul class="footer-list">
+        <li>
+          <h3>Institucional</h3>
+        </li>
+        <li>
+          <a href="#" class="footer-link">Sobre nós</a>
+        </li>
+        <li>
+          <a href="#" class="footer-link">Titulo 2</a>
+        </li>
+        <li>
+          <a href="#" class="footer-link">Titulo 3</a>
+        </li>
+      </ul>
+
+      <ul class="footer-list">
+        <li>
+          <h3>Produtos</h3>
+        </li>
+        <li>
+          <a href="#" class="footer-link">Vestuário</a>
+        </li>
+        <li>
+          <a href="#" class="footer-link">Acessórios</a>
+        </li>
+        <li>
+          <a href="#" class="footer-link">Sneakers</a>
+        </li>
+      </ul>
+
+      <div id="footer_subscribe">
+        <h3>Inscreva-se</h3>
+
+        <p>
+          Digite seu email e fique por dentro de nossas novidades.
+        </p>
+
+        <div id="input_group">
+          <input type="email" id="email">
+          <button>
+            <i class="fa-regular fa-envelope"></i>
+          </button>
         </div>
-    </footer>
+      </div>
+    </div>
+
+    <div id="footer_copyright">
+      &#169
+      2024 Todos os Direitos Reservados
+    </div>
+  </footer>
+  <!-- Footer -->
+
 </body>
 
 </html>
