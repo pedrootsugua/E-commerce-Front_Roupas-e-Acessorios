@@ -3,7 +3,15 @@ document.addEventListener('DOMContentLoaded', function () {
   var params = new URLSearchParams(window.location.search);
   var userId = params.get('userId');
   let idCart = localStorage.getItem("idCarrinho");
-  acessarCarrinhoProduto(idCart);
+  let autenticadoCarrinho = localStorage.getItem("autenticado");
+  const bool = (autenticadoCarrinho.toLowerCase() === "true")
+  console.log(bool);
+  if (bool === true) {
+    acessarCarrinhoProduto(idCart);
+  } else {
+    let carrinhoVazio = document.getElementById("empty-cart");
+    carrinhoVazio.style.display = "flex";
+  }
   document.querySelector('.botao-cont').addEventListener('click', function (event) {
     event.preventDefault(); // Evita o comportamento padrão do formulário
     // Enviar a string para a outra tela como parâmetro na URL
@@ -156,9 +164,6 @@ function inserirProdutosCarrinho(item, listProduto, data) {
 
     alterarQuantidadeProduto(novaQuantidade);
   });
-
-  
-  
 }
 
 function deleteProdutoCarrinho(produto) {
