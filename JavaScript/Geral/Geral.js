@@ -30,3 +30,44 @@ document.addEventListener('DOMContentLoaded', function () {
         window.location.href = 'TelaCarrinho.html?userId=' + userId;
     });
 });
+
+document.addEventListener('DOMContentLoaded', (event) => {
+    const userIcon = document.querySelector('.icon-usuario');
+    const dropdownContent = document.getElementById('dropdown-content');
+
+    userIcon.addEventListener('click', function(event) {
+        event.preventDefault();
+        dropdownContent.classList.toggle('show');
+    });
+
+    window.addEventListener('click', function(event) {
+        if (!event.target.matches('.icon-usuario') && !event.target.matches('.fa-user')) {
+            if (dropdownContent.classList.contains('show')) {
+                dropdownContent.classList.remove('show');
+            }
+        }
+    });
+
+    document.getElementById('logout').addEventListener('click', function(event) {
+        event.preventDefault();
+        fetch('http://localhost:8080/api/login/logout', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+        .then(response => {
+            if (response.ok) {
+                alert('Logout realizado com sucesso!');
+                console.log(response)
+                window.location.href = 'TelaLogin.html';
+            } else {
+                alert('Erro ao fazer logout. Tente novamente.');
+            }
+        })
+        .catch(error => {
+            console.error('Erro:', error);
+            alert('Erro ao fazer logout. Tente novamente.');
+        });
+    });
+});
