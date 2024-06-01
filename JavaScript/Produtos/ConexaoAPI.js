@@ -35,11 +35,11 @@ function acessarapi(categoria) {
 
             // Itere sobre cada item na lista
             data.forEach((item, index) => {
-                if (index <= 3) { // Apenas os primeiros 4 itens
+                if (index <= 4) { // Apenas os primeiros 4 itens
                     inserirProdutosFront(item, listaProdutos);
-                } else if (index <= 7) {
+                } else if (index <= 8) {
                     inserirProdutosFront(item, listaProdutos2);
-                } else if (index <= 11) {
+                } else if (index <= 12) {
                     inserirProdutosFront(item, listaProdutos3);
                 } else {
                     inserirProdutosFront(item, listaProdutos4);

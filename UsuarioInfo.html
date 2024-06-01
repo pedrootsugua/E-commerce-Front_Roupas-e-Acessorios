@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Css/Reset/Reset.css">
+    <link rel="stylesheet" href="Css/Navbar/navbar.css">
+    <link rel="stylesheet" href="Css/UserInfo/userInfo.css">
+    <link rel="stylesheet" href="Css/Footer/footer.css">
+
+    <link rel="stylesheet" href="vendor/BootStrap/bootstrap.css">
+    <link rel="stylesheet" href="vendor/BootStrap/open-iconic-bootstrap.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <title>Document</title>
+</head>
+
+<body>
+    <header>
+
+        <nav id="navbar">
+            <div class="img">
+                <a href="TelaInicial.html"><img src="/img/logo.png" alt="logo"></a>
+            </div>
+
+            <ul id="nav-list">
+                <li class="nav-item">
+                    <a class="promocoes" href="">Promoções</a>
+                    <!-- <ul class="dropdown">
+                <li><a href="">Lançamentos</a></li>
+                <li><a href="#novidade">Novidades</a></li>
+              </ul> -->
+                </li>
+
+                <li class="nav-item">
+                    <a class="vestuarios" href="">Vestuário</a>
+                    <!-- <ul class="dropdown">
+                <li><a href="">Feminino</a></li>
+                <li><a href="">Masculino</a></li>
+              </ul> -->
+                </li>
+
+                <li class="nav-item">
+                    <a class="acessorios" href="">Acessórios</a>
+                    <!-- <ul class="dropdown">
+                <li><a href="">Boné</a></li>
+                <li><a href="">Bolsas</a></li>
+                <li><a href="">Joias</a></li>
+              </ul> -->
+                </li>
+
+                <li class="nav-item">
+                    <a class="sneakers" href="TelaProdutos.html">Sneakers</a>
+                    <!-- <ul class="dropdown">
+                <li><a href="">Old Schools</a></li>
+                <li><a href="">Street</a></li>
+                <li><a href="">Casual</a></li>
+              </ul> -->
+                </li>
+            </ul>
+
+            <input id="pesquisa" type="text" placeholder="pesquisar">
+
+            <div class="right-nav">
+                <div class="position-icon">
+                    <div class="nav-icone-user" id="id-icon-user">
+                        <a href="/TelaLogin.html" class="icon-usuario"><i class="fa-solid fa-user"></i></a>
+                        <p id="login_user"></p>
+                        <div class="dropdown-content" id="dropdown-content">
+                            <a href="#">Perfil</a>
+                            <a href="#" id="logout">Logout</a>
+                        </div>
+                    </div>
+                    <div class="nav-icone-heart">
+                        <a href=""><i class="fa-regular fa-heart icon-coracao"></i></a>
+                    </div>
+                    <div class="nav-icone-prod">
+                        <a href="" class="icon-produtos"><i class="fa-solid"></i></a>
+                    </div>
+                    <div class="nav-icone">
+                        <a href=""><i class="fa-solid fa-cart-shopping carrinho"></i></a>
+                        <p id="tamanho-carrinho"></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mobile-right-nav">
+                <input id="pesquisa" type="text" placeholder="pesquisar">
+                <a href="/TelaFormularioCliente.html"><i class="fa-solid fa-user"></i></a>
+                <a href=""><i class="fa-solid fa-cart-shopping carrinho"></i></a>
+                <i class="fa-regular fa-heart"></i>
+            </div>
+
+            <button id="mobile-btn">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </nav>
+
+        <div id="mobile-menu">
+            <ul id="mobile-nav-list">
+                <li class="nav-item">
+                    <a class="promocoes" href="">Promoções</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="vestuarios" href="">Vestuário</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="acessorios" href="">Acessórios</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="sneakers" href="TelaProdutos.html">Sneakers</a>
+                </li>
+            </ul>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <h1>Minhas Informações</h1>
+            <p>Por favor, confira os dados abaixo para garantir que estão atualizados.</p>
+            <div class="info-pessoais">
+                <h2>Dados Pessoais</h2>
+                <div class="group-form">
+                    <label for="nome">Nome completo</label>
+                    <input type="text" id="nome" required disabled>
+                </div>
+                <div class="group-form">
+                    <label for="dtNascimento">Data de nascimento</label>
+                    <input type="date" id="dtNascimento" required disabled>
+                </div>
+                <div class="group-form">
+                    <label for="CPF">CPF</label>
+                    <input type="text" id="cpf" required disabled>
+                </div>
+            </div>
+
+            <div class="info-login">
+                <h2>Detalhes de login</h2>
+                <div class="group-form">
+                    <label for="email">E-mail</label>
+                    <input type="email" id="email" required disabled>
+                </div>
+                <div class="group-form">
+                    <label for="senha">Senha</label>
+                    <input type="password" id="senha" required disabled>
+                </div>
+            </div>
+
+            <div class="info-enderecos">
+                <h2>Endereços Salvos</h2>
+                <div class="group-form">
+                    <label for="endereco">Rua José Inácio da Silva, 25 - Jardim Esmeralda</label>
+                    <label for="endereco">São Paulo, SP - 04828060</label>
+                </div>
+            </div>
+        </div>
+    </main>
+
+</body>
+
+</html>

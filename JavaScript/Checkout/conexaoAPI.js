@@ -25,7 +25,6 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 document.querySelector(".btn-pagamento").addEventListener("click", function (event) {
-
     if (checkboxNovoEndereco.checked) { //cadastra o novo endereço do usuario, e armazenar os dados no cache do navegador
         cadastrarNovoEndereco();
         alert('Endereço salvo com sucesso!')
