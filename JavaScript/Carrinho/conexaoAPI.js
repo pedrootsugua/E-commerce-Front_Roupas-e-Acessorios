@@ -4,13 +4,16 @@ document.addEventListener('DOMContentLoaded', function () {
   var userId = params.get('userId');
   let idCart = localStorage.getItem("idCarrinho");
   let autenticadoCarrinho = localStorage.getItem("autenticado");
-  const bool = (autenticadoCarrinho.toLowerCase() === "true")
-  console.log(bool);
-  if (bool === true) {
+  const isAutenticado = (autenticadoCarrinho.toLowerCase() === "true")
+  console.log(isAutenticado);
+
+  if (isAutenticado === true) {
     acessarCarrinhoProduto(idCart);
   } else {
     let carrinhoVazio = document.getElementById("empty-cart");
     carrinhoVazio.style.display = "flex";
+    let btnFazerLogin = document.getElementById("btn-fazer-login");
+    btnFazerLogin.style.display = "flex";
   }
   document.querySelector('.botao-cont').addEventListener('click', function (event) {
     event.preventDefault(); // Evita o comportamento padrão do formulário
@@ -44,6 +47,8 @@ function acessarCarrinhoProduto(idCart) {
         });
       } else {
         carrinhoVazio.style.display = "flex";
+        let btnVoltarInicio = document.getElementById("btn-voltar-inicio");
+        btnVoltarInicio.style.display = "flex";
       }
     })
     .catch(error => {
