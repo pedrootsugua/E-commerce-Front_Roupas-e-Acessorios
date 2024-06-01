@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 document.querySelector(".btn-pagamento").addEventListener("click", function (event) {
-
+    event.preventDefault();
     if (checkboxNovoEndereco.checked) {
         cadastrarNovoEndereco();
         alert('Endereço salvo com sucesso!')

@@ -1,0 +1,187 @@
+body {
+    font-family: "Poppins", sans-serif;
+    background-color: #FFFFFF;
+}
+
+/* estilização barra de rolagem */
+* {
+    scrollbar-width: auto;
+    scrollbar-color: #5F9EA0 transparent;
+}
+
+/* Works on Chrome, Edge, Opera and Safari */
+*::-webkit-scrollbar {
+    width: 12px;
+}
+
+*::-webkit-scrollbar-track {
+    background: #070d12;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: #FFFFFF;
+    border-radius: 20px;
+    border: 3px solid #070d12;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 100px;
+    width: 100%;
+    height: 100%;
+}
+
+.principal {
+    font-family: "Poppins", sans-serif;
+    color: #000000;
+    border: solid 1px;
+    padding-bottom: 50px;
+    display: flex;
+    flex-direction: column;
+    width: 616px;
+    height: 1000px;
+    justify-content: center;
+    align-items: center;
+}
+
+.principal h1 {
+    justify-content: center;
+}
+
+/* Estilização formulário*/
+.formulario {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.endereco label {
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.group-form {
+    width: calc(50% - 10px);
+    /* Calcula 50% da largura da tela, menos o espaço entre os elementos */
+    margin-bottom: 20px;
+}
+
+.group-form label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.select {
+    width: 100%;
+    height: 35px;
+    margin-top: 5px;
+    border-radius: 10px;
+    border: solid 3px #5F9EA0;
+}
+
+.group-form input {
+    width: 100%;
+    height: 35px;
+    margin-top: 5px;
+    border-radius: 10px;
+    border: solid 3px #5F9EA0;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+    padding-left: 62px;
+    gap: 25px;
+}
+
+/* Botão voltar */
+.animated-button {
+    position: relative;
+    display: inline-block;
+    padding: 6px 20px;
+    border: none;
+    font-size: 16px;
+    background-color: inherit;
+    border-radius: 40px;
+    font-weight: 600;
+    color: #6e6e6e;
+    box-shadow: 0 0 0 2px #6e6e6e;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+    /* margin-top: 25px; */
+}
+
+.animated-button span:last-child {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20px;
+    height: 20px;
+    background-color: #161616;
+    border-radius: 50%;
+    opacity: 0;
+    transition: all 0.8s cubic-bezier(0.23, 1, 0.320, 1);
+}
+
+.animated-button span:first-child {
+    position: relative;
+    z-index: 1;
+}
+
+.animated-button:hover {
+    box-shadow: 0 0 0 5px #8f8f8f60;
+    color: #ffffff;
+}
+
+.animated-button:active {
+    scale: 0.95;
+}
+
+.animated-button:hover span:last-child {
+    width: 150px;
+    height: 150px;
+    opacity: 1;
+}
+
+/* Botão ir para o pagamento */
+.btn-pagamento {
+    cursor: pointer;
+    font-weight: 700;
+    font-family: Helvetica, "sans-serif";
+    transition: all .2s;
+    padding: 5px 17px;
+    border-radius: 100px;
+    background-color: #000000;
+    color: #FFFFFF;
+    border: 1px solid transparent;
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    /* margin-top: 10px; */
+}
+
+.btn-pagamento>svg {
+    width: 34px;
+    margin-left: 10px;
+    transition: transform .3s ease-in-out;
+}
+
+.btn-pagamento:hover svg {
+    transform: translateX(5px);
+}
+
+.btn-pagamento:active {
+    transform: scale(0.95);
+}
+
+
+
+/* Fim Estilização formulário*/

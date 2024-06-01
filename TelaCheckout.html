@@ -30,6 +30,7 @@
     <script src="JavaScript/Checkout/conexaoAPI.js" defer></script>
     <script src="JavaScript/Geral/Geral.js" defer></script>
     <script src="JavaScript/Geral/AcessoUsuario.js" defer></script>
+    <script src="JavaScript/Checkout/validacaoFormulario.js" defer></script>
     <title>Checkout</title>
 </head>
 
@@ -53,8 +54,6 @@
                 <li class="nav-item">
                     <a class="vestuarios" href="">Vestuário</a>
                     <ul class="dropdown">
-                        <!-- <li><a href="">Feminino</a></li>
-                <li><a href="">Masculino</a></li> -->
                     </ul>
                 </li>
 
@@ -70,9 +69,6 @@
                 <li class="nav-item">
                     <a class="sneakers" href="TelaProdutos.html">Sneakers</a>
                     <ul class="dropdown">
-                        <!-- <li><a href="">Old Schools</a></li>
-                <li><a href="">Street</a></li>
-                <li><a href="">Casual</a></li> -->
                     </ul>
                 </li>
             </ul>
@@ -190,31 +186,31 @@
 
                 <div class="group-form">
                     <label for="cep">CEP</label>
-                    <input type="text" id="cep" onblur="pesquisacep(this);">
+                    <input type="text" id="cep" onblur="pesquisacep(this);" required>
                 </div>
 
                 <div class="group-form">
                     <label for="bairro">Bairro</label>
-                    <input type="text" id="bairro">
+                    <input type="text" id="bairro" required>
                 </div>
 
                 <div class="group-form">
                     <label for="logradouro">Logradouro</label>
-                    <input type="text" id="logradouro">
+                    <input type="text" id="logradouro" required>
                 </div>
 
                 <div class="group-form">
                     <label for="numero">Número</label>
-                    <input type="text" id="numero">
+                    <input type="text" id="numero" required>
                 </div>
 
                 <div class="group-form">
                     <label for="cidade">Cidade</label>
-                    <input type="text" id="cidade">
+                    <input type="text" id="cidade" required>
                 </div>
                 <div class="group-form">
                     <label for="uf">UF</label>
-                    <input type="text" id="uf">
+                    <input type="text" id="uf" required pattern="[A-Za-z]{2}">
                 </div>
                 <div class="endereco">
                     <div>
@@ -224,7 +220,7 @@
 
                     <div>
                         <input type="checkbox" id="check1">
-                        <label for="check">Salvar endereço alternativo</label>
+                        <label for="check">Salvar este endereço para próximas compras</label>
                     </div>
                 </div>
 
