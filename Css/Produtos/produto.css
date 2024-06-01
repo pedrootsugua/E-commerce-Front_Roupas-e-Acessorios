@@ -1,4 +1,4 @@
-body {
+/* body {
   background-color: #f2f2f2;
   box-sizing: border-box;
 }
@@ -9,16 +9,14 @@ body {
 }
 
 .imgProduto {
-  height: 190px;
-  width: 190px;
+  height: 195px;
+  width: 195px;
 }
 
 
 .link_produto {
   color: inherit;
-  /* Isso faz com que os links adotem a cor do texto do elemento pai */
   text-decoration: none;
-  /* Isso remove o sublinhado padrão dos links */
 }
 
 .link_produto:hover {
@@ -37,16 +35,96 @@ body {
   width: 70%;
   display: flex;
   flex-direction: row;
-  /* justify-content: center; */
-  /* justify-content: space-around; */
   margin: auto
 }
 
 .prod {
   display: flex;
   flex-direction: column;
-  margin: 0 3%;
+  margin: 0 2.5%;
 
+}
+
+
+.cora {
+  display: flex;
+  justify-content: space-between;
+}
+
+.containerpr input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.container-fav {
+  display: contents;
+  position: relative;
+  cursor: pointer;
+  user-select: none;
+}
+
+.containerpr svg {
+  position: relative;
+  top: 0;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  transition: all 0.3s;
+  fill: #666;
+}
+
+.containerpr svg:hover {
+  transform: scale(1.1);
+}
+
+.containerpr input:checked~svg {
+  fill: #E3474F;
+} */
+body {
+  background-color: #f2f2f2;
+  box-sizing: border-box;
+}
+
+.containerpr {
+  width: 100%;
+  position: relative;
+}
+
+.imgProduto {
+  height: 195px;
+  width: 195px;
+}
+
+.link_produto {
+  color: inherit; /* Isso faz com que os links adotem a cor do texto do elemento pai */
+  text-decoration: none; /* Isso remove o sublinhado padrão dos links */
+}
+
+.link_produto:hover {
+  color: inherit;
+}
+
+#filtro {
+  margin-left: 10px;
+}
+
+.linha,
+.linha2,
+.linha3,
+.linha4 {
+  width: 70%;
+  display: flex;
+  flex-direction: row;
+  margin: auto;
+}
+
+.prod {
+  display: flex;
+  flex-direction: column;
+  margin: 0 2.5%;
 }
 
 .fa-regular fa-heart {
@@ -89,4 +167,60 @@ body {
 
 .containerpr input:checked~svg {
   fill: #E3474F;
+}
+
+/* Media Queries for Responsiveness */
+
+@media (max-width: 1200px) {
+  .linha,
+  .linha2,
+  .linha3,
+  .linha4 {
+    width: 90%;
+  }
+  
+  .imgProduto {
+    height: 150px;
+    width: 150px;
+  }
+}
+
+@media (max-width: 992px) {
+  .linha,
+  .linha2,
+  .linha3,
+  .linha4 {
+    flex-direction: row;
+    width: 100%;
+  }
+  
+  .prod {
+    margin: 10px 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .imgProduto {
+    height: 120px;
+    width: 120px;
+  }
+
+  .cora {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 576px) {
+  .imgProduto {
+    height: 100px;
+    width: 100px;
+  }
+  
+  .link_produto {
+    font-size: 14px;
+  }
+  
+  #filtro {
+    margin-left: 5px;
+  }
 }
