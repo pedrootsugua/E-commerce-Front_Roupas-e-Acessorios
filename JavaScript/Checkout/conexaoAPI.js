@@ -5,6 +5,7 @@ var userId = params.get('userId');
 
 const checkboxEnderecoSalvo = document.getElementById("check");
 const checkboxNovoEndereco = document.getElementById("check1");
+let listaEnderecos = [];
 
 const form = document.querySelector('.formulario')
 
@@ -25,11 +26,25 @@ document.addEventListener("DOMContentLoaded", function () {
 
 document.querySelector(".btn-pagamento").addEventListener("click", function (event) {
 
-    if (checkboxNovoEndereco.checked) {
+    if (checkboxNovoEndereco.checked) { //cadastra o novo endereço do usuario, e armazenar os dados no cache do navegador
         cadastrarNovoEndereco();
         alert('Endereço salvo com sucesso!')
-    } else {
-        alert('Redirecionado sem salvar endereço')
+    } else if(checkboxEnderecoSalvo.checked){ //pega o endereço salvo selecioanado na lista e armazena os dados no cache do navegador
+        let lista = document.getElementById("endereco");
+        let indiceSelecionado = lista.selectedIndex;
+        const enderecoString = JSON.stringify(listaEnderecos[indiceSelecionado]);
+        localStorage.setItem("endereco-entrega-pedido", enderecoString);
+    } else { //pega os dados do formulario de endereço e armazena no cache do navegador
+        const enderecoInserido = {
+            cep: form.querySelector("#cep").value,
+            logradouro: form.querySelector("#logradouro").value,
+            bairro: form.querySelector("#bairro").value,
+            numero: form.querySelector("#numero").value,
+            cidade: form.querySelector("#cidade").value,
+            uf: form.querySelector("#uf").value,
+        };
+        const enderecoString = JSON.stringify(enderecoInserido);
+        localStorage.setItem("endereco-entrega-pedido", enderecoString);
     }
     window.location.href = "TelaPagamento.html";
 
@@ -46,6 +61,7 @@ function consultarEnderecoUsuario(id) {
             return response.json();
         })
         .then(data => {
+            listaEnderecos = data;
             const selectEndereco = document.getElementById("endereco");
             selectEndereco.innerHTML = "";
 
@@ -74,6 +90,8 @@ function cadastrarNovoEndereco() {
         uf: form.querySelector("#uf").value,
         idUsuario: userId
     };
+    const enderecoString = JSON.stringify(novoEndereco);
+    localStorage.setItem("endereco-entrega-pedido", enderecoString); //armazena o novo endereço no cache do navegador
     fetch(`http://localhost:8080/api/enderecos/novo`, {
         method: 'POST',
         headers: {
