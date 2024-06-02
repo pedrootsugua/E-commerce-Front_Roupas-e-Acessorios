@@ -23,7 +23,8 @@ function verificaAutenticacao() {
             localStorage.setItem("autenticado", autenticado);
             if (autenticado === true) {
                 id = data.credencialModel.idUsuario;
-                buscarUsuario(id)
+                buscarUsuario(id);
+                getDadosUsuario(id);
                 admin = data.credencialModel.admin;
                 if (admin === true) {
                     // Encontra o elemento com a classe icon-usuario
@@ -125,6 +126,26 @@ function buscarUsuario(id) {
         .catch(error => {
             console.error('Erro ao fazer login:', error);
             alert("Erro ao acessar usuário. Por favor, tente novamente.");
+        });
+}
+
+function getDadosUsuario(id) {
+    fetch(`http://localhost:8080/api/usuarios/info?id=${id}`, {
+        method: 'GET',
+    })
+        .then(response => {
+            if (response.ok) {
+                return response.json();
+            } else {
+                throw new Error('Erro');
+            }
+        })
+        .then(data => {
+            const dados = JSON.stringify(data);
+            localStorage.setItem("dados-pessoais-usuario", dados)
+        })
+        .catch(error => {
+            console.error('Erro: ', error)
         });
 }
 
