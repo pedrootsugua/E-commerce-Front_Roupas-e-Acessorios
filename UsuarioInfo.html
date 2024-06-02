@@ -79,7 +79,7 @@
                         <a href="/TelaLogin.html" class="icon-usuario"><i class="fa-solid fa-user"></i></a>
                         <p id="login_user"></p>
                         <div class="dropdown-content" id="dropdown-content">
-                            <a href="#">Perfil</a>
+                            <a href="UsuarioInfo.html">Perfil</a>
                             <a href="#" id="logout">Logout</a>
                         </div>
                     </div>
@@ -129,52 +129,151 @@
         </div>
     </header>
 
-
-
-
     <main>
         <div class="container">
-            <h1>Minhas Informações</h1>
-            <p>Por favor, confira os dados abaixo para garantir que estão atualizados.</p>
-            <div class="info-pessoais">
-                <h2>Dados Pessoais</h2>
-                <p>JEFFERSON CAVALCANTE </p>
-                <p>03/11/2003</p>
-                <p>484.367.828-79</p>
-                <p>11 98064-2872</p>
-                <button>EDITAR</button>
-            </div>
-
-            <div class="info-login">
-                <h2>Detalhes de Login</h2>
-                <h3>E-MAIL</h3>
-                <p>JCAVALCANTESSILVA@GMAIL.COM</p>
-                <button>EDITAR</button>
-                <h3>SENHA</h3>
-                <p>***********</p>
-                <button>EDITAR</button>
+            <div class="conteudo">
+                <h1>MINHAS INFORMAÇÕES</h1>
+                <p>Por favor, confira os dados abaixo para garantir que estão atualizados.</p>
+                <div class="info-pessoais">
+                    <h1>DADOS PESSOAIS</h1>
+                    <p>JEFFERSON CAVALCANTE </p>
+                    <p>03/11/2003</p>
+                    <p>484.367.828-79</p>
+                    <p>11 98064-2872</p>
+                    <button class="editar-infos">
+                        EDITAR
+                        <svg viewBox="0 0 512 512" class="svg">
+                            <path
+                                d="M410.3 231l11.3-11.3-33.9-33.9-62.1-62.1L291.7 89.8l-11.3 11.3-22.6 22.6L58.6 322.9c-10.4 10.4-18 23.3-22.2 37.4L1 480.7c-2.5 8.4-.2 17.5 6.1 23.7s15.3 8.5 23.7 6.1l120.3-35.4c14.1-4.2 27-11.8 37.4-22.2L387.7 253.7 410.3 231zM160 399.4l-9.1 22.7c-4 3.1-8.5 5.4-13.3 6.9L59.4 452l23-78.1c1.4-4.9 3.8-9.4 6.9-13.3l22.7-9.1v32c0 8.8 7.2 16 16 16h32zM362.7 18.7L348.3 33.2 325.7 55.8 314.3 67.1l33.9 33.9 62.1 62.1 33.9 33.9 11.3-11.3 22.6-22.6 14.5-14.5c25-25 25-65.5 0-90.5L453.3 18.7c-25-25-65.5-25-90.5 0zm-47.4 168l-144 144c-6.2 6.2-16.4 6.2-22.6 0s-6.2-16.4 0-22.6l144-144c6.2-6.2 16.4-6.2 22.6 0s6.2 16.4 0 22.6z">
+                            </path>
+                        </svg>
+                    </button>
+                </div>
+                <div class="info-login">
+                    <h1>DETALHES DE LOGIN</h1>
+                    <h2>E-MAIL</h2>
+                    <p>JCAVALCANTESSILVA@GMAIL.COM</p>
+                    <button class="editar-infos">
+                        EDITAR
+                        <svg viewBox="0 0 512 512" class="svg">
+                            <path
+                                d="M410.3 231l11.3-11.3-33.9-33.9-62.1-62.1L291.7 89.8l-11.3 11.3-22.6 22.6L58.6 322.9c-10.4 10.4-18 23.3-22.2 37.4L1 480.7c-2.5 8.4-.2 17.5 6.1 23.7s15.3 8.5 23.7 6.1l120.3-35.4c14.1-4.2 27-11.8 37.4-22.2L387.7 253.7 410.3 231zM160 399.4l-9.1 22.7c-4 3.1-8.5 5.4-13.3 6.9L59.4 452l23-78.1c1.4-4.9 3.8-9.4 6.9-13.3l22.7-9.1v32c0 8.8 7.2 16 16 16h32zM362.7 18.7L348.3 33.2 325.7 55.8 314.3 67.1l33.9 33.9 62.1 62.1 33.9 33.9 11.3-11.3 22.6-22.6 14.5-14.5c25-25 25-65.5 0-90.5L453.3 18.7c-25-25-65.5-25-90.5 0zm-47.4 168l-144 144c-6.2 6.2-16.4 6.2-22.6 0s-6.2-16.4 0-22.6l144-144c6.2-6.2 16.4-6.2 22.6 0s6.2 16.4 0 22.6z">
+                            </path>
+                        </svg>
+                    </button>
+                    <h2>SENHA</h2>
+                    <p>***********</p>
+                    <button class="editar-infos">
+                        EDITAR
+                        <svg viewBox="0 0 512 512" class="svg">
+                            <path
+                                d="M410.3 231l11.3-11.3-33.9-33.9-62.1-62.1L291.7 89.8l-11.3 11.3-22.6 22.6L58.6 322.9c-10.4 10.4-18 23.3-22.2 37.4L1 480.7c-2.5 8.4-.2 17.5 6.1 23.7s15.3 8.5 23.7 6.1l120.3-35.4c14.1-4.2 27-11.8 37.4-22.2L387.7 253.7 410.3 231zM160 399.4l-9.1 22.7c-4 3.1-8.5 5.4-13.3 6.9L59.4 452l23-78.1c1.4-4.9 3.8-9.4 6.9-13.3l22.7-9.1v32c0 8.8 7.2 16 16 16h32zM362.7 18.7L348.3 33.2 325.7 55.8 314.3 67.1l33.9 33.9 62.1 62.1 33.9 33.9 11.3-11.3 22.6-22.6 14.5-14.5c25-25 25-65.5 0-90.5L453.3 18.7c-25-25-65.5-25-90.5 0zm-47.4 168l-144 144c-6.2 6.2-16.4 6.2-22.6 0s-6.2-16.4 0-22.6l144-144c6.2-6.2 16.4-6.2 22.6 0s6.2 16.4 0 22.6z">
+                            </path>
+                        </svg>
+                    </button>
+                </div>
             </div>
 
             <div class="container-enderecos">
-                <h2>Lista de Endereços</h2>
+                <h1>LISTA DE ENDEREÇOS</h1>
                 <div class="info-enderecos">
                     <div class="cadastrar-endereco">
-                        <p>Novo Endereço</p>
-                        <h2>+</h2>
+                        <div class="novo-endereco">
+                            <p>Novo Endereço</p>
+                            <h2>+</h2>
+                        </div>
                     </div>
                     <div class="enderecos-lista">
-                        <h2>Jefferson Cavalcante</h2>
-                        <p>Rua do Teste, 25</p>
-                        <p>Jardim Esmeralda</p>
-                        <p>São Paulo, SP - 048728060</p>
-                        <button>EDITAR</button>
-                        <button>REMOVER</button>
+                        <div class="dados">
+                            <h3>Jefferson Cavalcante</h3>
+                            <p>Rua do Teste, 25</p>
+                            <p>Jardim Esmeralda</p>
+                            <p>São Paulo, SP - 048728060</p>
+                            <div class="button-endereco">
+                                <button class="editar-infos">
+                                    EDITAR
+                                    <svg viewBox="0 0 512 512" class="svg">
+                                        <path
+                                            d="M410.3 231l11.3-11.3-33.9-33.9-62.1-62.1L291.7 89.8l-11.3 11.3-22.6 22.6L58.6 322.9c-10.4 10.4-18 23.3-22.2 37.4L1 480.7c-2.5 8.4-.2 17.5 6.1 23.7s15.3 8.5 23.7 6.1l120.3-35.4c14.1-4.2 27-11.8 37.4-22.2L387.7 253.7 410.3 231zM160 399.4l-9.1 22.7c-4 3.1-8.5 5.4-13.3 6.9L59.4 452l23-78.1c1.4-4.9 3.8-9.4 6.9-13.3l22.7-9.1v32c0 8.8 7.2 16 16 16h32zM362.7 18.7L348.3 33.2 325.7 55.8 314.3 67.1l33.9 33.9 62.1 62.1 33.9 33.9 11.3-11.3 22.6-22.6 14.5-14.5c25-25 25-65.5 0-90.5L453.3 18.7c-25-25-65.5-25-90.5 0zm-47.4 168l-144 144c-6.2 6.2-16.4 6.2-22.6 0s-6.2-16.4 0-22.6l144-144c6.2-6.2 16.4-6.2 22.6 0s6.2 16.4 0 22.6z">
+                                        </path>
+                                    </svg>
+                                </button>
+                                <button class="btn-remover">REMOVER</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </main>
+    <footer>
+        <div id="footer_content">
+            <div id="footer_contacts">
+                <h1 class="logoRodape"><img src="img/logo.png" alt="Imagem logo"></h1>
+                <p class="desc">Nome marca</p>
 
+                <div id="footer_social_media">
+                    <a href="#" class="footer-link" id="instagram" target="_blank">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+                    <a href="https://github.com/pedrootsugua/Projeto-E-commerce" class="footer-link" id="github"
+                        target="_blank">
+                        <img src="img/github_img.png" alt="Logo GitHub">
+                    </a>
+                </div>
+            </div>
+
+            <ul class="footer-list">
+                <li>
+                    <h3>Institucional</h3>
+                </li>
+                <li>
+                    <a href="#" class="footer-link">Sobre nós</a>
+                </li>
+                <li>
+                    <a href="#" class="footer-link">Titulo 2</a>
+                </li>
+                <li>
+                    <a href="#" class="footer-link">Titulo 3</a>
+                </li>
+            </ul>
+
+            <ul class="footer-list">
+                <li>
+                    <h3>Produtos</h3>
+                </li>
+                <li>
+                    <a href="#" class="footer-link">Vestuário</a>
+                </li>
+                <li>
+                    <a href="#" class="footer-link">Acessórios</a>
+                </li>
+                <li>
+                    <a href="#" class="footer-link">Sneakers</a>
+                </li>
+            </ul>
+
+            <div id="footer_subscribe">
+                <h3>Inscreva-se</h3>
+
+                <p>
+                    Digite seu email e fique por dentro de nossas novidades.
+                </p>
+
+                <div id="input_group">
+                    <input type="email" id="email">
+                    <button>
+                        <i class="fa-regular fa-envelope"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div id="footer_copyright">
+            &#169
+            2024 Todos os Direitos Reservados
+        </div>
+    </footer>
 </body>
 
 </html>
