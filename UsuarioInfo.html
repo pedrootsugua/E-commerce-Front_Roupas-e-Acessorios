@@ -24,7 +24,12 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet">
-    <title>Document</title>
+
+    <script src="JavaScript/Geral/AcessoUsuario.js" defer></script>
+    <script src="JavaScript/Geral/Geral.js" defer></script>
+    <script src="JavaScript/UserInfo/conexaoAPI.js" defer></script>
+
+    <title>Meus Dados</title>
 </head>
 
 <body>
@@ -136,10 +141,7 @@
                 <p>Por favor, confira os dados abaixo para garantir que estão atualizados.</p>
                 <div class="info-pessoais">
                     <h1>DADOS PESSOAIS</h1>
-                    <p>JEFFERSON CAVALCANTE </p>
-                    <p>03/11/2003</p>
-                    <p>484.367.828-79</p>
-                    <p>11 98064-2872</p>
+                    <div id="dados-usuario"></div>
                     <button class="editar-infos">
                         EDITAR
                         <svg viewBox="0 0 512 512" class="svg">
@@ -152,7 +154,9 @@
                 <div class="info-login">
                     <h1>DETALHES DE LOGIN</h1>
                     <h2>E-MAIL</h2>
-                    <p>JCAVALCANTESSILVA@GMAIL.COM</p>
+                    <div id="email-usuario">
+                        <!-- <p>JCAVALCANTESSILVA@GMAIL.COM</p> -->
+                    </div>
                     <button class="editar-infos">
                         EDITAR
                         <svg viewBox="0 0 512 512" class="svg">
@@ -162,7 +166,9 @@
                         </svg>
                     </button>
                     <h2>SENHA</h2>
-                    <p>***********</p>
+                    <div id="senha-usuario">
+                        <!-- <p>***********</p> -->
+                    </div>
                     <button class="editar-infos">
                         EDITAR
                         <svg viewBox="0 0 512 512" class="svg">
