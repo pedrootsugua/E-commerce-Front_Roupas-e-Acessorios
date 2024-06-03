@@ -147,6 +147,26 @@ table tbody .total {
   text-align: right;
 }
 
+#lista-produtos {
+  max-width: 400px;
+  min-height: 50px;
+  max-height: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: flex-start;
+  overflow-y: auto;
+  /* background-color: rgb(255, 91, 91); */
+}
+
+#lista-produtos p {
+  max-width: 400px;
+  margin: 0;
+  margin-bottom: 7px;
+  /* padding-left: 20px; */
+  text-align: left;
+}
+
 /* Opções de pagamento */
 .forma-pagamento h2 {
   color: #000000;

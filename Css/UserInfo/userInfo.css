@@ -1,29 +1,187 @@
+main {
+    background-color: #dedede;
+    position: relative;
+    box-shadow: 0 0 0 20px #dedede;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+}
+
+.container {
+    width: 1140px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 20px;
+    border-radius: 10px;
+}
+
+.container h1 {
+    font-weight: 600;
+}
+
+.container h2 {
+    font-weight: 600;
+    font-size: 23px;
+    margin: 10px 0;
+}
+
+.container p {
+    font-size: 20px;
+}
+
+.conteudo {
+    margin-top: 65px;
+    width: 960px;
+    padding-left: 20px;
+}
+
+.info-pessoais {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    margin: 55px 0;
+}
+
+.info-login {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    margin: 55px 0;
+}
+
+.info-login h2 {
+    margin-top: 13px;
+}
+
+.info-login p {
+    margin-bottom: 8px;
+}
+
 .container-enderecos {
     display: flex;
     flex-direction: column;
 }
 
+.container-enderecos h1 {
+    padding-left: 20px;
+}
+
 .info-enderecos {
     display: flex;
     flex-direction: row;
+    margin: 10px;
 }
 
 .cadastrar-endereco {
-    /* display: flex; */
     position: relative;
     border: solid 1px gray;
     width: 450px;
     height: 250px;
+    margin: 10px;
+}
+
+.novo-endereco {
+    margin: 20px 30px;
+}
+
+.dados p {
+    margin: 10px 0;
 }
 
 .cadastrar-endereco h2 {
     position: absolute;
-    bottom: 0;
-    left: 0;
+    bottom: 10px;
+    left: 25px;
+    font-size: 35px;
 }
 
 .enderecos-lista {
     border: solid 1px gray;
     width: 450px;
     height: 250px;
+    margin: 10px;
 }
+
+.dados {
+    margin: 20px 30px;
+}
+
+.dados h3 {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.buttons-endereco {
+    margin: 15px 5px 0 5px;
+}
+
+/*BOTAO EDITAR */
+.editar-infos {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100px;
+    height: 40px;
+    border: none;
+    padding: 0px 20px;
+    background-color: black;
+    color: white;
+    font-weight: 700;
+    cursor: pointer;
+    border-radius: 10px;
+    box-shadow: 5px 5px 0px black;
+    transition-duration: 0.3s;
+    font-size: 12px;
+}
+
+.svg {
+    width: 13px;
+    position: absolute;
+    right: 0;
+    margin-right: 20px;
+    fill: white;
+    transition-duration: 0.3s;
+}
+
+.editar-infos:hover {
+    color: transparent;
+}
+
+.editar-infos:hover svg {
+    right: 43%;
+    margin: 0;
+    padding: 0;
+    border: none;
+    transition-duration: 0.3s;
+}
+
+.editar-infos:active {
+    transform: translate(3px, 3px);
+    transition-duration: 0.3s;
+    box-shadow: 2px 2px 0px white;
+}
+
+/* FIM BOTÃO*/
+
+.button-endereco {
+    display: flex;
+    flex-direction: row;
+    gap: 25px;
+    margin-top: 15px;
+}
+
+/*BOTÃO REMOVER*/
+.btn-remover {
+    border: 2px solid #000000;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+/*FIM BOTÃO*/
