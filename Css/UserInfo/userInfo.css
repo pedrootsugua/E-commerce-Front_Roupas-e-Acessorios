@@ -1,3 +1,24 @@
+/* estilização barra de rolagem */
+* {
+    scrollbar-width: auto;
+    scrollbar-color: #5F9EA0 transparent;
+}
+
+/* Works on Chrome, Edge, Opera and Safari */
+*::-webkit-scrollbar {
+    width: 12px;
+}
+
+*::-webkit-scrollbar-track {
+    background: #070d12;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: #FFFFFF;
+    border-radius: 20px;
+    border: 3px solid #070d12;
+}
+
 main {
     background-color: #dedede;
     position: relative;
@@ -65,7 +86,13 @@ body {
 
 .container-enderecos {
     display: flex;
+    /* flex-direction: column; */
     flex-direction: column;
+    margin: 10px;
+    max-width: 960px;
+    min-height: 250px;
+    max-height: 500px;
+    overflow-y: auto;
 }
 
 .container-enderecos h1 {
@@ -74,8 +101,11 @@ body {
 
 .info-enderecos {
     display: flex;
+}
+
+.linha-endereco {
+    display: flex;
     flex-direction: row;
-    margin: 10px;
 }
 
 .cadastrar-endereco {
@@ -91,7 +121,7 @@ body {
 }
 
 .dados p {
-    margin: 10px 0;
+    margin: 0;
 }
 
 .cadastrar-endereco h2 {
@@ -101,7 +131,7 @@ body {
     font-size: 35px;
 }
 
-.enderecos-lista {
+.enderecos {
     border: solid 1px gray;
     width: 450px;
     height: 250px;
