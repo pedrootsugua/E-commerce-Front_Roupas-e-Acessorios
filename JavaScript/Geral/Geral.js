@@ -5,6 +5,12 @@ document.addEventListener('DOMContentLoaded', function () {
         var mensagem = 'sneakers';
         window.location.href = 'TelaProdutos.html?mensagem=' + mensagem;
     });
+    document.querySelector('.confira').addEventListener('click', function (event) {
+        event.preventDefault(); // Evita o comportamento padrão do formulário
+        // Enviar a string para a outra tela como parâmetro na URL
+        var mensagem = 'sneakers';
+        window.location.href = 'TelaProdutos.html?mensagem=' + mensagem;
+    });
     document.querySelector('.vestuarios').addEventListener('click', function (event) {
         event.preventDefault(); // Evita o comportamento padrão do formulário
         // Enviar a string para a outra tela como parâmetro na URL
@@ -35,29 +41,36 @@ document.addEventListener('DOMContentLoaded', function () {
         var userId = id;
         window.location.href = 'UsuarioInfo.html?userId=' + userId;
     });
+    document.querySelector('.logout').addEventListener('click', function (event) {
+        // event.preventDefault();
+        console.log(4)
+        deslogar();
+    });
 
 });
 
-document.addEventListener('DOMContentLoaded', (event) => {
-    const userIcon = document.querySelector('.icon-usuario');
-    const dropdownContent = document.getElementById('dropdown-content');
+// document.addEventListener('DOMContentLoaded', (event) => {
+//     // const userIcon = document.querySelector('.icon-usuario');
+//     // const dropdownContent = document.getElementById('dropdown-content');
 
-    userIcon.addEventListener('click', function (event) {
-        event.preventDefault();
-        dropdownContent.classList.toggle('show');
-    });
+//     // userIcon.addEventListener('click', function (event) {
+//     //     event.preventDefault();
+//     //     dropdownContent.classList.toggle('show');
+//     // });
 
-    window.addEventListener('click', function (event) {
-        if (!event.target.matches('.icon-usuario') && !event.target.matches('.fa-user')) {
-            if (dropdownContent.classList.contains('show')) {
-                dropdownContent.classList.remove('show');
-            }
-        }
-    });
+//     // window.addEventListener('click', function (event) {
+//     //     if (!event.target.matches('.icon-usuario') && !event.target.matches('.fa-user')) {
+//     //         if (dropdownContent.classList.contains('show')) {
+//     //             dropdownContent.classList.remove('show');
+//     //         }
+//     //     }
+//     // });
 
-    document.getElementById('logout').addEventListener('click', function (event) {
-        event.preventDefault();
-        fetch('http://localhost:8080/api/login/logout', {
+    
+// });
+
+function deslogar(){
+    fetch('http://localhost:8080/api/login/logout', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -66,8 +79,11 @@ document.addEventListener('DOMContentLoaded', (event) => {
             .then(response => {
                 if (response.ok) {
                     alert('Logout realizado com sucesso!');
+                    // Recarga a página e limpa o cache
                     console.log(response)
-                    window.location.href = 'TelaLogin.html';
+                    location.reload(true);
+                    
+                    // window.location.href = 'TelaLogin.html';
                 } else {
                     alert('Erro ao fazer logout. Tente novamente.');
                 }
@@ -76,5 +92,4 @@ document.addEventListener('DOMContentLoaded', (event) => {
                 console.error('Erro:', error);
                 alert('Erro ao fazer logout. Tente novamente.');
             });
-    });
-});
+}
