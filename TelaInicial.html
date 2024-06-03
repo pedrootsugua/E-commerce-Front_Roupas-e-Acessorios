@@ -22,7 +22,6 @@
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
   <script src="/JavaScript/Navbar/navbar.js"></script>
-  <script src="JavaScript/Geral/Geral.js"></script>
   <script src="/JavaScript/Inicial/Inicial.js"></script>
   <script src="/JavaScript/Inicial/AcessoUsuario.js"></script>
   <script src="JavaScript/Geral/AcessoUsuario.js" defer></script>
@@ -89,6 +88,7 @@
 
       <input id="pesquisa" type="text" placeholder="pesquisar">
 
+
       <div class="right-nav">
         <div class="position-icon">
           <div class="nav-icone-user" id="id-icon-user">
@@ -97,6 +97,7 @@
             <div class="dropdown-content" id="dropdown-content">
               <a class="dados" href="UsuarioInfo.html">Perfil</a>
               <a href="#" id="logout">Logout</a>
+
             </div>
           </div>
           <div class="nav-icone-heart">
@@ -163,59 +164,53 @@
       </div>
 
       <div id="right-topo">
-        <!-- <img id="img_right-topo" src="/img/design-tn-air.png" alt="Nike Air Max Plus"> -->
         <img id="img_right-topo"
           src="https://www.asphaltgold.com/cdn/shop/files/33fd52fd2fc9d01c70756c005ffd5a3a52f1d782_DZ2832_101_Nike_Wmns_Air_Max_Plus_PRM_Summit_White_Pale_Vanilla_Sanddrift_Sail_SM_3_768x768_crop_center.jpg?v=1697529822"
           alt="Nike Air Max Plus">
       </div>
     </section>
 
-    <!-- <section class="historia-air-max">
-      <h2>Conheça a história do Air Max</h2>
-      <div class="carrossel">
-        <img class="img-carrossel" src="https://i.pinimg.com/564x/52/39/56/523956fb0dd6913220bec45589efec49.jpg" alt="">
-        <img class="img-carrossel" src="https://i.pinimg.com/564x/90/6f/24/906f24a42a0093215076cf4377722ea5.jpg" alt="">
-        <img class="img-carrossel" src="https://i.pinimg.com/564x/54/d3/b9/54d3b9709396f3bb7782443d0505747d.jpg" alt="">
-        <img class="img-carrossel" src="https://i.pinimg.com/564x/b5/69/83/b5698300bf96deb364856dd582423283.jpg" alt="">
-      </div>
-    </section> -->
-
     <section class="img-showing">
       <h2>Live fast and die young</h2>
-      <div class="shape"></div>
       <div id="show">
-        <img class="showing-img-side" src="https://i.pinimg.com/564x/7b/79/e8/7b79e8562dd6a2c17500f61311c86c81.jpg"
-          alt="">
-        <img class="showing-img" src="https://i.pinimg.com/564x/de/49/93/de4993d822c9c656598d5eb42fd3a0ae.jpg" alt="">
-        <img class="showing-img-side" src="https://i.pinimg.com/564x/8f/68/a7/8f68a71545d644270cfd822f5b5cf74e.jpg"
-          alt="">
+        <div class="image-container side">
+          <img class="showing-img-side" src="https://i.pinimg.com/564x/7b/79/e8/7b79e8562dd6a2c17500f61311c86c81.jpg" alt="">
+          <div class="overlay"><div class="text">Coleção Burberry</div></div>
+        </div>
+        <div class="image-container center">
+          <img class="showing-img" src="https://i.pinimg.com/564x/de/49/93/de4993d822c9c656598d5eb42fd3a0ae.jpg" alt="">
+          <div class="overlay"><div class="text">Make the job done!</div></div>
+        </div>
+        <div class="image-container side">
+          <img class="showing-img-side" src="https://i.pinimg.com/564x/8f/68/a7/8f68a71545d644270cfd822f5b5cf74e.jpg" alt="">
+          <div class="overlay"><div class="text">Explore more about Nocta!</div></div>
+        </div>
       </div>
-
     </section>
-
+    
+<!-- 
     <section class="novidades">
       <h2 id="tittle-novidades">Novidades</h2>
 
       <div class="container-novidades">
-        <button class="arrow-left control" aria-label="Previous image">◀</button>
-        <button class="arrow-right control" aria-label="Next Image">▶</button>
-
         <div class="novidades-wrapper">
+          <button id="prev-button" >▶</button>
           <div class="img-novidades">
             <img src="https://i.pinimg.com/564x/d7/f2/b0/d7f2b0e9f853b5667c68c9f98b344754.jpg" alt="air max"
-              class="item current-item">
+              class="img-produto slider on">
             <img src="https://importandopravc.com.br/wp-content/uploads/2020/07/27572855.jpeg" alt=""
-              class="item current-item">
-            <img src="https://i.pinimg.com/originals/9d/2a/e5/9d2ae5d4ce4e9a11059f2209abeadaf3.jpg" alt=""
-              class="item current-item">
+              class="img-produto1 slider">
+            <img src="https://i.pinimg.com/564x/e7/5c/21/e75c2174c718a9eeef7dd28931ce6de2.jpg" alt=""
+              class="img-produto2 slider">
             <img src="https://luxzilla.in/cdn/shop/products/643c54543b41a_1200x1200.jpg?v=1681732679" alt=""
-              class="item current-item">
+              class="img-produto3 slider">
             <img
-              src="https://images.tcdn.com.br/img/img_prod/703344/bone_new_era_59fifty_game_cap_los_dod_fechado_dry_azul_n440_5972_1_52dd9af995b8f91d13d39a35b93610c6.jpeg"
-              alt="" class="item current-item">
+              src="https://i.pinimg.com/564x/26/ff/52/26ff52ed560bb3c6b5e22a7a4afaa1d9.jpg"
+              alt="" class="img-produto4 slider">
           </div>
+          <button id="next-button">▶</button>
         </div>
-      </div>
+      </div> -->
 
 
 

@@ -22,37 +22,66 @@
     gap: 20px;
 }
 
-.showing-img{
+.side{
+    position: relative;
+    width: 25vw;
+    height: 75vh;
+    border-radius: 40px;
+    overflow: hidden; /* Garante que a imagem não ultrapasse os limites do container */ 
+}
+
+.center{
+    position: relative;
     width: 30vw;
     height: 75vh;
     border-radius: 40px;
+    overflow: hidden; /* Garante que a imagem não ultrapasse os limites do container */ 
 }
+
+.image-container img {
+    width: 100%;
+    height: 100%;
+    border-radius: 40px;
+    transition: filter 0.3s ease; /* Transição suave para o efeito de blur */
+    overflow: hidden; /* Garante que a imagem não ultrapasse os limites do container */
+}
+
+.image-container .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Fundo semi-transparente preto */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease; /* Transição suave para a opacidade */
+  }
+
+.image-container:hover img {
+    filter: blur(5px); /* Aplica o efeito de blur ao passar o mouse */
+  }
+  
+  .image-container:hover .overlay {
+    opacity: 1; /* Mostra o overlay com texto ao passar o mouse */
+  }
+
+.image-container .text {
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+  }
 
 .showing-img-side{
     width: 25vw;
     height: 75vh;
     border-radius: 40px;
     z-index: 2;
+    transition: filter 0.3s ease;
 }
 
-.shape{
-    background: rgba(244, 244, 244, 0.66);
-    border-radius: 40px;
-    width: 25vw;
-    height: 75vh;
-    position: absolute;
-    display: none;
-    z-index: 1;
-}
-
-.shape:hover{
-    display: block;
-    z-index: 3;
-}
-
-.showing-img-side:hover{
-    cursor: pointer;
-}
 
 
 

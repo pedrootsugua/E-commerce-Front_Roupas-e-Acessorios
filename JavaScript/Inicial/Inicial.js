@@ -1,41 +1,42 @@
-const controls = document.querySelectorAll(".control");
-let currentItem = 0;
-const items = document.querySelectorAll(".item");
-const maxItems = items.length;
+document.addEventListener('DOMContentLoaded', function() {
+  const slider = document.querySelectorAll('.slider');
+  const btnPrev = document.getElementById('prev-button');
+  const btnNext = document.getElementById('next-button');
 
-controls.forEach((control) => {
-  control.addEventListener("click", (e) => {
-    const isLeft = e.target.classList.contains("arrow-left");
+  let currentSlide = 0;
 
-    console.log("isLeft:", isLeft);
-    console.log("currentItem before:", currentItem);
+  function hideSlider() {
+    slider.forEach(item => item.classList.remove('on'));
+  }
 
-    if (isLeft) {
-      currentItem -= 1;
+  function showSlider() {
+    slider[currentSlide].classList.add('on');
+  }
+
+  function nextSlider() {
+    hideSlider();
+    if (currentSlide === slider.length - 1) {
+      currentSlide = 0;
     } else {
-      currentItem += 1;
+      currentSlide++;
     }
+    showSlider();
+  }
 
-    if (currentItem >= maxItems) {
-      currentItem = 0;
+  function prevSlider() {
+    hideSlider();
+    if (currentSlide === 0) {
+      currentSlide = slider.length - 1;
+    } else {
+      currentSlide--;
     }
+    showSlider();
+  }
 
-    if (currentItem < 0) {
-      currentItem = maxItems - 1;
-    }
-
-    console.log("currentItem after:", currentItem);
-
-    items.forEach((item) => item.classList.remove("current-item"));
-
-    console.log("scrollIntoView:", items[currentItem]);
-
-    items[currentItem].scrollIntoView({
-      behavior: "smooth",
-      inline: "center",
-      block: "nearest"
-    });
-
-    items[currentItem].classList.add("current-item");
-  });
+  if (btnNext) {
+    btnNext.addEventListener('click', nextSlider);
+  }
+  if (btnPrev) {
+    btnPrev.addEventListener('click', prevSlider);
+  }
 });
