@@ -1,79 +1,75 @@
 .novidades{
     min-height: calc(100vh - 105px);
     width: 100%;
+    margin-top: 150px;
 }
 
 #tittle-novidades{
     text-align: center;
-    margin-bottom: 70px;
+    margin-bottom: 0;
 }
 
-.container-novidades{
-    position: relative;
-    padding: 15px;
-    width: 50%;
-    margin: 0 auto;
+.container-novidades {
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 250px;
+  min-height: calc(90vh - 105px);
 }
 
-.novidades-wrapper{
-    overflow-x: auto;
+.novidades-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
 }
 
-.arrow-left,
-.arrow-right {
+.img-novidades {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 550px;
+}
+
+.img-novidades img{
+  width: 550px;
+  height: 500px;
+  border-radius: 20px;
+}
+
+.slider {
+  opacity: 0;
+  transition: opacity .2s;
   position: absolute;
-  top: 0;
-  left: 0;
-  right: auto;
-  bottom: 0;
-  font-size: 20px;
-  line-height: 250px;
-  width: 40px;
-  color: #fff;
-  transition: all 600ms ease-in-out;
-  background: linear-gradient(to left, transparent 0%, black 200%);
-  opacity: 0.1;
-  cursor: pointer;
-  border: none;
+  width: 0%;
 }
 
-.arrow-left:hover,
-.arrow-right:hover {
+.on {
   opacity: 1;
+}
+
+#prev-button,
+#next-button {
+  width: 30px;
+  height: 30px;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
   outline: none;
 }
 
-.arrow-right {
-  right: 0;
-  left: auto;
-  text-align: right;
-  background: linear-gradient(to right, transparent 0%, black 200%);
+#prev-button {
+  transform: rotate(180deg);
 }
 
-.img-novidades{
-    display: flex;
-    flex-flow: row nowrap;
-    gap: 15px;
-}
 
-.item {
-    width: 500px;
-    height: 500px;
-    flex-shrink: 0;
-    transition: all 600ms ease-in-out;
-    opacity: 0.5;
-    border-radius: 20px;
-  }
-  
-  .current-item {
-    opacity: 1;
-  }
-
-  .novidades-wrapper::-webkit-scrollbar{
-    display: none;
-  }
-
-  .novidades-wrapper{
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-  }
+/* .item {
+  width: 500px;
+  height: 500px;
+  flex-shrink: 0;
+  transition: all 600ms ease-in-out;
+  opacity: 0.5;
+  border-radius: 20px;
+} */
