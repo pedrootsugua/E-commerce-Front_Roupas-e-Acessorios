@@ -45,6 +45,31 @@
 //                     exibirProdutosFavoritos(item, listaProdutos4);
 //                 }
 //             });
+
+//             novoProduto.innerHTML = `
+//             <div class="carrinho-vazio" id="empty-cart">
+//             <h2>SEU CARRINHO ESTÁ VAZIO</h2>
+//             <img src="img/carrinho_vazio.png" alt="Icone carrinho vazio">
+
+//                 <div id="btn-voltar-inicio">
+//                     <a href="TelaInicial.html">
+//                         <button class="animated-button">
+//                             <span>Voltar para o inicio</span>
+//                             <span></span>
+//                         </button>
+//                     </a>
+//                 </div>
+
+//                 <div id="btn-fazer-login">
+//                     <a href="TelaLogin.html">
+//                         <button class="animated-button">
+//                             <span>Fazer login</span>
+//                             <span></span>
+//                         </button>
+//                     </a>
+//                 </div>
+//         </div>
+//                     `;
 //         })
 //         .catch(error => {
 //             // Trate os erros que possam ocorrer durante a solicitação
