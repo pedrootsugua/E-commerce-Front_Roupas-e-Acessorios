@@ -18,7 +18,6 @@ function verificaAutenticacao() {
             }
         })
         .then(data => {
-            console.log(data);
             autenticado = data.autenticado;
             localStorage.setItem("autenticado", autenticado);
             if (autenticado === true) {
@@ -81,7 +80,6 @@ function verificaAutenticacao() {
 
 
 function buscarUsuario(id) {
-    console.log(id)
     fetch('http://localhost:8080/api/usuarios/' + id, {
         method: 'GET',
     })
