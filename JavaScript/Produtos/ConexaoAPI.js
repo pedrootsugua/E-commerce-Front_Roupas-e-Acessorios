@@ -32,27 +32,61 @@ function acessarapi(categoria, userIdFavorito) {
             listaProdutos3.innerHTML = "";
             listaProdutos4.innerHTML = "";
 
-            // Itere sobre cada item na lista
-            data.forEach((item, index) => {
-                if (index <= 4) { // Apenas os primeiros 4 itens
-                    inserirProdutosFront(item, listaProdutos, userIdFavorito);
-                } else if (index <= 8) {
-                    inserirProdutosFront(item, listaProdutos2, userIdFavorito);
-                } else if (index <= 12) {
-                    inserirProdutosFront(item, listaProdutos3, userIdFavorito);
-                } else {
-                    inserirProdutosFront(item, listaProdutos4, userIdFavorito);
-                }
-            });
+            let autenticadoFavorito = localStorage.getItem("autenticado");
+            const isAutenticado = (autenticadoFavorito.toLowerCase() === "true")
+            console.log(isAutenticado);
+            if (isAutenticado === true) {
+                let apiUrl = 'http://localhost:8080/api/favoritos/buscar?id=' + userIdFavorito;
+                const request1 = fetch(apiUrl, {
+                    method: 'GET'
+                })
+                    .then(response => {
+                        // Verifique se a solicitação foi bem-sucedida (status 200)
+                        if (!response.ok) {
+                            throw new Error('Erro ao acessar a API: ' + response.statusText);
+                        }
+                        // Parseie os dados da resposta JSON
+                        return response.json();
+                    })
+                    .then(produtosFavoritos => {
+                        data.forEach((item, index) => {
+                            if (index <= 4) { // Apenas os primeiros 4 itens
+                                inserirProdutosFront(item, listaProdutos, userIdFavorito, produtosFavoritos);
+                            } else if (index <= 8) {
+                                inserirProdutosFront(item, listaProdutos2, userIdFavorito, produtosFavoritos);
+                            } else if (index <= 12) {
+                                inserirProdutosFront(item, listaProdutos3, userIdFavorito, produtosFavoritos);
+                            } else {
+                                inserirProdutosFront(item, listaProdutos4, userIdFavorito, produtosFavoritos);
+                            }
+                        });
+                    })
+                    .catch(error => {
+                        // Trate os erros que possam ocorrer durante a solicitação
+                        console.error(error);
+                    });
+            } else {
+                data.forEach((item, index) => {
+                    if (index <= 4) { // Apenas os primeiros 4 itens
+                        inserirProdutosFront(item, listaProdutos, userIdFavorito);
+                    } else if (index <= 8) {
+                        inserirProdutosFront(item, listaProdutos2, userIdFavorito);
+                    } else if (index <= 12) {
+                        inserirProdutosFront(item, listaProdutos3, userIdFavorito);
+                    } else {
+                        inserirProdutosFront(item, listaProdutos4, userIdFavorito);
+                    }
+                });
+            }
+
         })
         .catch(error => {
             // Trate os erros que possam ocorrer durante a solicitação
             console.error(error);
         });
 
-    function inserirProdutosFront(item, listaProdutos, userIdFavorito) {
+    function inserirProdutosFront(item, listaProdutos, userIdFavorito, produtosFavoritos) {
         const urls = item.urlImagensModels; // Array de URLs
-        console.log(urls);
         // Cria um novo elemento de produto
         const novoProduto = document.createElement('li');
         novoProduto.classList.add('prod');
@@ -77,9 +111,14 @@ function acessarapi(categoria, userIdFavorito) {
 
         let autenticadoFavorito = localStorage.getItem("autenticado");
         const isAutenticado = (autenticadoFavorito.toLowerCase() === "true")
-        console.log(isAutenticado);
         if (isAutenticado === true) {
-            buscarFavoritos(userIdFavorito, item, novoProduto)
+            // Itere sobre cada item na lista
+            produtosFavoritos.forEach((produtosFavoritosItens) => {
+                console.log(produtosFavoritosItens.id)
+                if (produtosFavoritosItens.id === item.id) {
+                    novoProduto.querySelector('input[type="checkbox"]').checked = true;
+                }
+            });
             novoProduto.querySelectorAll('.container-fav input').forEach(function (input) {
                 input.addEventListener('change', function () {
                     if (this.checked) {
@@ -130,38 +169,6 @@ function acessarapi(categoria, userIdFavorito) {
             })
             .catch(error => {
                 alert("Não foi possível adicionar aos favoritos!")
-                console.error(error);
-            });
-    }
-
-    function retirarFavorito() {
-
-    }
-
-    function buscarFavoritos(userIdFavorito, item, novoProduto) {
-        let apiUrl = 'http://localhost:8080/api/favoritos/buscar?id=' + userIdFavorito;
-        const request1 = fetch(apiUrl, {
-            method: 'GET'
-        })
-            .then(response => {
-                // Verifique se a solicitação foi bem-sucedida (status 200)
-                if (!response.ok) {
-                    throw new Error('Erro ao acessar a API: ' + response.statusText);
-                }
-                // Parseie os dados da resposta JSON
-                return response.json();
-            })
-            .then(data => {
-                // Itere sobre cada item na lista
-                data.forEach((produtosFavoritos) => {
-                    console.log(produtosFavoritos.id)
-                    if (produtosFavoritos.id === item.id) {
-                        novoProduto.querySelector('input[type="checkbox"]').checked = true;
-                    }
-                });
-            })
-            .catch(error => {
-                // Trate os erros que possam ocorrer durante a solicitação
                 console.error(error);
             });
     }
