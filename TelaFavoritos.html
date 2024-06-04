@@ -31,6 +31,7 @@
     <script src="JavaScript/Produtos/Favoritos/favoritos.js"></script>
     <script src="JavaScript/Geral/AcessoUsuario.js" defer></script>
     <script src="JavaScript/Geral/Geral.js"></script>
+    <script src="JavaScript/Produtos/produtos.js"></script>
 
     <title>Tela de Favoritos</title>
 </head>
@@ -39,87 +40,87 @@
     <header>
 
         <nav id="navbar">
-          <div class="img">
-            <a href="TelaInicial.html"><img src="/img/logo.png" alt="logo"></a>
-          </div>
-    
-          <ul id="nav-list">
-            <li class="nav-item">
-              <a class="promocoes" href="">Promoções</a>
-            </li>
-    
-            <li class="nav-item">
-              <a class="vestuarios" href="">Vestuário</a>
-            </li>
-    
-            <li class="nav-item">
-              <a class="acessorios" href="">Acessórios</a>
-            </li>
-    
-            <li class="nav-item">
-              <a class="sneakers" href="TelaProdutos.html">Sneakers</a>
-            </li>
-          </ul>
-    
-    
-          <input id="pesquisa" type="text" placeholder="pesquisar">
-    
-          <div class="right-nav">
-            <div class="position-icon">
-              <div class="nav-icone-user" id="id-icon-user">
-                <a href="/TelaLogin.html" class="icon-usuario"><i class="fa-solid fa-user"></i></a>
-                <p id="login_user"></p>
-                <div class="dropdown-content" id="dropdown-content">
-                  <a class="dados" href="UsuarioInfo.html">Perfil</a>
-                  <a class="logout" href="" >Logout</a>
-                </div>
-              </div>
-              <div class="nav-icone-heart">
-                <a href="/TelaFavoritos.html"><i class="fa-regular fa-heart icon-coracao"></i></a>
-              </div>
-              <div class="nav-icone-prod">
-                <a href="" class="icon-produtos"><i class="fa-solid"></i></a>
-              </div>
-              <div class="nav-icone">
-                <a href=""><i class="fa-solid fa-cart-shopping carrinho"></i></a>
-                <p id="tamanho-carrinho"></p>
-              </div>
+            <div class="img">
+                <a href="TelaInicial.html"><img src="/img/logo.png" alt="logo"></a>
             </div>
-          </div>
-    
-          <div class="mobile-right-nav">
+
+            <ul id="nav-list">
+                <li class="nav-item">
+                    <a class="promocoes" href="">Promoções</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="vestuarios" href="">Vestuário</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="acessorios" href="">Acessórios</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="sneakers" href="TelaProdutos.html">Sneakers</a>
+                </li>
+            </ul>
+
+
             <input id="pesquisa" type="text" placeholder="pesquisar">
-            <a href="/TelaFormularioCliente.html"><i class="fa-solid fa-user"></i></a>
-            <a href=""><i class="fa-solid fa-cart-shopping carrinho"></i></a>
-            <i class="fa-regular fa-heart"></i>
-          </div>
-    
-          <button id="mobile-btn">
-            <i class="fa-solid fa-bars"></i>
-          </button>
+
+            <div class="right-nav">
+                <div class="position-icon">
+                    <div class="nav-icone-user" id="id-icon-user">
+                        <a href="/TelaLogin.html" class="icon-usuario"><i class="fa-solid fa-user"></i></a>
+                        <p id="login_user"></p>
+                        <div class="dropdown-content" id="dropdown-content">
+                            <a class="dados" href="UsuarioInfo.html">Perfil</a>
+                            <a class="logout" href="">Logout</a>
+                        </div>
+                    </div>
+                    <div class="nav-icone-heart">
+                        <a><i class="fa-regular fa-heart icon-coracao"></i></a>
+                    </div>
+                    <div class="nav-icone-prod">
+                        <a href="" class="icon-produtos"><i class="fa-solid"></i></a>
+                    </div>
+                    <div class="nav-icone">
+                        <a href=""><i class="fa-solid fa-cart-shopping carrinho"></i></a>
+                        <p id="tamanho-carrinho"></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mobile-right-nav">
+                <input id="pesquisa" type="text" placeholder="pesquisar">
+                <a href="/TelaFormularioCliente.html"><i class="fa-solid fa-user"></i></a>
+                <a href=""><i class="fa-solid fa-cart-shopping carrinho"></i></a>
+                <i class="fa-regular fa-heart"></i>
+            </div>
+
+            <button id="mobile-btn">
+                <i class="fa-solid fa-bars"></i>
+            </button>
         </nav>
-    
+
         <div id="mobile-menu">
-          <ul id="mobile-nav-list">
-            <li class="nav-item">
-              <a class="promocoes" href="">Promoções</a>
-            </li>
-    
-            <li class="nav-item">
-              <a class="vestuarios" href="">Vestuário</a>
-            </li>
-    
-            <li class="nav-item">
-              <a class="acessorios" href="">Acessórios</a>
-            </li>
-    
-            <li class="nav-item">
-              <a class="sneakers" href="TelaProdutos.html">Sneakers</a>
-            </li>
-          </ul>
+            <ul id="mobile-nav-list">
+                <li class="nav-item">
+                    <a class="promocoes" href="">Promoções</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="vestuarios" href="">Vestuário</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="acessorios" href="">Acessórios</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="sneakers" href="TelaProdutos.html">Sneakers</a>
+                </li>
+            </ul>
         </div>
-    
-      </header>
+
+    </header>
 
     <main class="container">
         <h1>Favoritos</h1>
@@ -128,88 +129,38 @@
                 <div class="filtro-produtos">
                     <input id="filtro" onkeyup="filtrarProdutos()" type="text" placeholder="Pesquisar produtos">
                 </div>
-            </div> 
+            </div>
             <div class="containerpr">
                 <ul class="linha">
-                    <li>
-                        <a id='${item.id}' class="link_produto" href="DetalheProduto.html?produtoId=${item.id}"> <img
-                                class="imgProduto" src="https://imageecommerce.blob.core.windows.net/img/WhatsApp%20Image%202024-04-27%20at%2019.54.17.jpeg" alt="">
-                            <div class="cora">
-                                <span class="text_produto">${item.nome}</span>
-                                <label class="container-fav">
-                                    <input type="checkbox" checked>
-                                    <svg id="Layer_1" version="1.0" viewBox="0 0 24 24" xml:space="preserve"
-                                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                                        <path
-                                            d="M16.4,4C14.6,4,13,4.9,12,6.3C11,4.9,9.4,4,7.6,4C4.5,4,2,6.5,2,9.6C2,14,12,22,12,22s10-8,10-12.4C22,6.5,19.5,4,16.4,4z">
-                                        </path>
-                                    </svg>
-                                </label>
-                            </div>
-                            <p class="preco">R$ ${item.preco}</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a id='${item.id}' class="link_produto" href="DetalheProduto.html?produtoId=${item.id}"> <img
-                                class="imgProduto" src="https://imageecommerce.blob.core.windows.net/img/WhatsApp%20Image%202024-04-27%20at%2019.54.17.jpeg" alt="">
-                            <div class="cora">
-                                <span class="text_produto">${item.nome}</span>
-                                <label class="container-fav">
-                                    <input type="checkbox" checked>
-                                    <svg id="Layer_1" version="1.0" viewBox="0 0 24 24" xml:space="preserve"
-                                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                                        <path
-                                            d="M16.4,4C14.6,4,13,4.9,12,6.3C11,4.9,9.4,4,7.6,4C4.5,4,2,6.5,2,9.6C2,14,12,22,12,22s10-8,10-12.4C22,6.5,19.5,4,16.4,4z">
-                                        </path>
-                                    </svg>
-                                </label>
-                            </div>
-                            <p class="preco">R$ ${item.preco}</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a id='${item.id}' class="link_produto" href="DetalheProduto.html?produtoId=${item.id}"> <img
-                                class="imgProduto" src="https://imageecommerce.blob.core.windows.net/img/WhatsApp%20Image%202024-04-27%20at%2019.54.17.jpeg" alt="">
-                            <div class="cora">
-                                <span class="text_produto">${item.nome}</span>
-                                <label class="container-fav">
-                                    <input type="checkbox" checked>
-                                    <svg id="Layer_1" version="1.0" viewBox="0 0 24 24" xml:space="preserve"
-                                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                                        <path
-                                            d="M16.4,4C14.6,4,13,4.9,12,6.3C11,4.9,9.4,4,7.6,4C4.5,4,2,6.5,2,9.6C2,14,12,22,12,22s10-8,10-12.4C22,6.5,19.5,4,16.4,4z">
-                                        </path>
-                                    </svg>
-                                </label>
-                            </div>
-                            <p class="preco">R$ ${item.preco}</p>
-                        </a>
-                    </li>
                 </ul>
                 <ul class="linha2">
-                    <li>
-                        <a id='${item.id}' class="link_produto" href="DetalheProduto.html?produtoId=${item.id}"> <img
-                                class="imgProduto" src="https://imageecommerce.blob.core.windows.net/img/WhatsApp%20Image%202024-04-27%20at%2019.54.17.jpeg" alt="">
-                            <div class="cora">
-                                <span class="text_produto">${item.nome}</span>
-                                <label class="container-fav">
-                                    <input type="checkbox" checked>
-                                    <svg id="Layer_1" version="1.0" viewBox="0 0 24 24" xml:space="preserve"
-                                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                                        <path
-                                            d="M16.4,4C14.6,4,13,4.9,12,6.3C11,4.9,9.4,4,7.6,4C4.5,4,2,6.5,2,9.6C2,14,12,22,12,22s10-8,10-12.4C22,6.5,19.5,4,16.4,4z">
-                                        </path>
-                                    </svg>
-                                </label>
-                            </div>
-                            <p class="preco">R$ ${item.preco}</p>
-                        </a>
-                    </li>
                 </ul>
                 <ul class="linha3">
                 </ul>
                 <ul class="linha4">
                 </ul>
+            </div>
+        </div>
+        <div class="favoritos-vazio" id="empty-fav">
+            <h2>SEM FAVORITOS</h2>
+            <img src="/img/coracao-partido.png" alt="Icone coração partido">
+
+            <div id="btn-ver-produtos">
+                <a href="TelaProdutos.html?mensagem=sneakers">
+                    <button class="animated-button">
+                        <span>Ver produtos</span>
+                        <span></span>
+                    </button>
+                </a>
+            </div>
+
+            <div id="btn-fazer-login">
+                <a href="TelaLogin.html">
+                    <button class="animated-button">
+                        <span>Fazer login</span>
+                        <span></span>
+                    </button>
+                </a>
             </div>
         </div>
     </main>

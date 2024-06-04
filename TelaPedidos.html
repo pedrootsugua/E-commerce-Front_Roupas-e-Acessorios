@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="Css/Reset/Reset.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="Css/Reset/Reset.css">
   <link rel="stylesheet" href="/Css/Navbar/navbar.css">
   <link rel="stylesheet" href="Css/Produtos/produto.css">
   <link rel="stylesheet" href="/Css/Footer/footer.css">
@@ -18,7 +19,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
     integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <link rel="stylesheet" href="Css/Pedidos/pedidos.css">
+  <link rel="stylesheet" href="Css/Pedidos/pedidos.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
@@ -31,209 +32,214 @@
   <script src="JavaScript/Produtos/ConexaoAPI.js"></script>
   <script src="JavaScript/Geral/AcessoUsuario.js" defer></script>
   <script src="JavaScript/Geral/Geral.js"></script>
-    <title>Document</title>
+  <title>Document</title>
 </head>
-<body>
-    <header>
 
-        <nav id="navbar">
-          <div class="img">
-            <a href="TelaInicial.html"><img src="/img/logo.png" alt="logo"></a>
-          </div>
-    
-          <ul id="nav-list">
-            <li class="nav-item">
-              <a class="promocoes" href="">Promoções</a>
-            </li>
-    
-            <li class="nav-item">
-              <a class="vestuarios" href="">Vestuário</a>
-            </li>
-    
-            <li class="nav-item">
-              <a class="acessorios" href="">Acessórios</a>
-            </li>
-    
-            <li class="nav-item">
-              <a class="sneakers" href="TelaProdutos.html">Sneakers</a>
-            </li>
-          </ul>
-    
-    
-          <input id="pesquisa" type="text" placeholder="pesquisar">
-    
-          <div class="right-nav">
-            <div class="position-icon">
-              <div class="nav-icone-user" id="id-icon-user">
-                <a href="/TelaLogin.html" class="icon-usuario"><i class="fa-solid fa-user"></i></a>
-                <p id="login_user"></p>
-                <div class="dropdown-content" id="dropdown-content">
-                  <a href="UsuarioInfo.html">Perfil</a>
-                  <a href="#" id="logout">Logout</a>
-                </div>
-              </div>
-              <div class="nav-icone-heart">
-                <a href=""><i class="fa-regular fa-heart icon-coracao"></i></a>
-              </div>
-              <div class="nav-icone-prod">
-                <a href="" class="icon-produtos"><i class="fa-solid"></i></a>
-              </div>
-              <div class="nav-icone">
-                <a href=""><i class="fa-solid fa-cart-shopping carrinho"></i></a>
-                <p id="tamanho-carrinho"></p>
-              </div>
-            </div>
-          </div>
-    
-          <div class="mobile-right-nav">
-            <input id="pesquisa" type="text" placeholder="pesquisar">
-            <a href="/TelaFormularioCliente.html"><i class="fa-solid fa-user"></i></a>
-            <a href=""><i class="fa-solid fa-cart-shopping carrinho"></i></a>
-            <i class="fa-regular fa-heart"></i>
-          </div>
-    
-          <button id="mobile-btn">
-            <i class="fa-solid fa-bars"></i>
-          </button>
-        </nav>
-    
-        <div id="mobile-menu">
-          <ul id="mobile-nav-list">
-            <li class="nav-item">
-              <a class="promocoes" href="">Promoções</a>
-            </li>
-    
-            <li class="nav-item">
-              <a class="vestuarios" href="">Vestuário</a>
-            </li>
-    
-            <li class="nav-item">
-              <a class="acessorios" href="">Acessórios</a>
-            </li>
-    
-            <li class="nav-item">
-              <a class="sneakers" href="TelaProdutos.html">Sneakers</a>
-            </li>
-          </ul>
-        </div>
-      </header>
-      <main>
-      <div class="Titulo">Meus pedidos</div>
-      <div class="content">
-        <section>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Produto</th>
-                        <th>Preço</th>
-                        <th>Quantidade</th>
-                        <th>Total</th>
-                    </tr>
-                </thead>
-                <tbody><tr>
-                       <td>
-                        <div class="produto">
-                            <img src="img/tenis3.png" alt="">
-                            <div class="infos">
-                                <div class="nomeProd">Air force</div>
-                                <div class="categoria">Sneakers</div>
-                            </div>
-                        </div>
-                       </td>
-                       <td>R$120.00</td>
-                       <div class="qtd">
-                       <td>2</td>
-                    </div>
-                       <td>R$240.00</td>
-                    </tr>
-                    <tr>
-                        <td>
-                         <div class="produto">
-                             <img src="img/tenis3.png" alt="">
-                             <div class="infos">
-                                 <div class="nomeProd">Air force</div>
-                                 <div class="categoria">Sneakers</div>
-                             </div>
-                         </div>
-                        </td>
-                        <td>R$120.00</td>
-                        <div class="qtd">
-                        <td>2</td>
-                     </div>
-                        <td>R$240.00</td>
-                     </tr>
-                </tbody>
-        </table>
-    </section>
-        <aside>resumo das compras</aside>
+<body>
+  <header>
+
+    <nav id="navbar">
+      <div class="img">
+        <a href="TelaInicial.html"><img src="/img/logo.png" alt="logo"></a>
       </div>
-    </main>
-      <footer>
-        <div id="footer_content">
-          <div id="footer_contacts">
-            <h1 class="logoRodape"><img src="img/logo.png" alt="Imagem logo"></h1>
-            <p class="desc">Nome marca</p>
-    
-            <div id="footer_social_media">
-              <a href="#" class="footer-link" id="instagram" target="_blank">
-                <i class="fa-brands fa-instagram"></i>
-              </a>
-              <a href="https://github.com/pedrootsugua/Projeto-E-commerce" class="footer-link" id="github" target="_blank">
-                <img src="img/github_img.png" alt="Logo GitHub">
-              </a>
+
+      <ul id="nav-list">
+        <li class="nav-item">
+          <a class="promocoes" href="">Promoções</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="vestuarios" href="">Vestuário</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="acessorios" href="">Acessórios</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="sneakers" href="TelaProdutos.html">Sneakers</a>
+        </li>
+      </ul>
+
+
+      <input id="pesquisa" type="text" placeholder="pesquisar">
+
+      <div class="right-nav">
+        <div class="position-icon">
+          <div class="nav-icone-user" id="id-icon-user">
+            <a href="/TelaLogin.html" class="icon-usuario"><i class="fa-solid fa-user"></i></a>
+            <p id="login_user"></p>
+            <div class="dropdown-content" id="dropdown-content">
+              <a class="dados" href="UsuarioInfo.html">Perfil</a>
+              <a class="logout" href="">Logout</a>
             </div>
           </div>
-    
-          <ul class="footer-list">
-            <li>
-              <h3>Institucional</h3>
-            </li>
-            <li>
-              <a href="#" class="footer-link">Sobre nós</a>
-            </li>
-            <li>
-              <a href="#" class="footer-link">Titulo 2</a>
-            </li>
-            <li>
-              <a href="#" class="footer-link">Titulo 3</a>
-            </li>
-          </ul>
-    
-          <ul class="footer-list">
-            <li>
-              <h3>Produtos</h3>
-            </li>
-            <li>
-              <a href="#" class="footer-link">Vestuário</a>
-            </li>
-            <li>
-              <a href="#" class="footer-link">Acessórios</a>
-            </li>
-            <li>
-              <a href="#" class="footer-link">Sneakers</a>
-            </li>
-          </ul>
-    
-          <div id="footer_subscribe">
-            <h3>Inscreva-se</h3>
-    
-            <p>
-              Digite seu email e fique por dentro de nossas novidades.
-            </p>
-    
-            <div id="input_group">
-              <input type="email" id="email">
-              <button>
-                <i class="fa-regular fa-envelope"></i>
-              </button>
-            </div>
+          <div class="nav-icone-heart">
+            <a><i class="fa-regular fa-heart icon-coracao"></i></a>
+          </div>
+          <div class="nav-icone-prod">
+            <a href="" class="icon-produtos"><i class="fa-solid"></i></a>
+          </div>
+          <div class="nav-icone">
+            <a href=""><i class="fa-solid fa-cart-shopping carrinho"></i></a>
+            <p id="tamanho-carrinho"></p>
           </div>
         </div>
-    
-        <div id="footer_copyright">
-          &#169
-          2024 Todos os Direitos Reservados
+      </div>
+
+      <div class="mobile-right-nav">
+        <input id="pesquisa" type="text" placeholder="pesquisar">
+        <a href="/TelaFormularioCliente.html"><i class="fa-solid fa-user"></i></a>
+        <a href=""><i class="fa-solid fa-cart-shopping carrinho"></i></a>
+        <i class="fa-regular fa-heart"></i>
+      </div>
+
+      <button id="mobile-btn">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </nav>
+
+    <div id="mobile-menu">
+      <ul id="mobile-nav-list">
+        <li class="nav-item">
+          <a class="promocoes" href="">Promoções</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="vestuarios" href="">Vestuário</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="acessorios" href="">Acessórios</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="sneakers" href="TelaProdutos.html">Sneakers</a>
+        </li>
+      </ul>
+    </div>
+
+  </header>
+
+  <main>
+    <div class="Titulo">Meus pedidos</div>
+    <div class="content">
+      <section>
+        <table>
+          <thead>
+            <tr>
+              <th>Produto</th>
+              <th>Preço</th>
+              <th>Quantidade</th>
+              <th>Total</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <div class="produto">
+                  <img src="img/tenis3.png" alt="">
+                  <div class="infos">
+                    <div class="nomeProd">Air force</div>
+                    <div class="categoria">Sneakers</div>
+                  </div>
+                </div>
+              </td>
+              <td>R$120.00</td>
+              <div class="qtd">
+                <td>2</td>
+              </div>
+              <td>R$240.00</td>
+            </tr>
+            <tr>
+              <td>
+                <div class="produto">
+                  <img src="img/tenis3.png" alt="">
+                  <div class="infos">
+                    <div class="nomeProd">Air force</div>
+                    <div class="categoria">Sneakers</div>
+                  </div>
+                </div>
+              </td>
+              <td>R$120.00</td>
+              <div class="qtd">
+                <td>2</td>
+              </div>
+              <td>R$240.00</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+      <aside>resumo das compras</aside>
+    </div>
+  </main>
+  <footer>
+    <div id="footer_content">
+      <div id="footer_contacts">
+        <h1 class="logoRodape"><img src="img/logo.png" alt="Imagem logo"></h1>
+        <p class="desc">Nome marca</p>
+
+        <div id="footer_social_media">
+          <a href="#" class="footer-link" id="instagram" target="_blank">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+          <a href="https://github.com/pedrootsugua/Projeto-E-commerce" class="footer-link" id="github" target="_blank">
+            <img src="img/github_img.png" alt="Logo GitHub">
+          </a>
         </div>
-      </footer>
+      </div>
+
+      <ul class="footer-list">
+        <li>
+          <h3>Institucional</h3>
+        </li>
+        <li>
+          <a href="#" class="footer-link">Sobre nós</a>
+        </li>
+        <li>
+          <a href="#" class="footer-link">Titulo 2</a>
+        </li>
+        <li>
+          <a href="#" class="footer-link">Titulo 3</a>
+        </li>
+      </ul>
+
+      <ul class="footer-list">
+        <li>
+          <h3>Produtos</h3>
+        </li>
+        <li>
+          <a href="#" class="footer-link">Vestuário</a>
+        </li>
+        <li>
+          <a href="#" class="footer-link">Acessórios</a>
+        </li>
+        <li>
+          <a href="#" class="footer-link">Sneakers</a>
+        </li>
+      </ul>
+
+      <div id="footer_subscribe">
+        <h3>Inscreva-se</h3>
+
+        <p>
+          Digite seu email e fique por dentro de nossas novidades.
+        </p>
+
+        <div id="input_group">
+          <input type="email" id="email">
+          <button>
+            <i class="fa-regular fa-envelope"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div id="footer_copyright">
+      &#169
+      2024 Todos os Direitos Reservados
+    </div>
+  </footer>
 </body>
+
 </html>

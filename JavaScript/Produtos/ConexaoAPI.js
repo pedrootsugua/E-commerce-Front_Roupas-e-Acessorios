@@ -2,11 +2,12 @@ document.addEventListener('DOMContentLoaded', function () {
     // Recuperar a string da URL
     var params = new URLSearchParams(window.location.search);
     var mensagem = params.get('mensagem');
-    acessarapi(mensagem);
+    var userIdFavorito = params.get('userId');
+    acessarapi(mensagem, userIdFavorito);
 
 });
 // URL da API que você deseja acessar
-function acessarapi(categoria) {
+function acessarapi(categoria, userIdFavorito) {
     let apiUrl = 'http://localhost:8080/api/produtos?category=' + categoria;
     const request1 = fetch(apiUrl, {
         method: 'GET'
@@ -31,18 +32,16 @@ function acessarapi(categoria) {
             listaProdutos3.innerHTML = "";
             listaProdutos4.innerHTML = "";
 
-            console.log(data.urlImagensModels);
-
             // Itere sobre cada item na lista
             data.forEach((item, index) => {
                 if (index <= 4) { // Apenas os primeiros 4 itens
-                    inserirProdutosFront(item, listaProdutos);
+                    inserirProdutosFront(item, listaProdutos, userIdFavorito);
                 } else if (index <= 8) {
-                    inserirProdutosFront(item, listaProdutos2);
+                    inserirProdutosFront(item, listaProdutos2, userIdFavorito);
                 } else if (index <= 12) {
-                    inserirProdutosFront(item, listaProdutos3);
+                    inserirProdutosFront(item, listaProdutos3, userIdFavorito);
                 } else {
-                    inserirProdutosFront(item, listaProdutos4);
+                    inserirProdutosFront(item, listaProdutos4, userIdFavorito);
                 }
             });
         })
@@ -51,7 +50,7 @@ function acessarapi(categoria) {
             console.error(error);
         });
 
-    function inserirProdutosFront(item, listaProdutos) {
+    function inserirProdutosFront(item, listaProdutos, userIdFavorito) {
         const urls = item.urlImagensModels; // Array de URLs
         console.log(urls);
         // Cria um novo elemento de produto
@@ -75,7 +74,112 @@ function acessarapi(categoria) {
                             <p class="preco">R$ ${item.preco}</p>
                         </a>
                     `;
+
+        let autenticadoFavorito = localStorage.getItem("autenticado");
+        const isAutenticado = (autenticadoFavorito.toLowerCase() === "true")
+        console.log(isAutenticado);
+        if (isAutenticado === true) {
+            buscarFavoritos(userIdFavorito, item, novoProduto)
+            novoProduto.querySelectorAll('.container-fav input').forEach(function (input) {
+                input.addEventListener('change', function () {
+                    if (this.checked) {
+                        favorito = {
+                            usuarioId: userIdFavorito,
+                            produtoId: item.id
+                        }
+                        cadastrarFavorito(favorito);
+                    } else {
+                        favorito = {
+                            usuarioId: userIdFavorito,
+                            produtoId: item.id
+                        }
+                        deleteProdutoCarrinho(favorito)
+                    }
+                });
+            });
+        } else {
+            novoProduto.querySelectorAll('.container-fav input').forEach(function (input) {
+                input.addEventListener('change', function () {
+                    if (this.checked) {
+                        alert("Faça login para favoritar produtos!")
+                        this.checked = false;
+                    }
+                });
+            });
+        }
+
         // Adiciona o novo produto à lista de produtos
         listaProdutos.appendChild(novoProduto);
     }
+
+    function cadastrarFavorito(favorito) {
+        const request1 = fetch("http://localhost:8080/api/favoritos/cadastrar", {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(favorito)
+        })
+            .then(response => {
+                if (response.status === 201) {
+                    alert("Produto adicionado aos favoritos com sucesso!")
+                    location.reload();
+                } else {
+                    alert("Problemas com o servidor :/");
+                }
+            })
+            .catch(error => {
+                alert("Não foi possível adicionar aos favoritos!")
+                console.error(error);
+            });
+    }
+
+    function retirarFavorito() {
+
+    }
+
+    function buscarFavoritos(userIdFavorito, item, novoProduto) {
+        let apiUrl = 'http://localhost:8080/api/favoritos/buscar?id=' + userIdFavorito;
+        const request1 = fetch(apiUrl, {
+            method: 'GET'
+        })
+            .then(response => {
+                // Verifique se a solicitação foi bem-sucedida (status 200)
+                if (!response.ok) {
+                    throw new Error('Erro ao acessar a API: ' + response.statusText);
+                }
+                // Parseie os dados da resposta JSON
+                return response.json();
+            })
+            .then(data => {
+                // Itere sobre cada item na lista
+                data.forEach((produtosFavoritos) => {
+                    console.log(produtosFavoritos.id)
+                    if (produtosFavoritos.id === item.id) {
+                        novoProduto.querySelector('input[type="checkbox"]').checked = true;
+                    }
+                });
+            })
+            .catch(error => {
+                // Trate os erros que possam ocorrer durante a solicitação
+                console.error(error);
+            });
+    }
+}
+
+function deleteProdutoCarrinho(favorito) {
+    fetch(`http://localhost:8080/api/favoritos/deletar`, {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(favorito)
+    })
+        .then(response => {
+            alert("Produto removido dos favoritos!")
+            location.reload();
+        })
+        .catch(error => {
+            console.log("Erro: " + error);
+        })
 }
