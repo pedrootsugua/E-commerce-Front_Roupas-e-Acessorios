@@ -1,0 +1,62 @@
+header{
+    padding: 20px 0;
+    display: flex;
+    justify-content: center;
+}
+main{
+    padding: 0 30px;
+}
+.Titulo{
+    font-size: 40px;
+    padding: 50px 0;
+    text-align: center;
+}
+
+.content{
+    display: flex;
+}
+
+section{
+    flex: 1;
+}
+
+aside{
+    min-width: 250px;
+}
+
+table{
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th{
+text-align: left;
+padding-bottom: 12px;
+text-transform: uppercase;
+color: #666;
+}
+
+tr{
+    border-bottom: 3px solid #eee;
+}
+
+.produto{
+    display: flex;
+    align-items: center;
+}
+.infos{
+    margin-left: 20px;
+}
+
+img{
+    height: 175px;
+  width: 210px;
+}
+
+td{
+    margin-left: 0;
+    align-items: center;
+   padding: 30px 0;
+   justify-content: center;
+
+}
