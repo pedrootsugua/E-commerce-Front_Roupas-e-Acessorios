@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
   const slider = document.querySelectorAll('.slider');
   const btnPrev = document.getElementById('prev-button');
   const btnNext = document.getElementById('next-button');
@@ -39,4 +39,11 @@ document.addEventListener('DOMContentLoaded', function() {
   if (btnPrev) {
     btnPrev.addEventListener('click', prevSlider);
   }
+
+  document.querySelector('.confira').addEventListener('click', function (event) {
+    event.preventDefault(); // Evita o comportamento padrão do formulário
+    // Enviar a string para a outra tela como parâmetro na URL
+    var mensagem = 'sneakers';
+    window.location.href = 'TelaProdutos.html?mensagem=' + mensagem;
+  });
 });
