@@ -49,15 +49,17 @@ function consultar() {
         .then(response => {
             if (response.status === 200) {
                 // Login realizado com sucesso
-                alert("Login bem sucedido!")
-                console.log(response)
-                //document.getElementById("login_user").innerHTML = "I have changed!"
-                // acesso().then(r => console.log(r)).catch(x => console.log(x))
-
-                window.location.href = "TelaInicial.html";
+                
+                irTelaInicial();
+                document.querySelector('.incial').addEventListener('click', function (event) {
+                    event.preventDefault(); // Evita o comportamento padrão do formulário
+                    
+                    window.location.href = "TelaInicial.html";
+                });
             } else if (response.status === 403) {
                 // CPF já cadastrado
                 alert("Usuário/senha inválido!");
+                // loginInvalido()
             }
         })
         .catch(e => {
@@ -65,6 +67,7 @@ function consultar() {
             // Exibe mensagem de erro em caso de falha na requisição
             //console.error('Erro ao acessar usuário:', error);
             alert("Erro ao acessar usuário. Por favor, tente novamente.");
+            // erroLogin()
         });
 }
 
@@ -78,3 +81,68 @@ document.querySelector('.btn-login').addEventListener('click', function (event) 
 function limparCampos() {
     document.querySelector(".card-login").reset();
 }
+
+function irTelaInicial(){
+    const modal = document.querySelector('.cartao');
+
+    // Função para abrir o modal
+    const openModal = () => {
+        modal.style.display = 'flex';
+    };
+
+    // Quando o usuário clicar no botão, abre o modal
+    btnLogin.addEventListener('click', openModal);
+
+    // Quando o usuário clicar em qualquer lugar fora do modal, fecha o modal
+    window.addEventListener('click', (event) => {
+        if (event.target == modal) {
+            closeModal();
+        }
+    });
+    
+    // console.log(response)
+    
+    
+
+}
+
+// function erroLogin(){
+//     const modal = document.querySelector('#erro');
+
+//     // Função para abrir o modal
+//     const openModal = () => {
+//         modal.style.display = 'flex';
+//     };
+//     // Quando o usuário clicar no botão, abre o modal
+//     btnLogin.addEventListener('click', openModal);
+
+//     const closeModal = () => {
+//         modal.style.display = 'none';
+//     };
+
+
+//     // Quando o usuário clicar em qualquer lugar fora do modal, fecha o modal
+//     window.addEventListener('click', (event) => {
+//         if (event.target == modal) {
+//             closeModal();
+//         }
+//     });
+// }
+
+// function loginInvalido(){
+//     const modal = document.querySelector('#invalido');
+
+//     // Função para abrir o modal
+//     const openModal = () => {
+//         modal.style.display = 'flex';
+//     };
+//     // Quando o usuário clicar no botão, abre o modal
+//     btnLogin.addEventListener('click', openModal);
+
+//     // Quando o usuário clicar em qualquer lugar fora do modal, fecha o modal
+//     window.addEventListener('click', (event) => {
+//         if (event.target == modal) {
+//             closeModal();
+//         }
+//     });
+// }
