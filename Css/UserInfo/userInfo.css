@@ -277,6 +277,26 @@ body {
     overflow-y: auto;
 }
 
+.modal-dados-email {
+    background-color: #ffffff;
+    padding: 18px;
+    border: 1px solid #888;
+    width: 42%;
+    height: 45%;
+    position: relative;
+    overflow-y: auto;
+}
+
+.modal-dados-senha {
+    background-color: #ffffff;
+    padding: 18px;
+    border: 1px solid #888;
+    width: 42%;
+    height: 58%;
+    position: relative;
+    overflow-y: auto;
+}
+
 .input-dados {
     padding: 4px;
     border-radius: 5px;
