@@ -1,0 +1,63 @@
+document.addEventListener('DOMContentLoaded', (event) => {
+
+    const modalUsuario = document.querySelector('#cartao-usuario');
+    const modalEmail = document.querySelector('#cartao-email');
+    const modalSenha = document.querySelector('#cartao-senha');
+
+    const closeBtns = document.querySelectorAll('.close');
+    const cancelarBtns = document.querySelectorAll('.cancelar');
+
+    const openBtn = document.querySelector('#botao-usuario');
+    const openEmail = document.querySelector('#botao-email');
+    const openSenha = document.querySelector('#botao-senha');
+
+    function limparCampos() {
+        document.querySelectorAll(".input-dados").reset();
+    }
+
+    const openModalUsuario = () => {
+        modalUsuario.style.display = 'flex';
+    };
+
+    const openModalEmail = () => {
+        modalEmail.style.display = 'flex';
+    };
+
+    const openModalSenha = () => {
+        modalSenha.style.display = 'flex';
+    };
+
+    const closeModalUsuario = () => {
+        modalUsuario.style.display = 'none';
+    };
+
+    const closeModalEmail = () => {
+        modalEmail.style.display = 'none';
+    };
+
+    const closeModalSenha = () => {
+        modalSenha.style.display = 'none';
+    };
+
+    // Quando o usuário clicar no botão, abre o modal
+    openBtn.addEventListener('click', openModalUsuario);
+    openEmail.addEventListener('click', openModalEmail);
+    openSenha.addEventListener('click', openModalSenha);
+
+    closeBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            closeModalUsuario();
+            closeModalEmail();
+            closeModalSenha();
+        });
+    });
+
+    // Quando o usuário clicar no botão cancelar, fecha o modal
+    cancelarBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            closeModalUsuario();
+            closeModalEmail();
+            closeModalSenha();
+        });
+    });
+});
