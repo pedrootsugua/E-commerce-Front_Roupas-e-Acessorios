@@ -28,6 +28,7 @@
   <script src="JavaScript/Geral/AcessoUsuario.js" defer></script>
   <script src="JavaScript/Geral/Geral.js" defer></script>
   <script src="JavaScript/UserInfo/conexaoAPI.js" defer></script>
+  <script src="JavaScript/UserInfo/modalDadosPessoais.js"></script>
 
   <title>Meus Dados</title>
 </head>
@@ -127,7 +128,7 @@
         <div class="info-pessoais">
           <h1>DADOS PESSOAIS</h1>
           <div id="dados-usuario"></div>
-          <button class="editar-infos">
+          <button id="botao-usuario" class="editar-infos">
             EDITAR
             <svg viewBox="0 0 512 512" class="svg">
               <path
@@ -140,7 +141,7 @@
           <h1>DETALHES DE LOGIN</h1>
           <h2>E-MAIL</h2>
           <div id="email-usuario"></div>
-          <button class="editar-infos">
+          <button id="botao-email" class="editar-infos">
             EDITAR
             <svg viewBox="0 0 512 512" class="svg">
               <path
@@ -150,7 +151,7 @@
           </button>
           <h2>SENHA</h2>
           <div id="senha-usuario"></div>
-          <button class="editar-infos">
+          <button id="botao-senha" class="editar-infos">
             EDITAR
             <svg viewBox="0 0 512 512" class="svg">
               <path
@@ -170,6 +171,73 @@
       </div>
     </div>
   </main>
+  <!-- MODAL DADOS PESSOAIS -->
+  <div id="cartao-usuario" class="cartao">
+    <div class="modal-dados-pessoais">
+      <span class="close">&times;</span>
+      <h2>EDITAR INFORMAÇÕES</h2>
+      <div class="modal-info">
+        <label class="labels" for="nome-usuario">Nome Completo</label>
+        <input type="text" class="input-dados" id="nome-usuario">
+      </div>
+      <div class="modal-info">
+        <label class="labels" for="data-nascimento">Data de Nascimento</label>
+        <input type="date" class="input-dados" id="data-nascimento">
+      </div>
+      <div class="modal-info">
+        <label class="labels" for="cpf">CPF</label>
+        <input type="text" class="input-dados" id="cpf" disabled>
+      </div>
+      <div class="modal-info">
+        <label class="labels" for="telefone">Telefone</label>
+        <input type="text" class="input-dados" id="telefone">
+      </div>
+      <div class="button-wrapper">
+        <button class="salvar">SALVAR ALTERAÇÕES</button>
+        <button class="cancelar">CANCELAR</button>
+      </div>
+    </div>
+  </div>
+  <!-- FIM MODAL -->
+
+  <!-- MODAL EMAIL -->
+  <div id="cartao-email" class="cartao">
+    <div class="modal-dados-pessoais">
+      <span class="close">&times;</span>
+      <h2>EDITAR EMAIL</h2>
+      <div class="modal-info">
+        <label class="labels" for="email-usuario">E-mail</label>
+        <input type="text" class="input-dados" id="email-usuario">
+      </div>
+      <div class="button-wrapper">
+        <button class="salvar">SALVAR ALTERAÇÕES</button>
+        <button class="cancelar">CANCELAR</button>
+      </div>
+    </div>
+  </div>
+  <!-- FIM MODAL -->
+
+  <!-- MODAL SENHA -->
+  <div id="cartao-senha" class="cartao">
+    <div class="modal-dados-pessoais">
+      <span class="close">&times;</span>
+      <h2>EDITAR SENHA</h2>
+      <div class="modal-info">
+        <label class="labels" for="email-usuario">Senha Atual</label>
+        <input type="password" class="input-dados" id="senha-usuario">
+      </div>
+      <div class="modal-info">
+        <label class="labels" for="email-usuario">Nova Senha</label>
+        <input type="password" class="input-dados" id="NovaSenha-usuario">
+      </div>
+      <div class="button-wrapper">
+        <button class="salvar">SALVAR ALTERAÇÕES</button>
+        <button class="cancelar">CANCELAR</button>
+      </div>
+    </div>
+  </div>
+  <!-- FIM MODAL -->
+
   <footer>
     <div id="footer_content">
       <div id="footer_contacts">
