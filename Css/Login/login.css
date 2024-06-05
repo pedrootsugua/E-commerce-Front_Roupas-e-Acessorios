@@ -14,7 +14,7 @@ body{
 .principal{
     width: 100vw;  
     height: 100vh; /*tamanho da viewport (pega o tamanho da tela)*/
-    background-color: #f2f2f2;
+    background: radial-gradient(circle, #F5F5F5, #CCCCCC, #999999);
     display: flex;
     justify-content: center;  /* eixo x */
     align-items: center; /* eixo y */
@@ -194,3 +194,69 @@ body{
 }
 
 
+.modal-info {
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    /* margin: 25px 25px; */
+}
+
+.cartao {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    
+
+}
+
+.incial {
+    background: #000;
+    color: #FFFFFF;
+    font-weight: bold;
+    font-family: "Poppins", sans-serif;
+}
+
+.button-wrapper {
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    margin-top: 25px;
+    margin-bottom: 15px;
+}
+
+.button-wrapper button {
+    margin: 0 25px;
+    margin-top: 50px;
+    padding: 6px;
+}
+
+.modal-dados-pessoais {
+    background-color: #ffffff;
+    padding: 18px;
+    border: 1px solid #888;
+    width: 22%;
+    height: 37%;
+    position: relative;
+    overflow-y: auto;
+    border-radius: 15px;
+}
+
+#message{
+    text-align: center;
+    color: #000;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.message{
+    text-align: center;
+    color: #000;
+    font-size: 20px;
+    font-weight: 600;
+}
