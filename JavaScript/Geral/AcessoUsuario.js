@@ -71,6 +71,21 @@ function verificaAutenticacao() {
                 });
                 var iconHeart = document.querySelector('.nav-icone-heart');
                 iconHeart.style.marginLeft = 30 + 'px';
+
+                const login = document.createElement('a');
+                const dropdownContent = document.getElementById('dropdown-content');
+
+                // Adiciona as classes ao novo link
+                login.className = 'login'; // substitua 'nova-classe' pela classe desejada
+
+                // Define o atributo href do novo link
+                login.href = '/TelaLogin.html'; // substitua 'NovaPagina.html' pelo href desejado
+
+                // Define o texto interno do novo link
+                login.textContent = 'Fazer Login'; // substitua 'Novo Link' pelo texto desejado
+
+                // Adiciona o novo link à div
+                dropdownContent.appendChild(login);
             }
         })
         .catch(error => {
