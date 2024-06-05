@@ -29,14 +29,17 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
     const closeModalUsuario = () => {
         modalUsuario.style.display = 'none';
+        limparCampos();
     };
 
     const closeModalEmail = () => {
         modalEmail.style.display = 'none';
+        limparCampos();
     };
 
     const closeModalSenha = () => {
         modalSenha.style.display = 'none';
+        limparCampos();
     };
 
     // Quando o usuário clicar no botão, abre o modal
