@@ -66,7 +66,7 @@ function cadastrar() {
     //Objeto JSON que recebe os dados que serão guardados no banco
     const produto = {
         nome: Inome.value,
-        preco: Ipreco.value,
+        preco: Ipreco.value.replace(/,/g, '.'),
         categoria: Icategoria.value,
         marca: Imarca.value,
         tamanhosEstoque: dados,
