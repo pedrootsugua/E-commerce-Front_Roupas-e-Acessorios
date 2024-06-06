@@ -22,6 +22,7 @@ function verificaAutenticacao() {
             localStorage.setItem("autenticado", autenticado);
             if (autenticado === true) {
                 id = data.credencialModel.idUsuario;
+                localStorage.setItem("IdUsuario", id)
                 buscarUsuario(id);
                 getDadosUsuario(id);
                 admin = data.credencialModel.admin;
