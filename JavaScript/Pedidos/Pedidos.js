@@ -38,14 +38,16 @@ function acessarpedidos(idUsuario) {
     .then(data => {
       let semPedidos = document.getElementById("empty-order");
       let comPedidos = document.querySelector(".content");
+      let Titulo = document.querySelector(".Titulo");
 
-      // Corrigir o erro de digitação e obter a quantidade de pedidos
+
       let listaPedidos = data.length;
       console.log("Quantidade de pedidos: " + listaPedidos);
       const tipo = data.tipoEnvio;
       // console.log(tipo)
       let listProduto = document.querySelector("#tabela-pedidos");
       if (listaPedidos !== 0) {
+        Titulo.style.display = "block"
         comPedidos.style.display = "flex"; 
         listProduto.innerHTML = "";
 
@@ -67,25 +69,26 @@ function acessarpedidos(idUsuario) {
 }
 
 function inserirPedidos(item, listProduto, pedido) {
-  // Lógica para inserir os pedidos na lista
-  // Aqui você pode adicionar o HTML necessário para exibir os produtos do pedido
-  listProduto.innerHTML = `
-  <tr>
-    <td>
-      <div class="produto">
-        <img src="${item.id.produtoId.urlImagensModels[0].url}" alt="${item.id.produtoId.nome}">
+  
+  const novoPedido = document.createElement('tr')
+  let dataFormatada = pedido.dataPedido.substring(0, 10);
+  novoPedido.innerHTML = `
+  
+  <td>
+    <div class="produto">
+      <img src="${item.id.produtoId.urlImagensModels[0].url}" alt="${item.id.produtoId.nome}">
 
-        <div class="infos">
-          <div ${item.id.produtoId.nome}</div>
-          <div class="categoria">${item.id.produtoId.nome}</div>
-        </div>
+      <div class="infos">
+        <div ${item.id.produtoId.nome}</div>
+        <div class="categoria">${item.id.produtoId.nome}</div>
       </div>
-    </td>
-    <td>${pedido.id}</td>
-    <td>${pedido.dataPedido}</td>
-    <td>${pedido.formaPagamento}</td>
-    <td>${pedido.totalPedido}</td>
-  </tr>
+    </div>
+  </td>
+  <td>${pedido.id}</td>
+  <td>${dataFormatada}</td>
+  <td>${pedido.formaPagamento}</td>
+  <td>${pedido.totalPedido}</td>
+  
   `;
-  // listProduto.appendChild("#tabela-pedidos");
+  listProduto.appendChild(novoPedido);
 }

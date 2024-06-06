@@ -126,7 +126,9 @@ footer{
 /* .conteudo{
     display: none;
   } */
-  
+  .Titulo{
+    display: none;
+  }
 
 #btn-voltar-inicio {
     
