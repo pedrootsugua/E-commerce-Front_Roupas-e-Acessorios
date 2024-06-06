@@ -51,6 +51,14 @@ function acessarApiFavoritos(userIdFavorito) {
                 favoritosVazio.style.display = "flex";
                 let btnVerProdutos = document.getElementById("btn-ver-produtos");
                 btnVerProdutos.style.display = "flex";
+                btnVerProdutos.innerHTML = `
+        <a href="TelaProdutos.html?mensagem=sneakers&userId=${userIdFavorito}">
+                    <button class="animated-button">
+                        <span>Ver produtos</span>
+                        <span></span>
+                    </button>
+                </a>
+                    `;
                 return; // Sai da função se a lista estiver vazia
             }
 
