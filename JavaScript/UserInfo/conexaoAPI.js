@@ -1,10 +1,14 @@
-usuarioAutenticado();
-
 var params = new URLSearchParams(window.location.search);
 var userId = params.get('userId');
 
-getDadosUsuario(userId);
-consultarEnderecoUsuario(userId);
+let autenticadoFavorito = localStorage.getItem("autenticado");
+    const isAutenticado = (autenticadoFavorito.toLowerCase() === "true")
+    console.log(isAutenticado);
+
+    if (isAutenticado === true) {
+        getDadosUsuario(userId);
+        consultarEnderecoUsuario(userId);
+    } 
 
 let dadosUsuario = document.getElementById("dados-usuario");
 let emailUsuario = document.getElementById("email-usuario");

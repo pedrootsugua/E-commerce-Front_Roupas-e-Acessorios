@@ -12,15 +12,19 @@ document.addEventListener('DOMContentLoaded', (event) => {
     const openSenha = document.querySelector('#botao-senha');
 
     function limparCampos() {
-        document.querySelectorAll(".input-dados").reset();
+        document.querySelectorAll(".input-dados").forEach(input => {
+            input.value = "";
+        });
     }
 
     const openModalUsuario = () => {
         modalUsuario.style.display = 'flex';
+
     };
 
     const openModalEmail = () => {
         modalEmail.style.display = 'flex';
+
     };
 
     const openModalSenha = () => {
@@ -29,17 +33,17 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
     const closeModalUsuario = () => {
         modalUsuario.style.display = 'none';
-        limparCampos();
+        limparCampos()
     };
 
     const closeModalEmail = () => {
         modalEmail.style.display = 'none';
-        limparCampos();
+        limparCampos()
     };
 
     const closeModalSenha = () => {
         modalSenha.style.display = 'none';
-        limparCampos();
+        limparCampos()
     };
 
     // Quando o usuário clicar no botão, abre o modal
