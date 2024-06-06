@@ -32,6 +32,7 @@ function acessarCarrinhoProduto(idCart) {
                 valorTotalCarrinho += valorTotal;
             });
             let totalCarrinho = document.getElementById("total-carrinho");
+            valorTotalCarrinho = valorTotalCarrinho.toFixed(2); //formatando valor
             totalCarrinho.innerHTML = ` <p>${'R$ '+valorTotalCarrinho}</p> `
 
             console.log(valorTotalCarrinho);
@@ -41,8 +42,14 @@ function acessarCarrinhoProduto(idCart) {
         })
 }
 
+
 function gravarPedido() {
+    mostrarProcessamentoPagamento()
+    const idUser = localStorage.getItem('IdUsuario');
+
     const dataAtual = new Date();
+
+    const enderecoParaEnvio = enderecoConvertido.logradouro+", "+enderecoConvertido.numero+" - "+enderecoConvertido.bairro+", "+enderecoConvertido.cidade+", "+enderecoConvertido.uf;
 
     let cartaoCreditoRadio = document.getElementById("cartao_credito");
     let cartaoDebitoRadio = document.getElementById("cartao_debito");
@@ -57,29 +64,53 @@ function gravarPedido() {
     }
 
     const novoPedido = {
-        idUsuario: x,
+        idUsuario: idUser,
         dataPedido: dataAtual,
         tipoEnvio: "Sedex",
-        enderecoEnvio: "",
+        enderecoEnvio: enderecoParaEnvio,
         formaPagamento: escolhaPagamento,
         totalPedido: valorTotalCarrinho
     };
-    const enderecoString = JSON.stringify(novoEndereco);
-    localStorage.setItem("endereco-entrega-pedido", enderecoString); //armazena o novo endereço no cache do navegador
+    
     fetch(`http://localhost:8080/api/pedido/gravar`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify(novoEndereco)
+        body: JSON.stringify(novoPedido)
     })
         .then(response => {
             if (!response.ok) {
+                esconderLoading();
                 throw new Error("Erro ao acessar a API: " + response.statusText);
+            } else {
+                // redireciona para a pag. confirmação pedido
+                redirecionarParaPagina("TelaConfirmacaoPedido.html");
             }
+
             return response.json();
         })
         .catch(error => {
             console.log("Erro: " + error);
         })
+}
+
+// Aplicar blur e mostrar modal de pagamento-------------------------------------
+function mostrarProcessamentoPagamento() {
+    document.querySelector(".add-blur").classList.add('blur');
+    // Exibe o modal de pagamento
+    let processingModal = document.getElementById("container-modal");
+    processingModal.style.display = "flex";
+    // aplicando animação do modal
+    setTimeout(function() {
+        processingModal.classList.add("animate-modal");
+         // atraso de 2 segundos, após animação do modal redireciona para a pagina
+    }, 3000); // Atraso de 3 segundos (2000 milissegundos) para mostrar o modal em sua forma original
+    
+    
+}
+
+function esconderLoading() {
+    document.querySelector(".add-blur").classList.remove('blur');
+    processingModal.style.display = "none";
 }

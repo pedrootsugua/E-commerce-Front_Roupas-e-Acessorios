@@ -61,20 +61,4 @@ function inputCVVHandler(value) {
     atualizarCVVMascarado('valorCVV', value);
 }
 
-// Aplicar blur e mostrar modal de pagamento-------------------------------------
-function mostrarProcessamentoPagamento() {
-    document.querySelector(".add-blur").classList.add('blur');
-    // Exibe o modal de pagamento
-    let processingModal = document.getElementById("container-modal");
-    processingModal.style.display = "flex";
-    // aplicando animação do modal
-    setTimeout(function() {
-        processingModal.classList.add("animate-modal");
-        // redireciona para a pag. confirmação pedido
-        setTimeout(function() {
-            redirecionarParaPagina("TelaConfirmacaoPedido.html");
-        }, 2000); // atraso de 2 segundos, após animação do modal redireciona para a pagina
-    }, 3000); // Atraso de 3 segundos (2000 milissegundos) para mostrar o modal em sua forma original
-    
-    
-}
+
