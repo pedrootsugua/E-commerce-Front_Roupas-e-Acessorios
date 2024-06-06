@@ -28,7 +28,8 @@
   <script src="JavaScript/Geral/AcessoUsuario.js" defer></script>
   <script src="JavaScript/Geral/Geral.js" defer></script>
   <script src="JavaScript/UserInfo/conexaoAPI.js" defer></script>
-  <script src="JavaScript/UserInfo/modalDadosPessoais.js"></script>
+  <script src="JavaScript/UserInfo/conexaoAPImodal.js" defer></script>
+  <script src="JavaScript/UserInfo/acoesModal.js" defer></script>
 
   <title>Meus Dados</title>
 </head>
@@ -193,7 +194,7 @@
         <input type="text" class="input-dados" id="telefone">
       </div>
       <div class="button-wrapper">
-        <button class="salvar">SALVAR ALTERAÇÕES</button>
+        <button id="salvar-dados-usuario" class="salvar">SALVAR ALTERAÇÕES</button>
         <button class="cancelar">CANCELAR</button>
       </div>
     </div>
@@ -207,10 +208,10 @@
       <h2>EDITAR EMAIL</h2>
       <div class="modal-info">
         <label class="labels" for="email-usuario">E-mail</label>
-        <input type="text" class="input-dados" id="email-usuario">
+        <input type="text" id="campo-email-usuario" class="input-dados">
       </div>
       <div class="button-wrapper">
-        <button class="salvar">SALVAR ALTERAÇÕES</button>
+        <button id="salvar-email" class="salvar">SALVAR ALTERAÇÕES</button>
         <button class="cancelar">CANCELAR</button>
       </div>
     </div>
@@ -224,14 +225,14 @@
       <h2>EDITAR SENHA</h2>
       <div class="modal-info">
         <label class="labels" for="email-usuario">Senha Atual</label>
-        <input type="password" class="input-dados" id="senha-usuario">
+        <input type="password" class="input-dados" id="campo-senha-usuario">
       </div>
       <div class="modal-info">
         <label class="labels" for="email-usuario">Nova Senha</label>
         <input type="password" class="input-dados" id="NovaSenha-usuario">
       </div>
       <div class="button-wrapper">
-        <button class="salvar">SALVAR ALTERAÇÕES</button>
+        <button id="salvar-senha" class="salvar">SALVAR ALTERAÇÕES</button>
         <button class="cancelar">CANCELAR</button>
       </div>
     </div>

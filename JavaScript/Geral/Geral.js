@@ -38,8 +38,16 @@ document.addEventListener('DOMContentLoaded', function () {
     document.querySelector('.dados').addEventListener('click', function (event) {
         event.preventDefault(); // Evita o comportamento padrão do formulário
         // Enviar a string para a outra tela como parâmetro na URL
-        var userId = id;
-        window.location.href = 'UsuarioInfo.html?userId=' + userId;
+        let autenticadoFavorito = localStorage.getItem("autenticado");
+        const isAutenticado = (autenticadoFavorito.toLowerCase() === "true")
+        console.log(isAutenticado);
+
+        if (isAutenticado === true) {
+            var userId = id;
+            window.location.href = 'UsuarioInfo.html?userId=' + userId;
+        } else {
+            window.location.href = 'TelaLogin.html';
+        }
     });
     document.querySelector('.logout').addEventListener('click', function (event) {
         // event.preventDefault();
@@ -49,27 +57,27 @@ document.addEventListener('DOMContentLoaded', function () {
 
 });
 
-function deslogar(){
+function deslogar() {
     fetch('http://localhost:8080/api/login/logout', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+        .then(response => {
+            if (response.ok) {
+                alert('Logout realizado com sucesso!');
+                // Recarga a página e limpa o cache
+                console.log(response)
+                window.location.href = 'TelaInicial.html';
+                // location.reload();
+
+            } else {
+                alert('Erro ao fazer logout. Tente novamente.');
             }
         })
-            .then(response => {
-                if (response.ok) {
-                    alert('Logout realizado com sucesso!');
-                    // Recarga a página e limpa o cache
-                    console.log(response)
-                    location.reload();
-                    
-                    // window.location.href = 'TelaLogin.html';
-                } else {
-                    alert('Erro ao fazer logout. Tente novamente.');
-                }
-            })
-            .catch(error => {
-                console.error('Erro:', error);
-                alert('Erro ao fazer logout. Tente novamente.');
-            });
+        .catch(error => {
+            console.error('Erro:', error);
+            alert('Erro ao fazer logout. Tente novamente.');
+        });
 }
