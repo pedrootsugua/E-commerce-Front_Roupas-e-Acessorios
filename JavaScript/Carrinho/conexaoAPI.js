@@ -67,6 +67,7 @@ function inserirProdutosCarrinho(item, listProduto, data) {
 
   let valorTotal = item.id.produtoId.preco * item.qtd;
   valorTotalCarrinho = valorTotal + valorTotalCarrinho;
+  valorTotalCarrinho = valorTotalCarrinho.toFixed(2);
 
   novoProduto.innerHTML = `
     <div class="descricao-produto">
