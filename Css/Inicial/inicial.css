@@ -35,7 +35,7 @@ body{
     font-weight: 350;
 }
 
-.confira {
+#confira {
     position: relative;
     display: inline-block;
     cursor: pointer;
@@ -49,7 +49,7 @@ body{
     font-family: inherit;
    }
    
-.confira {
+#confira {
     width: 12rem;
     height: auto;
    }
