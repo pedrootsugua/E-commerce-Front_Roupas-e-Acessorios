@@ -56,6 +56,30 @@ function getDadosUsuario(id) {
 }
 
 function consultarEnderecoUsuario(id) {
+
+    fetch(`http://localhost:8080/api/login/endereco?id=${id}`, {
+        method: 'GET'
+    })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error("Erro ao acessar a API: " + response.statusText);
+            }
+            return response.json();
+        })
+        .then(data => {
+            document.getElementById('cep').value = data.cep;
+            document.getElementById('logradouro').value = data.logradouro;
+            document.getElementById('numero').value = data.numero;
+            document.getElementById('bairro').value = data.bairro;
+            document.getElementById('cidade').value = data.cidade;
+            document.getElementById('uf').value = data.uf;
+        })
+        .catch(error => {
+            console.log("Erro: " + error);
+        })
+}
+
+function consultarEnderecoUsuario(id) {
     fetch(`http://localhost:8080/api/login/endereco?id=${id}`, {
         method: 'GET'
     })
@@ -70,7 +94,6 @@ function consultarEnderecoUsuario(id) {
             let primeiroEndereco = document.getElementById("primeiro-endereco");
             let listaEndereco = document.querySelector(".lista-enderecos");
             primeiroEndereco.innerHTML = "";
-            // listaEndereco.innerHTML = "";
 
             let qtdLinha = 0;
             let linhaEndereco;
@@ -105,7 +128,7 @@ function consultarEnderecoUsuario(id) {
                             <p>${endereco.cidade + ', ' + endereco.uf + '-' + endereco.cep}</p>
                         </div>
                         <div class="button-endereco">
-                            <button class="editar-infos">
+                            <button class="editar-infos modal-endereco">
                                 EDITAR
                                 <svg viewBox="0 0 512 512" class="svg">
                                     <path
@@ -117,6 +140,11 @@ function consultarEnderecoUsuario(id) {
                         </div>
                     </div>
                     `;
+                    novoEndereco.querySelector('.modal-endereco').addEventListener('click', function () {
+                        const modalEndereco = document.querySelector('#cartao-endereco');
+                        modalEndereco.style.display = 'flex';
+                        consultarEnderecoUsuario(userId);
+                    });
                     primeiroEndereco.appendChild(cadastrarEndereço);
                     primeiroEndereco.appendChild(novoEndereco);
                 } else {
@@ -129,7 +157,7 @@ function consultarEnderecoUsuario(id) {
                             <p>${endereco.cidade + ', ' + endereco.uf + '-' + endereco.cep}</p>
                         </div>
                         <div class="button-endereco">
-                            <button class="editar-infos">
+                            <button class="editar-infos modal-endereco">
                                 EDITAR
                                 <svg viewBox="0 0 512 512" class="svg">
                                     <path
@@ -141,6 +169,10 @@ function consultarEnderecoUsuario(id) {
                         </div>
                     </div>
                     `;
+                    novoEndereco.querySelector('.modal-endereco').addEventListener('click', function () {
+                        const modalEndereco = document.querySelector('#cartao-endereco');
+                        modalEndereco.style.display = 'flex';
+                    });
                     linhaEndereco.appendChild(novoEndereco);
                     qtdLinha++;
                     if(qtdLinha === 2) {
@@ -156,6 +188,8 @@ function consultarEnderecoUsuario(id) {
             console.log("Erro: " + error);
         })
 }
+
+
 
 function usuarioAutenticado() {
     fetch('http://localhost:8080/api/login/autenticacao', {
