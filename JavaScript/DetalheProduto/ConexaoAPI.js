@@ -1,5 +1,6 @@
 const params = new URLSearchParams(window.location.search);
 const produtoId = params.get('produtoId');
+var userIdDetalhe = params.get('userId');
 
 // URL da API que você deseja acessar
 const apiUrl = 'http://localhost:8080/api/produtos/' + produtoId;
@@ -78,14 +79,71 @@ const request1 = fetch(apiUrl, {
             }
         });
 
-        document.querySelector('.add-carrinho').addEventListener('click', function (event) {
-            event.preventDefault();
-            if (!carrinho.tamanho) {
-                alert('Por favor, selecione um tamanho antes de adicionar ao carrinho.');
-                return;
-            }
-            gravarCarrinho(carrinho);
-        });
+        let autenticadoFavorito = localStorage.getItem("autenticado");
+        const isAutenticado = (autenticadoFavorito.toLowerCase() === "true")
+        console.log(isAutenticado);
+        if (isAutenticado === true) {
+            let apiUrl = 'http://localhost:8080/api/favoritos/buscar?id=' + userIdDetalhe;
+            const request1 = fetch(apiUrl, {
+                method: 'GET'
+            })
+                .then(response => {
+                    // Verifique se a solicitação foi bem-sucedida (status 200)
+                    if (!response.ok) {
+                        throw new Error('Erro ao acessar a API: ' + response.statusText);
+                    }
+                    // Parseie os dados da resposta JSON
+                    return response.json();
+                })
+                .then(produtosFavoritos => {
+                    let produtoFav = false;
+                    produtosFavoritos.forEach((item) => {
+                        if (item.id == produtoId) {
+                            let botõesAdd = document.querySelector('.button-action');
+                            botõesAdd.innerHTML = `
+                                <button class="btn-action add-carrinho">Adicionar ao carrinho</button>
+                                <button class="btn-action remove-fav">Remover dos favoritos</button>
+                                `;
+                            produtoFav = true;
+                            let botaoRemoverFav = botõesAdd.querySelector('.remove-fav');
+                            botaoRemoverFav.addEventListener('click', function () {
+                                favorito = {
+                                    usuarioId: userIdDetalhe,
+                                    produtoId: item.id
+                                }
+                                deleteProdutoFavorito(favorito)
+                            });
+                        }
+                    });
+                    if (!produtoFav) {
+                        let botõesAdd = document.querySelector('.button-action');
+                        botõesAdd.innerHTML = `
+                                <button class="btn-action add-carrinho">Adicionar ao carrinho</button>
+                                <button class="btn-action add-fav">Adicionar aos favoritos</button>
+                                `;
+                        let botaoAddFav = botõesAdd.querySelector('.add-fav');
+                        botaoAddFav.addEventListener('click', function () {
+                            favorito = {
+                                usuarioId: userIdDetalhe,
+                                produtoId: produtoId
+                            }
+                            cadastrarFavorito(favorito)
+                        });
+                    }
+                    document.querySelector('.add-carrinho').addEventListener('click', function (event) {
+                        event.preventDefault();
+                        if (!carrinho.tamanho) {
+                            alert('Por favor, selecione um tamanho antes de adicionar ao carrinho.');
+                            return;
+                        }
+                        gravarCarrinho(carrinho);
+                    });
+                })
+                .catch(error => {
+                    // Trate os erros que possam ocorrer durante a solicitação
+                    console.error(error);
+                });
+        }
     })
     .catch(error => {
         // Trate os erros que possam ocorrer durante a solicitação
@@ -112,6 +170,45 @@ function gravarCarrinho(carrinho) {
         })
         .catch(error => {
             alert("Não foi possível adicionar ao carrinho!")
+            console.error(error);
+        });
+}
+
+function deleteProdutoFavorito(favorito) {
+    fetch(`http://localhost:8080/api/favoritos/deletar`, {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(favorito)
+    })
+        .then(response => {
+            alert("Produto removido dos favoritos!")
+            location.reload();
+        })
+        .catch(error => {
+            console.log("Erro: " + error);
+        })
+}
+
+function cadastrarFavorito(favorito) {
+    const request1 = fetch("http://localhost:8080/api/favoritos/cadastrar", {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(favorito)
+    })
+        .then(response => {
+            if (response.status === 201) {
+                alert("Produto adicionado aos favoritos com sucesso!")
+                location.reload();
+            } else {
+                alert("Problemas com o servidor :/");
+            }
+        })
+        .catch(error => {
+            alert("Não foi possível adicionar aos favoritos!")
             console.error(error);
         });
 }

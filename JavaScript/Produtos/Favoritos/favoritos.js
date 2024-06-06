@@ -87,7 +87,7 @@ function acessarApiFavoritos(userIdFavorito) {
         novoProduto.classList.add('prod');
         // Define o conteúdo HTML do novo produto
         novoProduto.innerHTML = `
-        <a id='${item.id}' class="link_produto" href="DetalheProduto.html?produtoId=${item.id}"> <img
+        <a id='${item.id}' class="link_produto" href="DetalheProduto.html?produtoId=${item.id}&userId=${userIdFavorito}"> <img
                                 class="imgProduto" src="${urls[0].url}" alt="">
                             <div class="cora">
                                 <span class="text_produto">${item.nome}</span>
