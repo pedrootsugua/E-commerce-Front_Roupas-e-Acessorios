@@ -40,3 +40,46 @@ function acessarCarrinhoProduto(idCart) {
             console.log("Erro: " + error);
         })
 }
+
+function gravarPedido() {
+    const dataAtual = new Date();
+
+    let cartaoCreditoRadio = document.getElementById("cartao_credito");
+    let cartaoDebitoRadio = document.getElementById("cartao_debito");
+
+    let escolhaPagamento;
+    if (cartaoCreditoRadio.checked) {
+        escolhaPagamento = "Cartão de Crédito";
+    } else if (cartaoDebitoRadio.checked) { // Verifica se o input radio de cartão de débito está selecionado
+        escolhaPagamento = "Cartão de Débito";
+    } else {
+        alert('Selecione uma forma de pagamento!');
+    }
+
+    const novoPedido = {
+        idUsuario: x,
+        dataPedido: dataAtual,
+        tipoEnvio: "Sedex",
+        enderecoEnvio: "",
+        formaPagamento: escolhaPagamento,
+        totalPedido: valorTotalCarrinho
+    };
+    const enderecoString = JSON.stringify(novoEndereco);
+    localStorage.setItem("endereco-entrega-pedido", enderecoString); //armazena o novo endereço no cache do navegador
+    fetch(`http://localhost:8080/api/pedido/gravar`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(novoEndereco)
+    })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error("Erro ao acessar a API: " + response.statusText);
+            }
+            return response.json();
+        })
+        .catch(error => {
+            console.log("Erro: " + error);
+        })
+}
