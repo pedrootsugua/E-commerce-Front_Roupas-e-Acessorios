@@ -10,6 +10,10 @@ document.addEventListener('DOMContentLoaded', () => {
         getDadosUsuario(userId);
     });
 
+    document.querySelector("#botao-email").addEventListener('click', function () {
+        getDadosUsuario(userId);
+    });
+
     document.querySelector("#salvar-dados-usuario").addEventListener('click', function () {
         alterarDadosUsuario(userId);
         alert("Dados alterados")
@@ -119,6 +123,29 @@ function alterarSenha(id) {
                 throw new Error("Erro ao acessar a API: " + response.statusText);
             }
             return response.json();
+        })
+        .catch(error => {
+            console.log("Erro: " + error);
+        })
+}
+
+function consultarEnderecoUsuario(id) {
+    fetch(`http://localhost:8080/api/login/endereco?id=${id}`, {
+        method: 'GET'
+    })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error("Erro ao acessar a API: " + response.statusText);
+            }
+            return response.json();
+        })
+        .then(data => {
+            document.getElementById('cep').value = data.cep;
+            document.getElementById('logradouro').value = data.logradouro;
+            document.getElementById('numero').value = data.numero;
+            document.getElementById('bairro').value = data.bairro;
+            document.getElementById('cidade').value = data.cidade;
+            document.getElementById('uf').value = data.uf;
         })
         .catch(error => {
             console.log("Erro: " + error);

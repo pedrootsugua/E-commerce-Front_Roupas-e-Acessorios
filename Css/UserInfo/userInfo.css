@@ -237,7 +237,6 @@ body {
     justify-content: center;
     background-color: rgba(0, 0, 0, 0.5);
     z-index: 1000;
-
 }
 
 .salvar {
@@ -293,6 +292,16 @@ body {
     border: 1px solid #888;
     width: 42%;
     height: 58%;
+    position: relative;
+    overflow-y: auto;
+}
+
+.modal-dados-endereco {
+    background-color: #ffffff;
+    padding: 18px;
+    border: 1px solid #888;
+    width: 42%;
+    height: 85%;
     position: relative;
     overflow-y: auto;
 }

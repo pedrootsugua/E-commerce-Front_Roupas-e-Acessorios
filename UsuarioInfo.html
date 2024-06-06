@@ -30,6 +30,7 @@
   <script src="JavaScript/UserInfo/conexaoAPI.js" defer></script>
   <script src="JavaScript/UserInfo/conexaoAPImodal.js" defer></script>
   <script src="JavaScript/UserInfo/acoesModal.js" defer></script>
+  <script src="JavaScript/UserInfo/consultaAPIexterna.js" defer></script>
 
   <title>Meus Dados</title>
 </head>
@@ -233,6 +234,43 @@
       </div>
       <div class="button-wrapper">
         <button id="salvar-senha" class="salvar">SALVAR ALTERAÇÕES</button>
+        <button class="cancelar">CANCELAR</button>
+      </div>
+    </div>
+  </div>
+  <!-- FIM MODAL -->
+
+  <!-- MODAL ENDEREÇO -->
+  <div id="cartao-endereco" class="cartao">
+    <div class="modal-dados-endereco">
+      <span class="close">&times;</span>
+      <h2>EDITAR ENDEREÇO</h2>
+      <div class="modal-info">
+        <label class="labels" for="cep">CEP</label>
+        <input type="text" class="input-dados" id="cep" onblur=pesquisacep(this); required>
+      </div>
+      <div class="modal-info">
+        <label class="labels" for="logradouro">Logradouro</label>
+        <input type="text" class="input-dados" id="logradouro">
+      </div>
+      <div class="modal-info">
+        <label class="labels" for="numero">Número</label>
+        <input type="text" class="input-dados" id="numero">
+      </div>
+      <div class="modal-info">
+        <label class="labels" for="bairro">Bairro</label>
+        <input type="text" class="input-dados" id="bairro">
+      </div>
+      <div class="modal-info">
+        <label class="labels" for="cidade">Cidade</label>
+        <input type="text" class="input-dados" id="cidade">
+      </div>
+      <div class="modal-info">
+        <label class="labels" for="uf">UF</label>
+        <input type="text" class="input-dados" id="uf">
+      </div>
+      <div class="button-wrapper">
+        <button id="salvar-endereco" class="salvar">SALVAR ALTERAÇÕES</button>
         <button class="cancelar">CANCELAR</button>
       </div>
     </div>

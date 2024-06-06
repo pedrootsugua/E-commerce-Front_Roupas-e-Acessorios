@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
     const modalUsuario = document.querySelector('#cartao-usuario');
     const modalEmail = document.querySelector('#cartao-email');
     const modalSenha = document.querySelector('#cartao-senha');
+    const modalEndereco = document.querySelector('#cartao-endereco');
 
     const closeBtns = document.querySelectorAll('.close');
     const cancelarBtns = document.querySelectorAll('.cancelar');
@@ -36,6 +37,11 @@ document.addEventListener('DOMContentLoaded', (event) => {
         limparCampos()
     };
 
+    const closeModalEndereco = () => {
+        modalEndereco.style.display = 'none';
+        limparCampos()
+    };
+
     const closeModalEmail = () => {
         modalEmail.style.display = 'none';
         limparCampos()
@@ -56,6 +62,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
             closeModalUsuario();
             closeModalEmail();
             closeModalSenha();
+            closeModalEndereco();
         });
     });
 
@@ -65,6 +72,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
             closeModalUsuario();
             closeModalEmail();
             closeModalSenha();
+            closeModalEndereco();
         });
     });
 });
