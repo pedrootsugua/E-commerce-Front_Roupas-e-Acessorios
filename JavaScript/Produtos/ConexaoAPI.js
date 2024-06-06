@@ -92,7 +92,7 @@ function acessarapi(categoria, userIdFavorito) {
         novoProduto.classList.add('prod');
         // Define o conteúdo HTML do novo produto
         novoProduto.innerHTML = `
-        <a id='${item.id}' class="link_produto" href="DetalheProduto.html?produtoId=${item.id}">                            <img class="imgProduto" src="${urls[0].url}" alt="">
+        <a id='${item.id}' class="link_produto" href="DetalheProduto.html?produtoId=${item.id}&userId=${userIdFavorito}">                            <img class="imgProduto" src="${urls[0].url}" alt="">
                             <div class="cora">
                                 <span class="text_produto">${item.nome}</span>
                                 <label class="container-fav">
@@ -132,7 +132,7 @@ function acessarapi(categoria, userIdFavorito) {
                             usuarioId: userIdFavorito,
                             produtoId: item.id
                         }
-                        deleteProdutoCarrinho(favorito)
+                        deleteProdutoFavorito(favorito)
                     }
                 });
             });
@@ -174,7 +174,7 @@ function acessarapi(categoria, userIdFavorito) {
     }
 }
 
-function deleteProdutoCarrinho(favorito) {
+function deleteProdutoFavorito(favorito) {
     fetch(`http://localhost:8080/api/favoritos/deletar`, {
         method: 'DELETE',
         headers: {
