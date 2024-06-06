@@ -46,7 +46,7 @@
 .slider-images .slider-img:nth-child(3), .slider-images .slider-img:nth-child(4), .slider-images .slider-img:nth-child(5){
   height: 500px;
 }
-h1{
+.slider-img h1{
   font-family: "Jost", sans-serif;
   font-size: 40px;
   font-weight: 700;
