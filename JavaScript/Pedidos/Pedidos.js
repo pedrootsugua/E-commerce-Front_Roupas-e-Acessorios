@@ -1,53 +1,91 @@
 document.addEventListener('DOMContentLoaded', function () {
-    // Recuperar a string da URL
-    var params = new URLSearchParams(window.location.search);
-    var userId = params.get('userId');
-    let idCart = localStorage.getItem("idPedido");
-    let autenticadoPedido = localStorage.getItem("autenticado");
-    const isAutenticado = (autenticadoPedido && autenticadoPedido.toLowerCase() === "true");
-    console.log(isAutenticado);
-  
-    if (isAutenticado === true) {
-        acessarCarrinhoProduto(idCart);
-    } else {
-        let pedidoVazio = document.getElementById("empty-cart");
-        if (pedidoVazio) {
-            pedidoVazio.style.display = "flex";
-        }
-        let btnFazerLogin = document.getElementById("btn-fazer-login");
-        if (btnFazerLogin) {
-            btnFazerLogin.style.display = "flex";
-        }
-    }
+  let idUsuario = localStorage.getItem("IdUsuario");
+  let autenticadoPedido = localStorage.getItem("autenticado");
+  const isAutenticado = (autenticadoPedido && autenticadoPedido.toLowerCase() === "true");
+  console.log(isAutenticado);
 
-    document.querySelector('.botao-cont').addEventListener('click', function (event) {
-        event.preventDefault(); // Evita o comportamento padrão do formulário
-        // Enviar a string para a outra tela como parâmetro na URL
-        window.location.href = 'TelaCheckout.html?userId=' + userId;
+  if (isAutenticado) {
+    acessarpedidos(idUsuario);
+  } else {
+    let pedidoVazio = document.getElementById("empty-order");
+    pedidoVazio.style.display = "flex";
+    let btnFazerLogin = document.getElementById("btn-fazer-login");
+    btnFazerLogin.style.display = "flex";
+  }
+
+  let botaoCont = document.querySelector('.botao-cont');
+  if (botaoCont) {
+    botaoCont.addEventListener('click', function (event) {
+      event.preventDefault(); // Evita o comportamento padrão do formulário
+      // Enviar a string para a outra tela como parâmetro na URL
+      let userId = localStorage.getItem("IdUsuario"); // Supondo que você esteja armazenando o userId no localStorage
+      window.location.href = 'TelaCheckout.html?userId=' + userId;
     });
+  }
 });
 
-function inserirPedidos(item, listPedidos, data) {
-    const novoPedido = document.createElement('tr');
-  
-    const produtoHtml = `
+// Exemplo de dados de pedidos (substituir com dados reais)
+function acessarpedidos(idUsuario) {
+  fetch(`http://localhost:8080/api/pedido/` + idUsuario, {
+    method: 'GET'
+  })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error("Erro ao acessar a API: " + response.statusText);
+      }
+      return response.json();
+    })
+    .then(data => {
+      let semPedidos = document.getElementById("empty-order");
+      let comPedidos = document.querySelector(".content");
+
+      // Corrigir o erro de digitação e obter a quantidade de pedidos
+      let listaPedidos = data.length;
+      console.log("Quantidade de pedidos: " + listaPedidos);
+      const tipo = data.tipoEnvio;
+      // console.log(tipo)
+      let listProduto = document.querySelector("#tabela-pedidos");
+      if (listaPedidos !== 0) {
+        comPedidos.style.display = "flex"; 
+        listProduto.innerHTML = "";
+
+        // Assumindo que `data` é um array de pedidos
+        data.forEach((pedido) => {
+          pedido.pedidoProdutoModel.forEach((item) => {
+            inserirPedidos(item, listProduto, pedido);
+          });
+        });
+      } else {
+        semPedidos.style.display = "flex";
+        let btnVoltarInicio = document.getElementById("btn-voltar-inicio");
+        btnVoltarInicio.style.display = "flex";
+      }
+    })
+    .catch(error => {
+      console.log("Erro: " + error);
+    });
+}
+
+function inserirPedidos(item, listProduto, pedido) {
+  // Lógica para inserir os pedidos na lista
+  // Aqui você pode adicionar o HTML necessário para exibir os produtos do pedido
+  listProduto.innerHTML = `
+  <tr>
+    <td>
       <div class="produto">
-        <img src="${item.produtoUrl}" alt="${item.produtoNome}">
+        <img src="${item.id.produtoId.urlImagensModels[0].url}" alt="${item.id.produtoId.nome}">
+
         <div class="infos">
-          <div class="nomeProd">${item.produtoNome}</div>
-          <div class="categoria">${item.categoria}</div>
+          <div ${item.id.produtoId.nome}</div>
+          <div class="categoria">${item.id.produtoId.nome}</div>
         </div>
       </div>
-    `;
-  
-    novoPedido.innerHTML = `
-      <td>${produtoHtml}</td>
-      <td>${item.numeroPedido}</td>
-      <td>R$${item.precoUnitario.toFixed(2)}</td>
-      <td>${item.formaPagamento}</td>
-      <td>R$${item.totalPedido.toFixed(2)}</td>
-    `;
-  
-    // Adiciona o novo pedido à lista de pedidos
-    listPedidos.appendChild(novoPedido);
+    </td>
+    <td>${pedido.id}</td>
+    <td>${pedido.dataPedido}</td>
+    <td>${pedido.formaPagamento}</td>
+    <td>${pedido.totalPedido}</td>
+  </tr>
+  `;
+  // listProduto.appendChild("#tabela-pedidos");
 }

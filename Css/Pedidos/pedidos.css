@@ -14,7 +14,7 @@ main{
 
 .content{
     margin-left: 18%;
-    display: flex;
+    display: none;
     width: 65%;
     /* height: 300px; */
 }
@@ -107,23 +107,30 @@ footer{
     justify-content: center;
 }
 
-.carrinho-vazio {
-    display: flex; /* Garanta que o display seja flex */
+.sem-pedidos {
+    display: none; /* Garanta que o display seja flex */
     flex-direction: column;
     align-items: center;
     justify-content: center;
     margin: 60px auto 100px auto;
     font-family: "Poppins", sans-serif;
     text-align: center; /* Centralize o texto dentro do carrinho-vazio */
+
 }
 
-.carrinho-vazio img {
+.sem-pedidos img {
     width: 160px;
     margin: 70px 0 50px 0;
+   
 }
+/* .conteudo{
+    display: none;
+  } */
+  
 
 #btn-voltar-inicio {
-    /* Inicialmente escondido, será alterado para "flex" no JavaScript */
+    
+    display: none;/* Inicialmente escondido, será alterado para "flex" no JavaScript */
     justify-content: center;
     align-items: center;
 }
