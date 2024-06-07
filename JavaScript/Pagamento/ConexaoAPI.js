@@ -71,6 +71,9 @@ function gravarPedido() {
         formaPagamento: escolhaPagamento,
         totalPedido: valorTotalCarrinho
     };
+
+    const novoPedidoString = JSON.stringify(novoPedido);
+    localStorage.setItem("dadosPedido", novoPedidoString);
     
     fetch(`http://localhost:8080/api/pedido/gravar`, {
         method: 'POST',
