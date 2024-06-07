@@ -1,91 +1,22 @@
-/* body {
-  background-color: #f2f2f2;
-  box-sizing: border-box;
-}
-
-.containerpr {
-  width: 100%;
-  position: relative;
-}
-
-.imgProduto {
-  height: 195px;
-  width: 195px;
-}
-
-
-.link_produto {
-  color: inherit;
-  text-decoration: none;
-}
-
-.link_produto:hover {
-  color: inherit;/
-}
-
-#filtro {
-  margin-left: 10px;
-
-}
-
-.linha,
-.linha2,
-.linha3,
-.linha4 {
-  width: 70%;
-  display: flex;
-  flex-direction: row;
-  margin: auto
-}
-
-.prod {
-  display: flex;
-  flex-direction: column;
-  margin: 0 2.5%;
-
-}
-
-
-.cora {
-  display: flex;
-  justify-content: space-between;
-}
-
-.containerpr input {
-  position: absolute;
-  opacity: 0;
-  cursor: pointer;
-  height: 0;
-  width: 0;
-}
-
-.container-fav {
-  display: contents;
-  position: relative;
-  cursor: pointer;
-  user-select: none;
-}
-
-.containerpr svg {
-  position: relative;
-  top: 0;
-  left: 0;
-  height: 20px;
-  width: 20px;
-  transition: all 0.3s;
-  fill: #666;
-}
-
-.containerpr svg:hover {
-  transform: scale(1.1);
-}
-
-.containerpr input:checked~svg {
-  fill: #E3474F;
-} */
 body {
   background-color: #f2f2f2;
   box-sizing: border-box;
+}
+
+.filtroeprod {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2%;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .containerpr {
@@ -95,15 +26,12 @@ body {
 
 .container-filtro {
   width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  margin-bottom: 2%;
 }
 
 .filtro-produtos {
   width: 70%;
   height: 25%;
-  margin: 50px 0 30px 35px;
 }
 
 .filtro-produtos #filtro {
@@ -116,13 +44,15 @@ body {
 }
 
 .imgProduto {
-  height: 195px;
-  width: 195px;
+  height: 177px;
+  width: 177px;
 }
 
 .link_produto {
-  color: inherit; /* Isso faz com que os links adotem a cor do texto do elemento pai */
-  text-decoration: none; /* Isso remove o sublinhado padrão dos links */
+  color: inherit;
+  /* Isso faz com que os links adotem a cor do texto do elemento pai */
+  text-decoration: none;
+  /* Isso remove o sublinhado padrão dos links */
 }
 
 .link_produto:hover {
@@ -133,20 +63,18 @@ body {
 .linha2,
 .linha3,
 .linha4 {
-  width: 70%;
+  width: 100%;
   display: flex;
   flex-direction: row;
-  margin: auto;
+  justify-content: row;
+  align-items: center;
 }
 
 .prod {
+  width: 20%;
   display: flex;
   flex-direction: column;
   margin: 0 2.5%;
-}
-
-.fa-regular fa-heart {
-  /* padding-left: 30px; */
 }
 
 .cora {
@@ -155,19 +83,12 @@ body {
 }
 
 /* check de favoritos */
-.containerpr input { 
+.containerpr input {
   position: absolute;
   opacity: 0;
   cursor: pointer;
   height: 0;
   width: 0;
-}
-
-.container-fav {
-  display: contents;
-  position: relative;
-  cursor: pointer;
-  user-select: none;
 }
 
 .containerpr svg {
@@ -191,57 +112,90 @@ body {
 /* Media Queries for Responsiveness */
 
 @media (max-width: 1200px) {
+
   .linha,
   .linha2,
   .linha3,
   .linha4,
   .filtro-produtos {
-    width: 90%;
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      justify-content: row;
+      align-items: center;
   }
-  
+
+  .filtroeprod {
+      width: 80%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+  }
+
   .imgProduto {
-    height: 150px;
-    width: 150px;
+      height: 140px;
+      width: 140px;
   }
 }
 
 @media (max-width: 992px) {
+
   .linha,
   .linha2,
   .linha3,
   .linha4,
   .filtro-produtos {
-    flex-direction: row;
-    width: 80%;
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      justify-content: row;
+      align-items: center;
   }
-  
-  .prod {
-    margin: 10px 0;
+
+  .imgProduto {
+      height: 157px;
+      width: 157px;
   }
 }
 
 @media (max-width: 768px) {
+
+  .linha,
+  .linha2,
+  .linha3,
+  .linha4,
+  .filtro-produtos {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      justify-content: row;
+      align-items: center;
+  }
+
   .imgProduto {
-    height: 120px;
-    width: 120px;
+      height: 115px;
+      width: 115px;
   }
 
   .cora {
-    flex-direction: column;
+      width: 100px;
+      flex-direction: column;
   }
 }
 
 @media (max-width: 576px) {
   .imgProduto {
-    height: 100px;
-    width: 100px;
+      height: 110px;
+      width: 110px;
   }
-  
+
+  .cora {
+      width: 80px;
+      flex-direction: column;
+  }
+
   .link_produto {
-    font-size: 14px;
-  }
-  
-  #filtro {
-    margin-left: 5px;
+      font-size: 14px;
   }
 }

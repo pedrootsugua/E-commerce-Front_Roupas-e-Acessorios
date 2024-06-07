@@ -50,11 +50,11 @@ function acessarapi(categoria, userIdFavorito) {
                     })
                     .then(produtosFavoritos => {
                         data.forEach((item, index) => {
-                            if (index <= 4) { // Apenas os primeiros 4 itens
+                            if (index <= 3) { // Apenas os primeiros 4 itens
                                 inserirProdutosFront(item, listaProdutos, userIdFavorito, produtosFavoritos);
-                            } else if (index <= 8) {
+                            } else if (index <= 7) {
                                 inserirProdutosFront(item, listaProdutos2, userIdFavorito, produtosFavoritos);
-                            } else if (index <= 12) {
+                            } else if (index <= 11) {
                                 inserirProdutosFront(item, listaProdutos3, userIdFavorito, produtosFavoritos);
                             } else {
                                 inserirProdutosFront(item, listaProdutos4, userIdFavorito, produtosFavoritos);
