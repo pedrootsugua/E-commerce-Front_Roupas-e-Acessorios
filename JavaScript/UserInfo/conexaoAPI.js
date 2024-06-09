@@ -129,7 +129,9 @@ function consultarEnderecoUsuario(id) {
                         const modalEndereco = document.querySelector('#cartao-endereco');
                         modalEndereco.style.display = 'flex';
                         preencherDadosEndereco(endereco);
-                        document.querySelector('#salvar-endereco').setAttribute('data-endereco-id', endereco.id);
+                        document.querySelector('#salvar-endereco').addEventListener('click', function () {
+                            alterarEndereco(endereco.id)
+                        });
                     });
                     primeiroEndereco.appendChild(cadastrarEndereço);
                     primeiroEndereco.appendChild(novoEndereco);
@@ -159,6 +161,9 @@ function consultarEnderecoUsuario(id) {
                         const modalEndereco = document.querySelector('#cartao-endereco');
                         modalEndereco.style.display = 'flex';
                         preencherDadosEndereco(endereco);
+                        document.querySelector('#salvar-endereco').addEventListener('click', function () {
+                            alterarEndereco(endereco.id)
+                        });
                     });
                     linhaEndereco.appendChild(novoEndereco);
                     qtdLinha++;
