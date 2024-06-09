@@ -2,13 +2,13 @@ var params = new URLSearchParams(window.location.search);
 var userId = params.get('userId');
 
 let autenticadoFavorito = localStorage.getItem("autenticado");
-    const isAutenticado = (autenticadoFavorito.toLowerCase() === "true")
-    console.log(isAutenticado);
+const isAutenticado = (autenticadoFavorito.toLowerCase() === "true")
+console.log(isAutenticado);
 
-    if (isAutenticado === true) {
-        getDadosUsuario(userId);
-        consultarEnderecoUsuario(userId);
-    } 
+if (isAutenticado === true) {
+    getDadosUsuario(userId);
+    consultarEnderecoUsuario(userId);
+}
 
 let dadosUsuario = document.getElementById("dados-usuario");
 let emailUsuario = document.getElementById("email-usuario");
@@ -55,28 +55,13 @@ function getDadosUsuario(id) {
         });
 }
 
-function consultarEnderecoUsuario(id) {
-
-    fetch(`http://localhost:8080/api/login/endereco?id=${id}`, {
-        method: 'GET'
-    })
-        .then(response => {
-            if (!response.ok) {
-                throw new Error("Erro ao acessar a API: " + response.statusText);
-            }
-            return response.json();
-        })
-        .then(data => {
-            document.getElementById('cep').value = data.cep;
-            document.getElementById('logradouro').value = data.logradouro;
-            document.getElementById('numero').value = data.numero;
-            document.getElementById('bairro').value = data.bairro;
-            document.getElementById('cidade').value = data.cidade;
-            document.getElementById('uf').value = data.uf;
-        })
-        .catch(error => {
-            console.log("Erro: " + error);
-        })
+function preencherDadosEndereco(endereco) {
+    document.getElementById('cep').value = endereco.cep;
+    document.getElementById('logradouro').value = endereco.logradouro;
+    document.getElementById('numero').value = endereco.numero;
+    document.getElementById('bairro').value = endereco.bairro;
+    document.getElementById('cidade').value = endereco.cidade;
+    document.getElementById('uf').value = endereco.uf;
 }
 
 function consultarEnderecoUsuario(id) {
@@ -105,7 +90,7 @@ function consultarEnderecoUsuario(id) {
                 let novoEndereco = document.createElement('div');
                 novoEndereco.classList.add('enderecos');
                 novoEndereco.id = "enderecos-lista";
-                
+
                 if (qtdLinha === 0) {
                     linhaEndereco = document.createElement('div');
                     linhaEndereco.classList.add('linha-endereco');
@@ -120,7 +105,7 @@ function consultarEnderecoUsuario(id) {
                     `;
 
                     novoEndereco.innerHTML = `
-                    <div class="dados">
+                    <div class="dados" data-endereco-id="${endereco.id}">
                         <div id="dados-endereco">
                             <h3>${dadosConvertidos.nome}</h3>
                             <p>${endereco.logradouro + ', ' + endereco.numero}</p>
@@ -128,7 +113,7 @@ function consultarEnderecoUsuario(id) {
                             <p>${endereco.cidade + ', ' + endereco.uf + '-' + endereco.cep}</p>
                         </div>
                         <div class="button-endereco">
-                            <button class="editar-infos modal-endereco">
+                            <button class="editar-infos modal-endereco salvar-endereco">
                                 EDITAR
                                 <svg viewBox="0 0 512 512" class="svg">
                                     <path
@@ -143,13 +128,14 @@ function consultarEnderecoUsuario(id) {
                     novoEndereco.querySelector('.modal-endereco').addEventListener('click', function () {
                         const modalEndereco = document.querySelector('#cartao-endereco');
                         modalEndereco.style.display = 'flex';
-                        consultarEnderecoUsuario(userId);
+                        preencherDadosEndereco(endereco);
+                        document.querySelector('#salvar-endereco').setAttribute('data-endereco-id', endereco.id);
                     });
                     primeiroEndereco.appendChild(cadastrarEndereço);
                     primeiroEndereco.appendChild(novoEndereco);
                 } else {
                     novoEndereco.innerHTML = `
-                    <div class="dados">
+                    <div class="dados" data-endereco-id="${endereco.id}">
                         <div id="dados-endereco">
                             <h3>${dadosConvertidos.nome}</h3>
                             <p>${endereco.logradouro + ', ' + endereco.numero}</p>
@@ -157,7 +143,7 @@ function consultarEnderecoUsuario(id) {
                             <p>${endereco.cidade + ', ' + endereco.uf + '-' + endereco.cep}</p>
                         </div>
                         <div class="button-endereco">
-                            <button class="editar-infos modal-endereco">
+                            <button class="editar-infos modal-endereco salvar-endereco">
                                 EDITAR
                                 <svg viewBox="0 0 512 512" class="svg">
                                     <path
@@ -172,13 +158,14 @@ function consultarEnderecoUsuario(id) {
                     novoEndereco.querySelector('.modal-endereco').addEventListener('click', function () {
                         const modalEndereco = document.querySelector('#cartao-endereco');
                         modalEndereco.style.display = 'flex';
+                        preencherDadosEndereco(endereco);
                     });
                     linhaEndereco.appendChild(novoEndereco);
                     qtdLinha++;
-                    if(qtdLinha === 2) {
+                    if (qtdLinha === 2) {
                         listaEndereco.appendChild(linhaEndereco);
                         qtdLinha = 0;
-                    } else if(indice === data.length - 1) {
+                    } else if (indice === data.length - 1) {
                         listaEndereco.appendChild(linhaEndereco);
                     }
                 }
@@ -189,7 +176,41 @@ function consultarEnderecoUsuario(id) {
         })
 }
 
+function alterarEndereco(id) {
+    const endereco = {
+        cep: document.getElementById('cep').value,
+        logradouro: document.getElementById('logradouro').value,
+        numero: document.getElementById('numero').value,
+        bairro: document.getElementById('bairro').value,
+        cidade: document.getElementById('cidade').value,
+        uf: document.getElementById('uf').value
+    }
 
+    fetch(`http://localhost:8080/api/usuarios/atualizarenderecos?id=${id}`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(endereco)
+    })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error("Erro ao acessar a API: " + response.statusText);
+            }
+            return response.json();
+        })
+        .catch(error => {
+            console.log("Erro: " + error);
+        })
+}
+
+document.querySelector("#salvar-endereco").addEventListener('click', function () {
+    const enderecoId = this.getAttribute('data-endereco-id');
+        console.log(enderecoId);
+        alterarEndereco(enderecoId);
+        alert("Dados alterados");
+    
+});
 
 function usuarioAutenticado() {
     fetch('http://localhost:8080/api/login/autenticacao', {
