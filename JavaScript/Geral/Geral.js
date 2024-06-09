@@ -5,7 +5,19 @@ document.addEventListener('DOMContentLoaded', function () {
         var mensagem = 'sneakers';
         window.location.href = 'TelaProdutos.html?mensagem=' + mensagem + '&userId=' + id;
     });
+    document.querySelector('#sneakers').addEventListener('click', function (event) {
+        event.preventDefault(); // Evita o comportamento padrão do formulário
+        // Enviar a string para a outra tela como parâmetro na URL
+        var mensagem = 'sneakers';
+        window.location.href = 'TelaProdutos.html?mensagem=' + mensagem + '&userId=' + id;
+    });
     document.querySelector('.vestuarios').addEventListener('click', function (event) {
+        event.preventDefault(); // Evita o comportamento padrão do formulário
+        // Enviar a string para a outra tela como parâmetro na URL
+        var mensagem = 'Vestuário';
+        window.location.href = 'TelaProdutos.html?mensagem=' + mensagem + '&userId=' + id;
+    });
+    document.querySelector('#vestuario').addEventListener('click', function (event) {
         event.preventDefault(); // Evita o comportamento padrão do formulário
         // Enviar a string para a outra tela como parâmetro na URL
         var mensagem = 'Vestuário';
@@ -18,6 +30,12 @@ document.addEventListener('DOMContentLoaded', function () {
         window.location.href = 'TelaProdutos.html?mensagem=' + mensagem + '&userId=' + id;
     });
     document.querySelector('.acessorios').addEventListener('click', function (event) {
+        event.preventDefault(); // Evita o comportamento padrão do formulário
+        // Enviar a string para a outra tela como parâmetro na URL
+        var mensagem = 'Acessórios';
+        window.location.href = 'TelaProdutos.html?mensagem=' + mensagem + '&userId=' + id;
+    });
+    document.querySelector('#acessorios').addEventListener('click', function (event) {
         event.preventDefault(); // Evita o comportamento padrão do formulário
         // Enviar a string para a outra tela como parâmetro na URL
         var mensagem = 'Acessórios';

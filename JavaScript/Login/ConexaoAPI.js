@@ -4,10 +4,6 @@ const senha = document.querySelector(".senha")
 const btnLogin = document.querySelector(".btn-login");
 const show = document.querySelector(".modal-confirm");
 
-// import {
-
-//     acesso
-// } from '../Inicial/AcessoUsuario.js';
 
 function validarCampos() {
     const emailValue = email.value;
@@ -26,9 +22,6 @@ function validarCampos() {
         senha.focus();
         return;
     }
-
-    // Se os campos estiverem preenchidos, faz a consulta
-    consultar();
 }
 
 function consultar() {
@@ -51,15 +44,15 @@ function consultar() {
                 // Login realizado com sucesso
                 
                 irTelaInicial();
-                document.querySelector('.incial').addEventListener('click', function (event) {
+                document.querySelector('.inicial').addEventListener('click', function (event) {
                     event.preventDefault(); // Evita o comportamento padrão do formulário
                     
                     window.location.href = "TelaInicial.html";
                 });
             } else if (response.status === 403) {
                 // CPF já cadastrado
-                alert("Usuário/senha inválido!");
-                // loginInvalido()
+                // alert("Usuário/senha inválido!");
+                loginInvalido()
             }
         })
         .catch(e => {
@@ -73,9 +66,8 @@ function consultar() {
 
 document.querySelector('.btn-login').addEventListener('click', function (event) {
     event.preventDefault();
-
-    // consultar();
     validarCampos();
+    consultar();
 });
 
 function limparCampos() {
@@ -91,19 +83,14 @@ function irTelaInicial(){
     };
 
     // Quando o usuário clicar no botão, abre o modal
-    btnLogin.addEventListener('click', openModal);
+    openModal()
 
     // Quando o usuário clicar em qualquer lugar fora do modal, fecha o modal
-    window.addEventListener('click', (event) => {
-        if (event.target == modal) {
-            closeModal();
-        }
-    });
-    
-    // console.log(response)
-    
-    
-
+    // window.addEventListener('click', (event) => {
+    //     if (event.target == modal) {
+    //         closeModal();
+    //     }
+    // });
 }
 
 // function erroLogin(){
@@ -130,23 +117,58 @@ function irTelaInicial(){
 // }
 
 // function loginInvalido(){
-//     const modal = document.querySelector('.invalido');
-//     let btnOk = document.querySelector('.incial')
+    
 //     // Função para abrir o modal
 //     const openModal = () => {
 //         modal.style.display = 'flex';
 //     };
 //     // Quando o usuário clicar no botão, abre o modal
-//     btnLogin.addEventListener('click', openModal);
+//     openModal()
 
-//     const closeModal = () => {
+//         const closeModal = () => {
 //         modal.style.display = 'none';
 //     };
 
 //     // Quando o usuário clicar em qualquer lugar fora do modal, fecha o modal
 //     btnOk.addEventListener('click', (event) => {
-//         if (!event.target == modal) {
+//         event.preventDefault();
+//             console.log("clicado")
 //             closeModal();
-//         }
+       
 //     });
 // }
+
+function loginInvalido() {
+    const modal = document.querySelector('.invalido');
+    const btnOk = document.querySelector('.inicial'); 
+
+    // Função para abrir o modal
+    const openModal = () => {
+        modal.style.display = 'flex';
+    };
+
+    // Função para fechar o modal
+    const closeModal = () => {
+        modal.style.display = 'none';
+    };
+
+    // Abre o modal
+    openModal();
+
+    // Adiciona o evento de clique ao botão 'btnOk'
+    if (btnOk) {
+        btnOk.addEventListener('click', (event) => {
+            console.log("Botão OK clicado");
+            closeModal();
+        });
+    } else {
+        console.error("Elemento '.inicial' não encontrado.");
+    }
+
+    // Adiciona evento para fechar o modal ao clicar fora dele
+    window.addEventListener('click', (event) => {
+        if (event.target == modal) {
+            closeModal();
+        }
+    });
+}
