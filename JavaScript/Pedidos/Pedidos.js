@@ -87,7 +87,7 @@ function inserirPedidos(item, listProduto, pedido) {
   <td>${pedido.id}</td>
   <td>${dataFormatada}</td>
   <td>${pedido.formaPagamento}</td>
-  <td>${pedido.totalPedido}</td>
+  <td><span id="total-pedido">R$ ${pedido.totalPedido}</span></td>
   
   `;
   listProduto.appendChild(novoPedido);
