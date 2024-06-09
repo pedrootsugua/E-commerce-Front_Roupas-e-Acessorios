@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', (event) => {
+document.addEventListener('DOMContentLoaded', () => {
 
     const modalUsuario = document.querySelector('#cartao-usuario');
     const modalEmail = document.querySelector('#cartao-email');

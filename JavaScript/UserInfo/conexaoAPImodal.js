@@ -28,6 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
         alterarSenha(userId);
         alert("Dados alterados")
     });
+
 });
 
 function getDadosUsuario(id) {
@@ -108,7 +109,7 @@ function alterarEmail(id) {
 function alterarSenha(id) {
     const credencial = {
         senhaAtual: document.getElementById("campo-senha-usuario").value,
-        senha: document.getElementById("NovaSenha-usuario").value,
+        senha: document.getElementById("NovaSenha-usuario").value
     }
 
     fetch(`http://localhost:8080/api/usuarios/atualizarsenha?id=${id}`, {
@@ -129,28 +130,6 @@ function alterarSenha(id) {
         })
 }
 
-function consultarEnderecoUsuario(id) {
-    fetch(`http://localhost:8080/api/login/endereco?id=${id}`, {
-        method: 'GET'
-    })
-        .then(response => {
-            if (!response.ok) {
-                throw new Error("Erro ao acessar a API: " + response.statusText);
-            }
-            return response.json();
-        })
-        .then(data => {
-            document.getElementById('cep').value = data.cep;
-            document.getElementById('logradouro').value = data.logradouro;
-            document.getElementById('numero').value = data.numero;
-            document.getElementById('bairro').value = data.bairro;
-            document.getElementById('cidade').value = data.cidade;
-            document.getElementById('uf').value = data.uf;
-        })
-        .catch(error => {
-            console.log("Erro: " + error);
-        })
-}
 
 function formatarData(data) {
     return data.toISOString().split('T')[0]
