@@ -5,11 +5,14 @@
 } */
 main{
     padding: 0 30px;
+    height: 70vh;
 }
 .Titulo{
     font-size: 40px;
     padding: 50px 0;
     text-align: center;
+    margin: 35px 0;
+    font-weight: 500;
 }
 
 .content{
@@ -36,7 +39,8 @@ th{
 text-align: left;
 padding-bottom: 12px;
 text-transform: uppercase;
-color: #666;
+color: #000000;
+font-weight: bold;
 }
 
 tr{
@@ -54,9 +58,8 @@ tr{
 }
 
 img{
-    
-    height: 120px;
-  width: 155px;
+    height: 135px;
+    width: 135px;
 }
 .nomeProd{
     margin-bottom: 10px;
@@ -97,6 +100,11 @@ td{
     border-bottom: 1px solid #ccc; 
 }
 
+#total-pedido {
+    font-weight: bold;
+    color: #000000;
+}
+
 footer{
     padding-top: 1%;
 }
@@ -126,9 +134,9 @@ footer{
 /* .conteudo{
     display: none;
   } */
-  .Titulo{
+  /* .Titulo{
     display: none;
-  }
+  } */
 
 #btn-voltar-inicio {
     
