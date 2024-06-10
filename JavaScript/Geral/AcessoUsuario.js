@@ -26,6 +26,7 @@ function verificaAutenticacao() {
                 buscarUsuario(id);
                 getDadosUsuario(id);
                 admin = data.credencialModel.admin;
+                localStorage.setItem("admin", data.credencialModel.admin);
                 if (admin === true) {
                     // Encontra o elemento com a classe icon-usuario
                     var iconUsuario = document.querySelector('.icon-usuario');
