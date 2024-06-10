@@ -294,39 +294,46 @@
                         </div>
                     </div>
                     <div class="container-dados">
-                        <section class="dados-card">
-                            <div class="dados">
-                                <div>
-                                    <label for="num-cartao">N° do Cartão</label>
-                                    <input type="text" id="num-cartao" maxlength="19"
-                                        oninput="formatarNumeroCartao(this.value)">
+                        <form class="formulario">
+                            <section class="dados-card">
+                                <div class="dados">
+                                    <div>
+                                        <label for="num-cartao">N° do Cartão</label>
+                                        <input type="text" id="num-cartao" maxlength="19" disabled
+                                            oninput="formatarNumeroCartao(this.value)"
+                                            onkeypress="permitirSomenteNumeros(event)">
+                                    </div>
+                                    <div>
+                                        <label for="validade">Validade</label>
+                                        <input type="text" id="validade" maxlength="7" disabled
+                                            oninput="formatarValidade(this.value)"
+                                            onkeypress="permitirSomenteNumeros(event)">
+                                    </div>
                                 </div>
-                                <div>
-                                    <label for="validade">Validade</label>
-                                    <input type="text" id="validade" maxlength="7"
-                                        oninput="formatarValidade(this.value)">
+                                <div class="dados">
+                                    <div>
+                                        <label for="nome">Nome no Cartão</label> 
+                                        <input type="text" id="nome" disabled
+                                            oninput="formatarNomeCartao(this.value)"
+                                            onkeypress="permitirSomenteLetras(event)">
+                                    </div>
+                                    <div>
+                                        <label for="cvv">CVV</label>
+                                        <input type="password" id="cvv" maxlength="3" disabled
+                                            oninput="inputCVVHandler(this.value)"
+                                            onkeypress="permitirSomenteNumeros(event)">
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="dados">
-                                <div>
-                                    <label for="nome">Nome no Cartão</label>
-                                    <input type="text" id="nome"
-                                        oninput="atualizarDadosCartao('valorNome', this.value)">
-                                </div>
-                                <div>
-                                    <label for="cvv">CVV</label>
-                                    <input type="password" id="cvv" maxlength="3" oninput="inputCVVHandler(this.value)">
-                                </div>
-                            </div>
-                        </section>
-                        <button class="botao-finalizar" id="finalizar-compra" onclick="gravarPedido()">
-                            FINALIZAR COMPRA
-                            <svg class="svgIcon" viewBox="0 0 576 512">
-                                <path
-                                    d="M512 80c8.8 0 16 7.2 16 16v32H48V96c0-8.8 7.2-16 16-16H512zm16 144V416c0 8.8-7.2 16-16 16H64c-8.8 0-16-7.2-16-16V224H528zM64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H512c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64zm56 304c-13.3 0-24 10.7-24 24s10.7 24 24 24h48c13.3 0 24-10.7 24-24s-10.7-24-24-24H120zm128 0c-13.3 0-24 10.7-24 24s10.7 24 24 24H360c13.3 0 24-10.7 24-24s-10.7-24-24-24H248z">
-                                </path>
-                            </svg>
-                        </button>
+                            </section>
+                            <button class="botao-finalizar" id="finalizar-compra" onclick="gravarPedido()">
+                                FINALIZAR COMPRA
+                                <svg class="svgIcon" viewBox="0 0 576 512">
+                                    <path
+                                        d="M512 80c8.8 0 16 7.2 16 16v32H48V96c0-8.8 7.2-16 16-16H512zm16 144V416c0 8.8-7.2 16-16 16H64c-8.8 0-16-7.2-16-16V224H528zM64 32C28.7 32 0 60.7 0 96V416c0 35.3 28.7 64 64 64H512c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H64zm56 304c-13.3 0-24 10.7-24 24s10.7 24 24 24h48c13.3 0 24-10.7 24-24s-10.7-24-24-24H120zm128 0c-13.3 0-24 10.7-24 24s10.7 24 24 24H360c13.3 0 24-10.7 24-24s-10.7-24-24-24H248z">
+                                    </path>
+                                </svg>
+                            </button>
+                        </form>
                     </div>
                     <a href="TelaCheckout.html">
                         <button class="animated-button">
@@ -361,6 +368,20 @@
                         d="M345.441 248.292L151.154 442.573c-12.359 12.365-32.397 12.365-44.75 0-12.354-12.354-12.354-32.391 0-44.744L278.318 225.92 106.409 54.017c-12.354-12.359-12.354-32.394 0-44.748 12.354-12.359 32.391-12.359 44.75 0l194.287 194.284c6.177 6.18 9.262 14.271 9.262 22.366 0 8.099-3.091 16.196-9.267 22.373z">
                     </path>
                 </svg>
+            </div>
+        </div>
+
+        <!-- modal validação forma de pagamento -->
+        <div class="card-validacao">
+            <div class="modal-validacao">
+                <p class="modal-heading">Selecione uma forma de pagamento</p>
+                <img src="img/alert-icon.png" alt="Icone de alerta">
+                <!-- <p class="modal-info">
+                    Seu cadastro foi realizado com sucesso!!
+                </p> -->
+                <div class="button-wrapper">
+                    <button class="accept-cookie-button">OK</button>
+                </div>
             </div>
         </div>
     </div>
