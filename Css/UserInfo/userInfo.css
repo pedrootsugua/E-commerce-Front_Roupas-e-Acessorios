@@ -115,6 +115,8 @@ body {
     width: 450px;
     height: 250px;
     margin: 10px;
+    cursor: pointer;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
 
 .novo-endereco {
@@ -340,3 +342,8 @@ h2 {
 }
 
 /* FIM MODAL */
+
+.cadastrar-endereco:hover {
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    transform: scale(1.02);
+}

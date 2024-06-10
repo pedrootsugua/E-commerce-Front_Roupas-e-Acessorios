@@ -8,6 +8,7 @@ console.log(isAutenticado);
 if (isAutenticado === true) {
     getDadosUsuario(userId);
     consultarEnderecoUsuario(userId);
+    verificaAutenticacao();
 }
 
 let dadosUsuario = document.getElementById("dados-usuario");
@@ -21,11 +22,12 @@ const dadosConvertidos = JSON.parse(dadosRecebidos);
 const isoDate = dadosConvertidos.dtNascimento;
 const [year, month, day] = isoDate.split('T')[0].split('-');
 const formattedDate = `${day}/${month}/${year}`;
+const formattedCpf = formatarCPF(dadosConvertidos.cpf)
 
 /*Inserindo os valores recuperados do Objeto em Cache no HTML */
 dadosUsuario.innerHTML = ` <p>${dadosConvertidos.nome}</p> 
      <p>${formattedDate}</p> 
-     <p>${dadosConvertidos.cpf}</p> 
+     <p>${formattedCpf}</p> 
      <p>${dadosConvertidos.telefone}</p> `;
 
 const formattedEmail = dadosConvertidos.email.toUpperCase();
@@ -103,6 +105,15 @@ function consultarEnderecoUsuario(id) {
                             <h2>+</h2>
                         </div>
                     `;
+                    cadastrarEndereço.addEventListener('click', function () {
+                        const modalEndereco = document.querySelector('#cartao-endereco');
+                        modalEndereco.style.display = 'flex';
+                        document.querySelector('#cartao-endereco h2').innerText = 'NOVO ENDEREÇO';
+                        document.querySelector('#salvar-endereco').addEventListener('click', function () {
+                            cadastrarNovoEndereco(id);
+                            modalEndereco.style.display = 'none';
+                        });
+                    });
 
                     novoEndereco.innerHTML = `
                     <div class="dados" data-endereco-id="${endereco.id}">
@@ -128,10 +139,16 @@ function consultarEnderecoUsuario(id) {
                     novoEndereco.querySelector('.modal-endereco').addEventListener('click', function () {
                         const modalEndereco = document.querySelector('#cartao-endereco');
                         modalEndereco.style.display = 'flex';
+                        document.querySelector('#cartao-endereco h2').innerText = 'EDITAR ENDEREÇO';
                         preencherDadosEndereco(endereco);
                         document.querySelector('#salvar-endereco').addEventListener('click', function () {
                             alterarEndereco(endereco.id)
+                            modalEndereco.style.display = 'none';
                         });
+                    });
+                    novoEndereco.querySelector('.btn-remover').addEventListener('click', function () {
+                        deletarEndereco(endereco.id);
+                        alert('removido');
                     });
                     primeiroEndereco.appendChild(cadastrarEndereço);
                     primeiroEndereco.appendChild(novoEndereco);
@@ -160,10 +177,16 @@ function consultarEnderecoUsuario(id) {
                     novoEndereco.querySelector('.modal-endereco').addEventListener('click', function () {
                         const modalEndereco = document.querySelector('#cartao-endereco');
                         modalEndereco.style.display = 'flex';
+                        document.querySelector('#cartao-endereco h2').innerText = 'EDITAR ENDEREÇO';
                         preencherDadosEndereco(endereco);
                         document.querySelector('#salvar-endereco').addEventListener('click', function () {
                             alterarEndereco(endereco.id)
+                            modalEndereco.style.display = 'none';
                         });
+                    });
+                    novoEndereco.querySelector('.btn-remover').addEventListener('click', function () {
+                        deletarEndereco(endereco.id);
+                        alert('removido');
                     });
                     linhaEndereco.appendChild(novoEndereco);
                     qtdLinha++;
@@ -209,12 +232,58 @@ function alterarEndereco(id) {
         })
 }
 
+function cadastrarNovoEndereco(id) {
+    const endereco = {
+        cep: document.getElementById('cep').value,
+        logradouro: document.getElementById('logradouro').value,
+        numero: document.getElementById('numero').value,
+        bairro: document.getElementById('bairro').value,
+        cidade: document.getElementById('cidade').value,
+        uf: document.getElementById('uf').value
+    }
+
+    fetch(`http://localhost:8080/api/usuarios/novoendereco?id=${id}`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(endereco)
+    })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error("Erro ao acessar a API: " + response.statusText);
+            }
+            return response.json();
+        })
+        .catch(error => {
+            console.log("Erro: " + error);
+        })
+}
+
+function deletarEndereco(id) {
+    fetch(`http://localhost:8080/api/usuarios/deletarendereco?id=${id}`, {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify()
+    })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error("Erro ao acessar a API: " + response.statusText);
+            }
+            return response.json();
+        })
+        .catch(error => {
+            console.log("Erro: " + error);
+        })
+}
+
 document.querySelector("#salvar-endereco").addEventListener('click', function () {
     const enderecoId = this.getAttribute('data-endereco-id');
-        console.log(enderecoId);
-        alterarEndereco(enderecoId);
-        alert("Dados alterados");
-    
+    console.log(enderecoId);
+    alterarEndereco(enderecoId);
+
 });
 
 function usuarioAutenticado() {
@@ -267,4 +336,104 @@ function buscarUsuario(id) {
             console.error('Erro ao fazer login:', error);
             alert("Erro ao acessar usuário. Por favor, tente novamente.");
         });
+}
+
+function verificaAutenticacao() {
+    fetch('http://localhost:8080/api/login/autenticacao', {
+        method: 'GET',
+    })
+        .then(response => {
+            if (response.ok) {
+                return response.json();
+            } else {
+                throw new Error('Erro ao fazer login');
+            }
+        })
+        .then(data => {
+            autenticado = data.autenticado;
+            localStorage.setItem("autenticado", autenticado);
+            if (autenticado === true) {
+                id = data.credencialModel.idUsuario;
+                localStorage.setItem("IdUsuario", id)
+                buscarUsuario(id);
+                getDadosUsuario(id);
+                admin = data.credencialModel.admin;
+                if (admin === true) {
+                    // Encontra o elemento com a classe icon-usuario
+                    var iconUsuario = document.querySelector('.icon-usuario');
+
+                    // Cria um novo elemento de imagem
+                    var novaImagem = document.createElement('img');
+
+                    // Define os atributos da nova imagem
+                    novaImagem.src = 'img/admin-9575.png'; // Substitua pelo caminho da sua imagem
+                    novaImagem.alt = 'Ícone de usuário'; // Texto alternativo para acessibilidade
+                    novaImagem.classList.add('icone-imagem');
+
+                    // Substitui o elemento <i> pela nova imagem
+                    iconUsuario.innerHTML = ''; // Limpa o conteúdo existente do elemento <i>
+                    iconUsuario.appendChild(novaImagem); // Adiciona a nova imagem ao lugar do elemento <i>
+
+                    var iconProdutos = document.querySelector('.icon-produtos');
+                    // Cria um novo elemento de imagem
+                    var novoIcone = document.createElement('img');
+                    // Define os atributos da nova imagem
+                    novoIcone.src = 'img/editar.png'; // Substitua pelo caminho da sua imagem
+                    novoIcone.alt = 'Ícone de cadastrar produto'; // Texto alternativo para acessibilidade
+                    novoIcone.classList.add('icone-imagem');
+                    novoIcone.classList.add('icone-edit-prod');
+
+                    // Substitui o elemento <i> pela nova imagem
+                    iconProdutos.innerHTML = ''; // Limpa o conteúdo existente do elemento <i>
+                    iconProdutos.appendChild(novoIcone); // Adiciona a nova imagem ao lugar do elemento <i>
+
+                    const tamanhoMargin = localStorage.getItem("tamanho-margin-left");
+                    const iconeProd = document.querySelector('.nav-icone-prod');
+                    iconeProd.style.marginLeft = (tamanhoMargin) + 'px';
+
+                    document.querySelector('.icone-edit-prod').addEventListener('click', function (event) {
+                        event.preventDefault();
+                        window.location.href = 'TelaCadastroProd.html';
+                    });
+                }
+            } else {
+                const positionIcons = document.querySelectorAll('.nav-icone');
+                positionIcons.forEach(icon => {
+                    icon.style.marginLeft = 30 + 'px';
+                    // icon.style.marginRight = spacing + 'px';
+                });
+                var iconHeart = document.querySelector('.nav-icone-heart');
+                iconHeart.style.marginLeft = 30 + 'px';
+
+                const login = document.createElement('a');
+                const dropdownContent = document.getElementById('dropdown-content');
+
+                // Adiciona as classes ao novo link
+                login.className = 'login'; // substitua 'nova-classe' pela classe desejada
+
+                // Define o atributo href do novo link
+                login.href = '/TelaLogin.html'; // substitua 'NovaPagina.html' pelo href desejado
+
+                // Define o texto interno do novo link
+                login.textContent = 'Fazer Login'; // substitua 'Novo Link' pelo texto desejado
+
+                // Adiciona o novo link à div
+                dropdownContent.appendChild(login);
+            }
+        })
+        .catch(error => {
+            console.error('Erro ao fazer login:', error);
+        });
+}
+
+function formatarCPF(cpf) {
+    // Remove any non-numeric characters
+    cpf = cpf.replace(/\D/g, '');
+    
+    // Format the CPF as XXX.XXX.XXX-XX
+    cpf = cpf.replace(/(\d{3})(\d)/, '$1.$2');
+    cpf = cpf.replace(/(\d{3})(\d)/, '$1.$2');
+    cpf = cpf.replace(/(\d{3})(\d{1,2})$/, '$1-$2');
+    
+    return cpf;
 }

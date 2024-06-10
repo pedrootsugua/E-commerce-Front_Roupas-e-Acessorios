@@ -1,6 +1,10 @@
 var params = new URLSearchParams(window.location.search);
 var userId = params.get('userId');
 
+const modalUsuario = document.querySelector('#cartao-usuario');
+const modalEmail = document.querySelector('#cartao-email');
+const modalSenha = document.querySelector('#cartao-senha');
+
 document.addEventListener('DOMContentLoaded', () => {
     document.querySelector("#botao-usuario").addEventListener('click', function () {
         getDadosUsuario(userId);
@@ -16,17 +20,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.querySelector("#salvar-dados-usuario").addEventListener('click', function () {
         alterarDadosUsuario(userId);
-        alert("Dados alterados")
+        modalUsuario.style.display = 'none';
     });
 
     document.querySelector("#salvar-email").addEventListener('click', function () {
         alterarEmail(userId);
-        alert("Dados alterados")
+        modalEmail.style.display = 'none';
     });
 
     document.querySelector("#salvar-senha").addEventListener('click', function () {
         alterarSenha(userId);
-        alert("Dados alterados")
+        modalSenha.style.display = 'none';
     });
 
 });
