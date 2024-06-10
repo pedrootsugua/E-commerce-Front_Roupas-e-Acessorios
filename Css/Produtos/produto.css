@@ -79,7 +79,17 @@ body {
 
 .cora {
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
+}
+
+.editar-prod img{
+  width: 20px;
+  height: 20px;
+}
+
+.text_produto {
+  width: 65%;
 }
 
 /* check de favoritos */

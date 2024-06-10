@@ -67,11 +67,11 @@ function acessarapi(categoria, userIdFavorito) {
                     });
             } else {
                 data.forEach((item, index) => {
-                    if (index <= 4) { // Apenas os primeiros 4 itens
+                    if (index <= 3) { // Apenas os primeiros 4 itens
                         inserirProdutosFront(item, listaProdutos, userIdFavorito);
-                    } else if (index <= 8) {
+                    } else if (index <= 7) {
                         inserirProdutosFront(item, listaProdutos2, userIdFavorito);
-                    } else if (index <= 12) {
+                    } else if (index <= 11) {
                         inserirProdutosFront(item, listaProdutos3, userIdFavorito);
                     } else {
                         inserirProdutosFront(item, listaProdutos4, userIdFavorito);
@@ -90,8 +90,41 @@ function acessarapi(categoria, userIdFavorito) {
         // Cria um novo elemento de produto
         const novoProduto = document.createElement('li');
         novoProduto.classList.add('prod');
-        // Define o conteúdo HTML do novo produto
-        novoProduto.innerHTML = `
+        let autenticadoFavorito = localStorage.getItem("autenticado");
+        const isAutenticado = (autenticadoFavorito.toLowerCase() === "true")
+        let isAdmin = false;
+        if (isAutenticado === true) {
+            let adminProdutos = localStorage.getItem("admin");
+            console.log(adminProdutos);
+            isAdmin = (adminProdutos.toLowerCase() === "true");
+        }
+        if (isAdmin === true) {
+            // Define o conteúdo HTML do novo produto
+            novoProduto.innerHTML = `
+            <a id='${item.id}' class="link_produto" href="DetalheProduto.html?produtoId=${item.id}&userId=${userIdFavorito}">                            
+                <img class="imgProduto" src="${urls[0].url}" alt="">
+            </a>
+                <div class="cora">
+                    <span class="text_produto">${item.nome}</span>
+                    <div>
+                        <a class="editar-prod" href="TelaEditarProd.html?produtoId=${item.id}">
+                            <img src="img/botao-editar.png" alt="Imagem editar">
+                        </a>
+                        <label class="container-fav">
+                            <input type="checkbox">
+                            <svg id="Layer_1" version="1.0" viewBox="0 0 24 24" xml:space="preserve"
+                                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                <path
+                                    d="M16.4,4C14.6,4,13,4.9,12,6.3C11,4.9,9.4,4,7.6,4C4.5,4,2,6.5,2,9.6C2,14,12,22,12,22s10-8,10-12.4C22,6.5,19.5,4,16.4,4z">
+                                </path>
+                            </svg>
+                        </label>
+                    </div>
+                </div>
+                <p class="preco">R$ ${item.preco}</p>
+                        `;
+        } else {
+            novoProduto.innerHTML = `
         <a id='${item.id}' class="link_produto" href="DetalheProduto.html?produtoId=${item.id}&userId=${userIdFavorito}">                            <img class="imgProduto" src="${urls[0].url}" alt="">
                             <div class="cora">
                                 <span class="text_produto">${item.nome}</span>
@@ -108,9 +141,7 @@ function acessarapi(categoria, userIdFavorito) {
                             <p class="preco">R$ ${item.preco}</p>
                         </a>
                     `;
-
-        let autenticadoFavorito = localStorage.getItem("autenticado");
-        const isAutenticado = (autenticadoFavorito.toLowerCase() === "true")
+        }
         if (isAutenticado === true) {
             // Itere sobre cada item na lista
             produtosFavoritos.forEach((produtosFavoritosItens) => {
