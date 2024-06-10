@@ -121,3 +121,28 @@ document.querySelector('.btn-excluir').addEventListener('click', function (event
     event.preventDefault(); // Evita o comportamento padrão do formulário
     excluirUltimoRegistro(); // Chama a função para adicionar na lista
 });
+
+document.querySelector('.btn-estoque').addEventListener('click', function (event) {
+    const novoEstoque = document.querySelector('.modal-content');
+    let htmlContent = ''; // Variável para acumular o conteúdo HTML
+    dados.forEach((item, index) => {
+        console.log(index)
+        htmlContent += `
+            <div class="input-tamanho-estoque">
+                    <div class="modal-info">
+                        <label class="labels" for="campo-tamanho${index}">Tamanho</label>
+                        <input type="text" class="input-dados" id="campo-tamanho${index}" readonly>
+                    </div>
+                    <div class="modal-info">
+                        <label class="labels" for="campo-estoque${index}">Estoque</label>
+                        <input type="text" class="input-dados" id="campo-estoque${index}">
+                    </div>
+                </div>
+                        `;
+    });
+    novoEstoque.innerHTML = htmlContent;
+    dados.forEach((item, index) => {
+        document.querySelector('#campo-tamanho' + index).value = item.tamanho;
+        document.querySelector('#campo-estoque' + index).value = item.estoque;
+    });
+});

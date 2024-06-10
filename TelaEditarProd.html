@@ -17,10 +17,12 @@
     <link rel="stylesheet" href="./Css/CadastroProdutos/FooterCadProd.css">
 
     <link rel="stylesheet" href="./Css/FormularioCliente/formulario.css">
+    <link rel="stylesheet" href="/Css/EditarProdutos/editarProdutos.css">
 
     <script src="./JavaScript/CadastroProdutos/Utils.js" defer></script>
     <script src="./JavaScript/EditarProdutos/ConexaoAPI.js" defer></script>
     <script src="./JavaScript/CadastroProdutos/AddImagem.js" defer></script>
+    <script src="/JavaScript/EditarProdutos/acoesModal.js"></script>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
         integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
@@ -121,12 +123,15 @@
                             <div class="col-md-6 mb-3">
                                 <div class="descricao-label">
                                     <div class="row">
-                                        <div class="col-md-6 mb-2
+                                        <div class="col-md-4 mb-2
                                         ">
                                             <button class="btn btn-primary btn-block btn-incluir">Incluir</button>
                                         </div>
-                                        <div class="col-md-6 mb-2">
+                                        <div class="col-md-4 mb-2">
                                             <button class="btn btn-secondary btn-block btn-excluir">Excluir</button>
+                                        </div>
+                                        <div class="col-md-4 mb-2">
+                                            <button class="btn btn-secondary btn-block btn-estoque editar-infos">Estoque</button>
                                         </div>
                                     </div>
                                     <label for="textarea-tam-est"></label>
@@ -192,74 +197,91 @@
         </div>
     </div>
 
+    <!-- MODAL ESTOQUE -->
+    <div id="cartao-estoque" class="cartao">
+        <div class="modal-dados-estoque">
+            <div class="editar-fechar">
+                <h2>EDITAR INFORMAÇÕES</h2>
+                <span class="close">&times;</span>
+            </div>
+            <div class="modal-content">
+            </div>
+            <div class="botoes">
+                <button id="salvar-senha" class="salvar">SALVAR ALTERAÇÕES</button>
+                <button class="cancelar">CANCELAR</button>
+            </div>
+        </div>
+    </div>
+
     <!-- Footer -->
     <footer>
         <div id="footer_content">
-          <div id="footer_contacts">
-            <h1 class="logoRodape"><img src="img/logo.png" alt="Imagem logo"></h1>
-            <p class="desc">Happy Camper</p>
-    
-            <div id="footer_social_media">
-              <a href="#" class="footer-link" id="instagram" target="_blank">
-                <i class="fa-brands fa-instagram"></i>
-              </a>
-              <a href="https://github.com/pedrootsugua/Projeto-E-commerce" class="footer-link" id="github" target="_blank">
-                <img src="img/github_img.png" alt="Logo GitHub">
-              </a>
+            <div id="footer_contacts">
+                <h1 class="logoRodape"><img src="img/logo.png" alt="Imagem logo"></h1>
+                <p class="desc">Happy Camper</p>
+
+                <div id="footer_social_media">
+                    <a href="#" class="footer-link" id="instagram" target="_blank">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+                    <a href="https://github.com/pedrootsugua/Projeto-E-commerce" class="footer-link" id="github"
+                        target="_blank">
+                        <img src="img/github_img.png" alt="Logo GitHub">
+                    </a>
+                </div>
             </div>
-          </div>
-    
-          <ul class="footer-list">
-            <li>
-              <h3>Institucional</h3>
-            </li>
-            <li>
-              <a href="#" class="footer-link">Sobre nós</a>
-            </li>
-            <li>
-              <a href="#" class="footer-link">Nossa História</a>
-            </li>
-            <li>
-              <a href="#" class="footer-link">Streetwear</a>
-            </li>
-          </ul>
-    
-          <ul class="footer-list">
-            <li>
-              <h3>Produtos</h3>
-            </li>
-            <li>
-              <a href="#" class="footer-link" id="vestuario">Vestuário</a>
-            </li>
-            <li>
-              <a href="#" class="footer-link" id="acessorios">Acessórios</a>
-            </li>
-            <li>
-              <a href="#" class="footer-link" id="sneakers">Sneakers</a>
-            </li>
-          </ul>
-    
-          <div id="footer_subscribe">
-            <h3>Inscreva-se</h3>
-    
-            <p>
-              Digite seu email e fique por dentro de nossas novidades.
-            </p>
-    
-            <div id="input_group">
-              <input type="email" id="email">
-              <button>
-                <i class="fa-regular fa-envelope"></i>
-              </button>
+
+            <ul class="footer-list">
+                <li>
+                    <h3>Institucional</h3>
+                </li>
+                <li>
+                    <a href="#" class="footer-link">Sobre nós</a>
+                </li>
+                <li>
+                    <a href="#" class="footer-link">Nossa História</a>
+                </li>
+                <li>
+                    <a href="#" class="footer-link">Streetwear</a>
+                </li>
+            </ul>
+
+            <ul class="footer-list">
+                <li>
+                    <h3>Produtos</h3>
+                </li>
+                <li>
+                    <a href="#" class="footer-link" id="vestuario">Vestuário</a>
+                </li>
+                <li>
+                    <a href="#" class="footer-link" id="acessorios">Acessórios</a>
+                </li>
+                <li>
+                    <a href="#" class="footer-link" id="sneakers">Sneakers</a>
+                </li>
+            </ul>
+
+            <div id="footer_subscribe">
+                <h3>Inscreva-se</h3>
+
+                <p>
+                    Digite seu email e fique por dentro de nossas novidades.
+                </p>
+
+                <div id="input_group">
+                    <input type="email" id="email">
+                    <button>
+                        <i class="fa-regular fa-envelope"></i>
+                    </button>
+                </div>
             </div>
-          </div>
         </div>
-    
+
         <div id="footer_copyright">
-          &#169
-          2024 Todos os Direitos Reservados
+            &#169
+            2024 Todos os Direitos Reservados
         </div>
-      </footer>
+    </footer>
     <!-- Footer -->
 
     <div id="loadingModal" class="loading-modal">
