@@ -325,7 +325,7 @@
                                     </div>
                                 </div>
                             </section>
-                            <button class="botao-finalizar" id="finalizar-compra" onclick="gravarPedido()">
+                            <button class="botao-finalizar" id="finalizar-compra" onclick="validarCampos(event)">
                                 FINALIZAR COMPRA
                                 <svg class="svgIcon" viewBox="0 0 576 512">
                                     <path
@@ -380,7 +380,7 @@
                     Seu cadastro foi realizado com sucesso!!
                 </p> -->
                 <div class="button-wrapper">
-                    <button class="accept-cookie-button">OK</button>
+                    <button class="accept-cookie-button" onclick="fecharModal()">OK</button>
                 </div>
             </div>
         </div>

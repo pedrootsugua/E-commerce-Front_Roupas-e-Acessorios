@@ -119,6 +119,29 @@ function esconderLoading() {
 }
 
 // validar os campos antes de gravar o pedido------------------------------------
-function validarCampos() {
+function validarCampos(event) {
+    event.preventDefault();
 
+    let cartaoCreditoRadio = document.getElementById("cartao_credito");
+    let cartaoDebitoRadio = document.getElementById("cartao_debito");
+
+    let blurConteudoPrincipal = document.querySelector(".add-blur");
+    let modalAlerta = document.querySelector(".card-validacao");
+    
+    if (!cartaoCreditoRadio.checked && !cartaoDebitoRadio.checked) {
+        blurConteudoPrincipal.classList.add('blur');
+        modalAlerta.style.display = "flex";
+    } else if(cartaoCreditoRadio.checked || cartaoDebitoRadio.checked) {
+        document.getElementById("num-cartao").disabled = false;
+        // document.addEventListener('DOMContentLoaded', function() {
+        //     document.querySelectorAll(".formulario input").forEach(function(input) {
+        //         input.disabled = false;
+        //     });
+        // });
+    }
+}
+
+function fecharModal() {
+    document.querySelector(".add-blur").classList.remove('blur');
+    document.querySelector(".card-validacao").style.display = "none";
 }
