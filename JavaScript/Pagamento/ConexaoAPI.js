@@ -72,8 +72,8 @@ function gravarPedido() {
         totalPedido: valorTotalCarrinho
     };
 
-    const novoPedidoString = JSON.stringify(novoPedido);
-    localStorage.setItem("dadosPedido", novoPedidoString);
+    // const novoPedidoString = JSON.stringify(novoPedido);
+    // localStorage.setItem("dadosPedido", novoPedidoString);
     
     fetch(`http://localhost:8080/api/pedido/gravar`, {
         method: 'POST',
@@ -116,4 +116,9 @@ function mostrarProcessamentoPagamento() {
 function esconderLoading() {
     document.querySelector(".add-blur").classList.remove('blur');
     processingModal.style.display = "none";
+}
+
+// validar os campos antes de gravar o pedido------------------------------------
+function validarCampos() {
+
 }
