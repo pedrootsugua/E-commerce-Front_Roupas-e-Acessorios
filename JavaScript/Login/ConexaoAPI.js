@@ -139,8 +139,8 @@ function irTelaInicial(){
 // }
 
 function loginInvalido() {
-    const modal = document.querySelector('.invalido');
-    const btnOk = document.querySelector('.inicial'); 
+    const modal = document.querySelector('#not-valid');
+    const btnOk = document.querySelector('#clicked'); 
 
     // Função para abrir o modal
     const openModal = () => {
