@@ -9,6 +9,7 @@
 footer {
     width: 100%;
     color: #000000;
+    position: sticky;
 }
 
 .desc {
@@ -25,6 +26,7 @@ body a:hover {
 
 #footer_content {
     /* background-color: #FFAFCC; */
+   margin-top:15%;
     background: rgba(244, 244, 244, 0.66);
     display: grid;
     grid-template-columns: repeat(4, 1fr);

@@ -40,22 +40,19 @@ function acessarpedidos(idUsuario) {
       let comPedidos = document.querySelector(".content");
       let Titulo = document.querySelector(".Titulo");
 
-
       let listaPedidos = data.length;
       console.log("Quantidade de pedidos: " + listaPedidos);
       const tipo = data.tipoEnvio;
-      // console.log(tipo)
       let listProduto = document.querySelector("#tabela-pedidos");
       if (listaPedidos !== 0) {
         Titulo.style.display = "block"
         comPedidos.style.display = "flex"; 
         listProduto.innerHTML = "";
 
-        // Assumindo que `data` é um array de pedidos
         data.forEach((pedido) => {
-          pedido.pedidoProdutoModel.forEach((item) => {
-            inserirPedidos(item, listProduto, pedido);
-          });
+          // Pegar apenas o primeiro item de cada pedido
+          const primeiroItem = pedido.pedidoProdutoModel[0];
+          inserirPedido(primeiroItem, listProduto, pedido);
         });
       } else {
         semPedidos.style.display = "flex";
@@ -68,27 +65,25 @@ function acessarpedidos(idUsuario) {
     });
 }
 
-function inserirPedidos(item, listProduto, pedido) {
-  
-  const novoPedido = document.createElement('tr')
+
+function inserirPedido(item, listProduto, pedido) {
+  const novoPedido = document.createElement('tr');
   let dataFormatada = pedido.dataPedido.substring(0, 10);
   novoPedido.innerHTML = `
-  
-  <td>
-    <div class="produto">
-      <img src="${item.id.produtoId.urlImagensModels[0].url}" alt="${item.id.produtoId.nome}">
-
-      <div class="infos">
-        <div ${item.id.produtoId.nome}</div>
-        <div class="categoria">${item.id.produtoId.nome}</div>
+    <td class="pedido-item" data-pedido-id="${pedido.id}">
+      <div class="produto">
+        <img src="${item.id.produtoId.urlImagensModels[0].url}" alt="${item.id.produtoId.nome}">
+        <div class="infos">
+          <div>${item.id.produtoId.nome}</div>
+          <div class="categoria">${item.id.produtoId.categoria}</div>
+        </div>
       </div>
-    </div>
-  </td>
-  <td>${pedido.id}</td>
-  <td>${dataFormatada}</td>
-  <td>${pedido.formaPagamento}</td>
-  <td><span id="total-pedido">R$ ${pedido.totalPedido}</span></td>
-  
+    </td>
+    <td>${pedido.id}</td>
+    <td>${dataFormatada}</td>
+    <td>${pedido.formaPagamento}</td>
+    <td><span id="total-pedido">R$ ${pedido.totalPedido}</span></td>
   `;
   listProduto.appendChild(novoPedido);
 }
+
