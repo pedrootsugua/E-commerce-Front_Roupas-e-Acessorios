@@ -1,3 +1,24 @@
+document.addEventListener('DOMContentLoaded', function() {
+    let cartaoCreditoRadio = document.getElementById("cartao_credito");
+    let cartaoDebitoRadio = document.getElementById("cartao_debito");
+
+    // Função para habilitar/desabilitar campos
+    function verificarPagamentoSelecionado() {
+        if (cartaoCreditoRadio.checked || cartaoDebitoRadio.checked) {
+            document.querySelectorAll(".formulario input").forEach(function(input) {
+                input.disabled = false;
+            });
+        } 
+    }
+
+    // Verificar seleção inicial
+    verificarPagamentoSelecionado();
+
+    // Adicionar eventos de mudança para os radio buttons
+    cartaoCreditoRadio.addEventListener('change', verificarPagamentoSelecionado);
+    cartaoDebitoRadio.addEventListener('change', verificarPagamentoSelecionado);
+});
+
 //buscar o endereço selecionado para entrega do pedido
 let endereco = document.getElementById("endereco-entrega");
 
@@ -10,7 +31,6 @@ endereco.innerHTML = ` <p>${enderecoConvertido.logradouro + ', ' + enderecoConve
 let valorTotalCarrinho = 0;
 let idCart = localStorage.getItem("idCarrinho");
 acessarCarrinhoProduto(idCart);
-console.log(valorTotalCarrinho);
 
 function acessarCarrinhoProduto(idCart) {
     fetch(`http://localhost:8080/api/carrinho/` + idCart, {
@@ -35,7 +55,6 @@ function acessarCarrinhoProduto(idCart) {
             valorTotalCarrinho = valorTotalCarrinho.toFixed(2); //formatando valor
             totalCarrinho.innerHTML = ` <p>${'R$ '+valorTotalCarrinho}</p> `
 
-            console.log(valorTotalCarrinho);
         })
         .catch(error => {
             console.log("Erro: " + error);
@@ -132,12 +151,10 @@ function validarCampos(event) {
         blurConteudoPrincipal.classList.add('blur');
         modalAlerta.style.display = "flex";
     } else if(cartaoCreditoRadio.checked || cartaoDebitoRadio.checked) {
-        document.getElementById("num-cartao").disabled = false;
-        // document.addEventListener('DOMContentLoaded', function() {
-        //     document.querySelectorAll(".formulario input").forEach(function(input) {
-        //         input.disabled = false;
-        //     });
-        // });
+        
+
+
+
     }
 }
 

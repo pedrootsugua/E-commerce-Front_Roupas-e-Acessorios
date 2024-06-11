@@ -299,29 +299,41 @@
                                 <div class="dados">
                                     <div>
                                         <label for="num-cartao">N° do Cartão</label>
-                                        <input type="text" id="num-cartao" maxlength="19" disabled
+                                        <input type="text" id="num-cartao" maxlength="19" disabled required
                                             oninput="formatarNumeroCartao(this.value)"
                                             onkeypress="permitirSomenteNumeros(event)">
+                                        <!-- <div class="invalid-feedback">
+                                            Digite os números do seu cartão.
+                                        </div> -->
                                     </div>
                                     <div>
                                         <label for="validade">Validade</label>
-                                        <input type="text" id="validade" maxlength="7" disabled
+                                        <input type="text" id="validade" maxlength="7" disabled required
                                             oninput="formatarValidade(this.value)"
                                             onkeypress="permitirSomenteNumeros(event)">
+                                        <!-- <div class="invalid-feedback">
+                                            Digite a validade do seu cartão.
+                                        </div> -->
                                     </div>
                                 </div>
                                 <div class="dados">
                                     <div>
                                         <label for="nome">Nome no Cartão</label> 
-                                        <input type="text" id="nome" disabled
+                                        <input type="text" id="nome" disabled required
                                             oninput="formatarNomeCartao(this.value)"
                                             onkeypress="permitirSomenteLetras(event)">
+                                        <!-- <div class="invalid-feedback">
+                                            Digite o nome impresso em seu cartão.
+                                        </div> -->
                                     </div>
                                     <div>
                                         <label for="cvv">CVV</label>
-                                        <input type="password" id="cvv" maxlength="3" disabled
+                                        <input type="password" id="cvv" maxlength="3" disabled required
                                             oninput="inputCVVHandler(this.value)"
                                             onkeypress="permitirSomenteNumeros(event)">
+                                        <!-- <div class="invalid-feedback">
+                                            Digite o cvv do seu cartão.
+                                        </div> -->
                                     </div>
                                 </div>
                             </section>
