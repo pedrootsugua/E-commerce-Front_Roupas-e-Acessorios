@@ -1,7 +1,6 @@
 usuarioAutenticado();
 
-var params = new URLSearchParams(window.location.search);
-var userId = params.get('userId');
+var userId = localStorage.getItem("IdUsuario");
 
 const checkboxEnderecoSalvo = document.getElementById("check");
 const checkboxNovoEndereco = document.getElementById("check1");
