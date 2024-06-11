@@ -232,7 +232,7 @@ body{
 
 .button-wrapper button {
     margin: 0 25px;
-    margin-top: 50px;
+    margin-top: 20px;
     padding: 6px;
 }
 
@@ -240,10 +240,9 @@ body{
     background-color: #ffffff;
     padding: 18px;
     border: 1px solid #888;
-    width: 22%;
-    height: 37%;
+    width: 300px;
+    height: 200px;
     position: relative;
-    overflow-y: auto;
     border-radius: 15px;
 }
 
