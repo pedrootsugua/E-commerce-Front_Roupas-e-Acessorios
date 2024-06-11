@@ -1,7 +1,7 @@
 const Itamanho = document.querySelector("#tamanho");
 const Iestoque = document.querySelector("#estoque");
 
-const Iimagem = document.querySelector("#picture__input");
+const Iimagem1 = document.querySelector("#picture__input1");
 const Iimagem2 = document.querySelector("#picture__input2");
 const Iimagem3 = document.querySelector("#picture__input3");
 const Iimagem4 = document.querySelector("#picture__input4");
@@ -19,25 +19,20 @@ const produtoId = params.get('produtoId');
 // Vetor para armazenar os dados de tamanho e estoque
 var dados = [];
 
+let testImagens = [null, null, null, null];
+
 const apiUrl = 'http://localhost:8080/api/produtos/' + produtoId;
 
-const request1 = fetch(apiUrl, {
+fetch(apiUrl, {
     method: 'GET'
 })
     .then(response => {
-        // Verifique se a solicitação foi bem-sucedida (status 200)
         if (!response.ok) {
             throw new Error('Erro ao acessar a API: ' + response.statusText);
         }
-        // Parseie os dados da resposta JSON
         return response.json();
     })
     .then(data => {
-        const pictureImage = document.querySelector(".picture__image");
-        const pictureImage2 = document.querySelector(".picture__image2");
-        const pictureImage3 = document.querySelector(".picture__image3");
-        const pictureImage4 = document.querySelector(".picture__image4");
-
         Inome.value = data.nome;
         Ipreco.value = data.preco;
         Icategoria.value = data.categoria;
@@ -46,81 +41,76 @@ const request1 = fetch(apiUrl, {
         Idescricao.value = data.descricao;
 
         let tamanhoEstoque = data.tamanhosEstoque;
-        tamanhoEstoque.sort((a, b) => a - b);
+        tamanhoEstoque.sort();
         tamanhoEstoque.forEach(element => {
             adicionarNaLista(element.tamanho, element.estoque);
         });
 
-        let imageUrls = [];
+        let imageUrls = data.urlImagensModels.map(item => item.url);
         let arquivos = [];
-        data.urlImagensModels.forEach(item => {
-            imageUrls.push(item.url);
-            // Fazer uma solicitação AJAX para o endpoint
-            fetch('http://localhost:8080/api/produtos/download?url=' + item.url)
+        let promises = [];
+
+        function corrigirUrl(url) {
+            // Substitui os espaços por "%20" e escapa outros caracteres especiais
+            return encodeURIComponent(url);
+        }
+
+        // Função para carregar uma imagem e adicionar ao array de arquivos
+        function carregarImagem(imageUrl, index) {
+            imageUrl = corrigirUrl(imageUrl);
+            return fetch('http://localhost:8080/api/produtos/download?url=' + imageUrl)
                 .then(response => {
-                    // Verificar se a resposta é bem-sucedida (status 200)
-                    if (response.ok) {
-                        // Retorna a resposta como um array de bytes
-                        return response.arrayBuffer();
+                    if (!response.ok) {
+                        throw new Error('Erro ao obter a imagem');
                     }
-                    // Se a resposta não for bem-sucedida, lança um erro
-                    throw new Error('Erro ao obter a imagem');
+                    return response.blob();
                 })
-                .then(arrayBuffer => {
-                    // Converter o array de bytes em um blob
-                    const blob = new Blob([arrayBuffer], { type: 'image/jpeg' });
-
-                    const randomFileName = generateRandomFileName('jpg');
-                    // Criar um objeto File a partir do blob
-                    const file = new File([blob], randomFileName, { type: 'image/jpeg' });
-
-                    arquivos.push(file);
+                .then(blob => {
+                    const reader = new FileReader();
+                    reader.onload = function () {
+                        const arquivo = new File([blob], imageUrl.split('/').pop(), { type: 'image/jpeg' });
+                        arquivos[index] = arquivo;
+                        const img = document.createElement("img");
+                        img.src = reader.result;
+                        img.classList.add(`picture__img${index + 1}`);
+                        const pictureImage = document.querySelector(`.picture__image${index + 1}`);
+                        if (pictureImage) {
+                            pictureImage.innerHTML = "";
+                            pictureImage.appendChild(img);
+                        }
+                    };
+                    reader.readAsDataURL(blob);
                 })
                 .catch(error => {
-                    // Lidar com erros de solicitação
                     console.error('Erro:', error);
                 });
-
-        });
-        function fillImageInputs() {
-            const pictureImages = [pictureImage, pictureImage2, pictureImage3, pictureImage4];
-
-            for (let i = 0; i < imageUrls.length; i++) {
-                const img = document.createElement('img');
-                img.src = imageUrls[i];
-                img.classList.add(`picture__img${i + 1}`);
-                pictureImages[i].innerHTML = "";
-                pictureImages[i].appendChild(img);
-            }
         }
 
-        // Função para gerar um nome de arquivo aleatório
-        function generateRandomFileName(extension) {
-            const randomString = Math.random().toString(36).substring(7); // Gera uma string aleatória
-            return randomString + '.' + extension; // Adiciona a extensão ao nome do arquivo
-        }
-
-        fillImageInputs();
-        //EventListener que captura o momento que o botão cadastrar é pressionado
-        document.querySelector('.btn-salvar-alteracoes').addEventListener('click', function (event) {
-            event.preventDefault();
-            alterarProduto(arquivos);
-            // limpar();
+        // Criar promessas para carregar imagens em ordem
+        imageUrls.forEach((imageUrl, index) => {
+            promises.push(carregarImagem(imageUrl, index));
         });
-        console.log(arquivos);
+
+        // Promise.all para garantir que todas as imagens sejam carregadas antes de continuar
+        Promise.all(promises)
+            .then(() => {
+                document.querySelector('.btn-salvar-alteracoes').addEventListener('click', function (event) {
+                    event.preventDefault();
+                    alterarProduto(arquivos);
+                });
+            })
+            .catch(error => {
+                console.error('Erro:', error);
+            });
+    })
+    .catch(error => {
+        console.error('Erro:', error);
     });
 
-
-// Função para adicionar os valores ao vetor e atualizar a textarea
 function adicionarNaLista(tamanho, estoque) {
     if (tamanho && estoque) {
-        // Adiciona os dados ao vetor
         dados.push({ tamanho, estoque });
-
-        // Atualiza a textarea com os valores do vetor
         atualizarTextarea();
-
-        // // Limpa os campos após adicionar à lista
         Itamanho.value = '';
         Iestoque.value = '';
     } else {
@@ -128,22 +118,14 @@ function adicionarNaLista(tamanho, estoque) {
     }
 }
 
-// Função para atualizar a textarea com os valores do vetor
 function atualizarTextarea() {
-    // Monta a string com os valores do vetor
     const texto = dados.map(item => `Tamanho: ${item.tamanho}, Estoque: ${item.estoque}`).join('\n');
-
-    // Atualiza a textarea com a string
     document.getElementById('textarea-tam-est').value = texto;
 }
 
-// Função para excluir o último registro do vetor dados e atualizar a textarea
 function excluirUltimoRegistro() {
-    // Verifica se há elementos no vetor
     if (dados.length > 0) {
-        // Remove o último elemento do vetor
         dados.pop();
-        // Atualiza a textarea com os valores atualizados do vetor
         atualizarTextarea();
     } else {
         alert('Não há registros para excluir.');
@@ -155,15 +137,11 @@ function limpar() {
     Icategoria.value = "";
     Ipreco.value = "";
     dados = [];
-
-    // Reseta o formulário
     formulario.reset();
-
-    // Remove a pré-visualização das imagens
-    pictureImage.innerHTML = pictureImageTxt;
-    pictureImage2.innerHTML = pictureImageTxt;
-    pictureImage3.innerHTML = pictureImageTxt;
-    pictureImage4.innerHTML = pictureImageTxt;
+    document.querySelector(".picture__image").innerHTML = "Escolha uma imagem";
+    document.querySelector(".picture__image2").innerHTML = "Escolha uma imagem";
+    document.querySelector(".picture__image3").innerHTML = "Escolha uma imagem";
+    document.querySelector(".picture__image4").innerHTML = "Escolha uma imagem";
 }
 
 document.querySelector('.btn-cancelar').addEventListener('click', function (event) {
@@ -171,22 +149,20 @@ document.querySelector('.btn-cancelar').addEventListener('click', function (even
     window.location.href = "TelaInicial.html"
 });
 
-// Adiciona um evento de clique ao botão "Inserir"
 document.querySelector('.btn-incluir').addEventListener('click', function (event) {
-    event.preventDefault(); // Evita o comportamento padrão do formulário
-    adicionarNaLista(Itamanho.value.trim(), Iestoque.value.trim()); // Chama a função para adicionar na lista
+    event.preventDefault();
+    adicionarNaLista(Itamanho.value.trim(), Iestoque.value.trim());
 });
 
 document.querySelector('.btn-excluir').addEventListener('click', function (event) {
-    event.preventDefault(); // Evita o comportamento padrão do formulário
-    excluirUltimoRegistro(); // Chama a função para adicionar na lista
+    event.preventDefault();
+    excluirUltimoRegistro();
 });
 
 document.querySelector('.btn-estoque').addEventListener('click', function (event) {
     const tamanhosEstoque = document.querySelector('.modal-content');
-    let htmlContent = ''; // Variável para acumular o conteúdo HTML
+    let htmlContent = '';
     dados.forEach((item, index) => {
-        console.log(index)
         htmlContent += `
             <div class="input-tamanho-estoque">
                     <div class="modal-info">
@@ -220,13 +196,7 @@ document.querySelector('.salvar').addEventListener('click', function () {
 });
 
 function alterarProduto(arquivos) {
-
-    console.log(arquivos);
-    console.log(Iimagem);
-    //Instância da classe que guardará a imagem
     const formData = new FormData();
-
-    //Objeto JSON que recebe os dados que serão guardados no banco
     const produto = {
         id: produtoId,
         nome: Inome.value,
@@ -238,16 +208,17 @@ function alterarProduto(arquivos) {
         descricao: Idescricao.value
     };
 
-    //Adição das info dos produtos no objeto
     formData.append('produto', JSON.stringify(produto));
-
-    //Adição das imagens no objeto
     arquivos.forEach((item, index) => {
-        formData.append('imagem' + (index + 1), item);
-    })
+        if (testImagens[index]) {
+            console.log(testImagens[index])
+            formData.append('imagem' + (index + 1), testImagens[index]);
+        } else {
+            formData.append('imagem' + (index + 1), item);
+        }
+    });
     mostrarLoading();
-    //Conexão com o backend para gravação do JSON
-    const request1 = fetch('http://localhost:8080/api/produtos/produto/alterar', {
+    fetch('http://localhost:8080/api/produtos/produto/alterar', {
         method: 'PUT',
         body: formData
     })
@@ -288,3 +259,122 @@ function alterarEstoques(novoEstoque) {
             console.log("Erro: " + error);
         })
 }
+
+const pictureImage = document.querySelector(".picture__image1");
+const pictureImage2 = document.querySelector(".picture__image2");
+const pictureImage3 = document.querySelector(".picture__image3");
+const pictureImage4 = document.querySelector(".picture__image4");
+
+const pictureImageTxt = "Escolha uma imagem";
+pictureImage.innerHTML = pictureImageTxt;
+pictureImage2.innerHTML = pictureImageTxt;
+pictureImage3.innerHTML = pictureImageTxt;
+pictureImage4.innerHTML = pictureImageTxt;
+
+Iimagem1.addEventListener("change", function (e) {
+    const inputTarget = e.target;
+    const file = inputTarget.files[0];
+
+    if (file) {
+        const reader = new FileReader();
+
+        reader.addEventListener("load", function (e) {
+            const readerTarget = e.target;
+
+            const img = document.createElement("img");
+            img.src = readerTarget.result;
+            img.classList.add("picture__img");
+
+            pictureImage.innerHTML = "";
+            pictureImage.appendChild(img);
+        });
+
+        reader.readAsDataURL(file);
+    } else {
+        pictureImage.innerHTML = pictureImageTxt;
+    }
+    testImagens[0] = Iimagem1.files[0];
+    console.log(testImagens)
+});
+
+Iimagem2.addEventListener("change", function (e) {
+    const inputTarget = e.target;
+    const file = inputTarget.files[0];
+
+    if (file) {
+        const reader = new FileReader();
+
+        reader.addEventListener("load", function (e) {
+            const readerTarget = e.target;
+
+            const img = document.createElement("img");
+            img.src = readerTarget.result;
+            img.classList.add("picture__img2");
+
+            pictureImage2.innerHTML = "";
+            pictureImage2.appendChild(img);
+        });
+
+        reader.readAsDataURL(file);
+    } else {
+        pictureImage2.innerHTML = pictureImageTxt;
+    }
+
+    testImagens[1] = Iimagem2.files[0];
+    console.log(testImagens)
+});
+
+Iimagem3.addEventListener("change", function (e) {
+    const inputTarget = e.target;
+    const file = inputTarget.files[0];
+
+    if (file) {
+        const reader = new FileReader();
+
+        reader.addEventListener("load", function (e) {
+            const readerTarget = e.target;
+
+            const img = document.createElement("img");
+            img.src = readerTarget.result;
+            img.classList.add("picture__img3");
+
+            pictureImage3.innerHTML = "";
+            pictureImage3.appendChild(img);
+        });
+
+        reader.readAsDataURL(file);
+    } else {
+        pictureImage3.innerHTML = pictureImageTxt;
+    }
+
+    testImagens[2] = Iimagem3.files[0];
+    console.log(testImagens)
+});
+
+Iimagem4.addEventListener("change", function (e) {
+    const inputTarget = e.target;
+    const file = inputTarget.files[0];
+
+    if (file) {
+        const reader = new FileReader();
+
+        reader.addEventListener("load", function (e) {
+            const readerTarget = e.target;
+
+            const img = document.createElement("img");
+            img.src = readerTarget.result;
+            img.classList.add("picture__img4");
+
+            pictureImage4.innerHTML = "";
+            pictureImage4.appendChild(img);
+        });
+
+        reader.readAsDataURL(file);
+    } else {
+        pictureImage4.innerHTML = pictureImageTxt;
+    }
+
+    testImagens[3] = Iimagem4.files[0];
+    console.log(testImagens)
+});
+
