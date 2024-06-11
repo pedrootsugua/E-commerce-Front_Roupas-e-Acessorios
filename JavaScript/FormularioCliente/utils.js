@@ -35,3 +35,5 @@ function removerValidacaoCampos() {
 function limparCampos() {
     document.querySelector("form").reset();
 }
+
+

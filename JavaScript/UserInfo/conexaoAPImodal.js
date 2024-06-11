@@ -4,6 +4,7 @@ var userId = params.get('userId');
 const modalUsuario = document.querySelector('#cartao-usuario');
 const modalEmail = document.querySelector('#cartao-email');
 const modalSenha = document.querySelector('#cartao-senha');
+const modalAlerta = document.querySelector('.modal-confirm');
 
 document.addEventListener('DOMContentLoaded', () => {
     document.querySelector("#botao-usuario").addEventListener('click', function () {
@@ -19,8 +20,12 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     document.querySelector("#salvar-dados-usuario").addEventListener('click', function () {
+        modalUsuario.style.display = 'none';        
         alterarDadosUsuario(userId);
-        modalUsuario.style.display = 'none';
+
+        // getDadosUsuarioGeral(userId);
+        // exibirDadosUsuario();
+        // location.reload();
     });
 
     document.querySelector("#salvar-email").addEventListener('click', function () {
@@ -85,6 +90,7 @@ function alterarDadosUsuario(id) {
         .catch(error => {
             console.log("Erro: " + error);
         })
+        mostrarLoading();
 }
 
 function alterarEmail(id) {
@@ -134,7 +140,3 @@ function alterarSenha(id) {
         })
 }
 
-
-function formatarData(data) {
-    return data.toISOString().split('T')[0]
-}

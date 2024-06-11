@@ -347,3 +347,60 @@ h2 {
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
     transform: scale(1.02);
 }
+
+.blur {
+    filter: blur(5px);
+    /* Adicione o efeito de desfoque */
+    pointer-events: none;
+    /* Impede que elementos da tela recebam eventos do mouse */
+    z-index: -1;
+}
+
+.loading-modal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+}
+
+
+.loading-modal svg {
+    width: 3.25em;
+    transform-origin: center;
+    animation: rotate4 2s linear infinite;
+    z-index: 2;
+}
+
+.loading-modal circle {
+    fill: none;
+    stroke: hsl(214, 97%, 59%);
+    stroke-width: 2;
+    stroke-dasharray: 1, 200;
+    stroke-dashoffset: 0;
+    stroke-linecap: round;
+    animation: dash4 1.5s ease-in-out infinite;
+}
+
+@keyframes rotate4 {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes dash4 {
+    0% {
+        stroke-dasharray: 1, 200;
+        stroke-dashoffset: 0;
+    }
+
+    50% {
+        stroke-dasharray: 90, 200;
+        stroke-dashoffset: -35px;
+    }
+
+    100% {
+        stroke-dashoffset: -125px;
+    }
+}

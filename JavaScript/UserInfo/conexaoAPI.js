@@ -6,38 +6,111 @@ const isAutenticado = (autenticadoFavorito.toLowerCase() === "true")
 console.log(isAutenticado);
 
 if (isAutenticado === true) {
-    getDadosUsuario(userId);
-    consultarEnderecoUsuario(userId);
-    verificaAutenticacao();
+    getDadosUsuarioGeral(userId);
 }
 
+// let dadosRecebidos = localStorage.getItem('dados-pessoais-usuario');
+fetch(`http://localhost:8080/api/usuarios/info?id=${userId}`, {
+    method: 'GET',
+})
+    .then(response => {
+        if (response.ok) {
+            return response.json();
+        } else {
+            throw new Error('Erro');
+        }
+    })
+    .then(data => {
+        const dados = JSON.stringify(data);
+        localStorage.setItem("dados-pessoais-usuario", dados)
+        const isoDate = data.dtNascimento;
+        const [year, month, day] = isoDate.split('T')[0].split('-');
+        const formattedDate = `${day}/${month}/${year}`;
+        const formattedCpf = formatarCPF(data.cpf)
+
+        /*Inserindo os valores recuperados do Objeto em Cache no HTML */
+        dadosUsuario.innerHTML = ` <p>${data.nome}</p> 
+        <p>${formattedDate}</p> 
+        <p>${formattedCpf}</p> 
+        <p>${data.telefone}</p> `;
+
+        const formattedEmail = data.email.toUpperCase();
+        const senha = data.senha;
+        const maskedSenha = '*'.repeat(senha.length);
+
+        emailUsuario.innerHTML = ` <p>${formattedEmail}</p> `
+        senhaUsuario.innerHTML = ` <p>${maskedSenha}</p> `
+        consultarEnderecoUsuario(data, userId);
+    })
+    .catch(error => {
+        console.error('Erro: ', error)
+    });
+
+// let dadosConvertidos = JSON.parse(dadosRecebidos);
 let dadosUsuario = document.getElementById("dados-usuario");
 let emailUsuario = document.getElementById("email-usuario");
 let senhaUsuario = document.getElementById("senha-usuario");
 
-const dadosRecebidos = localStorage.getItem('dados-pessoais-usuario');
-const dadosConvertidos = JSON.parse(dadosRecebidos);
 
-/*Formatando a data para o padrão brasileiro */
-const isoDate = dadosConvertidos.dtNascimento;
-const [year, month, day] = isoDate.split('T')[0].split('-');
-const formattedDate = `${day}/${month}/${year}`;
-const formattedCpf = formatarCPF(dadosConvertidos.cpf)
+function exibirDadosUsuario(dadosConvertidos) {
+    /*Formatando a data para o padrão brasileiro */
+    const isoDate = dadosConvertidos.dtNascimento;
+    const [year, month, day] = isoDate.split('T')[0].split('-');
+    const formattedDate = `${day}/${month}/${year}`;
+    const formattedCpf = formatarCPF(dadosConvertidos.cpf)
 
-/*Inserindo os valores recuperados do Objeto em Cache no HTML */
-dadosUsuario.innerHTML = ` <p>${dadosConvertidos.nome}</p> 
-     <p>${formattedDate}</p> 
-     <p>${formattedCpf}</p> 
-     <p>${dadosConvertidos.telefone}</p> `;
+    /*Inserindo os valores recuperados do Objeto em Cache no HTML */
+    dadosUsuario.innerHTML = ` <p>${dadosConvertidos.nome}</p> 
+        <p>${formattedDate}</p> 
+        <p>${formattedCpf}</p> 
+        <p>${dadosConvertidos.telefone}</p> `;
 
-const formattedEmail = dadosConvertidos.email.toUpperCase();
-const senha = dadosConvertidos.senha;
-const maskedSenha = '*'.repeat(senha.length);
+    const formattedEmail = dadosConvertidos.email.toUpperCase();
+    const senha = dadosConvertidos.senha;
+    const maskedSenha = '*'.repeat(senha.length);
 
-emailUsuario.innerHTML = ` <p>${formattedEmail}</p> `
-senhaUsuario.innerHTML = ` <p>${maskedSenha}</p> `
+    emailUsuario.innerHTML = ` <p>${formattedEmail}</p> `
+    senhaUsuario.innerHTML = ` <p>${maskedSenha}</p> `
+}
 
-function getDadosUsuario(id) {
+function formatarCPF(cpf) {
+    // Remove any non-numeric characters
+    cpf = cpf.replace(/\D/g, '');
+
+    // Format the CPF as XXX.XXX.XXX-XX
+    cpf = cpf.replace(/(\d{3})(\d)/, '$1.$2');
+    cpf = cpf.replace(/(\d{3})(\d)/, '$1.$2');
+    cpf = cpf.replace(/(\d{3})(\d{1,2})$/, '$1-$2');
+
+    return cpf;
+}
+// let dadosUsuario = document.getElementById("dados-usuario");
+// let emailUsuario = document.getElementById("email-usuario");
+// let senhaUsuario = document.getElementById("senha-usuario");
+
+// const dadosRecebidos = localStorage.getItem('dados-pessoais-usuario');
+// const dadosConvertidos = JSON.parse(dadosRecebidos);
+
+// /*Formatando a data para o padrão brasileiro */
+// const isoDate = dadosConvertidos.dtNascimento;
+// const [year, month, day] = isoDate.split('T')[0].split('-');
+// const formattedDate = `${day}/${month}/${year}`;
+// const formattedCpf = formatarCPF(dadosConvertidos.cpf)
+
+// /*Inserindo os valores recuperados do Objeto em Cache no HTML */
+// dadosUsuario.innerHTML = ` <p>${dadosConvertidos.nome}</p> 
+//      <p>${formattedDate}</p> 
+//      <p>${formattedCpf}</p> 
+//      <p>${dadosConvertidos.telefone}</p> `;
+
+// const formattedEmail = dadosConvertidos.email.toUpperCase();
+// const senha = dadosConvertidos.senha;
+// const maskedSenha = '*'.repeat(senha.length);
+
+// emailUsuario.innerHTML = ` <p>${formattedEmail}</p> `
+// senhaUsuario.innerHTML = ` <p>${maskedSenha}</p> `
+
+function getDadosUsuarioGeral(id) {
     fetch(`http://localhost:8080/api/usuarios/info?id=${id}`, {
         method: 'GET',
     })
@@ -51,6 +124,7 @@ function getDadosUsuario(id) {
         .then(data => {
             const dados = JSON.stringify(data);
             localStorage.setItem("dados-pessoais-usuario", dados)
+            // exibirDadosUsuario();
         })
         .catch(error => {
             console.error('Erro: ', error)
@@ -66,7 +140,7 @@ function preencherDadosEndereco(endereco) {
     document.getElementById('uf').value = endereco.uf;
 }
 
-function consultarEnderecoUsuario(id) {
+function consultarEnderecoUsuario(item, id) {
     fetch(`http://localhost:8080/api/login/endereco?id=${id}`, {
         method: 'GET'
     })
@@ -118,7 +192,7 @@ function consultarEnderecoUsuario(id) {
                     novoEndereco.innerHTML = `
                     <div class="dados" data-endereco-id="${endereco.id}">
                         <div id="dados-endereco">
-                            <h3>${dadosConvertidos.nome}</h3>
+                            <h3>${item.nome}</h3>
                             <p>${endereco.logradouro + ', ' + endereco.numero}</p>
                             <p>${endereco.bairro}</p>
                             <p>${endereco.cidade + ', ' + endereco.uf + '-' + endereco.cep}</p>
@@ -156,7 +230,7 @@ function consultarEnderecoUsuario(id) {
                     novoEndereco.innerHTML = `
                     <div class="dados" data-endereco-id="${endereco.id}">
                         <div id="dados-endereco">
-                            <h3>${dadosConvertidos.nome}</h3>
+                            <h3>${item.nome}</h3>
                             <p>${endereco.logradouro + ', ' + endereco.numero}</p>
                             <p>${endereco.bairro}</p>
                             <p>${endereco.cidade + ', ' + endereco.uf + '-' + endereco.cep}</p>
@@ -286,154 +360,4 @@ document.querySelector("#salvar-endereco").addEventListener('click', function ()
 
 });
 
-function usuarioAutenticado() {
-    fetch('http://localhost:8080/api/login/autenticacao', {
-        method: 'GET',
-    })
-        .then(response => {
-            if (response.ok) {
-                return response.json();
-            } else {
-                throw new Error('Erro');
-            }
-        })
-        .then(data => {
-            console.log(data);
-            const autenticado = data.autenticado;
-            id = data.credencialModel.idUsuario;
-            if (autenticado === true) {
-                document.getElementById("login_user").innerHTML = "Olá";
-                buscarUsuario(id);
-                getDadosUsuario(id);
-            }
-        })
-        .catch(error => {
-            console.error('Erro:', error);
-            alert("Erro ao acessar usuário. Por favor, tente novamente.");
-        });
-}
 
-function buscarUsuario(id) {
-    console.log(id)
-    fetch('http://localhost:8080/api/usuarios/' + id, {
-        method: 'GET',
-    })
-        .then(response => {
-            if (response.ok) {
-                return response.json();
-            } else {
-                throw new Error('Erro ao fazer login');
-            }
-        })
-        .then(data => {
-            console.log(data);
-            nome = data.nome;
-            let palavras = nome.split(" ");
-            let primeiroNome = palavras[0];
-            document.getElementById("login_user").innerHTML = "Olá, " + primeiroNome;
-        })
-        .catch(error => {
-            console.error('Erro ao fazer login:', error);
-            alert("Erro ao acessar usuário. Por favor, tente novamente.");
-        });
-}
-
-function verificaAutenticacao() {
-    fetch('http://localhost:8080/api/login/autenticacao', {
-        method: 'GET',
-    })
-        .then(response => {
-            if (response.ok) {
-                return response.json();
-            } else {
-                throw new Error('Erro ao fazer login');
-            }
-        })
-        .then(data => {
-            autenticado = data.autenticado;
-            localStorage.setItem("autenticado", autenticado);
-            if (autenticado === true) {
-                id = data.credencialModel.idUsuario;
-                localStorage.setItem("IdUsuario", id)
-                buscarUsuario(id);
-                getDadosUsuario(id);
-                admin = data.credencialModel.admin;
-                if (admin === true) {
-                    // Encontra o elemento com a classe icon-usuario
-                    var iconUsuario = document.querySelector('.icon-usuario');
-
-                    // Cria um novo elemento de imagem
-                    var novaImagem = document.createElement('img');
-
-                    // Define os atributos da nova imagem
-                    novaImagem.src = 'img/admin-9575.png'; // Substitua pelo caminho da sua imagem
-                    novaImagem.alt = 'Ícone de usuário'; // Texto alternativo para acessibilidade
-                    novaImagem.classList.add('icone-imagem');
-
-                    // Substitui o elemento <i> pela nova imagem
-                    iconUsuario.innerHTML = ''; // Limpa o conteúdo existente do elemento <i>
-                    iconUsuario.appendChild(novaImagem); // Adiciona a nova imagem ao lugar do elemento <i>
-
-                    var iconProdutos = document.querySelector('.icon-produtos');
-                    // Cria um novo elemento de imagem
-                    var novoIcone = document.createElement('img');
-                    // Define os atributos da nova imagem
-                    novoIcone.src = 'img/editar.png'; // Substitua pelo caminho da sua imagem
-                    novoIcone.alt = 'Ícone de cadastrar produto'; // Texto alternativo para acessibilidade
-                    novoIcone.classList.add('icone-imagem');
-                    novoIcone.classList.add('icone-edit-prod');
-
-                    // Substitui o elemento <i> pela nova imagem
-                    iconProdutos.innerHTML = ''; // Limpa o conteúdo existente do elemento <i>
-                    iconProdutos.appendChild(novoIcone); // Adiciona a nova imagem ao lugar do elemento <i>
-
-                    const tamanhoMargin = localStorage.getItem("tamanho-margin-left");
-                    const iconeProd = document.querySelector('.nav-icone-prod');
-                    iconeProd.style.marginLeft = (tamanhoMargin) + 'px';
-
-                    document.querySelector('.icone-edit-prod').addEventListener('click', function (event) {
-                        event.preventDefault();
-                        window.location.href = 'TelaCadastroProd.html';
-                    });
-                }
-            } else {
-                const positionIcons = document.querySelectorAll('.nav-icone');
-                positionIcons.forEach(icon => {
-                    icon.style.marginLeft = 30 + 'px';
-                    // icon.style.marginRight = spacing + 'px';
-                });
-                var iconHeart = document.querySelector('.nav-icone-heart');
-                iconHeart.style.marginLeft = 30 + 'px';
-
-                const login = document.createElement('a');
-                const dropdownContent = document.getElementById('dropdown-content');
-
-                // Adiciona as classes ao novo link
-                login.className = 'login'; // substitua 'nova-classe' pela classe desejada
-
-                // Define o atributo href do novo link
-                login.href = '/TelaLogin.html'; // substitua 'NovaPagina.html' pelo href desejado
-
-                // Define o texto interno do novo link
-                login.textContent = 'Fazer Login'; // substitua 'Novo Link' pelo texto desejado
-
-                // Adiciona o novo link à div
-                dropdownContent.appendChild(login);
-            }
-        })
-        .catch(error => {
-            console.error('Erro ao fazer login:', error);
-        });
-}
-
-function formatarCPF(cpf) {
-    // Remove any non-numeric characters
-    cpf = cpf.replace(/\D/g, '');
-    
-    // Format the CPF as XXX.XXX.XXX-XX
-    cpf = cpf.replace(/(\d{3})(\d)/, '$1.$2');
-    cpf = cpf.replace(/(\d{3})(\d)/, '$1.$2');
-    cpf = cpf.replace(/(\d{3})(\d{1,2})$/, '$1-$2');
-    
-    return cpf;
-}

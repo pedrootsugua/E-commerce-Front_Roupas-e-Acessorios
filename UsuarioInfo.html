@@ -31,6 +31,7 @@
   <script src="JavaScript/UserInfo/conexaoAPImodal.js" defer></script>
   <script src="JavaScript/UserInfo/acoesModal.js" defer></script>
   <script src="JavaScript/UserInfo/consultaAPIexterna.js" defer></script>
+  <script src="JavaScript/UserInfo/utils.js" defer></script>
 
   <title>Meus Dados</title>
 </head>
@@ -122,7 +123,7 @@
 
   </header>
 
-  <main>
+  <main class="principal">
     <div class="container">
       <div class="conteudo">
         <h1>MINHAS INFORMAÇÕES</h1>
@@ -275,7 +276,14 @@
       </div>
     </div>
   </div>
+
   <!-- FIM MODAL -->
+
+  <div id="loadingModal" class="loading-modal">
+    <svg viewBox="25 25 50 50">
+      <circle r="20" cy="50" cx="50"></circle>
+    </svg>
+  </div>
 
   <!-- Footer -->
   <footer>
