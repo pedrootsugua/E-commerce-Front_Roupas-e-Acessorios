@@ -28,7 +28,7 @@ document.querySelector("form").addEventListener("submit", function (event) {
 });
 
 function cadastrar(usuario) {
-
+    mostrarLoading();
     fetch('http://localhost:8080/api/usuarios/criar', {
         method: 'POST',
         headers: {
