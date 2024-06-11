@@ -1,11 +1,8 @@
 document.addEventListener('DOMContentLoaded', function () {
-  // Recuperar a string da URL
-  var params = new URLSearchParams(window.location.search);
-  var userId = params.get('userId');
+
   let idCart = localStorage.getItem("idCarrinho");
   let autenticadoCarrinho = localStorage.getItem("autenticado");
   const isAutenticado = (autenticadoCarrinho.toLowerCase() === "true")
-  console.log(isAutenticado);
 
   if (isAutenticado === true) {
     acessarCarrinhoProduto(idCart);
@@ -15,11 +12,6 @@ document.addEventListener('DOMContentLoaded', function () {
     let btnFazerLogin = document.getElementById("btn-fazer-login");
     btnFazerLogin.style.display = "flex";
   }
-  document.querySelector('.botao-cont').addEventListener('click', function (event) {
-    event.preventDefault(); // Evita o comportamento padrão do formulário
-    // Enviar a string para a outra tela como parâmetro na URL
-    window.location.href = 'TelaCheckout.html?userId=' + userId;
-  });
 });
 
 function acessarCarrinhoProduto(idCart) {
@@ -62,12 +54,12 @@ function inserirProdutosCarrinho(item, listProduto, data) {
   const novoProduto = document.createElement('div');
   novoProduto.classList.add('produto');
 
-  novoProduto.setAttribute("prod-id", item.id.produtoId.id);
-  novoProduto.setAttribute("tamanho-prod", item.tamanho);
+  // novoProduto.setAttribute("prod-id", item.id.produtoId.id);
+  // novoProduto.setAttribute("tamanho-prod", item.tamanho);
 
   let valorTotal = item.id.produtoId.preco * item.qtd;
-  valorTotalCarrinho = valorTotal + valorTotalCarrinho;
-  valorTotalCarrinho = valorTotalCarrinho.toFixed(2);
+  let valorTotalFormatado = valorTotal.toFixed(2); //formatando valor total do pedido
+  valorTotalCarrinho += valorTotal;
 
   novoProduto.innerHTML = `
     <div class="descricao-produto">
@@ -86,7 +78,7 @@ function inserirProdutosCarrinho(item, listProduto, data) {
           <p id="vl-unitario">R$ ${item.id.produtoId.preco}</p>
         </div>
         <div class="valor-total">
-          <p id="vl-total">R$ ${valorTotal}</p>
+          <p id="vl-total">R$ ${valorTotalFormatado}</p>
         </div>
         <div class="delete">
           <button class="button-delete">
@@ -118,14 +110,15 @@ function inserirProdutosCarrinho(item, listProduto, data) {
           </button>
         </div>
                 `;
+  
   // Adiciona o novo produto à lista de produtos
-  console.log(novoProduto);
-
-  document.getElementById('valor-produtos').textContent = "R$ " + valorTotalCarrinho;
-  document.getElementById('valor-total-pedido').textContent = "R$ " + valorTotalCarrinho;
-
   listProduto.appendChild(novoProduto);
 
+  let valorTotalCarrinhoFormatado = valorTotalCarrinho.toFixed(2); //formata o valor total do carrinho
+  document.getElementById('valor-produtos').textContent = "R$ " + valorTotalCarrinhoFormatado;
+  document.getElementById('valor-total-pedido').textContent = "R$ " + valorTotalCarrinhoFormatado;
+
+  //remover produto do carrinho
   novoProduto.querySelector(".button-delete").addEventListener("click", function () {
     const produto = {
       idCarrinho: data.id,
@@ -136,6 +129,7 @@ function inserirProdutosCarrinho(item, listProduto, data) {
     deleteProdutoCarrinho(produto);
   });
 
+  //aumentar quantidade produto
   novoProduto.querySelector(".btn-add-item").addEventListener("click", function () {
     let stringNumero = novoProduto.querySelector("#num-qtd").textContent;
     let numero = parseInt(stringNumero);
@@ -153,6 +147,7 @@ function inserirProdutosCarrinho(item, listProduto, data) {
     alterarQuantidadeProduto(novaQuantidade);
   });
 
+  //diminuir quantidade produto
   novoProduto.querySelector(".btn-remove-item").addEventListener("click", function () {
     let stringNumero = novoProduto.querySelector("#num-qtd").textContent;
     let numero = parseInt(stringNumero);
