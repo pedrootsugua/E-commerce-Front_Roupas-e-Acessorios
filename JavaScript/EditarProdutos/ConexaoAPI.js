@@ -35,6 +35,11 @@ const request1 = fetch(apiUrl, {
         const Iimagem3 = document.querySelector("#picture__input3");
         const Iimagem4 = document.querySelector("#picture__input4");
 
+        const pictureImage = document.querySelector(".picture__image");
+        const pictureImage2 = document.querySelector(".picture__image2");
+        const pictureImage3 = document.querySelector(".picture__image3");
+        const pictureImage4 = document.querySelector(".picture__image4");
+
         Inome.value = data.nome;
         Ipreco.value = data.preco;
         Icategoria.value = data.categoria;
@@ -47,6 +52,25 @@ const request1 = fetch(apiUrl, {
         tamanhoEstoque.forEach(element => {
             adicionarNaLista(element.tamanho, element.estoque);
         });
+
+        let imageUrls = [];
+        data.urlImagensModels.forEach(item => {
+            imageUrls.push(item.url);
+        });
+
+        function fillImageInputs() {
+            const pictureImages = [pictureImage, pictureImage2, pictureImage3, pictureImage4];
+
+            for (let i = 0; i < imageUrls.length; i++) {
+                const img = document.createElement('img');
+                img.src = imageUrls[i];
+                img.classList.add(`picture__img${i + 1}`);
+                pictureImages[i].innerHTML = "";
+                pictureImages[i].appendChild(img);
+            }
+        }
+
+        fillImageInputs();
     });
 
 // Função para adicionar os valores ao vetor e atualizar a textarea
@@ -123,7 +147,7 @@ document.querySelector('.btn-excluir').addEventListener('click', function (event
 });
 
 document.querySelector('.btn-estoque').addEventListener('click', function (event) {
-    const novoEstoque = document.querySelector('.modal-content');
+    const tamanhosEstoque = document.querySelector('.modal-content');
     let htmlContent = ''; // Variável para acumular o conteúdo HTML
     dados.forEach((item, index) => {
         console.log(index)
@@ -140,9 +164,37 @@ document.querySelector('.btn-estoque').addEventListener('click', function (event
                 </div>
                         `;
     });
-    novoEstoque.innerHTML = htmlContent;
+    tamanhosEstoque.innerHTML = htmlContent;
     dados.forEach((item, index) => {
         document.querySelector('#campo-tamanho' + index).value = item.tamanho;
         document.querySelector('#campo-estoque' + index).value = item.estoque;
     });
+
 });
+document.querySelector('.salvar').addEventListener('click', function () {
+    dados.forEach((item, index) => {
+        item.estoque = document.querySelector('#campo-estoque' + index).value;
+    });
+    const novoEstoque = {
+        productId: produtoId,
+        tamanhosEstoque: dados
+    }
+    alterarEstoques(novoEstoque);
+});
+
+function alterarEstoques(novoEstoque) {
+    fetch(`http://localhost:8080/api/produtos/estoque/alterar`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(novoEstoque)
+    })
+        .then(response => {
+            alert("Alterado!")
+            location.reload();
+        })
+        .catch(error => {
+            console.log("Erro: " + error);
+        })
+}
