@@ -51,64 +51,17 @@ let dadosUsuario = document.getElementById("dados-usuario");
 let emailUsuario = document.getElementById("email-usuario");
 let senhaUsuario = document.getElementById("senha-usuario");
 
-
-function exibirDadosUsuario(dadosConvertidos) {
-    /*Formatando a data para o padrão brasileiro */
-    const isoDate = dadosConvertidos.dtNascimento;
-    const [year, month, day] = isoDate.split('T')[0].split('-');
-    const formattedDate = `${day}/${month}/${year}`;
-    const formattedCpf = formatarCPF(dadosConvertidos.cpf)
-
-    /*Inserindo os valores recuperados do Objeto em Cache no HTML */
-    dadosUsuario.innerHTML = ` <p>${dadosConvertidos.nome}</p> 
-        <p>${formattedDate}</p> 
-        <p>${formattedCpf}</p> 
-        <p>${dadosConvertidos.telefone}</p> `;
-
-    const formattedEmail = dadosConvertidos.email.toUpperCase();
-    const senha = dadosConvertidos.senha;
-    const maskedSenha = '*'.repeat(senha.length);
-
-    emailUsuario.innerHTML = ` <p>${formattedEmail}</p> `
-    senhaUsuario.innerHTML = ` <p>${maskedSenha}</p> `
-}
-
 function formatarCPF(cpf) {
-    // Remove any non-numeric characters
+    // Remove todos elementos não numericos
     cpf = cpf.replace(/\D/g, '');
 
-    // Format the CPF as XXX.XXX.XXX-XX
+    // Formata o CPF no padrão XXX.XXX.XXX-XX
     cpf = cpf.replace(/(\d{3})(\d)/, '$1.$2');
     cpf = cpf.replace(/(\d{3})(\d)/, '$1.$2');
     cpf = cpf.replace(/(\d{3})(\d{1,2})$/, '$1-$2');
 
     return cpf;
 }
-// let dadosUsuario = document.getElementById("dados-usuario");
-// let emailUsuario = document.getElementById("email-usuario");
-// let senhaUsuario = document.getElementById("senha-usuario");
-
-// const dadosRecebidos = localStorage.getItem('dados-pessoais-usuario');
-// const dadosConvertidos = JSON.parse(dadosRecebidos);
-
-// /*Formatando a data para o padrão brasileiro */
-// const isoDate = dadosConvertidos.dtNascimento;
-// const [year, month, day] = isoDate.split('T')[0].split('-');
-// const formattedDate = `${day}/${month}/${year}`;
-// const formattedCpf = formatarCPF(dadosConvertidos.cpf)
-
-// /*Inserindo os valores recuperados do Objeto em Cache no HTML */
-// dadosUsuario.innerHTML = ` <p>${dadosConvertidos.nome}</p> 
-//      <p>${formattedDate}</p> 
-//      <p>${formattedCpf}</p> 
-//      <p>${dadosConvertidos.telefone}</p> `;
-
-// const formattedEmail = dadosConvertidos.email.toUpperCase();
-// const senha = dadosConvertidos.senha;
-// const maskedSenha = '*'.repeat(senha.length);
-
-// emailUsuario.innerHTML = ` <p>${formattedEmail}</p> `
-// senhaUsuario.innerHTML = ` <p>${maskedSenha}</p> `
 
 function getDadosUsuarioGeral(id) {
     fetch(`http://localhost:8080/api/usuarios/info?id=${id}`, {
@@ -124,7 +77,6 @@ function getDadosUsuarioGeral(id) {
         .then(data => {
             const dados = JSON.stringify(data);
             localStorage.setItem("dados-pessoais-usuario", dados)
-            // exibirDadosUsuario();
         })
         .catch(error => {
             console.error('Erro: ', error)
@@ -186,6 +138,7 @@ function consultarEnderecoUsuario(item, id) {
                         document.querySelector('#salvar-endereco').addEventListener('click', function () {
                             cadastrarNovoEndereco(id);
                             modalEndereco.style.display = 'none';
+                            mostrarLoading();
                         });
                     });
 
@@ -222,7 +175,6 @@ function consultarEnderecoUsuario(item, id) {
                     });
                     novoEndereco.querySelector('.btn-remover').addEventListener('click', function () {
                         deletarEndereco(endereco.id);
-                        alert('removido');
                     });
                     primeiroEndereco.appendChild(cadastrarEndereço);
                     primeiroEndereco.appendChild(novoEndereco);
@@ -260,7 +212,6 @@ function consultarEnderecoUsuario(item, id) {
                     });
                     novoEndereco.querySelector('.btn-remover').addEventListener('click', function () {
                         deletarEndereco(endereco.id);
-                        alert('removido');
                     });
                     linhaEndereco.appendChild(novoEndereco);
                     qtdLinha++;
@@ -299,6 +250,7 @@ function alterarEndereco(id) {
             if (!response.ok) {
                 throw new Error("Erro ao acessar a API: " + response.statusText);
             }
+            mostrarLoading();
             return response.json();
         })
         .catch(error => {
@@ -346,6 +298,7 @@ function deletarEndereco(id) {
             if (!response.ok) {
                 throw new Error("Erro ao acessar a API: " + response.statusText);
             }
+            mostrarLoading();
             return response.json();
         })
         .catch(error => {
