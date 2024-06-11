@@ -22,10 +22,6 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelector("#salvar-dados-usuario").addEventListener('click', function () {
         modalUsuario.style.display = 'none';        
         alterarDadosUsuario(userId);
-
-        // getDadosUsuarioGeral(userId);
-        // exibirDadosUsuario();
-        // location.reload();
     });
 
     document.querySelector("#salvar-email").addEventListener('click', function () {
@@ -114,6 +110,7 @@ function alterarEmail(id) {
         .catch(error => {
             console.log("Erro: " + error);
         })
+        mostrarLoading();
 }
 
 function alterarSenha(id) {
@@ -138,5 +135,6 @@ function alterarSenha(id) {
         .catch(error => {
             console.log("Erro: " + error);
         })
+        mostrarLoading();
 }
 
