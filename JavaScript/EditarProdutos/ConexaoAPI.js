@@ -1,6 +1,18 @@
 const Itamanho = document.querySelector("#tamanho");
 const Iestoque = document.querySelector("#estoque");
 
+const Iimagem = document.querySelector("#picture__input");
+const Iimagem2 = document.querySelector("#picture__input2");
+const Iimagem3 = document.querySelector("#picture__input3");
+const Iimagem4 = document.querySelector("#picture__input4");
+
+const Inome = document.querySelector("#nomeProduto");
+const Ipreco = document.querySelector("#preco");
+const Icategoria = document.querySelector("#categoria");
+const Imarca = document.querySelector("#marca");
+const Iunidade = document.querySelector("#unidade");
+const Idescricao = document.querySelector("#descricao");
+
 const params = new URLSearchParams(window.location.search);
 const produtoId = params.get('produtoId');
 
@@ -21,20 +33,6 @@ const request1 = fetch(apiUrl, {
         return response.json();
     })
     .then(data => {
-        //Pega as informações do html
-        const formulario = document.querySelector("form");
-        const Inome = document.querySelector("#nomeProduto");
-        const Ipreco = document.querySelector("#preco");
-        const Icategoria = document.querySelector("#categoria");
-        const Imarca = document.querySelector("#marca");
-        const Iunidade = document.querySelector("#unidade");
-        const Idescricao = document.querySelector("#descricao");
-
-        const Iimagem = document.querySelector("#picture__input");
-        const Iimagem2 = document.querySelector("#picture__input2");
-        const Iimagem3 = document.querySelector("#picture__input3");
-        const Iimagem4 = document.querySelector("#picture__input4");
-
         const pictureImage = document.querySelector(".picture__image");
         const pictureImage2 = document.querySelector(".picture__image2");
         const pictureImage3 = document.querySelector(".picture__image3");
@@ -54,10 +52,36 @@ const request1 = fetch(apiUrl, {
         });
 
         let imageUrls = [];
+        let arquivos = [];
         data.urlImagensModels.forEach(item => {
             imageUrls.push(item.url);
-        });
+            // Fazer uma solicitação AJAX para o endpoint
+            fetch('http://localhost:8080/api/produtos/download?url=' + item.url)
+                .then(response => {
+                    // Verificar se a resposta é bem-sucedida (status 200)
+                    if (response.ok) {
+                        // Retorna a resposta como um array de bytes
+                        return response.arrayBuffer();
+                    }
+                    // Se a resposta não for bem-sucedida, lança um erro
+                    throw new Error('Erro ao obter a imagem');
+                })
+                .then(arrayBuffer => {
+                    // Converter o array de bytes em um blob
+                    const blob = new Blob([arrayBuffer], { type: 'image/jpeg' });
 
+                    const randomFileName = generateRandomFileName('jpg');
+                    // Criar um objeto File a partir do blob
+                    const file = new File([blob], randomFileName, { type: 'image/jpeg' });
+
+                    arquivos.push(file);
+                })
+                .catch(error => {
+                    // Lidar com erros de solicitação
+                    console.error('Erro:', error);
+                });
+
+        });
         function fillImageInputs() {
             const pictureImages = [pictureImage, pictureImage2, pictureImage3, pictureImage4];
 
@@ -70,8 +94,22 @@ const request1 = fetch(apiUrl, {
             }
         }
 
+        // Função para gerar um nome de arquivo aleatório
+        function generateRandomFileName(extension) {
+            const randomString = Math.random().toString(36).substring(7); // Gera uma string aleatória
+            return randomString + '.' + extension; // Adiciona a extensão ao nome do arquivo
+        }
+
         fillImageInputs();
+        //EventListener que captura o momento que o botão cadastrar é pressionado
+        document.querySelector('.btn-salvar-alteracoes').addEventListener('click', function (event) {
+            event.preventDefault();
+            alterarProduto(arquivos);
+            // limpar();
+        });
+        console.log(arquivos);
     });
+
 
 // Função para adicionar os valores ao vetor e atualizar a textarea
 function adicionarNaLista(tamanho, estoque) {
@@ -128,11 +166,9 @@ function limpar() {
     pictureImage4.innerHTML = pictureImageTxt;
 }
 
-//EventListener que captura o momento que o botão cadastrar é pressionado
-document.querySelector('.btn-cadastrar').addEventListener('click', function (event) {
+document.querySelector('.btn-cancelar').addEventListener('click', function (event) {
     event.preventDefault();
-    cadastrar();
-    limpar();
+    window.location.href = "TelaInicial.html"
 });
 
 // Adiciona um evento de clique ao botão "Inserir"
@@ -171,6 +207,7 @@ document.querySelector('.btn-estoque').addEventListener('click', function (event
     });
 
 });
+
 document.querySelector('.salvar').addEventListener('click', function () {
     dados.forEach((item, index) => {
         item.estoque = document.querySelector('#campo-estoque' + index).value;
@@ -181,6 +218,59 @@ document.querySelector('.salvar').addEventListener('click', function () {
     }
     alterarEstoques(novoEstoque);
 });
+
+function alterarProduto(arquivos) {
+
+    console.log(arquivos);
+    console.log(Iimagem);
+    //Instância da classe que guardará a imagem
+    const formData = new FormData();
+
+    //Objeto JSON que recebe os dados que serão guardados no banco
+    const produto = {
+        id: produtoId,
+        nome: Inome.value,
+        preco: Ipreco.value.replace(/,/g, '.'),
+        categoria: Icategoria.value,
+        marca: Imarca.value,
+        tamanhosEstoque: dados,
+        unidade: Iunidade.value,
+        descricao: Idescricao.value
+    };
+
+    //Adição das info dos produtos no objeto
+    formData.append('produto', JSON.stringify(produto));
+
+    //Adição das imagens no objeto
+    arquivos.forEach((item, index) => {
+        formData.append('imagem' + (index + 1), item);
+    })
+    mostrarLoading();
+    //Conexão com o backend para gravação do JSON
+    const request1 = fetch('http://localhost:8080/api/produtos/produto/alterar', {
+        method: 'PUT',
+        body: formData
+    })
+        .then(response => {
+            if (response.ok) {
+                setTimeout(() => {
+                    esconderLoading();
+                    document.querySelector(".card").style.display = "flex";
+                }, 3000);
+            } else {
+                alert("Erro ao cadastrar produto");
+                document.querySelector(".main").classList.remove('blur');
+                document.querySelector("footer").classList.remove('blur');
+                esconderLoading();
+            }
+        })
+        .catch(error => {
+            alert("Erro ao cadastrar produto");
+            esconderLoading();
+            document.querySelector(".main").classList.remove('blur');
+            document.querySelector("footer").classList.remove('blur');
+        });
+}
 
 function alterarEstoques(novoEstoque) {
     fetch(`http://localhost:8080/api/produtos/estoque/alterar`, {
