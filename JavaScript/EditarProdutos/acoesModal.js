@@ -1,9 +1,11 @@
 document.addEventListener('DOMContentLoaded', () => {
 
     const modalEstoque = document.querySelector('#cartao-estoque');
+    const modalExclusaoProduto = document.querySelector('#cartao-exclusao-produto');
 
     const closeBtns = document.querySelectorAll('.close');
     const cancelarBtns = document.querySelectorAll('.cancelar');
+    const excluirProduto = document.querySelector('.btn-excluir-produto');
 
     const openBtn = document.querySelector('.btn-estoque');
 
@@ -23,12 +25,24 @@ document.addEventListener('DOMContentLoaded', () => {
         limparCampos()
     };
 
+    const openModalExclusaoProduto = (event) => {
+        event.preventDefault();
+        modalExclusaoProduto.style.display = 'flex';
+    };
+
+    const closeModalExclusaoProduto = () => {
+        modalExclusaoProduto.style.display = 'none';
+        limparCampos()
+    };
+
     // Quando o usuário clicar no botão, abre o modal
     openBtn.addEventListener('click', openModalEstoque);
+    excluirProduto.addEventListener('click', openModalExclusaoProduto);
 
     closeBtns.forEach(btn => {
         btn.addEventListener('click', () => {
             closeModalEstoque();
+            closeModalExclusaoProduto();
         });
     });
 
@@ -36,6 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
     cancelarBtns.forEach(btn => {
         btn.addEventListener('click', () => {
             closeModalEstoque();
+            closeModalExclusaoProduto();
         });
     });
 });
