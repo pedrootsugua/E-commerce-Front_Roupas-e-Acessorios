@@ -387,7 +387,7 @@ body .card {
 .container-dados {
   background-color: rgba(216, 216, 216, 0.315);
   width: 454px;
-  height: 258px;
+  height: 265px;
   border-radius: 20px;
   display: flex;
   align-items: center;
@@ -404,7 +404,7 @@ body .card {
 .container-dados .dados-card .dados {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .container-dados .dados-card .dados div {
@@ -418,7 +418,7 @@ body .card {
 }
 
 .container-dados .dados-card .dados #validade {
-  width: 70px;
+  width: 80px;
 }
 
 .container-dados .dados-card .dados #nome {
@@ -426,7 +426,7 @@ body .card {
 }
 
 .container-dados .dados-card .dados #cvv {
-  width: 70px;
+  width: 80px;
 }
 
 .dados-card label {
@@ -931,3 +931,21 @@ body .card {
 }
 
 /*Fim estilo modal validação forma de pagamento  */
+
+
+/* validação campos dos cartão */
+.dados-card .input-invalido {
+  border: 2px solid red;
+}
+
+.dados-card .input-valido {
+  border: 2px solid #5F9EA0;
+}
+
+.descricao-input {
+  display: none;
+  color: red;
+  font-size: 10px;
+  width: 100px;
+  margin: 0;
+}

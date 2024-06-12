@@ -302,18 +302,14 @@
                                         <input type="text" id="num-cartao" maxlength="19" disabled required
                                             oninput="formatarNumeroCartao(this.value)"
                                             onkeypress="permitirSomenteNumeros(event)">
-                                        <!-- <div class="invalid-feedback">
-                                            Digite os números do seu cartão.
-                                        </div> -->
+                                        <span class="descricao-input">* Informe os números do cartão</span>
                                     </div>
                                     <div>
                                         <label for="validade">Validade</label>
                                         <input type="text" id="validade" maxlength="7" disabled required
                                             oninput="formatarValidade(this.value)"
                                             onkeypress="permitirSomenteNumeros(event)">
-                                        <!-- <div class="invalid-feedback">
-                                            Digite a validade do seu cartão.
-                                        </div> -->
+                                        <span class="descricao-input">* Informe a validade do cartão</span>
                                     </div>
                                 </div>
                                 <div class="dados">
@@ -322,18 +318,14 @@
                                         <input type="text" id="nome" disabled required
                                             oninput="formatarNomeCartao(this.value)"
                                             onkeypress="permitirSomenteLetras(event)">
-                                        <!-- <div class="invalid-feedback">
-                                            Digite o nome impresso em seu cartão.
-                                        </div> -->
+                                        <span class="descricao-input">* Informe o nome impresso no cartão</span>
                                     </div>
                                     <div>
                                         <label for="cvv">CVV</label>
                                         <input type="password" id="cvv" maxlength="3" disabled required
                                             oninput="inputCVVHandler(this.value)"
                                             onkeypress="permitirSomenteNumeros(event)">
-                                        <!-- <div class="invalid-feedback">
-                                            Digite o cvv do seu cartão.
-                                        </div> -->
+                                        <span class="descricao-input">* Informe o cvv do cartão</span>
                                     </div>
                                 </div>
                             </section>
