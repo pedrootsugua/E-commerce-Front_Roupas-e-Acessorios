@@ -14,7 +14,6 @@
     <link rel="stylesheet" href="./Css/CadastroProdutos/TextArea.css">
 
     <link rel="stylesheet" href="./Css/Footer/footer.css">
-    <link rel="stylesheet" href="./Css/CadastroProdutos/FooterCadProd.css">
 
     <link rel="stylesheet" href="./Css/FormularioCliente/formulario.css">
     <link rel="stylesheet" href="/Css/EditarProdutos/editarProdutos.css">
@@ -130,7 +129,8 @@
                                             <button class="btn btn-secondary btn-block btn-excluir">Excluir</button>
                                         </div>
                                         <div class="col-md-4 mb-2">
-                                            <button class="btn btn-secondary btn-block btn-estoque editar-infos">Estoque</button>
+                                            <button
+                                                class="btn btn-secondary btn-block btn-estoque editar-infos">Estoque</button>
                                         </div>
                                     </div>
                                     <label for="textarea-tam-est"></label>
@@ -185,9 +185,10 @@
                             </div>
                         </div>
                         <hr class="mb-4">
-                        <button class="btn btn-primary btn-lg btn-block btn-salvar-alteracoes" type="button">Confirmar
-                            Cadastro</button>
+                        <button class="btn btn-primary btn-lg btn-block btn-salvar-alteracoes" type="button">Salvar
+                            Alterações</button>
                         <button class="btn btn-secondary btn-lg btn-block btn-cancelar">Cancelar</button>
+                        <button class="btn btn-danger btn-lg btn-block btn-excluir-produto">Desativar Produto</button>
                     </form>
                 </div>
             </div>
@@ -207,6 +208,30 @@
                 <button id="salvar-alteracoes" class="salvar">SALVAR ALTERAÇÕES</button>
                 <button class="cancelar">CANCELAR</button>
             </div>
+        </div>
+    </div>
+
+    <!-- MODAL EXCLUIR PROD -->
+    <div id="cartao-exclusao-produto" class="cartao">
+        <div class="modal-desativar-produto">
+            <div class="editar-fechar">
+                <h2 class="txt-desativar">Desativar Produto</h2>
+                <span class="close">&times;</span>
+            </div>
+            <p class="message">Esse produto será removido de todas as telas, menos dos pedidos já concluídos!</p>
+            <p class="message">Confirmar a desativação?</p>
+            <div class="button-wrapper">
+                <button class="confirmacao">Confirmar Desativação</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="cartao-desativado">
+        <div class="modal-desativar-produto-inicial">
+          <p class="message">Produto desativado com sucesso!</p>
+          <div class="botao-inicial">
+            <button class="inicial">Ir para tela Inicial</button>
+          </div>
         </div>
     </div>
 

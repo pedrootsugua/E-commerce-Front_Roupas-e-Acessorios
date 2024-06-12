@@ -40,6 +40,19 @@
     z-index: 1000;
 }
 
+.cartao-desativado {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}
+
 .modal-content {
     flex-grow: 1;
     overflow-y: auto;
@@ -72,6 +85,27 @@
     padding: 6px;
 }
 
+.botao-inicial {
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+
+.botao-inicial button {
+    margin: 0 25px;
+    margin-top: 20px;
+    padding: 6px;
+}
+
+.inicial {
+    background: #000;
+    color: #FFFFFF;
+    font-weight: bold;
+    font-family: "Poppins", sans-serif;
+}
+
 .input-tamanho-estoque {
     display: flex;
     justify-content: center;
@@ -94,6 +128,50 @@
     overflow-y: auto;
 }
 
+.modal-desativar-produto {
+    background-color: #ffffff;
+    padding: 18px;
+    border: 1px solid #888;
+    width: 300px;
+    height: 300px;
+    position: relative;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.modal-desativar-produto-inicial {
+    background-color: #ffffff;
+    padding: 18px;
+    border: 1px solid #888;
+    width: 300px;
+    height: 200px;
+    position: relative;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.message{
+    text-align: center;
+    color: #000;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.confirmacao {
+    background: #FFFFFF;
+    color: red;
+    font-weight: bold;
+    font-family: "Poppins", sans-serif;
+}
+
+.txt-desativar {
+    color: red;
+}
+
 .input-dados {
     padding: 4px;
     border-radius: 5px;
@@ -102,7 +180,6 @@
 }
 
 h2 {
-    margin: 0 25px;
     font-size: 20px;
     font-weight: bold;
     font-family: "Poppins", sans-serif;

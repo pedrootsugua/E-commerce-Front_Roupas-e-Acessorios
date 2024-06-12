@@ -243,6 +243,32 @@ function alterarProduto(arquivos) {
         });
 }
 
+document.querySelector('.confirmacao').addEventListener('click', function () {
+    desativarProduto(produtoId);
+});
+
+function desativarProduto(producId) {
+    fetch(`http://localhost:8080/api/produtos/desativar/` + producId, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+    })
+        .then(response => {
+            if (response.status === 200) {
+                // Login realizado com sucesso
+                irTelaInicial();
+                document.querySelector('.inicial').addEventListener('click', function (event) {
+                    event.preventDefault(); // Evita o comportamento padrão do formulário
+                    window.location.href = "TelaInicial.html";
+                });
+            }
+        })
+        .catch(error => {
+            console.log("Erro: " + error);
+        })
+}
+
 function alterarEstoques(novoEstoque) {
     fetch(`http://localhost:8080/api/produtos/estoque/alterar`, {
         method: 'PUT',
@@ -258,6 +284,20 @@ function alterarEstoques(novoEstoque) {
         .catch(error => {
             console.log("Erro: " + error);
         })
+}
+
+function irTelaInicial(){
+    const modal = document.querySelector('.cartao-desativado');
+    const modalExclusaoProduto = document.querySelector('#cartao-exclusao-produto');
+
+    // Função para abrir o modal
+    const openModal = () => {
+        modalExclusaoProduto.style.display = 'none';
+        modal.style.display = 'flex';
+    };
+
+    // Quando o usuário clicar no botão, abre o modal
+    openModal()
 }
 
 const pictureImage = document.querySelector(".picture__image1");
