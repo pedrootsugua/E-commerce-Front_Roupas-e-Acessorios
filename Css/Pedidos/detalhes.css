@@ -1,0 +1,147 @@
+/* header{
+    padding: 20px 0;
+    display: flex;
+    justify-content: center;
+} */
+main{
+    padding: 0 30px;
+    height: 70vh;
+}
+.Titulo{
+    font-size: 40px;
+    padding: 50px 0;
+    text-align: center;
+    margin: 35px 0;
+    font-weight: 500;
+}
+
+.content{
+    margin-left: 18%;
+    display: flex;
+    width: 65%;
+    /* height: 300px; */
+}
+
+section{
+    flex: 1;
+}
+
+aside{
+    min-width: 250px;
+}
+
+table{
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th{
+text-align: left;
+padding-bottom: 12px;
+text-transform: uppercase;
+color: #000000;
+font-weight: bold;
+}
+
+tr{
+    border-bottom: 3px solid #eee;
+    text-align: left;
+    align-items: center;
+}
+
+.produto{
+    display: flex;
+    align-items: center;
+}
+.infos{
+    margin-left: 20px;
+}
+
+img{
+    height: 135px;
+    width: 135px;
+}
+.nomeProd{
+    margin-bottom: 10px;
+}
+
+td{
+   align-content: center;
+}
+
+.box{
+    
+    background-color: #eee;
+}
+
+.resumo{
+    padding: 15px 20px;
+    border-bottom: 1px solid #ccc;
+}
+
+.sub {
+    padding: 20px;
+    display: flex;
+    align-items: normal;
+    justify-content: space-between;
+    
+}
+
+.frete{
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.total{
+    padding: 15px 20px;
+    background-color: #bbb;
+    border-bottom: 1px solid #ccc; 
+}
+
+#total-pedido {
+    font-weight: bold;
+    color: #000000;
+}
+
+footer{
+    padding-top: 1%;
+}
+
+.semPedidos {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sem-pedidos {
+    display: flex; /* Garanta que o display seja flex */
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 60px auto 100px auto;
+    font-family: "Poppins", sans-serif;
+    text-align: center; /* Centralize o texto dentro do carrinho-vazio */
+
+}
+
+.sem-pedidos img {
+    width: 160px;
+    margin: 70px 0 50px 0;
+   
+}
+/* .conteudo{
+    display: none;
+  } */
+  /* .Titulo{
+    display: none;
+  } */
+
+#btn-voltar-inicio {
+    
+    display: none;/* Inicialmente escondido, será alterado para "flex" no JavaScript */
+    justify-content: center;
+    align-items: center;
+}
+

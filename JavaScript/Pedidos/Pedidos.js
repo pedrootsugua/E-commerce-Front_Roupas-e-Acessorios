@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 // Exemplo de dados de pedidos (substituir com dados reais)
 function acessarpedidos(idUsuario) {
-  fetch(`http://localhost:8080/api/pedido/` + idUsuario, {
+  fetch('http://localhost:8080/api/pedido/' + idUsuario, {
     method: 'GET'
   })
     .then(response => {
@@ -42,17 +42,16 @@ function acessarpedidos(idUsuario) {
 
       let listaPedidos = data.length;
       console.log("Quantidade de pedidos: " + listaPedidos);
-      const tipo = data.tipoEnvio;
       let listProduto = document.querySelector("#tabela-pedidos");
       if (listaPedidos !== 0) {
-        Titulo.style.display = "block"
+        Titulo.style.display = "block";
         comPedidos.style.display = "flex"; 
         listProduto.innerHTML = "";
 
         data.forEach((pedido) => {
-          // Pegar apenas o primeiro item de cada pedido
-          const primeiroItem = pedido.pedidoProdutoModel[0];
-          inserirPedido(primeiroItem, listProduto, pedido);
+          if (pedido.pedidoProdutoModel.length > 0) {
+            inserirPedido(pedido.pedidoProdutoModel[0], listProduto, pedido);
+          }
         });
       } else {
         semPedidos.style.display = "flex";
@@ -65,14 +64,15 @@ function acessarpedidos(idUsuario) {
     });
 }
 
-
 function inserirPedido(item, listProduto, pedido) {
   const novoPedido = document.createElement('tr');
   let dataFormatada = pedido.dataPedido.substring(0, 10);
   novoPedido.innerHTML = `
-    <td class="pedido-item" data-pedido-id="${pedido.id}">
+    <td>
       <div class="produto">
-        <img src="${item.id.produtoId.urlImagensModels[0].url}" alt="${item.id.produtoId.nome}">
+        <a href="TelaDetalhePedido.html?pedidoId=${pedido.id}">
+            <img src="${item.id.produtoId.urlImagensModels[0].url}" alt="${item.id.produtoId.nome}">
+          </a>
         <div class="infos">
           <div>${item.id.produtoId.nome}</div>
           <div class="categoria">${item.id.produtoId.categoria}</div>
