@@ -84,59 +84,9 @@ function irTelaInicial(){
 
     // Quando o usuário clicar no botão, abre o modal
     openModal()
-
-    // Quando o usuário clicar em qualquer lugar fora do modal, fecha o modal
-    // window.addEventListener('click', (event) => {
-    //     if (event.target == modal) {
-    //         closeModal();
-    //     }
-    // });
 }
 
-// function erroLogin(){
-//     const modal = document.querySelector('#erro');
 
-//     // Função para abrir o modal
-//     const openModal = () => {
-//         modal.style.display = 'flex';
-//     };
-//     // Quando o usuário clicar no botão, abre o modal
-//     btnLogin.addEventListener('click', openModal);
-
-//     const closeModal = () => {
-//         modal.style.display = 'none';
-//     };
-
-
-//     // Quando o usuário clicar em qualquer lugar fora do modal, fecha o modal
-//     window.addEventListener('click', (event) => {
-//         if (event.target == modal) {
-//             closeModal();
-//         }
-//     });
-// }
-
-// function loginInvalido(){
-    
-//     // Função para abrir o modal
-//     const openModal = () => {
-//         modal.style.display = 'flex';
-//     };
-//     // Quando o usuário clicar no botão, abre o modal
-//     openModal()
-
-//         const closeModal = () => {
-//         modal.style.display = 'none';
-//     };
-
-//     // Quando o usuário clicar em qualquer lugar fora do modal, fecha o modal
-//     btnOk.addEventListener('click', (event) => {
-//         event.preventDefault();
-//             console.log("clicado")
-//             closeModal();
-       
-//     });
-// }
 
 function loginInvalido() {
     const modal = document.querySelector('#not-valid');
