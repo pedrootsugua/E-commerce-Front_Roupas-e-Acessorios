@@ -66,7 +66,7 @@ function consultarEnderecoUsuario(id) {
             data.forEach(endereco => {
                 const option = document.createElement("option");
                 option.value = JSON.stringify(endereco); // Armazena o endereço completo como valor da opção
-                option.text = `${endereco.logradouro}, ${endereco.numero} (${endereco.complemento}) - ${endereco.bairro}, ${endereco.cidade}, ${endereco.uf}`;
+                option.text = `${endereco.logradouro}, ${endereco.numero} - ${endereco.bairro}, ${endereco.cidade}, ${endereco.uf}`;
                 selectEndereco.appendChild(option);
             });
         })

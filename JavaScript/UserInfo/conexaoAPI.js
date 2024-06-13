@@ -147,7 +147,6 @@ function consultarEnderecoUsuario(item, id) {
                         <div id="dados-endereco">
                             <h3>${item.nome}</h3>
                             <p>${endereco.logradouro + ', ' + endereco.numero}</p>
-                            <p>${endereco.complemento}</p>
                             <p>${endereco.bairro}</p>
                             <p>${endereco.cidade + ', ' + endereco.uf + '-' + endereco.cep}</p>
                         </div>
@@ -185,7 +184,6 @@ function consultarEnderecoUsuario(item, id) {
                         <div id="dados-endereco">
                             <h3>${item.nome}</h3>
                             <p>${endereco.logradouro + ', ' + endereco.numero}</p>
-                            <p>${endereco.complemento}</p>
                             <p>${endereco.bairro}</p>
                             <p>${endereco.cidade + ', ' + endereco.uf + '-' + endereco.cep}</p>
                         </div>
