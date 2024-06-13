@@ -124,6 +124,7 @@ function consultarEnderecoUsuario(item, id) {
                     linhaEndereco.classList.add('linha-endereco');
                 }
 
+                let enderecoConcatenado = '';
                 if (indice === 0) {
                     cadastrarEndereço.innerHTML = ` 
                         <div class="novo-endereco">
@@ -142,11 +143,12 @@ function consultarEnderecoUsuario(item, id) {
                         });
                     });
 
+                    enderecoConcatenado = (endereco.logradouro + ', ' + endereco.numero) + ' - ' + (endereco.complemento ? `${endereco.complemento}` : '');
                     novoEndereco.innerHTML = `
                     <div class="dados" data-endereco-id="${endereco.id}">
                         <div id="dados-endereco">
                             <h3>${item.nome}</h3>
-                            <p>${endereco.logradouro + ', ' + endereco.numero}</p>
+                            <p>${enderecoConcatenado}</p>
                             <p>${endereco.bairro}</p>
                             <p>${endereco.cidade + ', ' + endereco.uf + '-' + endereco.cep}</p>
                         </div>
@@ -179,11 +181,12 @@ function consultarEnderecoUsuario(item, id) {
                     primeiroEndereco.appendChild(cadastrarEndereço);
                     primeiroEndereco.appendChild(novoEndereco);
                 } else {
+                    enderecoConcatenado = (endereco.logradouro + ', ' + endereco.numero) + ' - ' + (endereco.complemento ? `${endereco.complemento}` : '');
                     novoEndereco.innerHTML = `
                     <div class="dados" data-endereco-id="${endereco.id}">
                         <div id="dados-endereco">
                             <h3>${item.nome}</h3>
-                            <p>${endereco.logradouro + ', ' + endereco.numero}</p>
+                            <p>${enderecoConcatenado}</p>
                             <p>${endereco.bairro}</p>
                             <p>${endereco.cidade + ', ' + endereco.uf + '-' + endereco.cep}</p>
                         </div>
