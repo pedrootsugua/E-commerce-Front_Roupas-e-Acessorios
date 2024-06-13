@@ -46,6 +46,7 @@ function cadastrar(usuario) {
             } else if (response.status === 409) {
                 alert("CPF/E-mail já cadastrado.");
                 document.querySelector(".main").classList.remove('blur');
+                document.querySelector("footer").classList.remove('blur');
                 esconderLoading();
             }
         })
@@ -54,5 +55,6 @@ function cadastrar(usuario) {
             alert("Erro ao cadastrar usuário. Por favor, tente novamente.");
             esconderLoading();
             document.querySelector(".main").classList.remove('blur');
+            document.querySelector("footer").classList.remove('blur');
         });
 }
