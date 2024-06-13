@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function () {
 document.querySelector(".btn-pagamento").addEventListener("click", function (event) {
     if (checkboxNovoEndereco.checked) { //cadastra o novo endereço do usuario, e armazenar os dados no cache do navegador
         cadastrarNovoEndereco();
-    } else if(checkboxEnderecoSalvo.checked){ //pega o endereço salvo selecioanado na lista e armazena os dados no cache do navegador
+    } else if (checkboxEnderecoSalvo.checked) { //pega o endereço salvo selecioanado na lista e armazena os dados no cache do navegador
         let lista = document.getElementById("endereco");
         let indiceSelecionado = lista.selectedIndex;
         const enderecoString = JSON.stringify(listaEnderecos[indiceSelecionado]);
@@ -66,7 +66,11 @@ function consultarEnderecoUsuario(id) {
             data.forEach(endereco => {
                 const option = document.createElement("option");
                 option.value = JSON.stringify(endereco); // Armazena o endereço completo como valor da opção
-                option.text = `${endereco.logradouro}, ${endereco.numero} - ${endereco.bairro}, ${endereco.cidade}, ${endereco.uf}`;
+                if (endereco.complemento) {
+                    option.text = `${endereco.logradouro}, ${endereco.numero} - (${endereco.complemento}) ${endereco.bairro}, ${endereco.cidade}, ${endereco.uf}`;
+                } else {
+                    option.text = `${endereco.logradouro}, ${endereco.numero} - ${endereco.bairro}, ${endereco.cidade}, ${endereco.uf}`;
+                }
                 selectEndereco.appendChild(option);
             });
         })
