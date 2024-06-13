@@ -1,6 +1,7 @@
 function mostrarLoading() {
     document.getElementById("loadingModal").style.display = "block";
     document.querySelector(".main").classList.add('blur');
+    document.querySelector("footer").classList.add('blur');
 }
 
 function redirecionarParaPagina() {
