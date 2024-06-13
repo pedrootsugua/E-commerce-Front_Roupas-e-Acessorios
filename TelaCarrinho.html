@@ -121,107 +121,108 @@
   </header>
 
 
-  <div class="checkpoints">
-    <h1>
-      <p>Carrinho</p>
-      <hr>
-      <svg xmlns="http://www.w3.org/2000/svg" width="25" height="24" viewBox="0 0 25 24" fill="none">
-        <g clip-path="url(#clip0_1_310)">
-          <path
-            d="M12.807 22.0029C7.21423 22.0029 2.68066 17.72 2.68066 12.4364C2.68066 7.15285 7.21423 2.86993 12.807 2.86993C18.3998 2.86993 22.9334 7.15285 22.9334 12.4364C22.9334 17.72 18.3998 22.0029 12.807 22.0029ZM11.7974 16.263L18.9568 9.49855L17.5249 8.14585L11.7974 13.5576L8.93268 10.8513L7.50081 12.204L11.7974 16.263Z"
-            fill="black" />
-        </g>
-        <defs>
-          <clipPath id="clip0_1_310">
-            <rect width="24.3032" height="22.9596" fill="white" transform="translate(0.655273 0.956635)" />
-          </clipPath>
-        </defs>
-      </svg>
-      <hr>
-      <p><span>Checkout</span></p>
-      <hr>
-      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="26" viewBox="0 0 20 18" fill="none">
-        <ellipse cx="10" cy="9" rx="10" ry="9" fill="black" />
-      </svg>
-      <hr>
-      <p><span>Pagamento</span></p>
-    </h1>
-  </div>
-
-  <div class="carrinho-vazio" id="empty-cart">
-    <h2>SEU CARRINHO ESTÁ VAZIO</h2>
-    <img src="img/carrinho_vazio.png" alt="Icone carrinho vazio">
-
-    <div id="btn-voltar-inicio">
-      <a href="TelaInicial.html">
-        <button class="animated-button">
-          <span>Voltar para o inicio</span>
-          <span></span>
-        </button>
-      </a>
+  <main class="principal">
+    <div class="checkpoints">
+      <h1>
+        <p>Carrinho</p>
+        <hr>
+        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="24" viewBox="0 0 25 24" fill="none">
+          <g clip-path="url(#clip0_1_310)">
+            <path
+              d="M12.807 22.0029C7.21423 22.0029 2.68066 17.72 2.68066 12.4364C2.68066 7.15285 7.21423 2.86993 12.807 2.86993C18.3998 2.86993 22.9334 7.15285 22.9334 12.4364C22.9334 17.72 18.3998 22.0029 12.807 22.0029ZM11.7974 16.263L18.9568 9.49855L17.5249 8.14585L11.7974 13.5576L8.93268 10.8513L7.50081 12.204L11.7974 16.263Z"
+              fill="black" />
+          </g>
+          <defs>
+            <clipPath id="clip0_1_310">
+              <rect width="24.3032" height="22.9596" fill="white" transform="translate(0.655273 0.956635)" />
+            </clipPath>
+          </defs>
+        </svg>
+        <hr>
+        <p><span>Checkout</span></p>
+        <hr>
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="26" viewBox="0 0 20 18" fill="none">
+          <ellipse cx="10" cy="9" rx="10" ry="9" fill="black" />
+        </svg>
+        <hr>
+        <p><span>Pagamento</span></p>
+      </h1>
     </div>
-
-    <div id="btn-fazer-login">
-      <a href="TelaLogin.html">
-        <button class="animated-button">
-          <span>Fazer login</span>
-          <span></span>
-        </button>
-      </a>
-    </div>
-  </div>
-
-  <div class="main" id="product-cart">
-    <div class="lista-produtos">
-      <div class="box-titulos">
-        <div class="title-produtos">
-          <p id="t">Produtos</p>
-        </div>
-        <div class="title-qtd">
-          <p id="t">Quantidade</p>
-        </div>
-        <div class="title-valor">
-          <p id="t">Valor Unitário</p>
-        </div>
-        <div class="title-total">
-          <p id="t">Valor Total</p>
-        </div>
-      </div>
-      <div class="produtos-carrinho">
-      </div>
-    </div>
-
-    <!-- -------------------------------------------------------------------------------------------------------------------- -->
-    <div class="resumo">
-      <div class="resumo-pedido">
-        <h1>Resumo</h1>
-        <div class="info">
-          <div class="left">
-            <h2>Valor dos produtos</h2>
-            <h2>Frete</h2>
-            <h2>Total do pedido</h2>
-          </div>
-          <div class="right">
-            <h3 id="valor-produtos"></h3>
-            <h3 id="frete">Grátis</h3>
-            <h3 id="valor-total-pedido"></h3>
-          </div>
-        </div>
-
-        <a href="TelaCheckout.html" class="botao-cont">
-          <button class="btn-continuar">
-            <span>Continuar</span>
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 74 74" height="34" width="34">
-              <circle stroke-width="3" stroke="white" r="35.5" cy="37" cx="37"></circle>
-              <path fill="white"
-                d="M25 35.5C24.1716 35.5 23.5 36.1716 23.5 37C23.5 37.8284 24.1716 38.5 25 38.5V35.5ZM49.0607 38.0607C49.6464 37.4749 49.6464 36.5251 49.0607 35.9393L39.5147 26.3934C38.9289 25.8076 37.9792 25.8076 37.3934 26.3934C36.8076 26.9792 36.8076 27.9289 37.3934 28.5147L45.8787 37L37.3934 45.4853C36.8076 46.0711 36.8076 47.0208 37.3934 47.6066C37.9792 48.1924 38.9289 48.1924 39.5147 47.6066L49.0607 38.0607ZM25 38.5L48 38.5V35.5L25 35.5V38.5Z">
-              </path>
-            </svg>
+    <div class="carrinho-vazio" id="empty-cart">
+      <h2>SEU CARRINHO ESTÁ VAZIO</h2>
+      <img src="img/carrinho_vazio.png" alt="Icone carrinho vazio">
+      <div id="btn-voltar-inicio">
+        <a href="TelaInicial.html">
+          <button class="animated-button">
+            <span>Voltar para o inicio</span>
+            <span></span>
           </button>
         </a>
-
+      </div>
+      <div id="btn-fazer-login">
+        <a href="TelaLogin.html">
+          <button class="animated-button">
+            <span>Fazer login</span>
+            <span></span>
+          </button>
+        </a>
       </div>
     </div>
+    <div class="main" id="product-cart">
+      <div class="lista-produtos">
+        <div class="box-titulos">
+          <div class="title-produtos">
+            <p id="t">Produtos</p>
+          </div>
+          <div class="title-qtd">
+            <p id="t">Quantidade</p>
+          </div>
+          <div class="title-valor">
+            <p id="t">Valor Unitário</p>
+          </div>
+          <div class="title-total">
+            <p id="t">Valor Total</p>
+          </div>
+        </div>
+        <div class="produtos-carrinho">
+        </div>
+      </div>
+      <!-- -------------------------------------------------------------------------------------------------------------------- -->
+      <div class="resumo">
+        <div class="resumo-pedido">
+          <h1>Resumo</h1>
+          <div class="info">
+            <div class="left">
+              <h2>Valor dos produtos</h2>
+              <h2>Frete</h2>
+              <h2>Total do pedido</h2>
+            </div>
+            <div class="right">
+              <h3 id="valor-produtos"></h3>
+              <h3 id="frete">Grátis</h3>
+              <h3 id="valor-total-pedido"></h3>
+            </div>
+          </div>
+          <a href="TelaCheckout.html" class="botao-cont">
+            <button class="btn-continuar">
+              <span>Continuar</span>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 74 74" height="34" width="34">
+                <circle stroke-width="3" stroke="white" r="35.5" cy="37" cx="37"></circle>
+                <path fill="white"
+                  d="M25 35.5C24.1716 35.5 23.5 36.1716 23.5 37C23.5 37.8284 24.1716 38.5 25 38.5V35.5ZM49.0607 38.0607C49.6464 37.4749 49.6464 36.5251 49.0607 35.9393L39.5147 26.3934C38.9289 25.8076 37.9792 25.8076 37.3934 26.3934C36.8076 26.9792 36.8076 27.9289 37.3934 28.5147L45.8787 37L37.3934 45.4853C36.8076 46.0711 36.8076 47.0208 37.3934 47.6066C37.9792 48.1924 38.9289 48.1924 39.5147 47.6066L49.0607 38.0607ZM25 38.5L48 38.5V35.5L25 35.5V38.5Z">
+                </path>
+              </svg>
+            </button>
+          </a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <div id="loadingModal" class="loading-modal">
+    <svg viewBox="25 25 50 50">
+      <circle r="20" cy="50" cx="50"></circle>
+    </svg>
   </div>
 
   <!-- Footer -->
