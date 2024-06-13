@@ -18,6 +18,7 @@ function limpar_Campos() {
     document.getElementById("cep").value = "";
     document.getElementById("bairro").value = "";
     document.getElementById("logradouro").value = "";
+    document.getElementById("complemento").value = "";
     document.getElementById("numero").value = "";
     document.getElementById("cidade").value = "";
 }

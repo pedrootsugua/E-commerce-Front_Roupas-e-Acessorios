@@ -11,6 +11,7 @@ document.querySelector("form").addEventListener("submit", function (event) {
             email: form.querySelector("#email").value,
             cep: form.querySelector("#cep").value,
             logradouro: form.querySelector("#logradouro").value,
+            complemento: form.querySelector("#complemento").value,
             bairro: form.querySelector("#bairro").value,
             numero: form.querySelector("#numero").value,
             cidade: form.querySelector("#cidade").value,
