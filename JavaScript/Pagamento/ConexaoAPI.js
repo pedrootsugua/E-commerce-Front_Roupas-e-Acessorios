@@ -78,14 +78,13 @@ function gravarPedido() {
     let cartaoCreditoRadio = document.getElementById("cartao_credito");
     let cartaoDebitoRadio = document.getElementById("cartao_debito");
 
+    // Verifica qual input radio do cartão está selecionado
     let escolhaPagamento;
     if (cartaoCreditoRadio.checked) {
         escolhaPagamento = "Cartão de Crédito";
-    } else if (cartaoDebitoRadio.checked) { // Verifica se o input radio de cartão de débito está selecionado
+    } else if (cartaoDebitoRadio.checked) { 
         escolhaPagamento = "Cartão de Débito";
-    } else {
-        alert('Selecione uma forma de pagamento!');
-    }
+    } 
 
     const novoPedido = {
         idUsuario: idUser,
@@ -95,9 +94,6 @@ function gravarPedido() {
         formaPagamento: escolhaPagamento,
         totalPedido: valorTotalCarrinho
     };
-
-    // const novoPedidoString = JSON.stringify(novoPedido);
-    // localStorage.setItem("dadosPedido", novoPedidoString);
     
     fetch(`http://localhost:8080/api/pedido/gravar`, {
         method: 'POST',

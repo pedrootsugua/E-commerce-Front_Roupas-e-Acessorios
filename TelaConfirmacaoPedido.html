@@ -28,6 +28,7 @@
   <script src="JavaScript/Navbar/navbar.js"></script>
   <script src="JavaScript/Geral/Geral.js" defer></script>
   <script src="JavaScript/Geral/AcessoUsuario.js" defer></script>
+  <script src="JavaScript/PedidoConfirmado/ConexaoAPI.js" defer></script>
 
   <title>Pedido Confirmado</title>
 </head>
@@ -125,8 +126,7 @@
     <section class="confirm-pedido">
       <h2>Seu pedido foi processado com sucesso!</h2>
       <p>
-        Em breve você receberá uma confirmação no e-mail:
-        <span>ex@ex.com</span> com os dados do pedido realizado.
+        Em breve você receberá uma confirmação no e-mail: <span id="email-user"></span> com os dados do pedido realizado.
       </p>
 
       <div class="aprovacao-pagamento">
@@ -152,17 +152,17 @@
 
       <div class="box">
         <section class="dados-pedido">
-          <h3 id="numPedido">Número do pedido: 1546147</h3>
-          <h3 id="totalPedido">Total: R$1599,99</h3>
-          <h3 id="formaPagamento">Forma de Pagamento: Cartão de Crédito </h3>
+          <h3 id="numPedido"></h3>
+          <h3 id="totalPedido"></h3>
+          <h3 id="formaPagamento"></h3>
           <h3 id="tipoEnvio">Forma de Envio: Sedex (GRÁTIS)</h3>
-          <h3 id="enderecoEnvio">CEP de Entrega: 04848-000</h3>
+          <h3 id="enderecoEnvio"></h3>
         </section>
         <p class="info">*Os produtos serão enviados em até 3 dias úteis após a confirmação do pagamento.</p>
       </div>
     </section>
 
-    <button class="btn-pedidos">Ir para Meus Pedidos</button>
+    <div class="btn"><a href="TelaPedidos.html"><button class="btn-pedidos">Ir para Meus Pedidos</button></a></div>
   </div>
 
   <!-- Footer -->
