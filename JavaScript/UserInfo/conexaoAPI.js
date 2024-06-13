@@ -9,7 +9,6 @@ if (isAutenticado === true) {
     getDadosUsuarioGeral(userId);
 }
 
-// let dadosRecebidos = localStorage.getItem('dados-pessoais-usuario');
 fetch(`http://localhost:8080/api/usuarios/info?id=${userId}`, {
     method: 'GET',
 })
@@ -87,6 +86,7 @@ function preencherDadosEndereco(endereco) {
     document.getElementById('cep').value = endereco.cep;
     document.getElementById('logradouro').value = endereco.logradouro;
     document.getElementById('numero').value = endereco.numero;
+    document.getElementById('complemento').value = endereco.complemento;
     document.getElementById('bairro').value = endereco.bairro;
     document.getElementById('cidade').value = endereco.cidade;
     document.getElementById('uf').value = endereco.uf;
@@ -147,6 +147,7 @@ function consultarEnderecoUsuario(item, id) {
                         <div id="dados-endereco">
                             <h3>${item.nome}</h3>
                             <p>${endereco.logradouro + ', ' + endereco.numero}</p>
+                            <p>${endereco.complemento}</p>
                             <p>${endereco.bairro}</p>
                             <p>${endereco.cidade + ', ' + endereco.uf + '-' + endereco.cep}</p>
                         </div>
@@ -184,6 +185,7 @@ function consultarEnderecoUsuario(item, id) {
                         <div id="dados-endereco">
                             <h3>${item.nome}</h3>
                             <p>${endereco.logradouro + ', ' + endereco.numero}</p>
+                            <p>${endereco.complemento}</p>
                             <p>${endereco.bairro}</p>
                             <p>${endereco.cidade + ', ' + endereco.uf + '-' + endereco.cep}</p>
                         </div>
@@ -234,6 +236,7 @@ function alterarEndereco(id) {
         cep: document.getElementById('cep').value,
         logradouro: document.getElementById('logradouro').value,
         numero: document.getElementById('numero').value,
+        complemento: document.getElementById('complemento').value,
         bairro: document.getElementById('bairro').value,
         cidade: document.getElementById('cidade').value,
         uf: document.getElementById('uf').value
@@ -263,6 +266,7 @@ function cadastrarNovoEndereco(id) {
         cep: document.getElementById('cep').value,
         logradouro: document.getElementById('logradouro').value,
         numero: document.getElementById('numero').value,
+        complemento: document.getElementById('complemento').value,
         bairro: document.getElementById('bairro').value,
         cidade: document.getElementById('cidade').value,
         uf: document.getElementById('uf').value

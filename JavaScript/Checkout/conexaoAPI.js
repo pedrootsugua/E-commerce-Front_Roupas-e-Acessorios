@@ -36,6 +36,7 @@ document.querySelector(".btn-pagamento").addEventListener("click", function (eve
         const enderecoInserido = {
             cep: form.querySelector("#cep").value,
             logradouro: form.querySelector("#logradouro").value,
+            complemento: form.querySelector("#complemento").value,
             bairro: form.querySelector("#bairro").value,
             numero: form.querySelector("#numero").value,
             cidade: form.querySelector("#cidade").value,
@@ -66,11 +67,9 @@ function consultarEnderecoUsuario(id) {
             data.forEach(endereco => {
                 const option = document.createElement("option");
                 option.value = JSON.stringify(endereco); // Armazena o endereço completo como valor da opção
-                option.text = `${endereco.logradouro}, ${endereco.numero} - ${endereco.bairro}, ${endereco.cidade}, ${endereco.uf}`;
+                option.text = `${endereco.logradouro}, ${endereco.numero} (${endereco.complemento}) - ${endereco.bairro}, ${endereco.cidade}, ${endereco.uf}`;
                 selectEndereco.appendChild(option);
             });
-
-            // exibirEnderecoSelecionado();
         })
         .catch(error => {
             console.log("Erro: " + error);
@@ -82,6 +81,7 @@ function cadastrarNovoEndereco() {
     const novoEndereco = {
         cep: form.querySelector("#cep").value,
         logradouro: form.querySelector("#logradouro").value,
+        complemento: form.querySelector("#complemento").value,
         bairro: form.querySelector("#bairro").value,
         numero: form.querySelector("#numero").value,
         cidade: form.querySelector("#cidade").value,
