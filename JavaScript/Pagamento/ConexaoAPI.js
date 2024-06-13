@@ -108,7 +108,9 @@ function gravarPedido() {
                 throw new Error("Erro ao acessar a API: " + response.statusText);
             } else {
                 // redireciona para a pag. confirmação pedido
-                redirecionarParaPagina("TelaConfirmacaoPedido.html");
+                setTimeout(function() {
+                    redirecionarParaPagina("TelaConfirmacaoPedido.html");
+                }, 4000); 
             }
 
             return response.json();
@@ -128,9 +130,7 @@ function mostrarProcessamentoPagamento() {
     setTimeout(function() {
         processingModal.classList.add("animate-modal");
          // atraso de 2 segundos, após animação do modal redireciona para a pagina
-    }, 3000); // Atraso de 3 segundos (2000 milissegundos) para mostrar o modal em sua forma original
-    
-    
+    }, 2000); // Atraso de 3 segundos (2000 milissegundos) para mostrar o modal em sua forma original
 }
 
 function esconderLoading() {

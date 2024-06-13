@@ -168,6 +168,7 @@ function inserirProdutosCarrinho(item, listProduto, data) {
 }
 
 function deleteProdutoCarrinho(produto) {
+  mostrarLoading();
   fetch(`http://localhost:8080/api/carrinho`, {
     method: 'DELETE',
     headers: {
@@ -176,8 +177,8 @@ function deleteProdutoCarrinho(produto) {
     body: JSON.stringify(produto)
   })
     .then(response => {
-      alert("Excluido!")
-      location.reload();
+      // alert("Excluido!")
+      // location.reload();
     })
     .catch(error => {
       console.log("Erro: " + error);
@@ -185,6 +186,7 @@ function deleteProdutoCarrinho(produto) {
 }
 
 function alterarQuantidadeProduto(novaQuantidade) {
+  mostrarLoading();
   fetch(`http://localhost:8080/api/carrinho`, {
     method: 'PUT',
     headers: {
@@ -193,10 +195,27 @@ function alterarQuantidadeProduto(novaQuantidade) {
     body: JSON.stringify(novaQuantidade)
   })
     .then(response => {
-      alert("Alterado!")
-      location.reload();
+      // alert("Alterado!")
+      // location.reload();
     })
     .catch(error => {
       console.log("Erro: " + error);
     })
+}
+
+function mostrarLoading() {
+  const loading = document.querySelector('.loading-modal');
+  if (loading) {  // Verifique se o elemento existe
+      loading.style.display = 'flex';
+      document.querySelector(".principal").classList.add('blur');
+
+      // Oculta o loading após 3 segundos
+      setTimeout(function () {
+          loading.style.display = 'none';
+          document.querySelector(".principal").classList.remove('blur');
+          location.href = location.href;
+      }, 2000);
+  } else {
+      console.error('Elemento de loading não encontrado');
+  }
 }
