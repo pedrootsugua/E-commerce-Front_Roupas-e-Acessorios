@@ -49,6 +49,7 @@ function inserirPedido(pedido, listProduto) {
       <td><img src="${produto.urlImagensModels[0].url}" alt="${produto.nome}" width="50"> ${produto.nome}</td>
       <td>${produto.id}</td>
       <td>${pedido.qtd}</td>
+      <td>R$${produto.preco}</td>
       <td>${pedido.tamanho}</td>
       <td>${produto.marca}</td>
   `;
