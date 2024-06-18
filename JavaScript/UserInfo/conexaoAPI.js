@@ -243,7 +243,7 @@ function alterarEndereco(id) {
         uf: document.getElementById('uf').value
     }
 
-    fetch(`http://localhost:8080/api/usuarios/atualizarenderecos?id=${id}`, {
+    fetch(`http://localhost:8080/api/enderecos/atualizarenderecos?id=${id}`, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json'
@@ -273,7 +273,7 @@ function cadastrarNovoEndereco(id) {
         uf: document.getElementById('uf').value
     }
 
-    fetch(`http://localhost:8080/api/usuarios/novoendereco?id=${id}`, {
+    fetch(`http://localhost:8080/api/enderecos/novoendereco?id=${id}`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -292,7 +292,7 @@ function cadastrarNovoEndereco(id) {
 }
 
 function deletarEndereco(id) {
-    fetch(`http://localhost:8080/api/usuarios/deletarendereco?id=${id}`, {
+    fetch(`http://localhost:8080/api/enderecos/deletarendereco?id=${id}`, {
         method: 'DELETE',
         headers: {
             'Content-Type': 'application/json'
