@@ -99,9 +99,9 @@ document.addEventListener('DOMContentLoaded', function () {
             if (isAdmin === true) {
                 // Define o conteúdo HTML do novo produto
                 novoProduto.innerHTML = `
-                <a id='${item.id}' class="link_produto" href="DetalheProduto.html?produtoId=${item.id}&userId=${userIdFavorito}">                            
-                    <img class="imgProduto" src="${item.urlImagensModels && item.urlImagensModels[0] ? item.urlImagensModels[0].url : 'default-image-url'}" alt="">
-                </a>
+            <a id='${item.id}' class="link_produto" href="DetalheProduto.html?produtoId=${item.id}&userId=${userIdFavorito}">                            
+                <img class="imgProduto" src="${urls[0].url}" alt="">
+            </a>
                 <div class="cora">
                     <span class="text_produto">${item.nome}</span>
                     <div>
@@ -120,11 +120,10 @@ document.addEventListener('DOMContentLoaded', function () {
                     </div>
                 </div>
                 <p class="preco">R$ ${item.preco}</p>
-            `;
+                        `;
             } else {
                 novoProduto.innerHTML = `
-        <a id='${item.id}' class="link_produto" href="DetalheProduto.html?produtoId=${item.id}&userId=${userIdFavorito}">                           
-          <img class="imgProduto" src="${item.urlImagensModels && item.urlImagensModels[0] ? item.urlImagensModels[0].url : 'default-image-url'}" alt="">
+        <a id='${item.id}' class="link_produto" href="DetalheProduto.html?produtoId=${item.id}&userId=${userIdFavorito}">                            <img class="imgProduto" src="${urls[0].url}" alt="">
                             <div class="cora">
                                 <span class="text_produto">${item.nome}</span>
                                 <label class="container-fav">
