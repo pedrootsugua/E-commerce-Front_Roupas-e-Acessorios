@@ -124,8 +124,7 @@ document.addEventListener('DOMContentLoaded', function () {
             } else {
                 novoProduto.innerHTML = `
         <a id='${item.id}' class="link_produto" href="DetalheProduto.html?produtoId=${item.id}&userId=${userIdFavorito}">                           
-         <img class="imgProduto" src="${urls[0].url}" alt="">
-         </a>
+          <img class="imgProduto" src="${item.urlImagensModels && item.urlImagensModels[0] ? item.urlImagensModels[0].url : 'default-image-url'}" alt="">
                             <div class="cora">
                                 <span class="text_produto">${item.nome}</span>
                                 <label class="container-fav">
